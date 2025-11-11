@@ -1,0 +1,41 @@
+@charset "utf-8";
+#page-wapper{
+	background-color: #f7f8f8;
+	padding: 10px 0;
+}
+#page-contents{
+	margin: 0 10px;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+}
+.page-main-img{
+	width: 100%;
+	height: 100px;
+	background-color: #46526f;
+	font-weight:bold;
+	line-height:100px;
+	text-align:center;
+	font-size:24px;
+	color:#FFFFFF;
+   }
+@media only screen and (min-width: 680px) {
+	.page-main-img{
+		height: 150px;
+		line-height:150px;
+		font-size:32px;
+	   }
+	#page-wapper{
+		background-color: #f7f8f8;
+		padding: 50px 0;
+	}
+	#page-contents{
+        width: 850px;
+        margin: 0 auto;
+		padding: 50px;
+		box-sizing: border-box;
+		background-color: #FFFFFF;
+		border-radius: 10px;
+    }
+}

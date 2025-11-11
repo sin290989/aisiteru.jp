@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+table{
+    border-collapse: collapse;
+    width:100%;
+	font-size:14px;
+    line-height:14px;
+}
+table th,
+table td {
+    border: 1px solid #cccccc;
+    padding: 5px;
+}
+table th{
+    font-weight:bold;
+}
+/*table
+================================================================================================*/	
+
+table.sta th, td {
+  border: 1px solid #cccccc;
+  padding: 5px;
+}
+table.sta td{
+	background-color:#FFF;
+	line-height:14px;
+    text-align:left;
+}
+table.sta th{
+	background-color:#333;
+	color:#FFF;
+    text-align:center;
+}
+/*
+table.sta tr:nth-child(2n) td {
+	background-color:#f7f8f8;
+}*/
+
+table.sta strong{
+	color:#3C3;
+}
+
+/*single
+================================================================================================*/	
+#post-single table {
+	font-size:11px;
+	margin-bottom:20px;
+}
+
+
+#post-single table td{
+	background-color:#FFF;
+    text-align: left;
+}
+#post-single table th{
+	background-color:#333;
+	color:#FFF;
+	text-align:center;
+}
+
+/*
+#post-single table tr:nth-child(2n) td {
+	background-color:#f7f8f8;
+}*/
+
+#post-single table strong{
+	color:#3C3;
+}
+
+/*甲子園
+================================================================================================*/	
+#post-single table.koushien {
+  	width:100%;
+	font-size:11px;
+}
+
+#post-single table.koushien th,
+#post-single table.koushien td{
+  text-align:center;
+}
+#post-single table.koushien td{
+	background-color:#FFF;
+	line-height:14px;
+}
+#post-single table.koushien th{
+	background-color:#333;
+	color:#FFF;
+}
+/*
+table.koushien tr:nth-child(2n) td {
+	background-color:#f7f8f8;
+}*/
+
+#post-single table.koushien strong{
+	color:#3C3;
+}
+
+
+
+
+/*基本
+================================================================================================*/	
+#post-single table.kihon {
+  	width:100%;
+	font-size:12px;
+}
+/*
+#post-single table.kihon th, td {
+  border: 1px solid #cccccc;
+
+}*/
+#post-single table.kihon td{
+    text-align:left;
+    padding: 10px;
+    line-height:12px;
+}
+#post-single table.kihon th{
+    background-color:#f7f8f8;
+    width:30%;
+    padding: 10px;
+    line-height:12px;
+    color: #444444;
+}
+@media only screen and (min-width: 680px) {
+    /*table
+    ================================================================================================*/
+    table.sta {
+        font-size:14px;
+    }
+    table.sta th{
+        font-weight:bold;
+    }
+    table.sta td{
+        background-color:#FFF;
+        line-height:20px;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+    /*
+    table.sta tr:nth-child(2n) td {
+        background-color:#f7f8f8;
+    }*/
+    
+    
+    /*single
+    ================================================================================================*/	
+    #post-single table {
+        font-size:14px;
+    }
+    #post-single table th{
+        font-weight:bold;
+    }
+    #post-single table td{
+        background-color:#FFF;
+        line-height:20px;
+        padding-top:8px;
+        padding-bottom:8px;
+
+    }
+    /*
+    #post-single table tr:nth-child(2n) td {
+        background-color:#f7f8f8;
+    }*/
+    #post-single table th.kaisu{
+        width:180px;
+    }
+    #post-single table th.detail{
+        width:143px;
+    }
+    #post-single table th.kekka{
+        width:250px;
+    }
+
+    
+    /*甲子園
+    ================================================================================================*/	
+    #post-single table.koushien {
+        font-size:14px;
+    }
+    #post-single table.koushien th{
+        font-weight:bold;
+        padding: 5px;
+    }
+    #post-single table.koushien td{
+        background-color:#FFF;
+        line-height:20px;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+    /*
+    #post-single table.koushien tr:nth-child(2n) td {
+        background-color:#f7f8f8;
+    }*/
+    #post-single table.koushien th.kaisu{
+        width:180px;
+    }
+    #post-single table.koushien th.detail{
+        width:143px;
+    }
+    #post-single table.koushien th.kekka{
+        width:250px;
+    }
+    
+    
+    /*基本
+    ================================================================================================*/	
+    table.kihon {
+        font-size:14px;
+    }
+
+    #post-single table.kihon th{
+        font-weight:bold;
+        width:20%;
+        padding:15px;
+        line-height:14px;
+    }
+    #post-single table.kihon td{
+        padding:15px;
+        line-height:14px;
+    }
+    
+}
+
+

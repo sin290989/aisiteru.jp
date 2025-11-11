@@ -1,0 +1,1050 @@
+@charset "utf-8";
+/*single
+================================================================================================*/
+#post-single {
+  font-size: 14px;
+  line-height: 26px;
+}
+#post-single a {
+  color: #006d00;
+}
+
+.newMarkSingle {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+}
+
+/* ラベル部分 左上に表示 */
+.newMarkSingle::before {
+  content: "";
+  top: 0;
+  left: 0;
+  border-bottom: 3em solid transparent;
+  border-left: 3em solid #eff30c;
+  position: absolute;
+  z-index: 90;
+}
+.newMarkSingle::after {
+  content: "NEW";
+  display: block;
+  top: 5px;
+  transform: rotate(-45deg);
+  color: #333333;
+  left: 2px;
+  position: absolute;
+  z-index: 91;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+#post-single img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+#post-single a[target="_blank"] {
+  background-image: url(../images/icon/blank.png);
+  background-repeat: no-repeat;
+  padding-left: 17px;
+  background-position: 1px 4px;
+}
+#post-single .addtoany_share_save_container a[target="_blank"] {
+  background-image: none;
+  padding-left: 0;
+}
+
+body #post-single h1.page {
+  margin-top: 30px;
+}
+#post-single .post_thumbnail {
+  width: 100%;
+  position: relative;
+}
+#post-single .post_thumbnail img {
+  width: 100%;
+  height: auto;
+}
+#post-single h2 {
+  background-image: url(../images/single/bg_h2.png);
+  background-repeat: no-repeat;
+  border: none;
+  height: auto;
+  font-size: 20px;
+  padding: 5px 5px 5px 32px;
+  margin: 65px 0 20px 0;
+}
+#post-single h2.matome {
+  background-image: url("../images/single/bg_h2_matome.png");
+}
+#post-single h2.omake {
+  background-image: url("../images/single/bg_h2_omake.png");
+}
+#post-single h3 {
+  margin-top: 30px;
+  background-color: #f7f8f8;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-left: 15px;
+  line-height: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#post-single h4 {
+  margin-top: 40px;
+  background-image: url(../images/icon/arrow_shita_bk.png);
+  background-repeat: no-repeat;
+  background-size: 16px auto;
+  padding-left: 22px;
+  background-position: center left;
+  font-size: 16px;
+  line-height: 16px;
+  padding-top: 3px;
+  margin-bottom: 5px;
+}
+#post-single p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ul.post-info {
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 7px;
+}
+ul.post-info li {
+  float: left;
+}
+#post-single ul.post-info {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+/*post-head
+================================================================================================*/
+#post-head .post-cat {
+  background-color: #ffffff;
+  padding: 3px;
+  text-align: center;
+  border-top: dotted 1px #eeeeee;
+  border-bottom: dotted 1px #eeeeee;
+  font-size: 12px;
+  font-weight: bold;
+}
+#post-head .post-cat span {
+  background-image: url("../images/icon/folder_bl.png");
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+  background-position: left 0px;
+  padding-left: 20px;
+}
+
+#post-single .post_thumbnail {
+  margin-left: -20px;
+}
+
+body #post-single h1 {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-size: 18px;
+  box-shadow: none;
+  line-height: 28px;
+  margin-bottom: 0;
+  padding-top: 25px;
+}
+
+ul.tag-list {
+  margin: 15px 0 0 0;
+  padding: 10px 0 0 0;
+  border-top: solid 1px #eeeeee;
+}
+
+ul.tag-list li {
+  display: inline;
+  margin-right: 5px;
+}
+
+body ul.tag-list a {
+  font-size: 12px !important;
+  line-height: 1em;
+  background: #ffffff;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 8px 8px;
+  padding-left: 30px;
+  margin-top: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  border: solid 1px #eeeeee;
+  background-image: url(../images/icon/tag_bl.png);
+  background-size: 13px auto;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  color: #444444 !important;
+}
+
+#post-head .inner {
+  padding: 0px 0px 20px 0px;
+}
+
+/*合わせて読みたい
+================================================================================================*/
+#post-single .awasete a[target="_blank"] {
+  background-image: none;
+}
+
+#post-single .awasete ul {
+  border: 1px solid #eeeeee;
+  border-radius: 0px 0px 3px 3px;
+}
+
+#post-single .awasete .awasete-title {
+  background-color: #444444;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #fff;
+  border-radius: 3px 3px 0px 0px;
+  background-image: url(../images/icon/link_wh.png);
+  background-repeat: no-repeat;
+  background-size: 24px auto;
+  padding-left: 32px;
+  background-position: 5px 3px;
+}
+
+#post-single .awasete ul li a {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #333;
+}
+#post-single .awasete ul li .awasete-wap {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+#post-single .awasete ul li:last-child .awasete-wap {
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+#post-single .awasete ul li .awasete-img {
+  width: 15%;
+  float: left;
+}
+
+#post-single .awasete ul li .awasete-img img {
+  width: 100%;
+  height: 35px;
+  object-fit: cover;
+  margin-right: 17px;
+}
+
+#post-single .awasete ul li .awasete-content {
+  display: block;
+  width: 80%;
+  float: right;
+}
+
+body #post-single .awasete ul li a .awasete-content-title {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/*目次
+================================================================================================*/
+#toc_container {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+  border-top: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  padding: 15px;
+  background-color: #f7f8f8;
+  border-radius: 5px;
+}
+#toc_container p.toc_title {
+  font-weight: bold;
+  margin-bottom: 0;
+  display: block;
+  font-size: 16px;
+  background-image: url(../images/icon/mokuji.png);
+  background-repeat: no-repeat;
+  background-size: 18px auto;
+  padding-left: 24px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+ul.toc_list li {
+  font-weight: bold;
+}
+ul.toc_list li ul li {
+  margin-left: 20px;
+  font-size: 85%;
+}
+
+/*ブックマークボタン
+================================================================================================*/
+#post-single .addtoany-btn .addtoany_shortcode a[target="_blank"] {
+  background-image: none;
+  padding-left: 0;
+}
+#post-single .addtoany-btn {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+strong.red {
+  color: #f00;
+}
+strong.red120 {
+  color: #f00;
+  font-size: 120%;
+}
+span.co-de {
+  background-color: #eeeeee;
+  border-radius: 3px;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0 1px 0 1px;
+}
+.yaku {
+  background-color: #f7f8f8;
+  padding: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
+  margin-bottom: 15px;
+  font-size: 90%;
+  line-height: 150%;
+}
+.yaku2 {
+  background-color: #f7f8f8;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+  font-size: 90%;
+}
+.yaku2 .title-yaku,
+.yaku .title-yaku {
+  font-weight: bold;
+}
+
+.imageWaku {
+  border: 5px solid #eeeeee;
+  margin-bottom: 10px;
+}
+.imageWaku .img {
+  vertical-align: bottom;
+}
+
+blockquote {
+  padding: 15px;
+  box-sizing: border-box;
+  font-style: italic;
+  background: #f3f3f3;
+  border-left: 5px solid #cccccc;
+}
+
+ul.check {
+  border: 3px solid #cccccc;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+ul.check li {
+  border-bottom: 1px dashed #cccccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  background-image: url(../images/icon/check_gr.png);
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+  background-position: center left 10px;
+}
+ul.check li:last-child {
+  border: none;
+}
+
+.imp {
+  position: relative;
+  margin: 40px 0 10px 0;
+  padding: 20px 15px 0 30px;
+  border: solid 3px #eff30c;
+  border-radius: 8px;
+}
+.imp .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 18px;
+  background: #ffffff;
+  color: #444444;
+  background-image: url(../images/icon/megaphone_yellow.png);
+  background-position: center left 10px;
+  background-size: 30px auto;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.imp p {
+  margin: 0;
+  padding: 0;
+}
+
+.hint {
+  position: relative;
+  margin: 40px 0 10px 0;
+  padding: 0 15px 0 30px;
+  border: solid 3px #cccccc;
+  border-radius: 8px;
+}
+
+.hint .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 18px;
+  background: #ffffff;
+  color: #111111;
+  font-weight: bold;
+  background-image: url(../images/icon/megaphone_bk2.png);
+  background-position: center left 10px;
+  background-size: 30px auto;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.hint p {
+  margin: 0;
+  padding: 0;
+}
+
+.hosoku {
+  position: relative;
+  margin: 40px 0 10px 0;
+  padding: 0 15px 0 30px;
+  border: solid 3px #cccccc;
+  border-radius: 8px;
+}
+.hosoku .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 18px;
+  background: #ffffff;
+  color: #111111;
+  font-weight: bold;
+  background-image: url(../images/icon/megaphone_bk2.png);
+  background-position: center left 10px;
+  background-size: 30px auto;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.hosoku p {
+  margin: 0;
+  padding: 0;
+}
+
+span.btn-wp-blue {
+  background-color: #007cba;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 5px 3px 5px;
+  margin: 0 2px 0 2px;
+  font-size: 85%;
+  border-radius: 3px;
+  border: 1px solid #007cba;
+}
+
+span.btn-wp-white {
+  background-color: #ffffff;
+  color: #007cba;
+  font-weight: bold;
+  padding: 3px 5px 3px 5px;
+  margin: 0 2px 0 2px;
+  font-size: 85%;
+  border-radius: 3px;
+  border: 1px solid #007cba;
+}
+
+.markerYellow {
+  background: linear-gradient(transparent 60%, #ffff66 60%);
+}
+
+/*前の投稿・次の投稿
+    ================================================================================================*/
+.prev-next-link {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.prev-link,
+.next-link {
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+.prev-link {
+  float: left;
+  padding-right: 15px;
+  border-right: solid 1px #cccccc;
+}
+.next-link {
+  float: right;
+  padding-left: 15px;
+}
+
+.prev-link a,
+.next-link a {
+  text-decoration: none;
+}
+
+.prev-thumb,
+.next-thumb {
+  width: 70%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.prev-thumb {
+  margin-left: 30%;
+}
+
+.next-thumb img,
+.prev-thumb img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.prev-con {
+  width: 100%;
+  box-sizing: border-box;
+}
+.next-con {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.prev-con h3,
+.next-con h3 {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.prev-text,
+.next-text {
+  /*color: #2d046a;*/
+  color: #006d00;
+  margin-bottom: 10px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  line-height: 16px;
+}
+.prev-text {
+  left: 10px;
+  top: 20px;
+}
+
+.next-text {
+  right: 10px;
+  top: 20px;
+}
+
+.item-time {
+  font-size: 12px;
+  color: #555555;
+  background-image: url(../images/icon/time_bl.png);
+  background-repeat: no-repeat;
+  background-size: 11px auto;
+  padding-left: 15px;
+  background-position: 0px 3px;
+}
+
+/*関連ポスト
+================================================================================================*/
+ul.kanren-post {
+  font-size: 13px;
+  line-height: 18px;
+  width: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  position: relative;
+  height: 280px;
+}
+ul.kanren-post li {
+  width: 200px;
+  position: absolute;
+}
+ul.kanren-post .item-time {
+  font-size: 12px;
+  color: #555555;
+  background-image: url(<?phpbloginfo("wpurl");?>/wp-content/themes/aisiteru/images/icon/time_bl.png);
+  background-repeat: no-repeat;
+  background-size: 11px auto;
+  padding-left: 15px;
+  background-position: 0px 3px;
+  margin-bottom: 3px;
+}
+ul.kanren-post li:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+ul.kanren-post li:nth-child(2) {
+  top: 0;
+  left: 230px;
+}
+
+ul.kanren-post li:nth-child(3) {
+  top: 0;
+  left: 460px;
+}
+
+ul.kanren-post li:nth-child(4) {
+  top: 0;
+  left: 690px;
+}
+
+ul.kanren-post li:nth-child(5) {
+  top: 0;
+  left: 920px;
+}
+
+ul.kanren-post li:nth-child(6) {
+  top: 0;
+  left: 1150px;
+}
+
+ul.kanren-post li:nth-child(7) {
+  top: 0;
+  left: 1380px;
+}
+ul.kanren-post li:nth-child(8) {
+  top: 0;
+  left: 1610px;
+  padding-right: 30px;
+}
+
+ul.kanren-post img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+ul.kanren-post li a {
+  color: #444444;
+  white-space: normal;
+  display: block;
+}
+ul.kanren-post li a:hover {
+  text-decoration: none;
+}
+
+h2#kanren {
+  padding: 0;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+h2#kanren {
+  text-align: center;
+}
+h2#kanren::before {
+  white-space: pre;
+  font-size: 24px;
+  margin-right: 15px;
+  letter-spacing: 1px;
+}
+h2#kanren::before {
+  content: " RELATION\A";
+}
+@media only screen and (min-width: 680px) {
+  /*single
+================================================================================================*/
+  #post-single {
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  #post-single p {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  #post-single h2 {
+    margin-top: 80px;
+    font-size: 28px;
+    padding: 5px 10px 5px 32px;
+  }
+  #post-single h3 {
+    margin-top: 50px;
+    font-size: 20px;
+  }
+  #post-single h4 {
+    padding-left: 27px;
+    background-position: left center;
+    font-size: 18px;
+    line-height: 18px;
+    padding-top: 4px;
+  }
+
+  .newMarkSingle {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+  }
+
+  /* ラベル部分 左上に表示 */
+  .newMarkSingle::before {
+    content: "";
+    top: 0;
+    left: 0;
+    border-bottom: 4em solid transparent;
+    border-left: 4em solid #eff30c; /* ラベルの色はここで変更 */
+    position: absolute;
+    z-index: 90;
+  }
+  .newMarkSingle::after {
+    content: "NEW";
+    display: block;
+    top: 8px;
+    transform: rotate(-45deg);
+    color: #333333;
+    left: 4px;
+    position: absolute;
+    z-index: 91;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  #post-single a:hover {
+    text-decoration: underline;
+  }
+  #post-single a[target="_blank"] {
+    background-position: 2px 1px;
+  }
+  body #post-single h1.page {
+    margin-top: 15px;
+  }
+
+  #post-single .post_thumbnail img {
+    width: 100%;
+    /*height:400px;
+	object-fit: cover;*/
+  }
+  #post-single ul.post-info {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  ul.post-info li.cate {
+    margin-left: 15px;
+  }
+  ul.post-info li.time {
+    margin-bottom: 0;
+  }
+
+  /*post-head
+================================================================================================*/
+
+  #post-single .post_thumbnail {
+    margin-left: 0;
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+  }
+
+  #post-head {
+    border: solid 1px #eeeeee;
+    border-radius: 3px 3px 0 0;
+  }
+
+  #post-head .inner {
+    padding: 20px 50px 20px 40px;
+  }
+
+  #post-head .post-cat {
+    background-color: #f7f8f8;
+    padding: 7px;
+    text-align: center;
+    font-size: 14px;
+    border-top: solid 1px #ffffff;
+    border-bottom: solid 1px #eeeeee;
+  }
+  #post-head .post-cat span {
+    background-image: url("../images/icon/folder_bl.png");
+    background-repeat: no-repeat;
+    background-size: 20px auto;
+    background-position: left -4px;
+    padding-left: 25px;
+  }
+
+  body #post-single h1 {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 0;
+    margin-top: 30px;
+    padding-top: 0;
+  }
+
+  body ul.tag-list a:hover {
+    text-decoration: underline;
+  }
+
+  /*合わせて読みたい
+================================================================================================*/
+  #post-single .awasete .awasete-title {
+    font-size: 14px;
+  }
+  #post-single .awasete ul li a {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #333;
+  }
+  #post-single .awasete ul li .awasete-wap {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  #post-single .awasete ul li:last-child .awasete-wap {
+    border-bottom: none;
+    padding-bottom: 15px;
+  }
+  #post-single .awasete ul li .awasete-img {
+    width: 200px;
+  }
+
+  #post-single .awasete ul li .awasete-img img {
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
+
+  #post-single .awasete ul li .awasete-content {
+    width: 500px;
+    float: right;
+  }
+
+  body #post-single .awasete ul li a .awasete-content-title {
+    line-height: 18px;
+    font-size: 14px;
+  }
+
+  body #post-single .awasete ul li a .awasete-content-date {
+    font-size: 12px;
+    background-image: url(../images/icon/time_bl.png);
+    background-repeat: no-repeat;
+    background-size: 12px auto;
+    padding-left: 17px;
+    background-position: 0px 0px;
+    line-height: 14px;
+    margin-top: 10px;
+  }
+
+  .awasete-content-title {
+    transition-duration: 0.3s;
+  }
+
+  /*目次
+================================================================================================*/
+  #toc_container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #toc_container p.toc_title {
+    font-size: 18px;
+    background-size: 24px auto;
+    padding-left: 28px;
+  }
+
+  /*前の投稿・次の投稿
+================================================================================================*/
+  .prev-next-link {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .prev-link,
+  .next-link {
+    width: 50%;
+    box-sizing: border-box;
+    height: 120px;
+  }
+  .prev-link {
+    padding-right: 30px;
+  }
+  .next-link {
+    padding-left: 30px;
+  }
+
+  .prev-thumb,
+  .next-thumb {
+    width: 110px;
+  }
+
+  .prev-thumb {
+    float: left;
+    margin-left: 0;
+  }
+
+  .next-thumb {
+    float: right;
+  }
+
+  .next-thumb img,
+  .prev-thumb img {
+    width: 100%;
+    transition-duration: 0.3s;
+  }
+
+  .prev-con {
+    width: 210px;
+    float: right;
+  }
+  .next-con {
+    width: 210px;
+    float: left;
+  }
+
+  .prev-con h3,
+  .next-con h3 {
+    font-size: 13px;
+    transition-duration: 0.3s;
+  }
+
+  .prev-text,
+  .next-text {
+    position: static;
+  }
+  .prev-text {
+    padding-left: 7px;
+  }
+
+  .next-text {
+    padding-right: 7px;
+    text-align: right;
+  }
+
+  .item-time {
+    font-size: 12px;
+    background-size: 10px auto;
+    padding-left: 17px;
+    background-position: 0px 0px;
+  }
+
+  /*関連ポスト
+================================================================================================*/
+  ul.kanren-post {
+    width: 750px;
+    height: 530px;
+  }
+  ul.kanren-post li {
+    width: 174px;
+  }
+
+  ul.kanren-post li h3 {
+    transition-duration: 0.3s;
+  }
+
+  ul.kanren-post .item-time {
+    font-size: 12px;
+    background-size: 10px auto;
+    padding-left: 17px;
+    background-position: 0px 2px;
+  }
+  ul.kanren-post li:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  ul.kanren-post li:nth-child(2) {
+    top: 0;
+    left: 192px;
+  }
+
+  ul.kanren-post li:nth-child(3) {
+    top: 0;
+    left: 384px;
+  }
+
+  ul.kanren-post li:nth-child(4) {
+    top: 0;
+    left: 576px;
+  }
+  ul.kanren-post li:nth-child(4) {
+    padding-right: 0;
+  }
+  ul.kanren-post li:nth-child(5) {
+    top: 270px;
+    left: 0px;
+  }
+
+  ul.kanren-post li:nth-child(6) {
+    top: 270px;
+    left: 192px;
+  }
+
+  ul.kanren-post li:nth-child(7) {
+    top: 270px;
+    left: 384px;
+  }
+  ul.kanren-post li:nth-child(8) {
+    top: 270px;
+    left: 576px;
+    padding-right: 0;
+  }
+
+  ul.kanren-post img {
+    width: 100%;
+  }
+
+  h2#kanren {
+    text-align: left;
+  }
+  h2#kanren {
+    margin-top: 60px;
+  }
+  h2#kanren::before {
+    font-size: 24px;
+    margin-right: 15px;
+    letter-spacing: 1px;
+  }
+
+  h2#kanren::before {
+    content: " RELATION";
+  }
+}
