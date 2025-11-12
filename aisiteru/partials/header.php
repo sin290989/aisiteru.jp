@@ -95,17 +95,9 @@ $(function () {
 <div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
 <div class="message-sp">[イーストアセンド]</div>
 <ul class="global-menu">
-<li><a href="/about">私たちのこと</a></li>
-<?php
-    if (is_front_page()) {
-        // トップページでのみ実行する処理
-        echo '<li><a href="#service">サービス</a></li>';
-    }else{
-        echo '<li><a href="https://aisiteru.jp/?view=service">サービス</a></li>';
-    }
-?>
-<li><a href="/basic">WEBのきほん</a></li>
-<li><a href="/contact">お問合せ</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/basic">Editor</a></li>
+<li><a href="/contact">Contact</a></li>
 </ul>
 <?php get_template_part('partials/h-menu'); ?>
 </div>
