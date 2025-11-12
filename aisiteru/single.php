@@ -845,37 +845,12 @@ li.sns-url:hover{
     font-size: 13px;;
 }
 
-#progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0; /* 初期は幅0 */
-            height: 5px; /* 固定の高さ */
-            background-color: #e0e0e0; /* 背景をグレーに */
-            z-index: 9998; /* 他の要素の下に配置 */
-            overflow: hidden; /* 子要素がはみ出さないようにする */
-            transition: width 0.2s ease-out; /* 幅のアニメーション */
-        }
-
-        /* プログレスバー本体 */
-        #progress-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; /* 背景内で全体を占める */
-            height: 100%; /* 親要素（背景）の高さにフィット */
-            background-color: #FF0000; /* 青いバー */
-            z-index: 9999; /* 他の要素の上に表示 */
-        }
 
 }
 </style>  
 
 </head>
 <body>
-<div id="progress-container">
-        <div id="progress-bar"></div> <!-- プログレスバー -->
-    </div>
 <?php get_template_part('partials/header'); ?>
 <div id="pan">
 <?php
@@ -1096,41 +1071,6 @@ $(function(){
         $(".sns1Tip").css("opacity",0);
         $(".sns1Tip").css("left","20px");
     });
-});
-
-
-
-// プログレスバー要素を取得
-const progressBar = document.getElementById("progress-bar");
-
-// プログレスバーを開始する関数
-function startProgress() {
-    progressBar.style.width = "0"; // 初期化
-    progressBar.style.transition = "none"; // 即時リセット
-    setTimeout(() => {
-        progressBar.style.transition = "width 0.2s ease-out"; // アニメーションを戻す
-        progressBar.style.width = "50%"; // 途中まで進行
-    }, 50); // 少し遅延を入れて見栄えを良く
-}
-
-// プログレスバーを完了する関数
-function completeProgress() {
-    progressBar.style.width = "100%"; // 全部進む
-}
-
-// 全てのリンクにクリックイベントを追加
-document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", (e) => {
-        if (!link.href.startsWith("#")) {
-            // 外部リンクの場合
-            startProgress(); // プログレスバー開始
-        }
-    });
-});
-
-// ページ読み込み完了時にプログレスバーを終了
-window.addEventListener("load", () => {
-    completeProgress(); // プログレスバーを完了
 });
 </script>
     
