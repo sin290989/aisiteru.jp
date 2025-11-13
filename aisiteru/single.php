@@ -846,6 +846,66 @@ li.sns-url:hover{
 }
 
 
+/* ===== フッター固定 ===== */
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #fff;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  padding: 6px 0 8px;
+}
+
+/* 上部テキスト（12px） */
+.fixed-footer .footer-text {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* アイコン行 */
+.fixed-footer .icon-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* 小さくしたので余白も微調整 */
+}
+
+/* 通常アイコン（正円 28px） */
+.fixed-footer .icon-item {
+  width: 28px;   /* ←変更 */
+  height: 28px;  /* ←変更 */
+  border-radius: 50%;
+  background: #3da9ff; /* 通常：明るい青 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px; /* 28px用に最適化 */
+  transition: background 0.15s ease;
+}
+
+/* ===== アクティブ（赤色 #FF0000） ===== */
+.fixed-footer .icon-item.active {
+  background: #FF0000;
+}
+
+/* PNG 調整 */
+.fixed-footer .icon-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
 }
 </style>  
 
