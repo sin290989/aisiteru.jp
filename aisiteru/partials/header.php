@@ -21,15 +21,7 @@
         font-size: 24px;
         font-weight: bold;
     }
-    #header .message-sp{
-        position: absolute;
-        top: 28px;
-        left:136px;
-        font-size:12px;
-        font-weight: bold;
-        color: #1433d6;
-
-    }
+ 
     #header .message,
     ul.global-menu{
         display: none;
@@ -56,9 +48,7 @@
         font-weight: bold;
         color: #1433d6;
     }
-    #header .message-sp{
-        display: none;
-    }
+   
     ul.global-menu{
         display: block;
         position: absolute;
@@ -93,7 +83,6 @@ $(function () {
 <div class="inner">
 <div class="logo"><a href="/">AIシテル？</a></div>
 <div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
-<div class="message-sp">[イーストアセンド]</div>
 <ul class="global-menu">
 <li><a href="/about">About</a></li>
 <li><a href="/basic">Editor</a></li>

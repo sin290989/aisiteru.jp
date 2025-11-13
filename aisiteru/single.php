@@ -593,8 +593,7 @@ li.sns-url{
     left: 0;
     width: 100%;
     z-index: 9999;
-    background: #fff;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    background: #1433d6;
     padding: 8px 0 12px; /* ← スマホ向けに少し広げる */
     padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
   }
@@ -602,7 +601,7 @@ li.sns-url{
   /* 上部テキスト（13px） */
   .fixed-footer .footer-text {
     font-size: 13px;
-    color: #555;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 10px; /* スマホで見やすい間隔 */
     line-height: 1.3;
@@ -614,15 +613,15 @@ li.sns-url{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px; /* スマホで適度な間隔に調整 */
+    gap: 12px; /* スマホで適度な間隔に調整 */
   }
 
   /* 通常アイコン（正円 28px） */
   .fixed-footer .icon-item {
-    width: 28px;
-    height: 28px;
+    width: 24px;   /* ←変更 */
+    height: 24px;  /* ←変更 */
     border-radius: 50%;
-    background: #3da9ff;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -647,6 +646,52 @@ li.sns-url{
     object-fit: contain;
   }
   
+
+  .fixed-footer .icon-item.chatgpt a,
+.fixed-footer .icon-item.gemini a,
+.fixed-footer .icon-item.copilot a,
+.fixed-footer .icon-item.claude a,
+.fixed-footer .icon-item.llama a,
+.fixed-footer .icon-item.deepseek a,
+.fixed-footer .icon-item.perplexity a{
+    display: block;
+    width: 24px;   /* ←変更 */
+    height: 24px;  /* ←変更 */
+    border-radius: 50%;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+.fixed-footer .icon-item.chatgpt a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+    background-size: 90% auto;
+    
+}
+.fixed-footer .icon-item.gemini a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+    background-size: 90% auto;
+}
+
+.fixed-footer .icon-item.copilot a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+    background-size: 90% auto;
+}
+
+.fixed-footer .icon-item.claude a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.llama a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.deepseek a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.perplexity a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+    background-size: 90% auto;
+}
 @media only screen and (min-width: 680px) {
 #contents{width:1100px;}
 #main{margin:0;}
@@ -915,15 +960,14 @@ li.sns-url:hover{
   left: 0;
   width: 100%;
   z-index: 9999;
-  background: #fff;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-  padding: 6px 0 8px;
+  background: #1433d6;
+  padding: 15px 0 15px;
 }
 
 /* 上部テキスト（12px） */
 .fixed-footer .footer-text {
   font-size: 13px;
-  color: #555;
+  color: #FFFFFF;
   text-align: center;
   margin-bottom: 8px;
 }
@@ -938,16 +982,63 @@ li.sns-url:hover{
 
 /* 通常アイコン（正円 28px） */
 .fixed-footer .icon-item {
-  width: 28px;   /* ←変更 */
-  height: 28px;  /* ←変更 */
+  width: 24px;   /* ←変更 */
+  height: 24px;  /* ←変更 */
   border-radius: 50%;
-  background: #3da9ff; /* 通常：明るい青 */
+  background: #ffffff; /* 通常：明るい青 */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3px; /* 28px用に最適化 */
   transition: background 0.15s ease;
 }
+
+.fixed-footer .icon-item.chatgpt a,
+.fixed-footer .icon-item.gemini a,
+.fixed-footer .icon-item.copilot a,
+.fixed-footer .icon-item.claude a,
+.fixed-footer .icon-item.llama a,
+.fixed-footer .icon-item.deepseek a,
+.fixed-footer .icon-item.perplexity a{
+    display: block;
+    width: 24px;   /* ←変更 */
+    height: 24px;  /* ←変更 */
+    border-radius: 50%;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+.fixed-footer .icon-item.chatgpt a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+    background-size: 90% auto;
+    
+}
+.fixed-footer .icon-item.gemini a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+    background-size: 90% auto;
+}
+
+.fixed-footer .icon-item.copilot a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+    background-size: 90% auto;
+}
+
+.fixed-footer .icon-item.claude a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.llama a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.deepseek a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+    background-size: 90% auto;
+}
+.fixed-footer .icon-item.perplexity a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+    background-size: 90% auto;
+}
+
 
 /* ===== アクティブ（赤色 #FF0000） ===== */
 .fixed-footer .icon-item.active {
