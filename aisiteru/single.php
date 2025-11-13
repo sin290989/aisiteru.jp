@@ -585,6 +585,68 @@ li.sns-url{
     font-size: 13px;;
 }
 
+
+/* ===== フッター固定 ===== */
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    padding: 8px 0 12px; /* ← スマホ向けに少し広げる */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
+  }
+
+  /* 上部テキスト（13px） */
+  .fixed-footer .footer-text {
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px; /* スマホで見やすい間隔 */
+    line-height: 1.3;
+    padding: 0 10px; /* 画面端ギリギリ対策 */
+  }
+
+  /* アイコン行 */
+  .fixed-footer .icon-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; /* スマホで適度な間隔に調整 */
+  }
+
+  /* 通常アイコン（正円 28px） */
+  .fixed-footer .icon-item {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3da9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px; /* 指で押しやすいよう微調整 */
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+
+  /* タップ時の軽いアニメーション */
+  .fixed-footer .icon-item:active {
+    transform: scale(0.9);
+  }
+
+  /* アクティブ（赤 #FF0000） */
+  .fixed-footer .icon-item.active {
+    background: #FF0000;
+  }
+
+  /* PNG 調整 */
+  .fixed-footer .icon-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
 @media only screen and (min-width: 680px) {
 #contents{width:1100px;}
 #main{margin:0;}
