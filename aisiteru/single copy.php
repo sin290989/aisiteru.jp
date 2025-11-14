@@ -17,11 +17,9 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-
-/*==============================================================================================*/
-/*装飾*/
-/*==============================================================================================*/
-
+/*================================================================================================*/
+/*装飾
+================================================================================================*/
 #post-single a{
     color:#031b4e;
 }
@@ -60,27 +58,7 @@ span.co-de{
     margin: 0 1px 0 1px;
     color:#031b4e;
 }
-.yaku {
-	background-color:#f7f8f8;
-	padding:30px;
-	padding-left:45px;
-	padding-right:45px;
-	margin-bottom:15px;
-	font-size:90%;
-	line-height:150%;
-}
-.yaku2 {
-	background-color:#f7f8f8;
-	padding:10px;
-	padding-left:15px;
-	padding-right:15px;
-	margin-bottom:15px;
-	font-size:90%;
-}
-.yaku2 .title-yaku,
-.yaku .title-yaku{
-    font-weight:bold;
-}
+
 .imageWaku{
     border:5px solid #eeeeee;
     margin-bottom: 10px;
@@ -229,13 +207,10 @@ span.btn-wp-white{
 .markerYellow {
     background: linear-gradient(transparent 60%, #ffff66 60%);
 }
- /*==============================================================================================*/
-/*==============================================================================================*/
-/*==============================================================================================*/
-
-
-
-
+/*================================================================================================*/
+/*================================================================================================*/
+/*================================================================================================*/
+/*================================================================================================*/
 
 
 
@@ -304,12 +279,6 @@ span.btn-wp-white{
 
 
 
-
-
-
-
-
-
 /*post-head
 ================================================================================================*/
 #post-head .inner{
@@ -325,9 +294,24 @@ span.btn-wp-white{
 	height:auto;
     vertical-align: bottom;
 }
-
-
-/*
+body #post-head h1{
+	padding:0;
+	margin:0 20px;
+	border:none;
+	font-size:22px;
+	box-shadow:none;
+    line-height: 35px;
+    color:#031b4e;
+    font-weight: bold;
+}
+.post-dates{
+    font-size: 14px;
+    padding: 0 0 0 18px;
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/time_bl.png");
+	background-repeat:no-repeat;
+	background-size:13px auto;
+    background-position: left center;
+}
 ul.post-info{
 	font-size:12px;
 	line-height:12px;
@@ -339,10 +323,20 @@ ul.post-info li{
 #post-single ul.post-info{
 	margin-bottom:10px;
 	margin-top:20px;
-}*/
-
-
-
+}
+.post-cat{
+    padding: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    margin:0 0 0 17px;
+}
+.post-cat span{
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/folder_bl.png");
+    background-repeat: no-repeat;
+    background-size: 20px auto;
+    background-position: left center;
+    padding-left: 23px;
+}
 
 ul.tag-list{
     margin: 8px 0 0 20px ;
@@ -372,148 +366,75 @@ body ul.tag-list a{
     color: #444444 !important;
 }
     
-/*------------------------------------------------------------*/
-.post-meta-top {
-    /* Flexboxを有効化し、子要素を横並びにする */
-    display: flex;
-    
-    /* 左右にスペースを空ける */
-    /* justify-content: space-between; */ 
-    
-    /* カテゴリーを左、日付を右に寄せる場合はこれ */
-    justify-content: flex-start; 
-    
-    /* 垂直方向の配置を中央に揃える */
-    align-items: center; 
-    
-    /* 下部に少しスペースを確保 */
-    margin-bottom: 0px; 
 
-     gap: 15px; /* ボタン間の間隔 */
+
+
+
+
+
+/*sns-link
+================================================================================================*/
+.sns-link{
+    position:relative;
 }
-
-
-
-.post-cat{
-    padding: 3px;
-    font-size: 15px;
-    font-weight: bold;
-    margin:0 0 0 20px;
+.sns-link ul {
+    width: 220px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top:-70px;
 }
-.post-cat span{
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/folder_bl.png");
-    background-repeat: no-repeat;
-    background-size: 20px auto;
-    background-position: left center;
-    padding-left: 23px;
+.sns-link ul li{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    float:left;
+    margin:0 20px 0 0 ;
 }
-.post-dates{
-    font-size: 12px;
-    padding: 0 0 0 18px;
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/time_bl.png");
-	background-repeat:no-repeat;
-	background-size:13px auto;
-    background-position: left center;
-    font-weight: 500;
+.sns-link ul li:last-child{
+    margin:0;
 }
-
-.post-dates .mobile-hide-date {
-    display: none; /* スマホでは更新日と区切り文字を非表示 */
+li.sns-x a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/x.png");
+    background-size: 48% auto;
 }
-/*------------------------------------------------------------*/
-
-/*------------------------------------------------------------*/
-body #post-head h1{
-	padding:0;
-	margin:0 20px;
-	border:none;
-	font-size:22px;
-	box-shadow:none;
-    line-height: 32px;
-    color:#031b4e;
-    font-weight: bold;
+li.sns-fb a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/fb.png");
+    background-size: 55% auto;
 }
-/*------------------------------------------------------------*/
-
-/*------------------------------------------------------------*/
-.ai-author-info{
-    font-size: 13px;
-    font-weight: 500;
-    margin:8px 20px 10px 20px;
+li.sns-line a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/line.png");
+    background-size: 55% auto;
 }
-.ai-author-info.ai-chatgpt{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
-    background-size:20px auto;
-    background-repeat: no-repeat;
-    padding-left: 24px;
-    background-position: left center;
-}
-
-.ai-author-info.ai-gemini{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
-    background-size:20px auto;
-    background-repeat: no-repeat;
-    padding-left: 28px;
-    background-position: left center;
-}
-/*------------------------------------------------------------*/
-
-
-/*------------------------------------------------------------*/
-/* ボタン全体を横並びにする設定 */
-.prompt-index-buttons-wrapper {
-    display: flex;
-    gap: 15px; /* ボタン間の間隔 */
-    margin-bottom: 15px;
-    align-items: center; /* 垂直方向の中央揃え */
-    flex-wrap: wrap; 
-    justify-content: center;
-}
-
-/* 共通のボタンベーススタイル（ご要望のスタイルを適用） */
-.button-base {
-    /* サイズ、角丸、フォント設定を共通化 */
-    height: 30px; 
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: 500;
-    
-    /* テキスト配置を共通化 */
-    text-align: center;
-    line-height: 30px; /* heightと同じ値でテキストを垂直方向中央に */
-    text-decoration: none; /* aタグの下線を消す */
+li.sns-url{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/copy.png");
+    background-size:50% auto;
     cursor: pointer;
-    transition: opacity 0.2s; /* ホバーエフェクト用 */
-    
-    /* フレックスの子要素として適切に扱うための設定 */
-    display: inline-block; 
-    padding: 0 15px; /* 左右のパディングで幅を調整 */
 }
-
-/* 1. プロンプトボタンの個別設定（固定幅と色） */
-.view-prompt-btn {
-    width: 120px;
-    background-color: #111111; /* 赤色 */
-    color: #FFFFFF;
+.snsInner{
+    position: relative;
 }
-
-/* 2. インデックスボタンの個別設定（可変幅と色） */
-.view-index-btn {
-     width: 120px;
-    /* テキスト長に合わせて幅を可変にするため、widthを削除 */
-    background-color: #5d065e; /* 例：サイトのイメージカラー（ティール系など） */
-    color: #FFFFFF;
+li.sns-x a,
+li.sns-fb a,
+li.sns-line a,
+li.sns-url{
+    background-color: #031b4e;
+    transition-duration: 0.5s;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
 }
-
-/* ホバーエフェクト */
-.button-base:hover {
-    opacity: 0.85;
+.sns4TipOk,
+.sns4Tip,
+.sns3Tip,
+.sns2Tip,
+.sns1Tip{
+     display: none;
 }
-/*------------------------------------------------------------*/
-
-
-
-
 
 
 /*post_author
@@ -558,9 +479,7 @@ body #post-head h1{
 }
 
 
-
-/*フッター固定
-================================================================================================*/
+/* ===== フッター固定 ===== */
   .fixed-footer {
     position: fixed;
     bottom: 0;
@@ -658,68 +577,115 @@ body #post-head h1{
     background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
     background-size: 90% auto;
 }
-/*sns-link
-================================================================================================*/
-.sns-link{
-    position:relative;
+
+
+
+.post-meta-top {
+    /* Flexboxを有効化し、子要素を横並びにする */
+    display: flex;
+    
+    /* 左右にスペースを空ける */
+    /* justify-content: space-between; */ 
+    
+    /* カテゴリーを左、日付を右に寄せる場合はこれ */
+    justify-content: flex-start; 
+    
+    /* 垂直方向の配置を中央に揃える */
+    align-items: center; 
+    
+    /* 下部に少しスペースを確保 */
+    margin-bottom: 0px; 
 }
-.sns-link ul {
-    width: 220px;
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    top:-70px;
+
+.post-cat {
+    /* カテゴリーと日付の間に余白を入れる */
+    margin-right: 20px; 
+    
+    /* カテゴリーを少し目立たせるための装飾（任意） */
+    font-weight: bold; 
 }
-.sns-link ul li{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    float:left;
-    margin:0 20px 0 0 ;
+
+.post-dates {
+    /* フォントサイズを小さくするなどの調整 */
+    font-size: 0.9em;
+    color: #666;
 }
-.sns-link ul li:last-child{
-    margin:0;
+
+
+
+/* */
+.ai-author-info{
+    font-size: 13px;
+    font-weight: 500;
+    margin:0 0 10px 0;
 }
-li.sns-x a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/x.png");
-    background-size: 48% auto;
-}
-li.sns-fb a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/fb.png");
-    background-size: 55% auto;
-}
-li.sns-line a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/line.png");
-    background-size: 55% auto;
-}
-li.sns-url{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/copy.png");
-    background-size:50% auto;
-    cursor: pointer;
-}
-.snsInner{
-    position: relative;
-}
-li.sns-x a,
-li.sns-fb a,
-li.sns-line a,
-li.sns-url{
-    background-color: #031b4e;
-    transition-duration: 0.5s;
+.ai-author-info.ai-chatgpt{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+    background-size:20px auto;
     background-repeat: no-repeat;
-    background-position: center center;
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    padding-left: 24px;
+    background-position: left center;
 }
-.sns4TipOk,
-.sns4Tip,
-.sns3Tip,
-.sns2Tip,
-.sns1Tip{
-     display: none;
+
+.ai-author-info.ai-gemini{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+    background-size:20px auto;
+    background-repeat: no-repeat;
+    padding-left: 28px;
+    background-position: left center;
+}
+
+
+
+
+/* ボタン全体を横並びにする設定 */
+.prompt-index-buttons-wrapper {
+    display: flex;
+    gap: 15px; /* ボタン間の間隔 */
+    margin-bottom: 25px;
+    align-items: center; /* 垂直方向の中央揃え */
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+/* 共通のボタンベーススタイル（ご要望のスタイルを適用） */
+.button-base {
+    /* サイズ、角丸、フォント設定を共通化 */
+    height: 30px; 
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    /* テキスト配置を共通化 */
+    text-align: center;
+    line-height: 30px; /* heightと同じ値でテキストを垂直方向中央に */
+    text-decoration: none; /* aタグの下線を消す */
+    cursor: pointer;
+    transition: opacity 0.2s; /* ホバーエフェクト用 */
+    
+    /* フレックスの子要素として適切に扱うための設定 */
+    display: inline-block; 
+    padding: 0 15px; /* 左右のパディングで幅を調整 */
+}
+
+/* 1. プロンプトボタンの個別設定（固定幅と色） */
+.view-prompt-btn {
+    width: 120px;
+    background-color: #FF0000; /* 赤色 */
+    color: #FFFFFF;
+}
+
+/* 2. インデックスボタンの個別設定（可変幅と色） */
+.view-index-btn {
+     width: 120px;
+    /* テキスト長に合わせて幅を可変にするため、widthを削除 */
+    background-color: #008080; /* 例：サイトのイメージカラー（ティール系など） */
+    color: #FFFFFF;
+}
+
+/* ホバーエフェクト */
+.button-base:hover {
+    opacity: 0.85;
 }
 
 
@@ -770,35 +736,36 @@ li.sns-url{
 ================================================================================================*/
 #post-head .inner{
     position: relative;
-    height: 300px;
+    height: 265px;
     padding: 0;
 }  
 .post_thumbnail{
     position:absolute;
     top: 0;
-    left: -40px;
+    left: 0;
     margin:0;
     border-radius: 5px;
     overflow: hidden;
-    width: 410px;
+    width: 360px;
 }
 body #post-head h1{
     font-size:28px;
     line-height: 42px;
-    margin:7px 0 10px 0;
+    margin:10px 0 10px 0;
 }
+
+
+
+
 .post-dates{
     font-size: 12px;
 }
-.post-dates .mobile-hide-date {
-        display: inline;
-    }
 .post-info{
     position:absolute;
     top: 0;
-    left: 400px;
+    left: 390px;
 	margin: 0;
-    width: 700px;
+    width: 710px;
 }
 .post-cat{
     font-size: 14px;
@@ -815,86 +782,23 @@ body ul.tag-list a:hover{
     text-decoration:underline;
 }
     
-/*------------------------------------------------------------*/
-.ai-author-info{
-    margin-left:0;
-}
-/*------------------------------------------------------------*/
 
 
 
+/*目次
+================================================================================================*/   
+#toc_container{
+	padding-left:30px;
+	padding-right:30px;
+}
 
-
-
-/*post_author
-================================================================================================*/
-.post_author{
-    width: 740px;
-    padding: 25px 75px 25px 75px;
-    border-radius: 0 0 10px 10px;
-    box-sizing: border-box;
-    background-color: #FFFFFF;
-    border-top:1px solid #EEEEEE;
-    margin:0;
-}
-.post_author .inner{
-    width: 100%;
-    position: relative;
-}
-.profile-img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 60px;
-    overflow:hidden;
-    border-radius: 25px;
-}
-.profile-img img {
-    width: 100%;
-    height:auto;
-    vertical-align: bottom;
-}
-.profile-name{
-    position: absolute;
-    top: 10px;
-    left: 70px;
-    font-size: 16px;
-    font-weight: bold;
-    color:#031b4e;
-}
-.profile-comment{
-    padding-top: 70px;
-    font-size: 13px;;
+#toc_container p.toc_title{
+	font-size:18px;
+	background-size:24px auto;
+	padding-left:28px;
 }
 
 
-
-
-/*フッター固定
-================================================================================================*/
-.fixed-footer {
-  padding: 15px 0;
-}
-.fixed-footer .footer-text {
-  margin-bottom: 12px;
-}
-.fixed-footer .icon-nav {
-  gap: 12px;
-}
-.fixed-footer .icon-item {
-  padding: 3px;
-}
-.prompt-index-buttons-wrapper {
-    margin-bottom: 10px;
-    justify-content: flex-start;
-}
-.view-prompt-btn {
-   width:auto;
-}
-.view-index-btn {
-     width:auto;
-}
 /*sns-link
 ================================================================================================*/
 .sns-link ul {
@@ -952,6 +856,83 @@ li.sns-url:hover{
     width:65px;
 }
 
+/*post_author
+================================================================================================*/
+.post_author{
+    width: 740px;
+    padding: 25px 75px 25px 75px;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-top:1px solid #EEEEEE;
+    margin:0;
+}
+.post_author .inner{
+    width: 100%;
+    position: relative;
+}
+.profile-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    overflow:hidden;
+    border-radius: 25px;
+}
+.profile-img img {
+    width: 100%;
+    height:auto;
+    vertical-align: bottom;
+}
+.profile-name{
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    color:#031b4e;
+}
+.profile-comment{
+    padding-top: 70px;
+    font-size: 13px;;
+}
+
+
+/* ===== フッター固定 ===== */
+.fixed-footer {
+  padding: 15px 0;
+}
+
+/* 上部テキスト（12px） */
+.fixed-footer .footer-text {
+  margin-bottom: 12px;
+}
+
+/* アイコン行 */
+.fixed-footer .icon-nav {
+  gap: 12px; /* 小さくしたので余白も微調整 */
+}
+
+/* 通常アイコン（正円 28px） */
+.fixed-footer .icon-item {
+  padding: 3px; /* 28px用に最適化 */
+}
+
+
+
+
+.prompt-index-buttons-wrapper {
+    justify-content: flex-start;
+}
+.view-prompt-btn {
+   width:auto;
+}
+.view-index-btn {
+     width:auto;
+}
+
+
 
 
 }
@@ -995,11 +976,14 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
 </div>
 
 
+
+
 <div id="wapper">
 <div id="contents">
 
 <div id="post-head">
 <div class="inner">
+
 <div class="post-info">
 
     <div class="post-meta-top">
@@ -1043,10 +1027,8 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
         // 更新されている場合：公開日と更新日の両方を表示
     ?>
         <time class="entry-date published" datetime="<?php echo $pub_date_html ?>">公開日:<?php echo $pub_date ?></time>
-        
-        <span class="separator mobile-hide-date"> / </span>
-        
-        <time class="updated mobile-hide-date" datetime="<?php echo $mod_date_html ?>">更新日:<?php echo $mod_date ?></time>
+        <span class="separator"> / </span>
+        <time class="updated" datetime="<?php echo $mod_date_html ?>">更新日:<?php echo $mod_date ?></time>
     <?php
     } else {
         // 更新されていない場合：公開日のみを表示
@@ -1056,7 +1038,6 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
     }
     ?>
 </div>
-
 </div>
 
 <h1><?php the_title(); ?></h1>
