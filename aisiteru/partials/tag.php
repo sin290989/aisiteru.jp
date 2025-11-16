@@ -1,11 +1,34 @@
 <h2 class="tagTitle">タグクラウド</h2>  
-<ul class="tagcloud">
 <?php
-$term_list = get_terms('post_tag');
-$result_list = [];
-foreach ($term_list as $term) {
-$u = (get_term_link( $term, 'post_tag' ));
-echo "<li><a href='".$u."'>".$term->name."</a></li>";
-}
+// 非表示にするタグスラッグ
+$exclude_slugs = array(
+    'index',
+    'chatgpt',
+    'claude',
+    'copilot',
+    'deepseek',
+    'gemini',
+    'llama',
+    'perplexity'
+);
+
+// すべてのタグを取得（表示順は必要に応じて変更可能）
+$tags = get_tags();
+
+if ( $tags ) :
+    echo '<ul class="tagcloud">';
+
+    foreach ( $tags as $tag ) {
+
+        // 除外タグならスキップ
+        if ( in_array( $tag->slug, $exclude_slugs, true ) ) {
+            continue;
+        }
+
+        echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' 
+             . esc_html( $tag->name ) . '</a></li>';
+    }
+
+    echo '</ul>';
+endif;
 ?>
-</ul>

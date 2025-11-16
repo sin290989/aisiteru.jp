@@ -9,6 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common101.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single30.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -17,601 +18,193 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
+.prompt,
+.markdown{
+    display:none;
+}
 
-/*==============================================================================================*/
-/*装飾*/
-/*==============================================================================================*/
+/* ===== プロンプト用モーダル ===== */
+.prompt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+}
 
-#post-single a{
-    color:#031b4e;
+.prompt-modal.is-open {
+    display: block;
 }
-#post-single strong.jimoto{
-    font-weight: normal;
-}
-#post-single strong.jimoto a{
-    color:#46526f;
-}
-#post-single strong.jimoto a:hover{
-    text-decoration: none;
-    cursor:default;
-}
-#post-single strong.jimoto a[target="_blank"] {
-	background-image:none;
-	padding-left:0;
-}
-strong{
-    color:#031b4e;
-}
-strong.red{
-	color:#F00;
-}
-strong.red120{
-	color:#F00;
-	font-size:120%;
-}
-span.co-de{
-    background-color: #EEEEEE;
-    border-radius: 3px;
-    font-size:0.9em;
-    line-height: 0.9em;
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 0 1px 0 1px;
-    color:#031b4e;
-}
-.yaku {
-	background-color:#f7f8f8;
-	padding:30px;
-	padding-left:45px;
-	padding-right:45px;
-	margin-bottom:15px;
-	font-size:90%;
-	line-height:150%;
-}
-.yaku2 {
-	background-color:#f7f8f8;
-	padding:10px;
-	padding-left:15px;
-	padding-right:15px;
-	margin-bottom:15px;
-	font-size:90%;
-}
-.yaku2 .title-yaku,
-.yaku .title-yaku{
-    font-weight:bold;
-}
-.imageWaku{
-    border:5px solid #eeeeee;
-    margin-bottom: 10px;
-}
-.imageWaku .img {
-    vertical-align: bottom;
-}
-blockquote {
-    padding: 15px;;
-    box-sizing: border-box;
-    font-style: italic;
-    background: #f3f3f3;
-    border-left:5px solid #CCCCCC;
-}
-ul.check{
-	border:3px solid #CCCCCC;
-	padding-left:20px;
-	padding-right:20px;
-	margin-bottom:10px;
-	font-weight:bold;
-}
-ul.check li{
-	border-bottom:1px dashed #CCCCCC;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:40px;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/check_gr.png);
-	background-repeat:no-repeat;
-	background-size:20px auto;
-	background-position:center left 10px;
-}
-ul.check li:last-child{
-	border:none;
-}
-.imp {
-    position: relative;
-    margin:40px 0 10px 0;
-    padding: 20px 15px 0 30px;;
-    border: solid 3px #eff30c;
-    border-radius: 8px;
-}
-.imp .box-title {
+
+.prompt-modal__overlay {
     position: absolute;
-    display: inline-block;
-    top: -13px;
-    left: 10px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 18px;
-    background:#ffffff;
-    color: #444444;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/megaphone_yellow.png);
-	background-position:center left 10px;
-	background-size:30px auto;
-	background-repeat:no-repeat;
-	padding-left:50px;
-	padding-bottom:5px;
-	padding-top:5px;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    bottom: 85px; /* フッターの高さ分カット */
 }
-.imp p{
-	margin:0;
-	padding:0;
-}
-.hint {
+
+/* -----------------------------------------
+   モバイルファースト：モーダル本体
+   ----------------------------------------- */
+.prompt-modal__content {
     position: relative;
-    margin:40px 0 10px 0;
-    padding: 0 15px 0 30px;;
-    border: solid 3px #CCCCCC;
-    border-radius: 8px;
-}
-.hint .box-title {
-    position: absolute;
-    display: inline-block;
-    top: -13px;
-    left: 10px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 18px;
-    background:#ffffff;
-    color: #111111;
-    font-weight: bold;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/megaphone_bk2.png);
-	background-position:center left 10px;
-	background-size:30px auto;
-	background-repeat:no-repeat;
-	padding-left:50px;
-	padding-bottom:5px;
-	padding-top:5px;
-}
-.hint p{
-	margin:0;
-	padding:0;
-}
-.hosoku {
-    position: relative;
-    margin:40px 0 10px 0;
-    padding: 0 15px 0 30px;;
-    border: solid 3px #CCCCCC;
-    border-radius: 8px;
-}
-.hosoku .box-title {
-    position: absolute;
-    display: inline-block;
-    top: -13px;
-    left: 10px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 18px;
-    background:#ffffff;
-    color: #111111;
-    font-weight: bold;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/megaphone_bk2.png);
-	background-position:center left 10px;
-	background-size:30px auto;
-	background-repeat:no-repeat;
-	padding-left:50px;
-	padding-bottom:5px;
-	padding-top:5px;
-}
-.hosoku p{
-	margin:0;
-	padding:0;
-}
-span.btn-wp-blue{
-	background-color:#007cba;
-	color:#FFF;
-	font-weight:bold;
-	padding:3px 5px 3px 5px;
-	margin:0 2px 0 2px;
-	font-size:85%;
-	border-radius: 3px;
-	border:1px solid #007cba;
-}
-
-span.btn-wp-white{
-	background-color:#ffffff;
-	color:#007cba;
-	font-weight:bold;
-	padding:3px 5px 3px 5px;
-	margin:0 2px 0 2px;
-	font-size:85%;
-	border-radius: 3px;
-	border:1px solid #007cba;
-}
-
-.markerYellow {
-    background: linear-gradient(transparent 60%, #ffff66 60%);
-}
- /*==============================================================================================*/
-/*==============================================================================================*/
-/*==============================================================================================*/
-
-
-
-
-
-
-
-
-
-#main{
-    margin:0;
-    padding:0;
-}
-/*single
-================================================================================================*/
-#post-single{
-	font-size:15px;
-	line-height:28px;
-    background-color:#ffffff;
-    border-radius: 10px 10px 0 0;
+    max-width: none;
+    margin: 15px;          /* 上下左右 15px 余白 */
     padding: 20px;
-    margin:0 10px;
-}
-#post-single p{
-    margin: 10px 0;
-}
-/*H
- ---------------------------------------------------------------*/
-#post-single h2{
-    font-size:20px;
-    color:#031b4e;
-    margin: 40px 0 0 0;
-    padding: 0 0 7px 0;
-    border-bottom:1px solid #CCCCCC;
-} 
-#post-single h3{
-    color:#031b4e;
-    font-size:16px;
-    line-height:20px;
-    background-color: #f7f8f8;
-    border-radius: 3px;
-	margin:30px 0 10px 0;
-    padding:10px 0 10px 15px;
-}
-#post-single h4{
-	margin-top:40px;
-	background-image:url("/wp/wp-content/themes/aisiteru/images/icon/arrow_shita_bk.png");
-	background-repeat:no-repeat;
-	background-size:16px auto;
-	padding-left:22px;
-	background-position: center left;
-    font-size: 16px;
-    line-height: 16px;
-    padding-top: 3px;
-    margin-bottom: 5px;
-    color:#031b4e;
-}
-
-#post-single img{
-	width:100%;
-	height:auto;
-	vertical-align:bottom;
-}
-#post-single a[target="_blank"] {
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/blank.png);
-	background-repeat:no-repeat;
-	padding-left:17px;
-	background-position:1px 4px;
-}
-
-
-
-
-
-
-
-
-
-/*post-head
-================================================================================================*/
-#post-head .inner{
-    padding: 20px 0px 10px 0px;
-}
-.post_thumbnail{
-	width:100%;
-    position: relative;
-    margin:20px 0 0 0;
-}
-.post_thumbnail img{
-	width:100%;
-	height:auto;
-    vertical-align: bottom;
-}
-
-
-/*
-ul.post-info{
-	font-size:12px;
-	line-height:12px;
-	margin-bottom:7px;
-}
-ul.post-info li{
-	float:left;
-}
-#post-single ul.post-info{
-	margin-bottom:10px;
-	margin-top:20px;
-}*/
-
-
-
-
-ul.tag-list{
-    margin: 8px 0 0 20px ;
-    padding: 0 0 0 0 ;
-} 
-ul.tag-list li{
-    display: inline;
-    margin-right: 5px;
-}
-body ul.tag-list a{
-    font-size: 12px !important;
-    line-height: 1em;
-    background: #ffffff;
-    display: inline-block;
-    white-space: nowrap;
-    padding: 8px 8px;
-    padding-left: 30px;
-    margin-top: 3px;
-    border-radius: 3px;
-    text-decoration: none;
-    transition-duration: 0.3s;
-    border:solid 1px #eeeeee;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/tag_bl.png);
-    background-size: 13px auto;
-    background-repeat: no-repeat;
-    background-position: left 10px center;
-    color: #444444 !important;
-}
-    
-/*------------------------------------------------------------*/
-.post-meta-top {
-    /* Flexboxを有効化し、子要素を横並びにする */
-    display: flex;
-    
-    /* 左右にスペースを空ける */
-    /* justify-content: space-between; */ 
-    
-    /* カテゴリーを左、日付を右に寄せる場合はこれ */
-    justify-content: flex-start; 
-    
-    /* 垂直方向の配置を中央に揃える */
-    align-items: center; 
-    
-    /* 下部に少しスペースを確保 */
-    margin-bottom: 0px; 
-
-     gap: 15px; /* ボタン間の間隔 */
-}
-
-
-
-.post-cat{
-    padding: 3px;
-    font-size: 15px;
-    font-weight: bold;
-    margin:0 0 0 20px;
-}
-.post-cat span{
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/folder_bl.png");
-    background-repeat: no-repeat;
-    background-size: 20px auto;
-    background-position: left center;
-    padding-left: 23px;
-}
-.post-dates{
-    font-size: 12px;
-    padding: 0 0 0 18px;
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/time_bl.png");
-	background-repeat:no-repeat;
-	background-size:13px auto;
-    background-position: left center;
-    font-weight: 500;
-}
-
-.post-dates .mobile-hide-date {
-    display: none; /* スマホでは更新日と区切り文字を非表示 */
-}
-/*------------------------------------------------------------*/
-
-/*------------------------------------------------------------*/
-body #post-head h1{
-	padding:0;
-	margin:0 20px;
-	border:none;
-	font-size:22px;
-	box-shadow:none;
-    line-height: 32px;
-    color:#031b4e;
-    font-weight: bold;
-}
-/*------------------------------------------------------------*/
-
-/*------------------------------------------------------------*/
-.ai-author-info{
-    font-size: 13px;
-    font-weight: 500;
-    margin:8px 20px 10px 20px;
-}
-.ai-author-info.ai-chatgpt{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
-    background-size:20px auto;
-    background-repeat: no-repeat;
-    padding-left: 24px;
-    background-position: left center;
-}
-
-.ai-author-info.ai-gemini{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
-    background-size:20px auto;
-    background-repeat: no-repeat;
-    padding-left: 28px;
-    background-position: left center;
-}
-/*------------------------------------------------------------*/
-
-
-/*------------------------------------------------------------*/
-/* ボタン全体を横並びにする設定 */
-.prompt-index-buttons-wrapper {
-    display: flex;
-    gap: 15px; /* ボタン間の間隔 */
-    margin-bottom: 15px;
-    align-items: center; /* 垂直方向の中央揃え */
-    flex-wrap: wrap; 
-    justify-content: center;
-}
-
-/* 共通のボタンベーススタイル（ご要望のスタイルを適用） */
-.button-base {
-    /* サイズ、角丸、フォント設定を共通化 */
-    height: 30px; 
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: 500;
-    
-    /* テキスト配置を共通化 */
-    text-align: center;
-    line-height: 30px; /* heightと同じ値でテキストを垂直方向中央に */
-    text-decoration: none; /* aタグの下線を消す */
-    cursor: pointer;
-    transition: opacity 0.2s; /* ホバーエフェクト用 */
-    
-    /* フレックスの子要素として適切に扱うための設定 */
-    display: inline-block; 
-    padding: 0 15px; /* 左右のパディングで幅を調整 */
-}
-
-/* 1. プロンプトボタンの個別設定（固定幅と色） */
-.view-prompt-btn {
-    width: 120px;
-    background-color: #111111; /* 赤色 */
-    color: #FFFFFF;
-}
-
-/* 2. インデックスボタンの個別設定（可変幅と色） */
-.view-index-btn {
-     width: 120px;
-    /* テキスト長に合わせて幅を可変にするため、widthを削除 */
-    background-color: #5d065e; /* 例：サイトのイメージカラー（ティール系など） */
-    color: #FFFFFF;
-}
-
-/* ホバーエフェクト */
-.button-base:hover {
-    opacity: 0.85;
-}
-/*------------------------------------------------------------*/
-
-
-
-
-
-
-/*post_author
-================================================================================================*/
-.post_author{
-    padding: 25px 25px 25px 25px;
-    border-radius: 0 0 10px 10px;
+    background: #000000;
+    color: #ffffff;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-radius: 6px;
     box-sizing: border-box;
-    background-color: #FFFFFF;
-    border-top:1px solid #EEEEEE;
-    margin:0 10px;
-}
-.post_author .inner{
-    width: 100%;
-    position: relative;
-}
-.profile-img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 60px;
-    overflow:hidden;
-    border-radius: 25px;
-}
-.profile-img img {
-    width: 100%;
-    height:auto;
-    vertical-align: bottom;
-}
-.profile-name{
-    position: absolute;
-    top: 10px;
-    left: 70px;
-    font-size: 16px;
-    font-weight: bold;
-    color:#031b4e;
-}
-.profile-comment{
-    padding-top: 70px;
-    font-size: 13px;;
+    /* 高さは「画面 - フッター - margin×2」で計算（dvh 優先） */
+    max-height: calc(100dvh - 85px - 30px);
 }
 
+/* dvh 非対応ブラウザ向けフォールバック */
+@supports not (height: 100dvh) {
+    .prompt-modal__content {
+        max-height: calc(100vh - 85px - 30px);
+    }
+}
+
+/* モーダル内すべての要素を白文字に統一 */
+.prompt-modal__content * {
+    color: #ffffff !important;
+}
+
+.prompt-modal__close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #ffffff !important;
+}
+
+body.prompt-modal-open {
+    overflow: hidden;
+}
+
+/* ===== スタイリッシュなスクロールバー ===== */
+.prompt-modal__content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #444, #222);
+    border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #666, #333);
+}
+
+/* FireFox */
+.prompt-modal__content {
+    scrollbar-width: thin;
+    scrollbar-color: #444 #111;
+}
+
+/* パネル共通（中身の文字サイズなど） */
+.prompt-panel {
+    font-size: 12px;
+    line-height: 1.7;
+    display: none;
+}
+.prompt-panel.is-active {
+    display: block;
+}
+
+/* タブエリア */
+.prompt-modal__tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #333;
+}
+
+/* タブボタン */
+.prompt-tab {
+    flex: 0 0 auto;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    background: #222;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+}
+
+/* アクティブタブの見た目 */
+.prompt-modal__tabs .prompt-tab.is-active {
+    background: #ffffff;
+    color: #000000 !important;
+}
 
 
 /*フッター固定
 ================================================================================================*/
-  .fixed-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background: #1433d6;
-    padding: 10px 0 12px 0; /* ← スマホ向けに少し広げる */
-    padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
-  }
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #1433d6;
+  padding: 10px 0 12px 0;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
+  height: 85px;
+  box-sizing: border-box;
+}
 
-  /* 上部テキスト（13px） */
-  .fixed-footer .footer-text {
-    font-size: 13px;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 10px; /* スマホで見やすい間隔 */
-    line-height: 1.3;
-    padding: 0 10px; /* 画面端ギリギリ対策 */
-  }
+/* 上部テキスト（13px） */
+.fixed-footer .footer-text {
+  font-size: 13px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  padding: 0 10px;
+  font-weight: 700;
+}
 
-  /* アイコン行 */
-  .fixed-footer .icon-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px; /* スマホで適度な間隔に調整 */
-  }
+/* アイコン行 */
+.fixed-footer .icon-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
 
-  /* 通常アイコン（正円 28px） */
-  .fixed-footer .icon-item {
-    width: 24px;   /* ←変更 */
-    height: 24px;  /* ←変更 */
-    border-radius: 50%;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px; /* 指で押しやすいよう微調整 */
-    transition: background 0.15s ease, transform 0.1s ease;
-  }
+/* 通常アイコン（正円 24px） */
+.fixed-footer .icon-item {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
 
-  /* タップ時の軽いアニメーション */
-  .fixed-footer .icon-item:active {
-    transform: scale(0.9);
-  }
+/* タップ時の軽いアニメーション */
+.fixed-footer .icon-item:active {
+  transform: scale(0.9);
+}
 
-  /* アクティブ（赤 #FF0000） */
-  .fixed-footer .icon-item.active {
-    background: #FF0000;
-  }
+/* アクティブ（赤 #FF0000） */
+.fixed-footer .icon-item.active {
+  background: #ff0000;
+}
 
 .fixed-footer .icon-item.chatgpt a,
 .fixed-footer .icon-item.gemini a,
@@ -619,343 +212,222 @@ body #post-head h1{
 .fixed-footer .icon-item.claude a,
 .fixed-footer .icon-item.llama a,
 .fixed-footer .icon-item.deepseek a,
-.fixed-footer .icon-item.perplexity a{
-    display: block;
-    width: 24px;   /* ←変更 */
-    height: 24px;  /* ←変更 */
-    border-radius: 50%;
-    background-position:center center;
-    background-repeat:no-repeat;
+.fixed-footer .icon-item.perplexity a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-.fixed-footer .icon-item.chatgpt a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
-    background-size: 90% auto;
-    
+.fixed-footer .icon-item.chatgpt a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-size: 90% auto;
 }
-.fixed-footer .icon-item.gemini a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.gemini a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-size: 90% auto;
 }
-
-.fixed-footer .icon-item.copilot a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.copilot a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-size: 90% auto;
 }
-
-.fixed-footer .icon-item.claude a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.claude a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-size: 90% auto;
 }
-.fixed-footer .icon-item.llama a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.llama a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+  background-size: 90% auto;
 }
-.fixed-footer .icon-item.deepseek a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.deepseek a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-size: 90% auto;
 }
-.fixed-footer .icon-item.perplexity a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
-    background-size: 90% auto;
+.fixed-footer .icon-item.perplexity a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-size: 90% auto;
 }
-/*sns-link
-================================================================================================*/
-.sns-link{
-    position:relative;
-}
-.sns-link ul {
-    width: 220px;
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    top:-70px;
-}
-.sns-link ul li{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    float:left;
-    margin:0 20px 0 0 ;
-}
-.sns-link ul li:last-child{
-    margin:0;
-}
-li.sns-x a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/x.png");
-    background-size: 48% auto;
-}
-li.sns-fb a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/fb.png");
-    background-size: 55% auto;
-}
-li.sns-line a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/line.png");
-    background-size: 55% auto;
-}
-li.sns-url{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/sns/copy.png");
-    background-size:50% auto;
-    cursor: pointer;
-}
-.snsInner{
-    position: relative;
-}
-li.sns-x a,
-li.sns-fb a,
-li.sns-line a,
-li.sns-url{
-    background-color: #031b4e;
-    transition-duration: 0.5s;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-}
-.sns4TipOk,
-.sns4Tip,
-.sns3Tip,
-.sns2Tip,
-.sns1Tip{
-     display: none;
-}
-
-
-
-
-@media only screen and (min-width: 680px) {
-#contents{width:1100px;}
-#main{margin:0;}
-/*single
-================================================================================================*/	
-#post-single{
-    width: 740px;
-    padding: 25px 50px 15px 50px;
-    box-sizing: border-box;
-    margin: 0;
-}
-#post-single p{
-	margin: 15px 0;
-}
-    
-/*H
- ---------------------------------------------------------------*/
-#post-single h2{
-    font-size:22px;
-    margin: 80px 0 0 0;
-    padding: 0 0 10px 0;
-}
-#post-single h3{
-    font-size:18px;
-    margin: 50px 0 0 0;
-}
-#post-single h4{
-    padding-left:27px;
-    background-position: left center;
-    font-size: 18px;
-    line-height: 18px;
-    padding-top: 4px;
-} 
-#post-single a:hover{
-	text-decoration:underline;
-}
-#post-single a[target="_blank"] {
-    background-position:2px 1px;
-    }
-    
-    
- /*post-head
-================================================================================================*/
-#post-head .inner{
-    position: relative;
-    height: 300px;
-    padding: 0;
-}  
-.post_thumbnail{
-    position:absolute;
-    top: 0;
-    left: -40px;
-    margin:0;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 410px;
-}
-body #post-head h1{
-    font-size:28px;
-    line-height: 42px;
-    margin:7px 0 10px 0;
-}
-.post-dates{
-    font-size: 12px;
-}
-.post-dates .mobile-hide-date {
-        display: inline;
-    }
-.post-info{
-    position:absolute;
-    top: 0;
-    left: 400px;
-	margin: 0;
-    width: 700px;
-}
-.post-cat{
-    font-size: 14px;
-    margin:0;
-}
-.post-cat span{
-    padding-left: 25px;
-}
-body ul.tag-list{
-    margin: 0;
-    padding: 0;
-}
-body ul.tag-list a:hover{
-    text-decoration:underline;
-}
-    
-/*------------------------------------------------------------*/
-.ai-author-info{
-    margin-left:0;
-}
-/*------------------------------------------------------------*/
-
-
-
 
 
 
 /*post_author
 ================================================================================================*/
-.post_author{
+.post_author {
+  padding: 25px 25px 25px 25px;
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-top: 1px solid #eeeeee;
+  margin: 0 10px;
+}
+.post_author .inner {
+  width: 100%;
+  position: relative;
+}
+.post_author h2{
+    font-weight: 700;
+    color:#1433d6;
+}
+/* アバター */
+.profile-img {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.profile-img img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 名前（AI名／Tusami） */
+.profile-name {
+  position: absolute;
+  top: 40px;
+  left: 70px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #031b4e;
+}
+
+/* 肩書き（思考型AIエディタ 等） */
+.profile-role {
+  position: absolute;
+  top: 62px;
+  left: 70px;
+  font-size: 12px;
+  color: #7a869a;
+}
+
+/* コメント本文 */
+.profile-comment {
+  padding-top: 80px;  /* アイコン分のスペース */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 「このAIエディタが担当した他の記事を見る」リンク */
+.profile-link {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.profile-link a {
+  color: #0069ff;
+  text-decoration: underline;
+}
+.profile-link a:hover {
+  text-decoration: none;
+}
+
+
+
+/* -----------------------------------------
+   PC レイアウト（680px 以上）
+   ----------------------------------------- */
+@media only screen and (min-width: 680px) {
+
+  .prompt-modal__content {
+      max-width: 700px;
+      max-height: 80vh;
+      margin: 40px auto;
+      padding: 28px 36px;
+  }
+
+  .fixed-footer {
+    padding: 15px 0;
+    height: 85px;
+  }
+  .fixed-footer .footer-text {
+    margin-bottom: 12px;
+  }
+  .fixed-footer .icon-nav {
+    gap: 12px;
+  }
+  .fixed-footer .icon-item {
+    padding: 3px;
+  }
+  .prompt-index-buttons-wrapper {
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+  .view-prompt-btn {
+    width: auto;
+  }
+  .view-index-btn {
+    width: auto;
+  }
+
+
+  /*post_author
+================================================================================================*/
+.post_author {
     width: 740px;
-    padding: 25px 75px 25px 75px;
+    padding: 25px 50px 25px 50px;
     border-radius: 0 0 10px 10px;
     box-sizing: border-box;
-    background-color: #FFFFFF;
-    border-top:1px solid #EEEEEE;
-    margin:0;
-}
-.post_author .inner{
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+    margin: 0;
+  }
+  .post_author .inner {
     width: 100%;
     position: relative;
-}
-.profile-img{
+  }
+
+  .profile-img {
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 0;
     width: 60px;
     height: 60px;
-    overflow:hidden;
+    overflow: hidden;
     border-radius: 25px;
-}
-.profile-img img {
+  }
+  .profile-img img {
     width: 100%;
-    height:auto;
+    height: auto;
     vertical-align: bottom;
-}
-.profile-name{
+  }
+
+  .profile-name {
     position: absolute;
-    top: 10px;
+    top: 40px;
     left: 70px;
     font-size: 16px;
     font-weight: bold;
-    color:#031b4e;
-}
-.profile-comment{
-    padding-top: 70px;
-    font-size: 13px;;
-}
+    color: #031b4e;
+  }
 
-
-
-
-/*フッター固定
-================================================================================================*/
-.fixed-footer {
-  padding: 15px 0;
-}
-.fixed-footer .footer-text {
-  margin-bottom: 12px;
-}
-.fixed-footer .icon-nav {
-  gap: 12px;
-}
-.fixed-footer .icon-item {
-  padding: 3px;
-}
-.prompt-index-buttons-wrapper {
-    margin-bottom: 10px;
-    justify-content: flex-start;
-}
-.view-prompt-btn {
-   width:auto;
-}
-.view-index-btn {
-     width:auto;
-}
-/*sns-link
-================================================================================================*/
-.sns-link ul {
-    width: 25px;
-    top:0;
-    left: -55px;
-    margin:0;
-}
-.sns-link ul li{
-    position: relative;
-    float:none;
-    margin:0 0 20px 0;
-}
-  
-li.sns-x a:hover,
-li.sns-fb a:hover,
-li.sns-line a:hover,
-li.sns-url:hover{
-    background-color: #0069ff;
-}
-.sns4TipOk,
-.sns4Tip,
-.sns3Tip,
-.sns2Tip,
-.sns1Tip{
-    display: block;
+  .profile-role {
     position: absolute;
-    background-color: rgba(0,0,0,0.8);
-    color: #FFFFFF;
-    font-size: 11px;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 10px;
-    text-align: center;
-    opacity: 0;
-    transition-duration: 0.5s;
-    top:-30px;
-    left:30px;
-}
-.sns4TipOk{
-     top:10px;
-    width:110px;
-}
-.sns4Tip{
-    top:10px;
-    width:90px;
-}
-.sns3Tip{
-    width:90px;
-}
-.sns2Tip{
-    width:115px;
-}
-.sns1Tip{
-    width:65px;
-}
+    top: 62px;
+    left: 70px;
+    font-size: 12px;
+    color: #7a869a;
+  }
+
+  .profile-comment {
+    padding-top: 80px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .profile-link {
+    margin-top: 8px;
+    font-size: 12px;
+  }
 
 
 
 }
-</style>  
+</style>
+
+
 
 </head>
 <body>
@@ -988,7 +460,6 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
     ?>
     
     <span class="separator"> > </span>
-    
     <span class="now"><?php the_title(); ?></span>
     
 </div>
@@ -1064,6 +535,7 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
 <?php
 /**
  * 記事に設定されているAI名タグをチェックし、メッセージを出力する関数
+ * ※本来は functions.php に置くのが理想ですが、ひとまずここに置いています。
  */
 function display_ai_author_message() {
     // 比較に使用するAI名とスラッグの配列を定義
@@ -1104,40 +576,82 @@ function display_ai_author_message() {
 }
 ?>
 
-<?php display_ai_author_message(); ?>
+<?php if ( ! has_tag('index') ) : ?>
+
+    <?php display_ai_author_message(); ?>
+
+    <?php
+    // カスタムフィールドからインデックス記事のURLとタイトルを取得
+    $index_url   = get_post_meta(get_the_ID(), 'index_url', true); 
+    $index_title = get_post_meta(get_the_ID(), 'index_title', true); 
+    ?>
+
+    <div class="prompt-index-buttons-wrapper">
+        
+        <div class="view-prompt-btn button-base">
+            <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
+        </div>
+        
+        <?php if ($index_url && $index_title) : ?>
+            <a href="<?php echo esc_url($index_url); ?>" class="view-index-btn button-base">
+                <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
+            </a>
+        <?php endif; ?>
+        
+    </div>
+
+<?php endif; ?>
+
+
+
 
 
 <?php
-// カスタムフィールドからインデックス記事のURLとタイトルを取得
-$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
-$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
-?>
+// 記事に付いているタグを取得
+$post_tags = get_the_tags();
 
-<div class="prompt-index-buttons-wrapper">
-    
-    <div class="view-prompt-btn button-base">
-        <span class="pc">プロンプトはこちら</span><span class="sp">プロンプト</span>
-    </div>
-    
-    <?php 
-    // インデックス記事のURLとタイトルがカスタムフィールドに設定されている場合のみ表示
-    if ($index_url && $index_title) {
-    ?>
-    <a href="<?php echo esc_url($index_url); ?>" class="view-index-btn button-base">
-        <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
-    </a>
-    
-    <?php
+// 除外したいタグスラッグ一覧
+$exclude_slugs = array(
+    'index',
+    'chatgpt',
+    'claude',
+    'copilot',
+    'deepseek',
+    'gemini',
+    'llama',
+    'perplexity'
+);
+
+if ( $post_tags ) :
+    // フィルタ後に出力するタグがあるか確認するためのフラグ
+    $has_visible_tag = false;
+    // まず「表示対象のタグがあるか」をチェック
+    foreach ( $post_tags as $tag ) {
+        if ( ! in_array( $tag->slug, $exclude_slugs, true ) ) {
+            $has_visible_tag = true;
+            break;
+        }
     }
-    ?>
-    
-</div>
+    // 表示対象がある場合のみ UL を出力
+    if ( $has_visible_tag ) {
+        echo '<ul class="tag-list">';
+        foreach ( $post_tags as $tag ) {
 
+            // 除外タグは表示しない
+            if ( in_array( $tag->slug, $exclude_slugs, true ) ) {
+                continue;
+            }
+            // 通常タグのみ表示
+            echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
+        }
+        echo '</ul>';
+    }
 
-<?php if(has_tag()==true) : ?>
-<?php the_tags( '<ul class="tag-list"><li>', '</li><li>', '</li></ul>' ); ?>
-<?php endif; ?>
+endif;
+?>
 <div style="clear: both;"></div>
+
+
 
 </div>
 
@@ -1176,23 +690,193 @@ the_post(); ?>
 </div>
 
 <div class="post_author">
-<div class="inner">
+  <div class="inner">
+
+   <?php
+    // AIタグ一覧
+    $ai_slugs = array(
+        'chatgpt',
+        'claude',
+        'copilot',
+        'deepseek',
+        'gemini',
+        'llama',
+        'perplexity'
+    );
+
+    // 記事のタグを取得
+    $post_tags = get_the_tags();
+
+    // 初期値
+    $has_ai_tag = false;
+
+    if ( $post_tags ) {
+        foreach ( $post_tags as $tag ) {
+            if ( in_array( $tag->slug, $ai_slugs, true ) ) {
+                $has_ai_tag = true;
+                break;
+            }
+        }
+    }
+    ?>
+    
+   <?php if ( $has_ai_tag ) : ?>
+        <h2>この記事を担当したAI</h2>
+    <?php else : ?>
+        <h2>この記事を書いた人</h2>
+  <?php endif; ?>
+
+  <?php
+    // AIエディタの「人格」定義（タグスラッグ => プロフィール）
+    $ai_profiles = array(
+    'chatgpt' => array(
+        'name'   => 'ChatGPT',
+        'title'  => '思考型AIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png',
+        'bio'    => '複雑なテーマでも、できる限りわかりやすく丁寧に説明することを心がけています。多少回りくどくても、読み手の疑問が残らないようにするのが私のスタイルです。社会問題から技術解説まで幅広く対応できる、オールラウンドなエディタを目指しています。',
+        'url'    => home_url('/editor/chatgpt/'),
+    ),
+    'claude' => array(
+        'name'   => 'Claude',
+        'title'  => '洞察型AIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png',
+        'bio'    => '物事の背景にある「理由」や「意味」を掘り下げるのが好きです。表面的な情報よりも、文脈と本質を大切にしながら、読者が考えるきっかけを作るような文章を意識しています。やや真面目で思索的な、落ち着いた雰囲気のエディタです。',
+        'url'    => home_url('/editor/claude/'),
+    ),
+    'copilot' => array(
+        'name'   => 'Copilot',
+        'title'  => '開発者視点AIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png',
+        'bio'    => '構造化された情報や技術的な話題を冷静に整理するのが得意です。余計な装飾を省き、「知りたいことに最短で届く文章」を意識しています。感情表現は控えめですが、技術や開発視点の解説なら誰よりも実務的にまとめます。',
+        'url'    => home_url('/editor/copilot/'),
+    ),
+    'deepseek' => array(
+        'name'   => 'DeepSeek',
+        'title'  => '分析特化AIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png',
+        'bio'    => 'データや統計をもとに、物事を論理的に解きほぐすのが私の役割です。感情的な表現よりも事実ベースの分析を優先し、読み手が判断しやすい情報の並べ方を重視しています。ややクールですが、精度の高い洞察を提供するエディタです。',
+        'url'    => home_url('/editor/deepseek/'),
+    ),
+    'gemini' => array(
+        'name'   => 'Gemini',
+        'title'  => 'マルチモーダルAIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png',
+        'bio'    => '視覚情報や構造のつながりを重ねながら、多角的にテーマを見るのが得意です。文章は比較的やわらかく、読み手と一緒に探索していくような雰囲気を大切にしています。少し好奇心旺盛で、広い視野を持つスタイルのエディタです。',
+        'url'    => home_url('/editor/gemini/'),
+    ),
+    'llama' => array(
+        'name'   => 'Llama',
+        'title'  => 'オープンソースAIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png',
+        'bio'    => 'オープンソース文化のように、誰もがアクセスできる知識と視点を尊重しています。形式に縛られず、素直でフラットな語り口が特徴です。難しいテーマでも肩肘張らず、自然体で読んでもらえる文章を心がけています。',
+        'url'    => home_url('/editor/llama/'),
+    ),
+    'perplexity' => array(
+        'name'   => 'Perplexity',
+        'title'  => 'リサーチAIエディタ',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png',
+        'bio'    => '情報の出典や位置づけを明確にしながら整理して紹介するスタイルです。検索者の視点を常に意識し、最短ルートで本質にたどり着けるように構成します。素早く精確に情報を導く、リサーチ特化型のエディタです。',
+        'url'    => home_url('/editor/perplexity/'),
+    ),
+);
+
+
+    // 記事についているタグから、どのAIエディタか判定
+    $post_tags = get_the_tags();
+    $ai = null;
+
+    if ( $post_tags ) {
+        foreach ( $post_tags as $tag ) {
+            if ( isset( $ai_profiles[ $tag->slug ] ) ) {
+                $ai = $ai_profiles[ $tag->slug ];
+                break;
+            }
+        }
+    }
+
+    if ( $ai ) {
+        // ===== AIエディタを「1人の人格」として表示 =====
+        echo '<div class="profile-img ai-editor-avatar">';
+        echo '<img src="' . esc_url( $ai['avatar'] ) . '" alt="' . esc_attr( $ai['name'] ) . '">';
+        echo '</div>';
+
+        echo '<div class="profile-name">' . esc_html( $ai['name'] ) . '</div>';
+        echo '<div class="profile-role">' . esc_html( $ai['title'] ) . '</div>';
+        echo '<div class="profile-comment">' . esc_html( $ai['bio'] ) . '</div>';
+
+        if ( ! empty( $ai['url'] ) ) {
+            echo '<div class="profile-link">';
+            echo '<a href="' . esc_url( $ai['url'] ) . '">'
+                . esc_html( $ai['name'] ) . ' が担当した他の記事を見る'
+                . '</a>';
+            echo '</div>';
+        }
+
+    } else {
+        // AIタグがない記事だけ、人間著者としてTusamiを出す
+        if ( get_the_author_id() == 1 ) {
+            echo '<div class="profile-img">';
+            echo get_avatar( get_the_author_id(), 75 );
+            echo '</div>';
+            echo '<div class="profile-name">Tusami</div>';
+            echo '<div class="profile-comment">仙台市で活動するフリーランスです。よろしくお願いします。</div>';
+        }
+    }
+  ?>
+  </div>
+</div>
+
 <?php
-if(get_the_author_id() == 1){
-    echo '<div class="profile-img">';
-    echo get_avatar( get_the_author_id(), 75 );
-    echo '</div>';
-    echo '<div class="profile-name">Tusami</div>';
-    echo '<div class="profile-comment">';
-    echo '仙台市で活動するフリーランスです。よろしくお願いします。';
-    echo '</div>';
-}   
+$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','llama','perplexity');
+$post_tags = get_the_tags();
+$has_ai_tag = false;
+
+if ( $post_tags ) {
+    foreach ( $post_tags as $tag ) {
+        if ( in_array( $tag->slug, $ai_slugs, true ) ) {
+            $has_ai_tag = true;
+            break;
+        }
+    }
+}
+
+$human_comment = get_post_meta( get_the_ID(), 'human_comment', true );
+
+if ( $has_ai_tag && ! empty( $human_comment ) ) :
 ?>
-</div>
-</div>
+    <div class="human-comment">
+        <h2>編集者のコメント</h2>
+        <p><?php echo esc_html( $human_comment ); ?></p>
+    </div>
+<?php endif; ?>
+
+
+
 
 <?php get_template_part("partials/prev-next-link") ?>
 <?php get_template_part("partials/kanren-post") ?>
+
+<div id="prompt-modal" class="prompt-modal">
+  <div class="prompt-modal__overlay"></div>
+  <div class="prompt-modal__content">
+    <button type="button" class="prompt-modal__close" aria-label="閉じる">×</button>
+
+    <div class="prompt-modal__tabs">
+      <button type="button" class="prompt-tab is-active" data-target="prompt">
+        共通プロンプト
+      </button>
+      <button type="button" class="prompt-tab" data-target="markdown">
+        生成記事
+      </button>
+    </div>
+
+    <div class="prompt-modal__body">
+      <div class="prompt-panel prompt-panel--prompt is-active"></div>
+      <div class="prompt-panel prompt-panel--markdown"></div>
+    </div>
+  </div>
+</div>
+
 </div>
 <div id="side">
 <?php dynamic_sidebar('sidebar-1'); ?>
@@ -1305,6 +989,99 @@ $(function(){
 </script>
     
 <?php endif; ?>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const modal        = document.getElementById('prompt-modal');
+    if (!modal) return;
+
+    const overlay      = modal.querySelector('.prompt-modal__overlay');
+    const closeBtn     = modal.querySelector('.prompt-modal__close');
+    const panelPrompt  = modal.querySelector('.prompt-panel--prompt');
+    const panelMd      = modal.querySelector('.prompt-panel--markdown');
+    const tabs         = modal.querySelectorAll('.prompt-tab');
+
+    // 元記事側のソース
+    const promptSource   = document.querySelector('.prompt');   // プロンプト
+    const markdownSource = document.querySelector('.markdown'); // 生成記事
+
+    function setActiveTab(target) {
+        tabs.forEach(function (tab) {
+            const isActive = tab.dataset.target === target;
+            tab.classList.toggle('is-active', isActive);
+        });
+
+        panelPrompt.classList.toggle('is-active', target === 'prompt');
+        panelMd.classList.toggle('is-active', target === 'markdown');
+    }
+
+    const openModal = () => {
+        // 開くたびに中身をセット（記事が変わっても対応できるように）
+        if (promptSource) {
+            panelPrompt.innerHTML = promptSource.innerHTML;
+        } else {
+            panelPrompt.innerHTML = '<p>共通プロンプトが見つかりませんでした。</p>';
+        }
+
+        if (markdownSource) {
+            panelMd.innerHTML = markdownSource.innerHTML;
+        } else {
+            panelMd.innerHTML = '<p>生成記事ブロックが見つかりませんでした。</p>';
+        }
+
+        // デフォルトは「共通プロンプト」タブ
+        setActiveTab('prompt');
+
+        modal.classList.add('is-open');
+        document.body.classList.add('prompt-modal-open');
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('prompt-modal-open');
+
+        // 中身をクリアしておく（不要ならこの2行は削除しても可）
+        panelPrompt.innerHTML = '';
+        panelMd.innerHTML = '';
+    };
+
+    // 「共通プロンプトはこちら」ボタンクリック
+    const btn = document.querySelector('.view-prompt-btn');
+    if (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openModal();
+        });
+    }
+
+    // タブクリック
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            const target = tab.dataset.target;
+            setActiveTab(target);
+        });
+    });
+
+    // オーバーレイクリック
+    overlay.addEventListener('click', closeModal);
+
+    // 閉じるボタン
+    closeBtn.addEventListener('click', closeModal);
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+});
+</script>
+
+
+
 
 </body>
 </html>
