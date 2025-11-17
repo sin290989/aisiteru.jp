@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common101.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single30.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single33.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -201,10 +201,6 @@ body.prompt-modal-open {
   transform: scale(0.9);
 }
 
-/* アクティブ（赤 #FF0000） */
-.fixed-footer .icon-item.active {
-  background: #ff0000;
-}
 
 .fixed-footer .icon-item.chatgpt a,
 .fixed-footer .icon-item.gemini a,
@@ -250,6 +246,65 @@ body.prompt-modal-open {
 }
 
 
+
+.fixed-footer .icon-item.chatgpt.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.gemini.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.copilot.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.claude.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.llama.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.deepseek.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.perplexity.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-size: 90% auto;
+}
+
+
+.fixed-footer .icon-item.chatgpt a:hover {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.gemini a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.copilot a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.claude a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.llama a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.deepseek a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-size: 90% auto;
+}
+.fixed-footer .icon-item.perplexity a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-size: 90% auto;
+}
 
 /*post_author
 ================================================================================================*/
@@ -324,8 +379,79 @@ body.prompt-modal-open {
   text-decoration: none;
 }
 
+/*合わせて読みたい
+================================================================================================*/
+#post-single .ai-written a[target="_blank"] {
+	background-image:none;
+}
 
+#post-single .ai-written ul {
+	border:1px solid #eeeeee;
+	border-radius: 0px 0px 3px 3px;
+}
 
+#post-single .ai-written .ai-written-title {
+	background-color:#031b4e;
+	padding:10px;
+	font-size:11px;
+	line-height:12px;
+	color:#ffffff;
+	border-radius: 3px 3px 0px 0px;
+	background-image:url("/wp/wp-content/themes/east/images/icon/link_bl.png");
+	background-repeat:no-repeat;
+	background-size:24px auto;
+	padding-left:32px;
+	background-position:5px center;
+}
+
+#post-single .ai-written ul li a{
+	width:100%;
+	display:block;
+	box-sizing: border-box;
+	padding-left:10px;
+	padding-right:10px;
+	color:#333;
+}
+#post-single .ai-written ul li .ai-written-wap{
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:1px solid #eeeeee;
+}
+#post-single .ai-written ul li:last-child .ai-written-wap{
+	border-bottom:none;
+	padding-bottom:10px;
+}
+#post-single .ai-written ul li .ai-written-img{
+	width:15%;
+	float:left;
+    border-radius: 3px;
+    overflow: hidden;
+}
+#post-single .ai-written ul li .ai-written-img img {
+	width:100%;
+	height:35px;
+	object-fit: cover;
+	margin-right:17px;
+}
+#post-single .ai-written ul li .ai-written-content{
+	display:block;
+	width:80%;
+	float:right;
+}
+body #post-single .ai-written ul li a .ai-written-content-title{
+	font-weight:bold;
+	font-size:12px;
+	line-height:16px;
+}
+
+.common-prompt{
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 6px;
+    font-size: 12px;
+    padding: 20px 25px;
+    line-height: 18px;
+}
 /* -----------------------------------------
    PC レイアウト（680px 以上）
    ----------------------------------------- */
@@ -422,7 +548,63 @@ body.prompt-modal-open {
     font-size: 12px;
   }
 
+/*合わせて読みたい
+================================================================================================*/
+#post-single .ai-written .ai-written-title {
+	font-size:14px;
+}
+#post-single .ai-written ul li a{
+	width:100%;
+	display:block;
+	box-sizing: border-box;
+	padding-left:15px;
+	padding-right:15px;
+	color:#333;
+}
+#post-single .ai-written ul li .ai-written-wap{
+	padding-top:15px;
+	padding-bottom:15px;
+	border-bottom:1px solid #eeeeee;
+}
+#post-single .ai-written ul li:last-child .ai-written-wap{
+	border-bottom:none;
+	padding-bottom:15px;
+}
+#post-single .ai-written ul li .ai-written-img{
+	width:200px;
+}
 
+#post-single .ai-written ul li .ai-written-img img {
+	width:100%;
+	height:60px;
+	object-fit: cover;
+	vertical-align:bottom;
+}
+
+#post-single .ai-written ul li .ai-written-content{
+	width:380px;
+	float:right;
+}
+
+body #post-single .ai-written ul li a .ai-written-content-title{
+	line-height:18px;
+	font-size:14px;
+}
+
+body #post-single .ai-written ul li a .ai-written-content-date{
+	font-size:12px;
+	background-image:url(/wp/wp-content/themes/east/images/icon/time_bl.png);
+	background-repeat:no-repeat;
+	background-size:12px auto;
+	padding-left:17px;
+	background-position:0px 0px;
+	line-height:14px;
+	margin-top:10px;
+}
+    
+    .ai-written-content-title{
+        transition-duration: 0.3s;
+    }
 
 }
 </style>
@@ -894,10 +1076,10 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 <?php if ( !wp_is_mobile() ) : ?>
 <script type="text/javascript">
 $(function () {
-    $('.awasete li').hover(function(){
-        $(".awasete-content-title",this).css('color','#0069ff');
+    $('.ai-written li').hover(function(){
+        $(".ai-written-content-title",this).css('color','#0069ff');
     }, function(){
-        $(".awasete-content-title",this).css('color','#46526f');
+        $(".ai-written-content-title",this).css('color','#46526f');
     });  
 });
 

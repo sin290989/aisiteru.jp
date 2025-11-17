@@ -421,6 +421,27 @@ body #post-head h1 {
   padding-left: 28px;
   background-position: left center;
 }
+.ai-author-info.ai-claude {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  background-position: left center;
+}
+.ai-author-info.ai-deepseek {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  background-position: left center;
+}
+.ai-author-info.ai-perplexity {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  background-position: left center;
+}
 /*------------------------------------------------------------*/
 
 /*------------------------------------------------------------*/
