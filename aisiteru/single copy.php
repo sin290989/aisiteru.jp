@@ -536,7 +536,7 @@ li.sns-url{
 .fixed-footer .icon-item.gemini a,
 .fixed-footer .icon-item.copilot a,
 .fixed-footer .icon-item.claude a,
-.fixed-footer .icon-item.llama a,
+.fixed-footer .icon-item.lechat a,
 .fixed-footer .icon-item.deepseek a,
 .fixed-footer .icon-item.perplexity a{
     display: block;
@@ -565,8 +565,8 @@ li.sns-url{
     background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
     background-size: 90% auto;
 }
-.fixed-footer .icon-item.llama a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+.fixed-footer .icon-item.lechat a{
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
     background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a{
@@ -1054,7 +1054,7 @@ function display_ai_author_message() {
         'copilot'   => 'Copilot',
         'deepseek'  => 'DeepSeek',
         'gemini'    => 'Gemini',
-        'llama'     => 'Llama',
+        'lechat'     => 'LeChat',
         'perplexity'=> 'Perplexity',
     );
     

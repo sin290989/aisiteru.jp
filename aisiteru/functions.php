@@ -97,9 +97,9 @@ if ( ! function_exists( 'related_func' ) ) {
 
         $output  = '';
         $output .= '<div class="ai-written">';
-        $output .= '  <div class="ai-written-title">';
+        /*$output .= '  <div class="ai-written-title">';
         $output .= '    <span>' . esc_html( $label ) . '</span>';
-        $output .= '  </div>';
+        $output .= '  </div>';*/
         $output .= '  <ul>';
 
         foreach ( $ids as $value ) {
@@ -142,7 +142,7 @@ if ( ! function_exists( 'related_func' ) ) {
             $output .= '          </div>';
             $output .= '          <div class="ai-written-content">';
             $output .= '            <div class="ai-written-content-title">' . esc_html( $title ) . '</div>';
-            $output .= '            <time class="ai-written-content-date pc">' . esc_html( $date ) . '</time>';
+            //$output .= '            <time class="ai-written-content-date pc">' . esc_html( $date ) . '</time>';
             $output .= '          </div>';
             $output .= '          <div style="clear:both;"></div>';
             $output .= '        </div>';

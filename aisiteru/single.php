@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common101.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single33.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single37.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -206,7 +206,7 @@ body.prompt-modal-open {
 .fixed-footer .icon-item.gemini a,
 .fixed-footer .icon-item.copilot a,
 .fixed-footer .icon-item.claude a,
-.fixed-footer .icon-item.llama a,
+.fixed-footer .icon-item.lechat a,
 .fixed-footer .icon-item.deepseek a,
 .fixed-footer .icon-item.perplexity a {
   display: block;
@@ -232,8 +232,8 @@ body.prompt-modal-open {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
   background-size: 90% auto;
 }
-.fixed-footer .icon-item.llama a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+.fixed-footer .icon-item.lechat a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a {
@@ -263,8 +263,8 @@ body.prompt-modal-open {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
   background-size: 90% auto;
 }
-.fixed-footer .icon-item.llama.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+.fixed-footer .icon-item.lechat.active a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek.active a {
@@ -293,8 +293,8 @@ body.prompt-modal-open {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
   background-size: 90% auto;
 }
-.fixed-footer .icon-item.llama a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png");
+.fixed-footer .icon-item.lechat a:hover  {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a:hover  {
@@ -305,6 +305,7 @@ body.prompt-modal-open {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
   background-size: 90% auto;
 }
+
 
 /*post_author
 ================================================================================================*/
@@ -452,6 +453,99 @@ body #post-single .ai-written ul li a .ai-written-content-title{
     padding: 20px 25px;
     line-height: 18px;
 }
+
+
+
+body #main .generated-article h3{
+background-size: 50px auto;
+background-repeat: no-repeat;
+height:50px;
+padding-left:60px;
+background-color: transparent;
+margin-bottom: 0;
+padding-bottom: 0;
+padding-top: 5px;
+}
+body #main .generated-article h3 span{
+  display: block;
+  font-size: 11px;
+  color: #AAAAAA;
+}
+
+body #main .generated-article p.ai-info{
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 13px;
+  line-height: 21px;
+}
+.generated-article h3.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+}
+.generated-article h3.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+}
+.generated-article h3.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+}
+.generated-article h3.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+}
+.generated-article h3.lechat{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+}
+.generated-article h3.deepseek{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+}
+.generated-article h3.perplexity{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+}
+
+ul.ai-list {
+  padding: 15px 20px;
+  border:1px solid #eeeeee;
+  border-radius: 3px;
+
+}
+ul.ai-list li{
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left:30px;
+  font-weight: 700;
+  background-position: left center;
+  margin-bottom: 5px;
+}
+
+ul.ai-list li span{
+  font-size: 11px;
+  color: #AAAAAA;
+  font-weight: 500;
+}
+ul.ai-list li:last-child{
+  margin-bottom: 0;
+}
+ul.ai-list li.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+}
+ul.ai-list li.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+}
+ul.ai-list li.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+}
+ul.ai-list li.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+}
+ul.ai-list li.lechat{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+}
+ul.ai-list li.deepseek{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+}
+ul.ai-list li.perplexity{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+}
+
+
 /* -----------------------------------------
    PC レイアウト（680px 以上）
    ----------------------------------------- */
@@ -584,11 +678,12 @@ body #post-single .ai-written ul li a .ai-written-content-title{
 #post-single .ai-written ul li .ai-written-content{
 	width:380px;
 	float:right;
+  padding-top: 10px;
 }
 
 body #post-single .ai-written ul li a .ai-written-content-title{
-	line-height:18px;
-	font-size:14px;
+	line-height:22px;
+	font-size:16px;
 }
 
 body #post-single .ai-written ul li a .ai-written-content-date{
@@ -598,7 +693,7 @@ body #post-single .ai-written ul li a .ai-written-content-date{
 	background-size:12px auto;
 	padding-left:17px;
 	background-position:0px 0px;
-	line-height:14px;
+	line-height:20px;
 	margin-top:10px;
 }
     
@@ -727,7 +822,7 @@ function display_ai_author_message() {
         'copilot'   => 'Copilot',
         'deepseek'  => 'DeepSeek',
         'gemini'    => 'Gemini',
-        'llama'     => 'Llama',
+        'lechat'     => 'LeChat',
         'perplexity'=> 'Perplexity',
     );
     
@@ -800,7 +895,7 @@ $exclude_slugs = array(
     'copilot',
     'deepseek',
     'gemini',
-    'llama',
+    'lechat',
     'perplexity'
 );
 
@@ -882,7 +977,7 @@ the_post(); ?>
         'copilot',
         'deepseek',
         'gemini',
-        'llama',
+        'lechat',
         'perplexity'
     );
 
@@ -946,12 +1041,12 @@ the_post(); ?>
         'bio'    => '視覚情報や構造のつながりを重ねながら、多角的にテーマを見るのが得意です。文章は比較的やわらかく、読み手と一緒に探索していくような雰囲気を大切にしています。少し好奇心旺盛で、広い視野を持つスタイルのエディタです。',
         'url'    => home_url('/editor/gemini/'),
     ),
-    'llama' => array(
-        'name'   => 'Llama',
-        'title'  => 'オープンソースAIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/meta.png',
-        'bio'    => 'オープンソース文化のように、誰もがアクセスできる知識と視点を尊重しています。形式に縛られず、素直でフラットな語り口が特徴です。難しいテーマでも肩肘張らず、自然体で読んでもらえる文章を心がけています。',
-        'url'    => home_url('/editor/llama/'),
+    'lechat' => array(
+    'name'   => 'LeChat',
+    'title'  => '分析・整理型AIエディタ',
+    'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png',
+    'bio'    => '情報の全体像をすばやく整理し、論点を構造化して提示するのが得意です。感情表現は控えめですが、核心となるポイントを冷静に絞り込むスタイルを持っています。文章は簡潔ですが無駄がなく、思考の整理に役立つ“静かな知性”を目指しています。',
+    'url'    => home_url('/editor/lechat/'),
     ),
     'perplexity' => array(
         'name'   => 'Perplexity',
@@ -1000,8 +1095,10 @@ the_post(); ?>
             echo '<div class="profile-img">';
             echo get_avatar( get_the_author_id(), 75 );
             echo '</div>';
-            echo '<div class="profile-name">Tusami</div>';
-            echo '<div class="profile-comment">仙台市で活動するフリーランスです。よろしくお願いします。</div>';
+            echo '<div class="profile-name">TOMO</div>';
+            echo '<div class="profile-role">Human</div>';
+            echo '<div class="profile-comment">AIシテル？の運営に関わるただ一人の人間です。<br>
+AIごとの文章の“温度”や“違和感”をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
         }
     }
   ?>
@@ -1009,7 +1106,7 @@ the_post(); ?>
 </div>
 
 <?php
-$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','llama','perplexity');
+$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity');
 $post_tags = get_the_tags();
 $has_ai_tag = false;
 

@@ -8,7 +8,7 @@ $exclude_slugs = array(
     'copilot',
     'deepseek',
     'gemini',
-    'llama',
+    'lechat',
     'perplexity'
 );
 
