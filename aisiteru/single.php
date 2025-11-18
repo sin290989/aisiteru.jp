@@ -27,7 +27,7 @@
 .prompt-modal {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 9900;
     display: none;
 }
 
