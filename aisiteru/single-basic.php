@@ -919,7 +919,7 @@ the_post(); ?>
 
 
 <?php get_template_part("partials/prev-next-link-basic") ?>
-<?php get_template_part("partials/kanren-post-basic") ?>
+<?php get_template_part("partials/related-posts-basic") ?>
 </div>
 <div id="side">
 

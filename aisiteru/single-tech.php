@@ -1033,7 +1033,7 @@ if(get_the_author_id() == 1){
 </div>
 
 <?php get_template_part("partials/prev-next-link-tech") ?>
-<?php get_template_part("partials/kanren-post-tech") ?>
+<?php get_template_part("partials/related-posts-tech") ?>
 </div>
 
 <div id="side">

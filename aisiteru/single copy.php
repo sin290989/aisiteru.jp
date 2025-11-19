@@ -1173,7 +1173,7 @@ if(get_the_author_id() == 1){
 </div>
 
 <?php get_template_part("partials/prev-next-link") ?>
-<?php get_template_part("partials/kanren-post") ?>
+<?php get_template_part("partials/related-posts") ?>
 </div>
 <div id="side">
 <?php dynamic_sidebar('sidebar-1'); ?>

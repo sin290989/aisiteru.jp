@@ -1133,7 +1133,7 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 
 
 <?php get_template_part("partials/prev-next-link") ?>
-<?php get_template_part("partials/kanren-post") ?>
+<?php get_template_part("partials/related-posts") ?>
 
 <div id="prompt-modal" class="prompt-modal">
   <div class="prompt-modal__overlay"></div>
