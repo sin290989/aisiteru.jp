@@ -400,7 +400,7 @@ body #post-head h1 {
   margin: 8px 20px 10px 20px;
 }
 .ai-author-info.ai-chatgpt {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 24px;
@@ -408,42 +408,42 @@ body #post-head h1 {
 }
 
 .ai-author-info.ai-gemini {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;
   background-position: left center;
 }
 .ai-author-info.ai-copilot {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;
   background-position: left center;
 }
 .ai-author-info.ai-claude {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;
   background-position: left center;
 }
 .ai-author-info.ai-deepseek {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;
   background-position: left center;
 }
 .ai-author-info.ai-perplexity {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;
   background-position: left center;
 }
 .ai-author-info.ai-lechat {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
   background-size: 20px auto;
   background-repeat: no-repeat;
   padding-left: 28px;

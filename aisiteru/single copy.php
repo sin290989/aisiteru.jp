@@ -547,34 +547,34 @@ li.sns-url{
     background-repeat:no-repeat;
 }
 .fixed-footer .icon-item.chatgpt a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
     background-size: 90% auto;
     
 }
 .fixed-footer .icon-item.gemini a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
     background-size: 90% auto;
 }
 
 .fixed-footer .icon-item.copilot a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
     background-size: 90% auto;
 }
 
 .fixed-footer .icon-item.claude a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
     background-size: 90% auto;
 }
 .fixed-footer .icon-item.lechat a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
     background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
     background-size: 90% auto;
 }
 .fixed-footer .icon-item.perplexity a{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
     background-size: 90% auto;
 }
 
@@ -620,7 +620,7 @@ li.sns-url{
     margin:0 0 10px 0;
 }
 .ai-author-info.ai-chatgpt{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
     background-size:20px auto;
     background-repeat: no-repeat;
     padding-left: 24px;
@@ -628,7 +628,7 @@ li.sns-url{
 }
 
 .ai-author-info.ai-gemini{
-    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+    background-image:url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
     background-size:20px auto;
     background-repeat: no-repeat;
     padding-left: 28px;

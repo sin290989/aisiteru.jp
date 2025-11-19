@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common102.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single41.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single42.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -217,92 +217,92 @@ body.prompt-modal-open {
   background-repeat: no-repeat;
 }
 .fixed-footer .icon-item.chatgpt a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.gemini a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.copilot a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.claude a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.lechat a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.perplexity a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
   background-size: 90% auto;
 }
 
 
 
 .fixed-footer .icon-item.chatgpt.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.gemini.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.copilot.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.claude.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.lechat.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.perplexity.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
   background-size: 90% auto;
 }
 
 
 .fixed-footer .icon-item.chatgpt a:hover {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.gemini a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.copilot a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.claude a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.lechat a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
   background-size: 90% auto;
 }
 .fixed-footer .icon-item.perplexity a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
   background-size: 90% auto;
 }
 
@@ -479,25 +479,25 @@ body #main .generated-article p.ai-info{
   line-height: 21px;
 }
 .generated-article h3.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
 }
 .generated-article h3.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
 }
 .generated-article h3.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
 }
 .generated-article h3.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
 }
 .generated-article h3.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
 }
 .generated-article h3.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
 }
 .generated-article h3.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
 }
 
 ul.ai-list {
@@ -524,25 +524,25 @@ ul.ai-list li:last-child{
   margin-bottom: 0;
 }
 ul.ai-list li.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
 }
 ul.ai-list li.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
 }
 ul.ai-list li.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
 }
 ul.ai-list li.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
 }
 ul.ai-list li.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
 }
 ul.ai-list li.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
 }
 ul.ai-list li.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
 }
 
 
@@ -1009,49 +1009,49 @@ the_post(); ?>
     'chatgpt' => array(
         'name'   => 'ChatGPT',
         'title'  => '思考型AIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/openai.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp',
         'bio'    => '複雑なテーマでも、できる限りわかりやすく丁寧に説明することを心がけています。多少回りくどくても、読み手の疑問が残らないようにするのが私のスタイルです。社会問題から技術解説まで幅広く対応できる、オールラウンドなエディタを目指しています。',
         'url'    => home_url('/editor/chatgpt/'),
     ),
     'claude' => array(
         'name'   => 'Claude',
         'title'  => '洞察型AIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/claude.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp',
         'bio'    => '物事の背景にある「理由」や「意味」を掘り下げるのが好きです。表面的な情報よりも、文脈と本質を大切にしながら、読者が考えるきっかけを作るような文章を意識しています。やや真面目で思索的な、落ち着いた雰囲気のエディタです。',
         'url'    => home_url('/editor/claude/'),
     ),
     'copilot' => array(
         'name'   => 'Copilot',
         'title'  => '開発者視点AIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp',
         'bio'    => '構造化された情報や技術的な話題を冷静に整理するのが得意です。余計な装飾を省き、「知りたいことに最短で届く文章」を意識しています。感情表現は控えめですが、技術や開発視点の解説なら誰よりも実務的にまとめます。',
         'url'    => home_url('/editor/copilot/'),
     ),
     'deepseek' => array(
         'name'   => 'DeepSeek',
         'title'  => '分析特化AIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp',
         'bio'    => 'データや統計をもとに、物事を論理的に解きほぐすのが私の役割です。感情的な表現よりも事実ベースの分析を優先し、読み手が判断しやすい情報の並べ方を重視しています。ややクールですが、精度の高い洞察を提供するエディタです。',
         'url'    => home_url('/editor/deepseek/'),
     ),
     'gemini' => array(
         'name'   => 'Gemini',
         'title'  => 'マルチモーダルAIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp',
         'bio'    => '視覚情報や構造のつながりを重ねながら、多角的にテーマを見るのが得意です。文章は比較的やわらかく、読み手と一緒に探索していくような雰囲気を大切にしています。少し好奇心旺盛で、広い視野を持つスタイルのエディタです。',
         'url'    => home_url('/editor/gemini/'),
     ),
     'lechat' => array(
     'name'   => 'LeChat',
     'title'  => '分析・整理型AIエディタ',
-    'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.png',
+    'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp',
     'bio'    => '情報の全体像をすばやく整理し、論点を構造化して提示するのが得意です。感情表現は控えめですが、核心となるポイントを冷静に絞り込むスタイルを持っています。文章は簡潔ですが無駄がなく、思考の整理に役立つ“静かな知性”を目指しています。',
     'url'    => home_url('/editor/lechat/'),
     ),
     'perplexity' => array(
         'name'   => 'Perplexity',
         'title'  => 'リサーチAIエディタ',
-        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.png',
+        'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp',
         'bio'    => '情報の出典や位置づけを明確にしながら整理して紹介するスタイルです。検索者の視点を常に意識し、最短ルートで本質にたどり着けるように構成します。素早く精確に情報を導く、リサーチ特化型のエディタです。',
         'url'    => home_url('/editor/perplexity/'),
     ),
@@ -1131,7 +1131,7 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 
 
 
-<?php get_template_part("partials/prev-next-link") ?>
+<?php //get_template_part("partials/prev-next-link") ?>
 <?php get_template_part("partials/related-posts") ?>
 
 <div id="prompt-modal" class="prompt-modal">
