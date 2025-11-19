@@ -37,9 +37,30 @@ include_once("analyticstracking.php");
 <h1 class="tag"><?php single_cat_title(); ?></h1>
 
 <div id="main">
+<?php
+// 現在のページ番号
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+// 現在のタグオブジェクト（このタグアーカイブのタグ）
+$current_tag = get_queried_object();
+$current_tag_id = isset( $current_tag->term_id ) ? $current_tag->term_id : 0;
+
+// 「index」タグの term を取得（スラッグが index のタグ）
+$index_tag    = get_term_by( 'slug', 'index', 'post_tag' );
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// タグ（現在のタグ ＋ index）両方が付いた投稿だけ取得
+$args = array(
+    'post_type' => 'post',
+    'paged'     => $paged,
+    'tag__and'  => array( $current_tag_id, $index_tag_id ),
+);
+
+$index_query = new WP_Query( $args );
+?>
 <ul class="post-index">
-    <?php if(have_posts()): while(have_posts()):
-    the_post(); ?>
+    <?php if ( $index_query->have_posts() ) : ?>
+        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
         <li>
             <div class="post-author">
                 <div class="post-author-img"><?php echo get_avatar(get_the_author_meta( 'ID' ),30); ?></div>
@@ -63,7 +84,7 @@ include_once("analyticstracking.php");
                     <?php if(get_the_time('U') !== get_the_modified_time('U')){ ?>
                         <time class="updated" datetime="<?php the_modified_date("Y-m-d H:i:s") ?>"><?php the_modified_date('Y.m.d') ?></time>
                     <?php }else{ ?>
-                        <time class="entry-date published" datetime="<?php echo get_the_date("Y-m-d H:i:s") ?>"><?php echo get_the_date('Y.m.d') ?></time>
+                        <time class="entry-date published" datetime="<?php echo get_the_date("Y-m-d H:i:s") ?>"><?php echo get_the_date('Y.m-d H:i:s') ?>"><?php echo get_the_date('Y.m.d') ?></time>
                     <?php } ?>
                 </div>
 
@@ -79,11 +100,22 @@ include_once("analyticstracking.php");
                 </div>
             </a>
         </li>
-    <?php endwhile; endif; ?>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>「index」タグが付いた記事はまだありません。</li>
+    <?php endif; ?>
     <div style="clear:both"></div>
 </ul>
 
-<?php wp_pagenavi(); ?>
+<?php
+// クエリを元に戻す
+wp_reset_postdata();
+
+// WP-PageNavi をカスタムクエリに対応
+if ( function_exists( 'wp_pagenavi' ) ) {
+    wp_pagenavi( array( 'query' => $index_query ) );
+}
+?>
 </div>
 
 <div id="side">

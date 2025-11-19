@@ -40,9 +40,23 @@ $catname = $cat[0]->name; // カテゴリ名
 <h1 class="cate"><?php single_cat_title(); ?></h1>
 
 <div id="main">
+<?php
+// 現在ページ番号
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+// カテゴリ＋タグ「index」で絞り込み
+$args = array(
+    'post_type' => 'post',
+    'cat'       => $catid,   // 冒頭で取得したカテゴリID
+    'tag'       => 'index',  // タグのスラッグが index の投稿のみ
+    'paged'     => $paged,
+);
+
+$index_query = new WP_Query( $args );
+?>
 <ul class="post-index">
-    <?php if(have_posts()): while(have_posts()):
-    the_post(); ?>
+    <?php if ( $index_query->have_posts() ) : ?>
+        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
         <li>
             <?php $cat = get_the_category(); ?>
@@ -91,11 +105,24 @@ $catname = $cat[0]->name; // カテゴリ名
                 </div>
             </a>
         </li>
-    <?php endwhile; endif; ?>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>「index」タグが付いた記事はまだありません。</li>
+    <?php endif; ?>
     <div style="clear:both"></div>
 </ul>
 
-<?php wp_pagenavi(); ?>
+<?php
+// クエリを元に戻す
+wp_reset_postdata();
+?>
+
+<?php
+// WP-PageNavi をカスタムクエリに対応させる
+if ( function_exists( 'wp_pagenavi' ) ) {
+    wp_pagenavi( array( 'query' => $index_query ) );
+}
+?>
 </div>
 
 <div id="side">
