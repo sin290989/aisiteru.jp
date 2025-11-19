@@ -215,95 +215,45 @@ body.prompt-modal-open {
   border-radius: 50%;
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: 90% auto;
 }
 .fixed-footer .icon-item.chatgpt a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.gemini a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.copilot a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.claude a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.lechat a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.deepseek a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-  background-size: 90% auto;
 }
 .fixed-footer .icon-item.perplexity a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-  background-size: 90% auto;
 }
 
-
-
-.fixed-footer .icon-item.chatgpt.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.gemini.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.copilot.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.claude.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.lechat.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.deepseek.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.perplexity.active a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-  background-size: 90% auto;
-}
-
-
-.fixed-footer .icon-item.chatgpt a:hover {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.gemini a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.copilot a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.claude a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.lechat a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.deepseek a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.perplexity a:hover  {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-  background-size: 90% auto;
+.fixed-footer .icon-item.chatgpt.active,
+.fixed-footer .icon-item.gemini.active,
+.fixed-footer .icon-item.copilot.active,
+.fixed-footer .icon-item.claude.active,
+.fixed-footer .icon-item.lechat.active,
+.fixed-footer .icon-item.deepseek.active,
+.fixed-footer .icon-item.perplexity.active,
+.fixed-footer .icon-item.chatgpt:hover,
+.fixed-footer .icon-item.gemini:hover,
+.fixed-footer .icon-item.copilot:hover,
+.fixed-footer .icon-item.claude:hover,
+.fixed-footer .icon-item.lechat:hover,
+.fixed-footer .icon-item.deepseek:hover,
+.fixed-footer .icon-item.perplexity:hover {
+  box-shadow: inset 0 0 0 1px #FF0000; /* 内側に2pxの線 */
 }
 
 
@@ -949,6 +899,8 @@ endif;
 
 
 <div id="main">
+
+<!-----------------------------------------------------------------------------------------------------> 
 <div class="sns-link">
 <ul>
 <li class="sns-x"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&hashtags=aisiteru" target="_bkank"></a><div class="snsInner"><div class="sns1Tip">Xで共有</div></div></li>
@@ -958,14 +910,23 @@ endif;
 <li class="sns-url" data-url="<?php the_permalink(); ?>"><div class="snsInner"><div class="sns4TipOk">コピーしました！</div><div class="sns4Tip">URLをコピー</div></div></li>
 </ul>
 </div>
+<!-----------------------------------------------------------------------------------------------------> 
 
+
+<!-----------------------------------------------------------------------------------------------------> 
 <div id="post-single">
 <?php if(have_posts()): while(have_posts()):
 the_post(); ?>
 <?php the_content(); ?>
 <?php endwhile; endif; ?>
 </div>
+<!-----------------------------------------------------------------------------------------------------> 
 
+
+
+
+
+<!-----------------------------------------------------------------------------------------------------> 
 <div class="post_author">
   <div class="inner">
 
@@ -1057,7 +1018,6 @@ the_post(); ?>
     ),
 );
 
-
     // 記事についているタグから、どのAIエディタか判定
     $post_tags = get_the_tags();
     $ai = null;
@@ -1104,7 +1064,21 @@ AIごとの文章の“温度”や“違和感”をすくい取り、AIに足�
   ?>
   </div>
 </div>
+<!-----------------------------------------------------------------------------------------------------> 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-----------------------------------------------------------------------------------------------------> 
 <?php
 $ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity');
 $post_tags = get_the_tags();
@@ -1128,12 +1102,13 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
         <p><?php echo nl2br( esc_html( $human_comment ) ); ?></p>
     </div>
 <?php endif; ?>
-
+<!-----------------------------------------------------------------------------------------------------> 
 
 
 <?php //get_template_part("partials/prev-next-link") ?>
 <?php get_template_part("partials/related-posts") ?>
 
+<!-----------------------------------------------------------------------------------------------------> 
 <div id="prompt-modal" class="prompt-modal">
   <div class="prompt-modal__overlay"></div>
   <div class="prompt-modal__content">
@@ -1154,6 +1129,8 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
     </div>
   </div>
 </div>
+<!-----------------------------------------------------------------------------------------------------> 
+
 
 </div>
 <div id="side">

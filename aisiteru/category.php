@@ -29,7 +29,7 @@ $catname = $cat[0]->name; // カテゴリ名
 
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <a href="/blog/">ブログ</a> > <a href="/category/web/">WEB制作</a> > <?php single_cat_title(); ?>
+<a href="/"><span class="home">トップページ</span></a> > <?php single_cat_title(); ?>
 </div>
 </div>
 

@@ -25,7 +25,7 @@ include_once("analyticstracking.php");
 
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <a href="/blog/">ブログ</a> > <?php single_cat_title(); ?>
+<a href="/"><span class="home">トップページ</span></a> > <?php single_cat_title(); ?>
 </div>
 </div>
 
