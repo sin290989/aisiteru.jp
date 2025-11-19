@@ -3,7 +3,8 @@ ul.wpp-list li a,
 ul.post-index h2,
 ul.post-index h3,
 #side h2,
-ul.catList li a{
+ul.catList li a,
+ul.aiList li a{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 600;
     font-style: normal; 
@@ -11,6 +12,7 @@ ul.catList li a{
 #side .widget h2::before,
 #side h2.catTitle::before,
 #side h2.tagTitle::before,
+#side h2.aiTitle::before,
 h2#related::before{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 900;
@@ -32,12 +34,14 @@ h2#related::before{
 }
 #side .widget h2,
 #side h2.catTitle,
-#side h2.tagTitle{
+#side h2.tagTitle,
+#side h2.aiTitle{
     text-align: center;
 }
 #side .widget h2::before,
 #side h2.catTitle::before,
-#side h2.tagTitle::before{
+#side h2.tagTitle::before,
+#side h2.aiTitle::before{
     white-space: pre;
     font-size: 24px;
     margin-right:15px;
@@ -54,17 +58,22 @@ h2#related::before{
 #side h2.tagTitle::before{
     content: 'TAG CLOUD\A';
 }
+#side h2.aiTitle::before{
+    content: 'AI\A';
+}
 #side h2.tagTitle{
     margin-top: 60px;
 } 
 
-ul.catList{
+ul.catList,
+ul.aiList{
     margin: 0 20px;
     border-radius: 5px;
     overflow: hidden;
     background-color: #FFFFFF;
 }
-ul.catList li a{
+ul.catList li a,
+ul.aiList li a{
 	text-decoration:none;
 	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow.png);
 	background-position:right 20px center;
@@ -79,7 +88,8 @@ ul.catList li a{
     transition-duration: 0.3s;
 }
 
-ul.catList li ul li a{
+ul.catList li ul li a,
+ul.aiList li ul li a{
     padding-left:50px;
     font-size: 14px;
     height:40px;
@@ -204,7 +214,8 @@ body ul.wpp-list li a.wpp-post-title{
 }
 #side .widget h2,
 #side h2.catTitle,
-#side h2.tagTitle{
+#side h2.tagTitle,
+#side h2.aiTitle{
     text-align: left;
 }
 #side h2.catTitle,
@@ -221,20 +232,26 @@ body ul.wpp-list li a.wpp-post-title{
 #side h2.tagTitle::before{
     content: ' TAG CLOUD';
 }
-ul.catList{
+#side h2.aiTitle::before{
+    content: ' AI';
+}
+ul.catList,
+ul.aiList{
     border:none;
 }
-
-ul.catList li a{
+ul.catList li a,
+ul.aiList li a{
     font-size:14px;
     border-top:none;
     background-size:auto 8px;
 	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow_bk.png);
-}   
+}
+ul.aiList li a:hover, 
 ul.catList li a:hover{
     color: #0069ff;
     background-position:right 15px center;
 }
+ul.aiList li ul li a,
 ul.catList li ul li a{
     font-size:12px;
 } 
@@ -246,7 +263,7 @@ ul.tagcloud a:hover{
     color:#0069ff;
     text-decoration: none;
 }
-
+ul.aiList,
 ul.catList,
 ul.tagcloud,
 ul.wpp-list{
@@ -338,6 +355,35 @@ $('#side ul.wpp-list li').hover(function(){
 });
 </script>
 <?php endif; ?>
+
+
+<?php
+echo '<h2 class="aiTitle">生成AI</h2>';
+echo '<ul class="aiList">'; 
+echo '<li>';
+echo '<a href="/editor/chatgpt/">ChatGPT</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/claude/">Claude</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/gemini/">Gemini</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/copilot/">Copilot</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/perplexity/">Perplexity</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/deepseek/">DeepSeek</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/lechat/">Le Chat</a>';
+echo '</li>';
+echo '</ul>';
+?>
+
 
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
