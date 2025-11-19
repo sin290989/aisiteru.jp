@@ -11,7 +11,7 @@ ul.catList li a{
 #side .widget h2::before,
 #side h2.catTitle::before,
 #side h2.tagTitle::before,
-h2#kanren::before{
+h2#related::before{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 900;
     font-style: normal; 

@@ -669,23 +669,23 @@ ul.related-posts li a:hover {
   text-decoration: none;
 }
 
-h2#kanren {
+h2#related {
   padding: 0;
   margin-bottom: 10px;
   margin-top: 30px;
   border-radius: 3px;
   font-size: 12px;
 }
-h2#kanren {
+h2#related {
   text-align: center;
 }
-h2#kanren::before {
+h2#related::before {
   white-space: pre;
   font-size: 24px;
   margin-right: 15px;
   letter-spacing: 1px;
 }
-h2#kanren::before {
+h2#related::before {
   content: " RELATION\A";
 }
 @media only screen and (min-width: 680px) {
@@ -1032,19 +1032,19 @@ h2#kanren::before {
     width: 100%;
   }
 
-  h2#kanren {
+  h2#related {
     text-align: left;
   }
-  h2#kanren {
+  h2#related {
     margin-top: 60px;
   }
-  h2#kanren::before {
+  h2#related::before {
     font-size: 24px;
     margin-right: 15px;
     letter-spacing: 1px;
   }
 
-  h2#kanren::before {
+  h2#related::before {
     content: " RELATION";
   }
 }

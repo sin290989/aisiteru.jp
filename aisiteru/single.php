@@ -7,9 +7,9 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common101.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common102.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single37.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single41.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -1125,10 +1125,9 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 ?>
     <div class="human-comment">
         <h2>編集者のコメント</h2>
-        <p><?php echo esc_html( $human_comment ); ?></p>
+        <p><?php echo nl2br( esc_html( $human_comment ) ); ?></p>
     </div>
 <?php endif; ?>
-
 
 
 

@@ -615,7 +615,7 @@ li.sns-url {
 ================================================================================================*/
   #post-head .inner {
     position: relative;
-    height: 300px;
+    height: 280px;
     padding: 0;
   }
   .post_thumbnail {
@@ -625,7 +625,7 @@ li.sns-url {
     margin: 0;
     border-radius: 5px;
     overflow: hidden;
-    width: 410px;
+    width: 380px;
   }
   body #post-head h1 {
     font-size: 28px;
@@ -641,9 +641,9 @@ li.sns-url {
   .post-info {
     position: absolute;
     top: 0;
-    left: 400px;
+    left: 370px;
     margin: 0;
-    width: 700px;
+    width: 730px;
   }
   .post-cat {
     font-size: 14px;
