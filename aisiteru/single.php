@@ -18,135 +18,7 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-.prompt,
-.markdown{
-    display:none;
-}
 
-/* ===== プロンプト用モーダル ===== */
-.prompt-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9900;
-    display: none;
-}
-
-.prompt-modal.is-open {
-    display: block;
-}
-
-.prompt-modal__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    bottom: 85px; /* フッターの高さ分カット */
-}
-
-/* -----------------------------------------
-   モバイルファースト：モーダル本体
-   ----------------------------------------- */
-.prompt-modal__content {
-    position: relative;
-    max-width: none;
-    margin: 15px;          /* 上下左右 15px 余白 */
-    padding: 20px;
-    background: #000000;
-    color: #ffffff;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border-radius: 6px;
-    box-sizing: border-box;
-    /* 高さは「画面 - フッター - margin×2」で計算（dvh 優先） */
-    max-height: calc(100dvh - 85px - 30px);
-}
-
-/* dvh 非対応ブラウザ向けフォールバック */
-@supports not (height: 100dvh) {
-    .prompt-modal__content {
-        max-height: calc(100vh - 85px - 30px);
-    }
-}
-
-/* モーダル内すべての要素を白文字に統一 */
-.prompt-modal__content * {
-    color: #ffffff !important;
-}
-
-.prompt-modal__close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    border: none;
-    background: transparent;
-    font-size: 24px;
-    line-height: 1;
-    cursor: pointer;
-    color: #ffffff !important;
-}
-
-body.prompt-modal-open {
-    overflow: hidden;
-}
-
-/* ===== スタイリッシュなスクロールバー ===== */
-.prompt-modal__content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-track {
-    background: #111;
-    border-radius: 4px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #444, #222);
-    border-radius: 4px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #666, #333);
-}
-
-/* FireFox */
-.prompt-modal__content {
-    scrollbar-width: thin;
-    scrollbar-color: #444 #111;
-}
-
-/* パネル共通（中身の文字サイズなど） */
-.prompt-panel {
-    font-size: 12px;
-    line-height: 1.7;
-    display: none;
-}
-.prompt-panel.is-active {
-    display: block;
-}
-
-/* タブエリア */
-.prompt-modal__tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #333;
-}
-
-/* タブボタン */
-.prompt-tab {
-    flex: 0 0 auto;
-    padding: 6px 12px;
-    font-size: 12px;
-    border: none;
-    background: #222;
-    cursor: pointer;
-    border-radius: 4px 4px 0 0;
-}
-
-/* アクティブタブの見た目 */
-.prompt-modal__tabs .prompt-tab.is-active {
-    background: #ffffff;
-    color: #000000 !important;
-}
 
 
 /*フッター固定
@@ -501,13 +373,6 @@ ul.ai-list li.perplexity{
    ----------------------------------------- */
 @media only screen and (min-width: 680px) {
 
-  .prompt-modal__content {
-      max-width: 700px;
-      max-height: 80vh;
-      margin: 40px auto;
-      padding: 28px 36px;
-  }
-
   .fixed-footer {
     padding: 15px 0;
     height: 85px;
@@ -525,6 +390,7 @@ ul.ai-list li.perplexity{
     margin-bottom: 10px;
     justify-content: flex-start;
   }
+
   .view-prompt-btn {
     width: auto;
   }
@@ -653,6 +519,12 @@ body #post-single .ai-written ul li a .ai-written-content-date{
 
 }
 </style>
+
+
+
+
+
+
 
 
 
@@ -1108,7 +980,239 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 <?php //get_template_part("partials/prev-next-link") ?>
 <?php get_template_part("partials/related-posts") ?>
 
-<!-----------------------------------------------------------------------------------------------------> 
+<!----------------------------------------------------------------------------------------------------->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const modal        = document.getElementById('prompt-modal');
+    if (!modal) return;
+
+    const overlay      = modal.querySelector('.prompt-modal__overlay');
+    const closeBtn     = modal.querySelector('.prompt-modal__close');
+    const panelPrompt  = modal.querySelector('.prompt-panel--prompt');
+    const panelMd      = modal.querySelector('.prompt-panel--markdown');
+    const tabs         = modal.querySelectorAll('.prompt-tab');
+
+    // 元記事側のソース
+    const promptSource   = document.querySelector('.prompt');   // プロンプト
+    const markdownSource = document.querySelector('.markdown'); // 生成記事
+
+    function setActiveTab(target) {
+        tabs.forEach(function (tab) {
+            const isActive = tab.dataset.target === target;
+            tab.classList.toggle('is-active', isActive);
+        });
+
+        panelPrompt.classList.toggle('is-active', target === 'prompt');
+        panelMd.classList.toggle('is-active', target === 'markdown');
+    }
+
+    const openModal = () => {
+        // 開くたびに中身をセット（記事が変わっても対応できるように）
+        if (promptSource) {
+            panelPrompt.innerHTML = promptSource.innerHTML;
+        } else {
+            panelPrompt.innerHTML = '<p>共通プロンプトが見つかりませんでした。</p>';
+        }
+
+        if (markdownSource) {
+            panelMd.innerHTML = markdownSource.innerHTML;
+        } else {
+            panelMd.innerHTML = '<p>生成記事ブロックが見つかりませんでした。</p>';
+        }
+
+        // デフォルトは「共通プロンプト」タブ
+        setActiveTab('prompt');
+
+        modal.classList.add('is-open');
+        document.body.classList.add('prompt-modal-open');
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('prompt-modal-open');
+
+        // 中身をクリアしておく（不要ならこの2行は削除しても可）
+        panelPrompt.innerHTML = '';
+        panelMd.innerHTML = '';
+    };
+
+    // 「共通プロンプトはこちら」ボタンクリック
+    const btn = document.querySelector('.view-prompt-btn');
+    if (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openModal();
+        });
+    }
+
+    // タブクリック
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            const target = tab.dataset.target;
+            setActiveTab(target);
+        });
+    });
+
+    // オーバーレイクリック
+    overlay.addEventListener('click', closeModal);
+
+    // 閉じるボタン
+    closeBtn.addEventListener('click', closeModal);
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+});
+</script>
+
+
+<style type="text/css">
+.prompt,
+.markdown{
+    display:none;
+}
+
+/* ===== プロンプト用モーダル ===== */
+.prompt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9900;
+    display: none;
+}
+
+.prompt-modal.is-open {
+    display: block;
+}
+
+.prompt-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    bottom: 85px; /* フッターの高さ分カット */
+}
+
+/* -----------------------------------------
+   モバイルファースト：モーダル本体
+   ----------------------------------------- */
+.prompt-modal__content {
+    position: relative;
+    max-width: none;
+    margin: 15px;          /* 上下左右 15px 余白 */
+    padding: 20px;
+    background: #000000;
+    color: #ffffff;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-radius: 6px;
+    box-sizing: border-box;
+    /* 高さは「画面 - フッター - margin×2」で計算（dvh 優先） */
+    max-height: calc(100dvh - 85px - 30px);
+}
+
+/* dvh 非対応ブラウザ向けフォールバック */
+@supports not (height: 100dvh) {
+    .prompt-modal__content {
+        max-height: calc(100vh - 85px - 30px);
+    }
+}
+
+/* モーダル内すべての要素を白文字に統一 */
+.prompt-modal__content * {
+    color: #ffffff !important;
+}
+
+.prompt-modal__close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #ffffff !important;
+}
+
+body.prompt-modal-open {
+    overflow: hidden;
+}
+
+/* ===== スタイリッシュなスクロールバー ===== */
+.prompt-modal__content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #444, #222);
+    border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #666, #333);
+}
+
+/* FireFox */
+.prompt-modal__content {
+    scrollbar-width: thin;
+    scrollbar-color: #444 #111;
+}
+
+/* パネル共通（中身の文字サイズなど） */
+.prompt-panel {
+    font-size: 12px;
+    line-height: 1.7;
+    display: none;
+}
+.prompt-panel.is-active {
+    display: block;
+}
+
+/* タブエリア */
+.prompt-modal__tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #333;
+}
+
+/* タブボタン */
+.prompt-tab {
+    flex: 0 0 auto;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    background: #222;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+}
+
+/* アクティブタブの見た目 */
+.prompt-modal__tabs .prompt-tab.is-active {
+    background: #ffffff;
+    color: #000000 !important;
+}
+@media only screen and (min-width: 680px) {
+    .prompt-modal__content {
+      max-width: 700px;
+      max-height: 80vh;
+      margin: 40px auto;
+      padding: 28px 36px;
+  }
+
+  
+}
+</style>
+
 <div id="prompt-modal" class="prompt-modal">
   <div class="prompt-modal__overlay"></div>
   <div class="prompt-modal__content">
@@ -1126,6 +1230,196 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
     <div class="prompt-modal__body">
       <div class="prompt-panel prompt-panel--prompt is-active"></div>
       <div class="prompt-panel prompt-panel--markdown"></div>
+    </div>
+  </div>
+</div>
+<!-----------------------------------------------------------------------------------------------------> 
+
+<!----------------------------------------------------------------------------------------------------->
+<script>
+jQuery(function($) {
+
+  $('.output-image').each(function() {
+    var $wrap   = $(this);
+    var $prompt = $wrap.find('.image-prompt');
+
+    if ($prompt.length && $.trim($prompt.text()).length > 0) {
+
+        // 生のプロンプトは非表示
+        $prompt.hide();
+
+        // <div class="output-image" data-ai="chatgpt"> などから取得
+        var aiName = $wrap.attr('data-ai') || '';
+
+        // ボタンに表示する文言を作成
+        var label = 'prompt';
+        if (aiName) {
+            label = 'Prompt (' + aiName + ')';
+        }
+
+        // ボタン生成
+        var $btn = $('<button type="button" class="prompt-button" data-ai="'+ aiName +'">'+ label +'</button>');
+        $wrap.append($btn);
+
+        // クリック時：モーダルにプロンプト＋AI名を表示
+        $btn.on('click', function() {
+            var text = $.trim($prompt.text());
+
+            // モーダル内に入れるHTMLを組み立て
+            var html = '';
+            if (aiName) {
+                html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span><br><br>';
+            }
+            // 改行を <br> に変換
+            html += text.replace(/(\r\n|\r|\n)/g, '<br>');
+
+            $('#image-prompt-modal .image-prompt-modal__body').html(html);
+            $('#image-prompt-modal').addClass('is-open');
+        });
+    }
+  });
+
+  // 閉じる処理
+  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', function() {
+    $('#image-prompt-modal').removeClass('is-open');
+  });
+
+  $(document).on('keydown', function(e) {
+    if (e.key === 'Escape') {
+      $('#image-prompt-modal').removeClass('is-open');
+    }
+  });
+
+});
+</script>
+
+<style type="text/css">
+/* ---- 画像＋プロンプト共通 ---- */
+.output-image {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.output-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 記事内の生プロンプトテキストは非表示にしておく */
+.output-image .image-prompt {
+    display: none;
+}
+.ai-name{
+  border:1px solid #FF0000;
+  font-size: 12px;
+}
+/* promptボタン */
+.output-image .prompt-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* ---- 画像プロンプト用モーダル ---- */
+.image-prompt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;  /* 初期状態は非表示 */
+}
+
+/* モーダルが開いているときだけ表示＆中央寄せ */
+.image-prompt-modal.is-open {
+    display: flex;
+    justify-content: center; /* 横中央 */
+    align-items: center;     /* 縦中央 */
+}
+
+.image-prompt-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* モーダル本体 */
+.image-prompt-modal__content {
+    position: relative;
+    max-width: 640px;
+    max-height: 80vh;      /* 縦方向の上限 */
+    margin: 0 16px;        /* 画面端との余白（左右） */
+    padding: 20px 24px;
+    background: #111;
+    color: #fff;
+    overflow-y: auto;      /* はみ出したらスクロール */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+/* 中身のテキスト（改行維持） */
+.image-prompt-modal__body {
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 閉じるボタン */
+.image-prompt-modal__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* スマホ向け微調整 */
+@media (max-width: 768px) {
+    .image-prompt-modal__content {
+        width: 90%;
+        max-height: 80vh;
+        padding: 16px;
+    }
+}
+
+.prompt-ai-name {
+    font-size: 12px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.prompt-ai-text {
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.zu{
+  font-size: 12px;
+  line-height: 12px;
+}
+</style>
+
+<div class="image-prompt-modal" id="image-prompt-modal">
+  <div class="image-prompt-modal__overlay"></div>
+  <div class="image-prompt-modal__content">
+    <button type="button" class="image-prompt-modal__close" aria-label="プロンプトを閉じる">×</button>
+    <div class="image-prompt-modal__body">
+      <div class="prompt-ai-name"></div>
+      <div class="prompt-ai-text"></div>
     </div>
   </div>
 </div>
@@ -1246,94 +1540,7 @@ $(function(){
 <?php endif; ?>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
 
-    const modal        = document.getElementById('prompt-modal');
-    if (!modal) return;
-
-    const overlay      = modal.querySelector('.prompt-modal__overlay');
-    const closeBtn     = modal.querySelector('.prompt-modal__close');
-    const panelPrompt  = modal.querySelector('.prompt-panel--prompt');
-    const panelMd      = modal.querySelector('.prompt-panel--markdown');
-    const tabs         = modal.querySelectorAll('.prompt-tab');
-
-    // 元記事側のソース
-    const promptSource   = document.querySelector('.prompt');   // プロンプト
-    const markdownSource = document.querySelector('.markdown'); // 生成記事
-
-    function setActiveTab(target) {
-        tabs.forEach(function (tab) {
-            const isActive = tab.dataset.target === target;
-            tab.classList.toggle('is-active', isActive);
-        });
-
-        panelPrompt.classList.toggle('is-active', target === 'prompt');
-        panelMd.classList.toggle('is-active', target === 'markdown');
-    }
-
-    const openModal = () => {
-        // 開くたびに中身をセット（記事が変わっても対応できるように）
-        if (promptSource) {
-            panelPrompt.innerHTML = promptSource.innerHTML;
-        } else {
-            panelPrompt.innerHTML = '<p>共通プロンプトが見つかりませんでした。</p>';
-        }
-
-        if (markdownSource) {
-            panelMd.innerHTML = markdownSource.innerHTML;
-        } else {
-            panelMd.innerHTML = '<p>生成記事ブロックが見つかりませんでした。</p>';
-        }
-
-        // デフォルトは「共通プロンプト」タブ
-        setActiveTab('prompt');
-
-        modal.classList.add('is-open');
-        document.body.classList.add('prompt-modal-open');
-    };
-
-    const closeModal = () => {
-        modal.classList.remove('is-open');
-        document.body.classList.remove('prompt-modal-open');
-
-        // 中身をクリアしておく（不要ならこの2行は削除しても可）
-        panelPrompt.innerHTML = '';
-        panelMd.innerHTML = '';
-    };
-
-    // 「共通プロンプトはこちら」ボタンクリック
-    const btn = document.querySelector('.view-prompt-btn');
-    if (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            openModal();
-        });
-    }
-
-    // タブクリック
-    tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-            const target = tab.dataset.target;
-            setActiveTab(target);
-        });
-    });
-
-    // オーバーレイクリック
-    overlay.addEventListener('click', closeModal);
-
-    // 閉じるボタン
-    closeBtn.addEventListener('click', closeModal);
-
-    // ESCキーで閉じる
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-});
-</script>
 
 
 
