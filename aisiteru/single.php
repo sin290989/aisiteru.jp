@@ -73,7 +73,6 @@
   transform: scale(0.9);
 }
 
-
 .fixed-footer .icon-item.chatgpt a,
 .fixed-footer .icon-item.gemini a,
 .fixed-footer .icon-item.copilot a,
