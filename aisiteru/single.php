@@ -1299,6 +1299,9 @@ jQuery(function($) {
     position: relative;
     display: inline-block;
     margin: 0;
+    border:1px solid #CCCCCC;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .output-image img {
