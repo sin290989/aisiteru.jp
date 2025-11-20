@@ -133,23 +133,12 @@ $(function(){
 </script>
 <div id="footer">
 <div class="inner">
-<div id="copy">Copyright © <?php echo date("Y"); ?> aisiteru All Rights Reserved.</div>
+<div id="copy">Copyright © <?php echo date("Y"); ?> aisiteru? All Rights Reserved.</div>
 <ul class="ft-menu">
-<li><a href="/">トップページ</a></li>
-<li><a href="/about">私たちのこと</a></li>
-<?php
-    if (is_front_page()) {
-        // トップページでのみ実行する処理
-        echo '<li><a href="#service">サービス</a></li>';
-    }else{
-        echo '<li><a href="https://aisiteru.jp/?view=service">サービス</a></li>';
-    }
-?>
-<li><a href="/basic">WEBのきほん</a></li>
-<li><a href="/tech">制作ブログ</a></li>
-<li><a href="/news">ニュース</a></li>
-<li><a href="/contact">お問合せ</a></li>
-<li><a href="/privacy-policy">プライバシー</a></li>
+<li><a href="/">HOME</a></li>
+<li><a href="/about">ABOUT</a></li>
+<li><a href="/contact">CONTACT</a></li>
+<li><a href="/privacy-policy">PRIVACY</a></li>
 </ul>
 </div>
 </div>
