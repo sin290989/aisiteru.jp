@@ -76,19 +76,7 @@
     z-index: 100;
     transition: all 0.6s ease; /* スムーズなアニメーション */
 }
-.map-bg{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top: -80px;
-    left:-100px;
-    z-index: -3;
-    opacity: 1;
-}
-.map-bg img {
-    width: 180%;
-    vertical-align: bottom;
-}
+
 .service-info{
     display: none;
 }
@@ -110,22 +98,10 @@
     width: 100%;
 } 
 
-.h-menu-inner > ul.menu1{
-    position: absolute;
-    left:50px;
-    top:-70px;
-}
-
-.h-menu-inner > ul.menu2{
-    position: absolute;
-    left:230px;
-    top:-70px;
-}
 .h-menu-inner > ul li{
     margin:0 0 15px 0;  
 }
 .h-menu-inner > ul a{
-    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     font-size:20px;
     line-height: 20px;
     color:#FFFFFF;
@@ -153,11 +129,7 @@
         margin: 0 0 20px 0;
 
     }
-    .company-profile-address{
-        font-size: 14px;
-        line-height: 14px;
-        margin: 0 0 10px 0;
-    }
+
 
     .company-profile-mail{
         font-size: 14px;
@@ -203,21 +175,7 @@
     height: 30px;
     transition: all 0.5s ease; /* スムーズなアニメーション */
     }
-    .map-bg{
-        position: absolute;
-        width: 900px;
-        height: 735px;
-        top: -90px;
-        left:auto;
-        left: -130px;
-        z-index: -3;
-        opacity: 1;
-    }
-    .map-bg img {
-        width: 900px;
-        height: 735px;
-        vertical-align: bottom;
-    }
+
 /*------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------*/
 .h-menu{
@@ -236,25 +194,11 @@
     width: 1000px;
     
 }
-.h-menu-inner > ul.menu1{
-    width: 250px;
-    position: absolute;
-    left:auto;
-    right:320px;
-    top:0;
-}
-.h-menu-inner > ul.menu2{
-    width: 250px;
-    position: absolute;
-    left:auto;
-    right:100px;
-    top:0;
-}
+
 .h-menu-inner > ul li{
     margin:0 0 20px 0;
 }
 .h-menu-inner > ul a{
-    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     font-size:28px;
     line-height: 28px;
     color:#FFFFFF;
@@ -281,11 +225,6 @@
         font-weight: bold;
         margin: 0 0 40px 0;
 
-    }
-    .company-profile-address{
-        font-size: 14px;
-        line-height: 14px;
-        margin: 0 0 15px 0;
     }
 
     .company-profile-mail{
@@ -407,37 +346,15 @@ $(document).ready(function () {
 
 <div class="h-menu">
 <div class="h-menu-inner">
-    <ul class="menu1">
-        <li><a href="/">HOME</a><div>トップページ</div></li>
-        <li><a href="/about">ABOUT</a><div>私たちのこと</div></li>
-        <?php
-            if (is_front_page()) {
-                // トップページでのみ実行する処理
-                echo '<li class="top-service-link"><a href="#service">SERVICE</a><div>サービス</div></li>';
-            }else{
-                echo '<li><a href="https://aisiteru.jp/?view=service">SERVICE</a><div>サービス</div></li>';
-            }
-        ?>
-        <li><a href="/contact">CONTACT</a><div>お問合せ</div></li>
-        <li><a href="/privacy-policy">PRIVACY</a><div>プライバシー</div></li>
-    </ul>
-
-    <ul class="menu2">
-        <li><a href="/basic">BASIC</a><div>WEBのきほん</div></li>
-        <li><a href="/tech">TECH</a><div>制作ブログ</div></li>
-        <li><a href="/news">NEWS</a><div>ニュース</div></li>
-    </ul>
-
 <div class="company-profile">
-<div class="company-profile-logo">aisiteru</div>
-<div class="company-profile-address">宮城県仙台市青葉区中央2-2-30 日興ビル4F</div>
-<div class="company-profile-mail">info@aisiteru.jp</div>
+<div class="company-profile-logo">AIシテル？</div>
+<div class="company-profile-mail">aisiteru.jp</div>
 aisiteru.jp では、複数のAIがそれぞれの個性・得意分野を活かしながら、同じテーマを独自の視点で執筆いたします。
 同じニュースでも、AIによって記事の切り取り方や価値判断が異なる。
 その違いを並べて読むことで、読者の皆様に「より立体的で、公平かつ多角的な理解」をお届けすることを目指しております。
 </div>
 
-<div class="map-bg"><img src="/wp/wp-content/themes/aisiteru/images/top/miyagi-map10-2.webp" alt="宮城県の地図"></div>
+
 
 </div>
 </div>
