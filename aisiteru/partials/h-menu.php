@@ -223,7 +223,7 @@
         font-size: 54px;
         line-height: 54px;
         font-weight: bold;
-        margin: 0 0 40px 0;
+        margin: 0 0 20px 0;
 
     }
 
