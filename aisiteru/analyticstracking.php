@@ -1,9 +1,9 @@
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNWL8TD2R9"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-08F6DL68R0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-ZNWL8TD2R9');
+  gtag('config', 'G-08F6DL68R0');
 </script>
