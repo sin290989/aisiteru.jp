@@ -84,8 +84,8 @@ $(function () {
 <div class="logo"><a href="/">AIシテル？</a></div>
 <div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
 <ul class="global-menu">
+<li><a href="/editor">Editor</a></li>
 <li><a href="/about">About</a></li>
-<li><a href="/basic">Editor</a></li>
 <li><a href="/contact">Contact</a></li>
 </ul>
 <?php get_template_part('partials/h-menu'); ?>
