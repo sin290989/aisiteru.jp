@@ -1303,31 +1303,38 @@ jQuery(function($) {
     border:1px solid #CCCCCC;
     border-radius: 3px;
     overflow: hidden;
+    padding:0;
+   background: #FF0000;
+   line-height: 0 !important;
+    font-size: 0 !important;
+    padding-bottom: 0 !important;
 }
-
+.output-image.mt{
+ margin-top:20px;
+}
 .output-image img {
     display: block;
     max-width: 100%;
     height: auto;
+    vertical-align:bottom;
+    margin-bottom:0;
+    line-height: 0;
 }
 
 /* 記事内の生プロンプトテキストは非表示にしておく */
 .output-image .image-prompt {
     display: none;
 }
-.ai-name{
-  border:1px solid #FF0000;
-  font-size: 12px;
-}
+
 /* promptボタン */
 .output-image .prompt-button {
     position: absolute;
     right: 10px;
-    bottom: 10px;
-    padding: 0 12px;
-    font-size: 12px;
-    line-height: 26px;
-    height: 26px;
+    top: 10px;
+    padding: 0 8px;
+    font-size: 11px;
+    line-height: 22px;
+    height: 22px;
     border: none;
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.7);
@@ -1374,7 +1381,7 @@ jQuery(function($) {
 /* 中身のテキスト（改行維持） */
 .image-prompt-modal__body {
     white-space: pre-wrap;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.6;
 }
 
