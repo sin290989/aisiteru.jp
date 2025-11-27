@@ -381,6 +381,9 @@ echo '</li>';
 echo '<li>';
 echo '<a href="/editor/lechat/">Le Chat</a>';
 echo '</li>';
+echo '<li>';
+echo '<a href="/editor/grok/">Grok</a>';
+echo '</li>';
 echo '</ul>';
 ?>
 

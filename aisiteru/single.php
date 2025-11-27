@@ -8,7 +8,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common103.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single42.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single43.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -78,7 +78,8 @@
 .fixed-footer .icon-item.claude a,
 .fixed-footer .icon-item.lechat a,
 .fixed-footer .icon-item.deepseek a,
-.fixed-footer .icon-item.perplexity a {
+.fixed-footer .icon-item.perplexity a,
+.fixed-footer .icon-item.grok a {
   display: block;
   width: 24px;
   height: 24px;
@@ -108,7 +109,9 @@
 .fixed-footer .icon-item.perplexity a {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
 }
-
+.fixed-footer .icon-item.grok a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+}
 .fixed-footer .icon-item.chatgpt.active,
 .fixed-footer .icon-item.gemini.active,
 .fixed-footer .icon-item.copilot.active,
@@ -116,13 +119,15 @@
 .fixed-footer .icon-item.lechat.active,
 .fixed-footer .icon-item.deepseek.active,
 .fixed-footer .icon-item.perplexity.active,
+.fixed-footer .icon-item.grok.active,
 .fixed-footer .icon-item.chatgpt:hover,
 .fixed-footer .icon-item.gemini:hover,
 .fixed-footer .icon-item.copilot:hover,
 .fixed-footer .icon-item.claude:hover,
 .fixed-footer .icon-item.lechat:hover,
 .fixed-footer .icon-item.deepseek:hover,
-.fixed-footer .icon-item.perplexity:hover {
+.fixed-footer .icon-item.perplexity:hover,
+.fixed-footer .icon-item.grok:hover {
   box-shadow: inset 0 0 0 1px #FF0000; /* 内側に2pxの線 */
 }
 
@@ -319,6 +324,9 @@ body #main .generated-article p.ai-info{
 .generated-article h3.perplexity{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
 }
+.generated-article h3.grok{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+}
 
 ul.ai-list {
   padding: 15px 20px;
@@ -363,6 +371,9 @@ ul.ai-list li.deepseek{
 }
 ul.ai-list li.perplexity{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
+}
+ul.ai-list li.grok{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
 
 
@@ -642,8 +653,9 @@ function display_ai_author_message() {
         'copilot'   => 'Copilot',
         'deepseek'  => 'DeepSeek',
         'gemini'    => 'Gemini',
-        'lechat'     => 'LeChat',
+        'lechat'    => 'LeChat',
         'perplexity'=> 'Perplexity',
+        'grok'      => 'Grok',
     );
     
     // 記事に設定されている全てのタグを取得
@@ -716,7 +728,8 @@ $exclude_slugs = array(
     'deepseek',
     'gemini',
     'lechat',
-    'perplexity'
+    'perplexity',
+    'grok'
 );
 
 if ( $post_tags ) :
@@ -812,7 +825,8 @@ the_post(); ?>
         'deepseek',
         'gemini',
         'lechat',
-        'perplexity'
+        'perplexity',
+        'grok'
     );
 
     // 記事のタグを取得
@@ -889,6 +903,15 @@ the_post(); ?>
         'bio'    => '情報の出典や位置づけを明確にしながら整理して紹介するスタイルです。検索者の視点を常に意識し、最短ルートで本質にたどり着けるように構成します。素早く精確に情報を導く、リサーチ特化型のエディタです。',
         'url'    => home_url('/editor/perplexity/'),
     ),
+
+    'grok' => array(
+      'name'   => 'Grok',
+      'title'  => 'リアルタイム時事AIエディタ',
+      'avatar' => '/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp',
+      'bio'    => 'X（旧Twitter）のリアルタイム情報を活用し、時事・トレンドを即座に解析して提示します。皮肉やユーモアを交えつつ、核心に踏み込む鋭い視点が特徴です。速報性と切れ味に特化した、時事型ジャーナリストAIエディタです。',
+      'url'    => home_url('/editor/grok/'),
+  ),
+
 );
 
     // 記事についているタグから、どのAIエディタか判定
@@ -953,7 +976,7 @@ AIごとの文章の“温度”や“違和感”をすくい取り、AIに足�
 
 <!-----------------------------------------------------------------------------------------------------> 
 <?php
-$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity');
+$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity','grok');
 $post_tags = get_the_tags();
 $has_ai_tag = false;
 

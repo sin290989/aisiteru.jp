@@ -9,7 +9,8 @@ $exclude_slugs = array(
     'deepseek',
     'gemini',
     'lechat',
-    'perplexity'
+    'perplexity',
+    'grok'
 );
 
 // すべてのタグを取得（表示順は必要に応じて変更可能）

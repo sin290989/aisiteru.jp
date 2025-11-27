@@ -449,6 +449,13 @@ body #post-head h1 {
   padding-left: 28px;
   background-position: left center;
 }
+.ai-author-info.ai-grok {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  background-position: left center;
+}
 /*------------------------------------------------------------*/
 
 /*------------------------------------------------------------*/
