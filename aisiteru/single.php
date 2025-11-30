@@ -377,6 +377,16 @@ ul.ai-list li.grok{
 }
 
 
+.ai-generated-mini{
+  font-size:13px;
+  background:#f7f8f8;
+  padding:10px;
+  line-height: 13px;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
+
 /* -----------------------------------------
    PC レイアウト（680px 以上）
    ----------------------------------------- */
