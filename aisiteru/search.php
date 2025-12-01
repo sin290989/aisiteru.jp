@@ -1,23 +1,7 @@
-<?php
-try {
-if($_SERVER["HTTP_HOST"] == 'datena.net'){
-	$pdo = new PDO('mysql:host=localhost;dbname=sin290989_datenadb2;charset=utf8','sin290989_datena','Monmon2909');
-}elseif($_SERVER["HTTP_HOST"] == 'onara.net'){
-	$pdo = new PDO('mysql:host=mysql017.phy.heteml.lan;dbname=_onara_db;charset=utf8','_onara_db','nndayone89');
-}
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-}catch (PDOException $e) {
-exit('データベース接続失敗。'.$e->getMessage());
-}
-
-$spl = 'SELECT * FROM `quiz`';
-$stmt = $pdo->query($spl);
-$row = $stmt->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<?php get_template_part("analyticstracking"); ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
