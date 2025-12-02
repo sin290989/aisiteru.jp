@@ -76,6 +76,25 @@ ul.related-posts li:nth-child(7){
 ul.related-posts li:nth-child(8){
     top:0;
     left: 1630px;
+}
+
+ul.related-posts li:nth-child(9){
+    top:0;
+    left: 1860px;
+}
+    
+ul.related-posts li:nth-child(10){
+    top:0;
+    left: 2090px;
+}    
+ 
+ul.related-posts li:nth-child(11){
+    top:0;
+    left: 2320px;
+} 
+ul.related-posts li:nth-child(12){
+    top:0;
+    left: 2550px;
     padding-right: 30px;
 } 
 
@@ -117,7 +136,7 @@ h2#related::before{
 @media only screen and (min-width: 680px) {
 ul.related-posts{
     width: 750px;
-    height: 440px;
+    height: 660px;
 }
 ul.related-posts li{
 	width:174px;
@@ -171,6 +190,27 @@ ul.related-posts li:nth-child(8){
     left: 576px;
     padding-right: 0;
 }
+
+
+ul.related-posts li:nth-child(9){
+    top:460px;
+    left: 0px;
+}   
+    
+ul.related-posts li:nth-child(10){
+    top:460px;
+    left: 192px;
+}    
+ 
+ul.related-posts li:nth-child(11){
+    top:460px;
+    left: 384px;
+} 
+ul.related-posts li:nth-child(12){
+    top:460px;
+    left: 576px;
+    padding-right: 0;
+}
 ul.related-posts li .related-posts-thumb{
     width:174px;
     height: 116px;
@@ -216,30 +256,66 @@ $('.related-posts li').hover(function(){
 
 <h2 id="related">関連記事</h2>
 <?php
-// 現在の記事のカテゴリを取得
+$max_posts = 12; // 表示件数
+
+// 現在の記事のカテゴリ取得
 $categories = get_the_category();
-if ( $categories ) {
-    $cat_ids = wp_list_pluck( $categories, 'term_id' ); // 複数カテゴリ対応
+$cat_ids = $categories ? wp_list_pluck( $categories, 'term_id' ) : array();
+
+// 最終的に入れる配列
+$related_posts = array();
+
+// ------------------------
+// ① 同カテゴリ × index タグ
+// ------------------------
+$args1 = array(
+    'posts_per_page' => $max_posts,
+    'orderby'        => 'rand',
+    'post__not_in'   => array( get_the_ID() ),
+    'category__in'   => $cat_ids,
+    'tag'            => 'index',
+);
+$posts1 = get_posts($args1);
+$related_posts = $posts1;
+
+// ------------------------
+// ② index タグのランダム追加
+// ------------------------
+if (count($related_posts) < $max_posts) {
+    $args2 = array(
+        'posts_per_page' => $max_posts - count($related_posts),
+        'orderby'        => 'rand',
+        'post__not_in'   => array_merge(array(get_the_ID()), wp_list_pluck($related_posts, 'ID')),
+        'tag'            => 'index',
+    );
+    $posts2 = get_posts($args2);
+    $related_posts = array_merge($related_posts, $posts2);
 }
 
-$arg = array(
-    'posts_per_page' => 8,               // 表示件数
-    'orderby'        => 'rand',
-    'order'          => 'DESC',
-    'post__not_in'   => array( get_the_ID() ), // 自分の記事を除外
-    'category__in'   => $cat_ids,              // 現在と同じカテゴリ
-    'tag'            => 'index',               //  ← ★ indexタグが付いているものだけ
-);
+// ------------------------
+// ③ すべての投稿から補完
+// ------------------------
+if (count($related_posts) < $max_posts) {
+    $args3 = array(
+        'posts_per_page' => $max_posts - count($related_posts),
+        'orderby'        => 'rand',
+        'post__not_in'   => array_merge(array(get_the_ID()), wp_list_pluck($related_posts, 'ID')),
+    );
+    $posts3 = get_posts($args3);
+    $related_posts = array_merge($related_posts, $posts3);
+}
 
-$posts = get_posts( $arg );
-if ( $posts ):
+// ------------------------
+// 表示
+// ------------------------
+if ($related_posts):
 ?>
-
 <ul class="related-posts">
-<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
     <li>
         <a href="<?php the_permalink(); ?>">
             <div class="related-posts-thumb"><?php the_post_thumbnail('single-thumbnails'); ?></div>
+
             <div class="item-time">
                 <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
                     <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>">
@@ -251,15 +327,16 @@ if ( $posts ):
                     </time>
                 <?php endif; ?>
             </div>
+
             <div class="related-posts-title"><h3><?php the_title(); ?></h3></div>
         </a>
     </li>
 <?php endforeach; ?>
 </ul>
+<?php endif;
 
-<?php
-endif;
 wp_reset_postdata();
 ?>
+
 
 <!------------------------------------------------------------------------------------------------------------------------>   

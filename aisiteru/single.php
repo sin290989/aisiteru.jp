@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common103.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single43.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single45.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -29,7 +29,7 @@
   left: 0;
   width: 100%;
   z-index: 9999;
-  background: #1433d6;
+  background: rgba(20, 51, 214, 0.9);
   padding: 10px 0 12px 0;
   padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
   height: 85px;
@@ -406,17 +406,7 @@ ul.ai-list li.grok{
   .fixed-footer .icon-item {
     padding: 3px;
   }
-  .prompt-index-buttons-wrapper {
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-
-  .view-prompt-btn {
-    width: auto;
-  }
-  .view-index-btn {
-    width: auto;
-  }
+  
 
 
   /*post_author
@@ -537,6 +527,11 @@ body #post-single .ai-written ul li a .ai-written-content-date{
         transition-duration: 0.3s;
     }
 
+
+
+    
+  
+
 }
 </style>
 
@@ -588,209 +583,11 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
 <div id="wapper">
 <div id="contents">
 
-<div id="post-head">
-<div class="inner">
-<div class="post-info">
-
-    <div class="post-meta-top">
-    <div class="post-cat">
-        <span>
-        <?php
-        // 記事に設定されているカテゴリー情報を取得
-        $categories = get_the_category();
-
-        // カテゴリーが設定されていることを確認し、あれば処理を実行
-        if (!empty($categories)) {
-            // 最初のカテゴリー（主要カテゴリー）のみを使用
-            $main_category = $categories[0]; 
-            
-            $cat_name = $main_category->name;
-            $cat_link = esc_url(get_category_link($main_category->term_id));
-            
-            // カテゴリー名とリンクを出力
-            echo sprintf(
-                "<a href='%s'>%s</a>", 
-                $cat_link, 
-                esc_html($cat_name)
-            );
-        }
-        ?>
-        </span>
-    </div>
-
-    <div class="post-dates">
-    <?php 
-    // 公開日の取得
-    $pub_date = get_the_date('Y.n.j');
-    $pub_date_html = get_the_date("Y-m-d H:i:s");
-
-    // 更新日の取得
-    $mod_date = get_the_modified_date('Y.n.j');
-    $mod_date_html = get_the_modified_date("Y-m-d H:i:s");
-    
-    // 公開日と更新日が異なるかチェック
-    if ( get_the_time('U') !== get_the_modified_time('U') ) {
-        // 更新されている場合：公開日と更新日の両方を表示
-    ?>
-        <time class="entry-date published" datetime="<?php echo $pub_date_html ?>">公開日:<?php echo $pub_date ?></time>
-        
-        <span class="separator mobile-hide-date"> / </span>
-        
-        <time class="updated mobile-hide-date" datetime="<?php echo $mod_date_html ?>">更新日:<?php echo $mod_date ?></time>
-    <?php
-    } else {
-        // 更新されていない場合：公開日のみを表示
-    ?>
-        <time class="entry-date published" datetime="<?php echo $pub_date_html ?>">公開日:<?php echo $pub_date ?></time>
-    <?php
-    }
-    ?>
-</div>
-
-</div>
-
-<h1><?php the_title(); ?></h1>
-
-<?php
-/**
- * 記事に設定されているAI名タグをチェックし、メッセージを出力する関数
- * ※本来は functions.php に置くのが理想ですが、ひとまずここに置いています。
- */
-function display_ai_author_message() {
-    // 比較に使用するAI名とスラッグの配列を定義
-    $ai_list = array(
-        'chatgpt'   => 'ChatGPT',
-        'claude'    => 'Claude',
-        'copilot'   => 'Copilot',
-        'deepseek'  => 'DeepSeek',
-        'gemini'    => 'Gemini',
-        'lechat'    => 'LeChat',
-        'perplexity'=> 'Perplexity',
-        'grok'      => 'Grok',
-    );
-    
-    // 記事に設定されている全てのタグを取得
-    $post_tags = get_the_tags();
-    
-    if ($post_tags) {
-        foreach ($post_tags as $tag) {
-            $tag_slug = $tag->slug;
-            
-            // タグのスラッグが定義されたAIリストに含まれているかチェック
-            if (array_key_exists($tag_slug, $ai_list)) {
-                $ai_name = $ai_list[$tag_slug];
-                
-                // AI名に応じて、色や背景を切り替えるためのクラス名も出力 (デザイン用)
-                echo '<div class="ai-author-info ai-' . esc_attr($tag_slug) . '">';
-                
-                // アイコンを削除し、テキストメッセージのみを出力
-                echo '<p>この記事を担当したAIは' . esc_html($ai_name) . 'です。</p>';
-                
-                echo '</div>';
-                
-                // AI名タグは通常一つなので、見つかったらループを抜ける
-                break;
-            }
-        }
-    }
-}
-?>
-
-<?php if ( ! has_tag('index') ) : ?>
-
-    <?php display_ai_author_message(); ?>
-
-    <?php
-    // カスタムフィールドからインデックス記事のURLとタイトルを取得
-    $index_url   = get_post_meta(get_the_ID(), 'index_url', true); 
-    $index_title = get_post_meta(get_the_ID(), 'index_title', true); 
-    ?>
-
-    <div class="prompt-index-buttons-wrapper">
-        
-        <div class="view-prompt-btn button-base">
-            <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
-        </div>
-        
-        <?php if ($index_url && $index_title) : ?>
-            <a href="<?php echo esc_url($index_url); ?>" class="view-index-btn button-base">
-                <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
-            </a>
-        <?php endif; ?>
-        
-    </div>
-
-<?php endif; ?>
-
-
-
-
-
-<?php
-// 記事に付いているタグを取得
-$post_tags = get_the_tags();
-
-// 除外したいタグスラッグ一覧
-$exclude_slugs = array(
-    'index',
-    'chatgpt',
-    'claude',
-    'copilot',
-    'deepseek',
-    'gemini',
-    'lechat',
-    'perplexity',
-    'grok'
-);
-
-if ( $post_tags ) :
-    // フィルタ後に出力するタグがあるか確認するためのフラグ
-    $has_visible_tag = false;
-    // まず「表示対象のタグがあるか」をチェック
-    foreach ( $post_tags as $tag ) {
-        if ( ! in_array( $tag->slug, $exclude_slugs, true ) ) {
-            $has_visible_tag = true;
-            break;
-        }
-    }
-    // 表示対象がある場合のみ UL を出力
-    if ( $has_visible_tag ) {
-        echo '<ul class="tag-list">';
-        foreach ( $post_tags as $tag ) {
-
-            // 除外タグは表示しない
-            if ( in_array( $tag->slug, $exclude_slugs, true ) ) {
-                continue;
-            }
-            // 通常タグのみ表示
-            echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
-        }
-        echo '</ul>';
-    }
-
-endif;
-?>
-<div style="clear: both;"></div>
-
-
-
-</div>
-
-
-    
-<div class="post_thumbnail">
-<?php if (has_post_thumbnail()) : ?>
-    <?php the_post_thumbnail('single-thumbnails'); ?>
+<?php if ( has_tag('index') ) : ?>
+  <?php get_template_part("partials/post-head_index") ?>
 <?php else : ?>
-    <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+  <?php get_template_part("partials/post-head") ?>
 <?php endif ; ?>
-</div>
-
-
-
-</div>
-</div>   
-
 
 <div id="main">
 
@@ -1338,14 +1135,16 @@ jQuery(function($) {
     border-radius: 3px;
     overflow: hidden;
     padding:0;
-   background: #FF0000;
-   line-height: 0 !important;
+    background: #FF0000;
+    line-height: 0 !important;
     font-size: 0 !important;
     padding-bottom: 0 !important;
 }
-.output-image.mt{
- margin-top:20px;
+
+.output-image.mt {
+    margin-top:20px;
 }
+
 .output-image img {
     display: block;
     max-width: 100%;
@@ -1355,7 +1154,7 @@ jQuery(function($) {
     line-height: 0;
 }
 
-/* 記事内の生プロンプトテキストは非表示にしておく */
+/* 記事内の生プロンプトテキストは非表示 */
 .output-image .image-prompt {
     display: none;
 }
@@ -1382,37 +1181,49 @@ jQuery(function($) {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    display: none;  /* 初期状態は非表示 */
+    display: none;
 }
 
-/* モーダルが開いているときだけ表示＆中央寄せ */
+/* モーダル表示時 */
 .image-prompt-modal.is-open {
     display: flex;
-    justify-content: center; /* 横中央 */
-    align-items: center;     /* 縦中央 */
+    justify-content: center;
+    align-items: center;
 }
 
+/* ここを修正：フッター85pxぶん黒幕を避ける */
 .image-prompt-modal__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    bottom: 85px; /* ← 追加：フッター高さ分カット */
+    background: rgba(0, 0, 0, 0.9);
 }
 
 /* モーダル本体 */
 .image-prompt-modal__content {
     position: relative;
     max-width: 640px;
-    max-height: 80vh;      /* 縦方向の上限 */
-    margin: 0 16px;        /* 画面端との余白（左右） */
+
+    /* ここを修正：フッターぶん本体を短くする */
+    max-height: calc(100dvh - 85px - 30px);
+
+    margin: 0 16px;
     padding: 20px 24px;
     background: #111;
     color: #fff;
-    overflow-y: auto;      /* はみ出したらスクロール */
+    overflow-y: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     border-radius: 4px;
 }
 
-/* 中身のテキスト（改行維持） */
+/* dvh 非対応ブラウザフォールバック */
+@supports not (height: 100dvh) {
+    .image-prompt-modal__content {
+        max-height: calc(100vh - 85px - 30px);
+    }
+}
+
+/* モーダル内テキスト */
 .image-prompt-modal__body {
     white-space: pre-wrap;
     font-size: 12px;
@@ -1431,32 +1242,35 @@ jQuery(function($) {
     cursor: pointer;
 }
 
-/* スマホ向け微調整 */
+/* スマホ調整 */
 @media (max-width: 768px) {
     .image-prompt-modal__content {
         width: 90%;
-        max-height: 80vh;
+        max-height: calc(100dvh - 85px - 30px);
         padding: 16px;
     }
 }
 
+/* AI名 */
 .prompt-ai-name {
     font-size: 12px;
     margin-bottom: 10px;
     opacity: 0.8;
 }
 
+/* プロンプト本文 */
 .prompt-ai-text {
     font-size: 14px;
     line-height: 1.6;
     white-space: pre-wrap;
 }
 
-.zu{
+.zu {
   font-size: 12px;
   line-height: 12px;
 }
 </style>
+
 
 <div class="image-prompt-modal" id="image-prompt-modal">
   <div class="image-prompt-modal__overlay"></div>
@@ -1473,9 +1287,10 @@ jQuery(function($) {
 
 </div>
 <div id="side">
-<?php dynamic_sidebar('sidebar-1'); ?>
 <?php get_template_part("partials/cat") ?>
-<?php get_template_part("partials/tag") ?>
+<?php dynamic_sidebar('sidebar-1'); ?>
+
+<?php //get_template_part("partials/tag") ?>
 </div>
 <div style="clear:both;"></div>
 </div>

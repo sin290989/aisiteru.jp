@@ -128,7 +128,7 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 <div id="side">
 <?php dynamic_sidebar('sidebar-1'); ?>
 <?php get_template_part("partials/cat") ?>
-<?php get_template_part("partials/tag") ?>  
+<?php //get_template_part("partials/tag") ?>  
 </div>
 <div style="clear:both"></div>
 

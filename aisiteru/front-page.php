@@ -40,7 +40,9 @@
 <div id="main">
 <?php
 // 現在のページ番号
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+$paged = get_query_var('paged') ? get_query_var('paged') : get_query_var('page');
+$paged = $paged ? $paged : 1;
+
 
 // 「index」タグの term を取得（スラッグが index のタグ）
 $index_tag    = get_term_by( 'slug', 'index', 'post_tag' );
@@ -130,7 +132,7 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 <div id="side">
 <?php dynamic_sidebar('sidebar-1'); ?>
 <?php get_template_part("partials/cat"); ?>
-<?php get_template_part("partials/tag"); ?>
+<?php //get_template_part("partials/tag"); ?>
 </div>
 
 <div style="clear:both"></div>
