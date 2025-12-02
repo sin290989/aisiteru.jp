@@ -1135,7 +1135,7 @@ jQuery(function($) {
     border-radius: 3px;
     overflow: hidden;
     padding:0;
-    background: #FF0000;
+    background: #031323;
     line-height: 0 !important;
     font-size: 0 !important;
     padding-bottom: 0 !important;
