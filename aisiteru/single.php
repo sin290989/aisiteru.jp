@@ -610,9 +610,10 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
 the_post(); ?>
 <?php the_content(); ?>
 <?php endwhile; endif; ?>
-<div class="ai-generated-mini">
-※ 本記事はAIによる生成・編集サポートを含みます。
-</div>
+
+  <?php if ( ! has_tag('index') ) : ?>
+    <div class="ai-generated-mini">※ 本記事はAIによる生成・編集サポートを含みます。</div>
+  <?php endif ; ?>
 </div>
 <!-----------------------------------------------------------------------------------------------------> 
 
@@ -1300,104 +1301,98 @@ jQuery(function($) {
 <?php wp_footer(); ?>
 
 
-<?php if ( !wp_is_mobile() ) : ?>
 <script type="text/javascript">
-$(function () {
-    $('.ai-written li').hover(function(){
-        $(".ai-written-content-title",this).css('color','#0069ff');
-    }, function(){
-        $(".ai-written-content-title",this).css('color','#46526f');
-    });  
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-$(function () {
-    // 必要な要素をキャッシュ
-    const $postSingle = $("#post-single");
-    const $snsLinkUl = $(".sns-link ul");
+    // PC（680px以上）だけ実行
+    if (window.innerWidth >= 680) {
 
-    // 要素の位置や高さを事前に計算
-    const mainTop = $postSingle.offset().top;
-    const postSingleBottom = mainTop + $postSingle.height();
-    const snsLinkUlHeight = $snsLinkUl.height();
+        // -------------------
+        // AI Written Hover
+        // -------------------
+        $('.ai-written li').hover(function(){
+            $(".ai-written-content-title",this).css('color','#0069ff');
+        }, function(){
+            $(".ai-written-content-title",this).css('color','#46526f');
+        });  
 
-    $(window).on("scroll", function () {
-        const scroll = $(window).scrollTop();
 
-        if (scroll > mainTop) {
-            const ulTop = scroll - mainTop + 120;
+        // -------------------
+        // SNSリンクのスクロール追従（PCのみ）
+        // -------------------
+        const $postSingle = $("#post-single");
+        const $snsLinkUl = $(".sns-link ul");
 
-            // SNSリンクが記事の下に突き抜けないよう制限
-            if (scroll < postSingleBottom - snsLinkUlHeight) {
-                $snsLinkUl.css("top", ulTop);
-            }
-        } else {
-            // 記事の上部より上にスクロールした場合
-            $snsLinkUl.css("top", 0);
+        if ($postSingle.length && $snsLinkUl.length) {
+
+            const mainTop = $postSingle.offset().top;
+            const postSingleBottom = mainTop + $postSingle.height();
+            const snsLinkUlHeight = $snsLinkUl.height();
+
+            $(window).on("scroll", function () {
+                const scroll = $(window).scrollTop();
+
+                if (scroll > mainTop) {
+                    const ulTop = scroll - mainTop + 120;
+
+                    // 下に突き抜けないよう制御
+                    if (scroll < postSingleBottom - snsLinkUlHeight) {
+                        $snsLinkUl.css("top", ulTop);
+                    }
+                } else {
+                    $snsLinkUl.css("top", 0);
+                }
+            });
         }
-    });
-});
 
-$(function(){   
-    $('.sns-url').click(function(){
-        const url = $(this).data('url');
-        navigator.clipboard.writeText(url);
 
-        $(".sns4TipOk").css("opacity","1");
-        $(".sns4TipOk").css("left","45px");
+        // -------------------
+        // URLコピー
+        // -------------------
+        $('.sns-url').click(function(){
+            const url = $(this).data('url');
+            navigator.clipboard.writeText(url);
 
-        $(".sns4Tip").css("opacity",0);
-        $(".sns4Tip").css("left","20px");
+            $(".sns4TipOk").css({opacity:1, left:"45px"});
+            $(".sns4Tip").css({opacity:0, left:"20px"});
 
-        setTimeout(function(){
-            $(".sns4TipOk").css("opacity",0);
-            $(".sns4TipOk").css("left","20px");
-        },1500);
-    });
-});
-    
-$(function(){
-    $('li.sns-url').hover(function(){
-        $(".sns4Tip").css("opacity",1);
-        $(".sns4Tip").css("left","45px");
-    }, function(){
-        $(".sns4Tip").css("opacity",0);
-        $(".sns4Tip").css("left","20px");
-    });
-});
+            setTimeout(function(){
+                $(".sns4TipOk").css({opacity:0, left:"20px"});
+            },1500);
+        });
 
-$(function(){
-    $('.sns-line').hover(function(){
-        $(".sns3Tip").css("opacity",1);
-        $(".sns3Tip").css("left","45px");
-    }, function(){
-        $(".sns3Tip").css("opacity",0);
-        $(".sns3Tip").css("left","20px");
-    });
-});
-    
-$(function(){
-    $('.sns-fb').hover(function(){
-        $(".sns2Tip").css("opacity",1);
-        $(".sns2Tip").css("left","45px");
-    }, function(){
-        $(".sns2Tip").css("opacity",0);
-        $(".sns2Tip").css("left","20px");
-    });
+        // -------------------
+        // 各SNS hover（PCのみ）
+        // -------------------
+        $('li.sns-url').hover(function(){
+            $(".sns4Tip").css({opacity:1, left:"45px"});
+        }, function(){
+            $(".sns4Tip").css({opacity:0, left:"20px"});
+        });
 
-}); 
-    
-$(function(){
-    $('.sns-x').hover(function(){
-        $(".sns1Tip").css("opacity",1);
-        $(".sns1Tip").css("left","45px");
-    }, function(){
-        $(".sns1Tip").css("opacity",0);
-        $(".sns1Tip").css("left","20px");
-    });
+        $('.sns-line').hover(function(){
+            $(".sns3Tip").css({opacity:1, left:"45px"});
+        }, function(){
+            $(".sns3Tip").css({opacity:0, left:"20px"});
+        });
+
+        $('.sns-fb').hover(function(){
+            $(".sns2Tip").css({opacity:1, left:"45px"});
+        }, function(){
+            $(".sns2Tip").css({opacity:0, left:"20px"});
+        });
+
+        $('.sns-x').hover(function(){
+            $(".sns1Tip").css({opacity:1, left:"45px"});
+        }, function(){
+            $(".sns1Tip").css({opacity:0, left:"20px"});
+        });
+
+    } // ← PC判定ここまで
+  
 });
 </script>
-    
-<?php endif; ?>
+
 
 
 
