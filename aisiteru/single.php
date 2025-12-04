@@ -18,20 +18,24 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-
+  #post-single.ai-contents ol,
   #post-single.ai-contents ul{
     background-color: #f7f8f8;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 3px;
     font-size: 14px;
+    margin: 20px 0 0 0;
   }
+   #post-single.ai-contents ol li,
   #post-single.ai-contents ul li{
-    border-bottom:1px solid #CCCCCC;
-    padding: 15px 0;
+    border-bottom:1px solid #eeeeee;
+    padding: 10px 0;
   }
+  #post-single.ai-contents ol li:first-child,
   #post-single.ai-contents ul li:first-child{
     padding-top: 0;
   }
+  #post-single.ai-contents ol li:last-child,
   #post-single.ai-contents ul li:last-child{
     padding-bottom: 0;
     border-bottom:none;
