@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common103.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single45.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single47.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -19,7 +19,281 @@
  
 <style type="text/css">
 
+  #post-single.ai-contents ul{
+    background-color: #f7f8f8;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  #post-single.ai-contents ul li{
+    border-bottom:1px solid #CCCCCC;
+    padding: 15px 0;
+  }
+  #post-single.ai-contents ul li:first-child{
+    padding-top: 0;
+  }
+  #post-single.ai-contents ul li:last-child{
+    padding-bottom: 0;
+    border-bottom:none;
+  }
 
+@media only screen and (min-width: 680px) {
+
+
+}
+</style>
+
+
+</head>
+<body>
+<?php get_template_part('partials/header'); ?>
+<div id="pan">
+<?php
+// 記事が属するカテゴリ情報を取得
+$cat = get_the_category();
+$main_cat = $cat[0]; 
+$cat_link = get_category_link($main_cat->cat_ID);
+
+// カスタムフィールドからインデックス記事のURLとタイトルを取得
+$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
+$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
+?>
+<div class="inner">
+    
+    <a href="/"><span class="home">ホーム</span></a> 
+    <span class="separator"> > </span>
+    
+    <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($main_cat->name); ?></a>
+    
+    <?php 
+    // インデックス情報がある場合のみ、階層を追加
+    if ($index_url && $index_title) {
+        // 3. インデックス投稿
+        echo '<span class="separator"> > </span>';
+        echo '<a href="' . esc_url($index_url) . '">' . esc_html($index_title) . '</a>';
+    }
+    ?>
+    
+    <span class="separator"> > </span>
+    <span class="now"><?php the_title(); ?></span>
+    
+</div>
+</div>
+
+
+<div id="wapper">
+<div id="contents">
+
+<?php if ( has_tag('index') ) : ?>
+  <?php get_template_part("partials/post-head_index") ?>
+<?php else : ?>
+  <?php get_template_part("partials/post-head") ?>
+<?php endif ; ?>
+
+<div id="main">
+
+<!-----------------------------------------------------------------------------------------------------> 
+<style type="text/css">
+.sns-link {
+  position: relative;
+}
+.sns-link ul {
+  width: 220px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: -70px;
+}
+.sns-link ul li {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  float: left;
+  margin: 0 20px 0 0;
+}
+.sns-link ul li:last-child {
+  margin: 0;
+}
+li.sns-x a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/x.png");
+  background-size: 48% auto;
+}
+li.sns-fb a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/fb.png");
+  background-size: 55% auto;
+}
+li.sns-line a {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/line.png");
+  background-size: 55% auto;
+}
+li.sns-url {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/copy.png");
+  background-size: 50% auto;
+  cursor: pointer;
+}
+.snsInner {
+  position: relative;
+}
+li.sns-x a,
+li.sns-fb a,
+li.sns-line a,
+li.sns-url {
+  background-color: #031b4e;
+  transition-duration: 0.5s;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.sns4TipOk,
+.sns4Tip,
+.sns3Tip,
+.sns2Tip,
+.sns1Tip {
+  display: none;
+}
+
+@media only screen and (min-width: 680px) {
+  .sns-link ul {
+    width: 25px;
+    top: 0;
+    left: -55px;
+    margin: 0;
+  }
+  .sns-link ul li {
+    position: relative;
+    float: none;
+    margin: 0 0 20px 0;
+  }
+
+  li.sns-x a:hover,
+  li.sns-fb a:hover,
+  li.sns-line a:hover,
+  li.sns-url:hover {
+    background-color: #0069ff;
+  }
+  .sns4TipOk,
+  .sns4Tip,
+  .sns3Tip,
+  .sns2Tip,
+  .sns1Tip {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0;
+    transition-duration: 0.5s;
+    top: -30px;
+    left: 30px;
+  }
+  .sns4TipOk {
+    top: 10px;
+    width: 110px;
+  }
+  .sns4Tip {
+    top: 10px;
+    width: 90px;
+  }
+  .sns3Tip {
+    width: 90px;
+  }
+  .sns2Tip {
+    width: 115px;
+  }
+  .sns1Tip {
+    width: 65px;
+  }
+}
+</style>
+<div class="sns-link">
+<ul>
+<li class="sns-x"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&hashtags=aisiteru" target="_bkank"></a><div class="snsInner"><div class="sns1Tip">Xで共有</div></div></li>
+<li class="sns-fb"><a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns2Tip">Facebookで共有</div></div></li>
+<li class="sns-line pc"><a href="https://social-plugins.line.me/lineit/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns3Tip">LINEで共有</div></div></li>
+<li class="sns-line sp"><a href="https://line.me/R/share?text=<?php the_title(); ?><?php the_permalink(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns3Tip">LINEで共有</div></div></li>
+<li class="sns-url" data-url="<?php the_permalink(); ?>"><div class="snsInner"><div class="sns4TipOk">コピーしました！</div><div class="sns4Tip">URLをコピー</div></div></li>
+</ul>
+</div>
+<!-----------------------------------------------------------------------------------------------------> 
+
+
+<!----------------------------------------------------------------------------------------------------->
+<style type="text/css">
+.common-prompt{
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 6px;
+    font-size: 12px;
+    padding: 20px 25px;
+    line-height: 18px;
+}
+/*※ 本記事はAIによる生成・編集サポートを含みます。<*/
+.ai-generated-mini{
+  font-size:13px;
+  background:#f7f8f8;
+  padding:10px;
+  line-height: 13px;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
+/*冒頭のリスト
+================================================================================================*/
+ul.ai-list {
+  padding: 15px 20px;
+  border:1px solid #eeeeee;
+  border-radius: 3px;
+
+}
+ul.ai-list li{
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  padding-left:30px;
+  font-weight: 700;
+  background-position: left center;
+  margin-bottom: 5px;
+}
+
+ul.ai-list li span{
+  font-size: 11px;
+  color: #AAAAAA;
+  font-weight: 500;
+}
+ul.ai-list li:last-child{
+  margin-bottom: 0;
+}
+ul.ai-list li.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
+}
+ul.ai-list li.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
+}
+ul.ai-list li.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
+}
+ul.ai-list li.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
+}
+ul.ai-list li.lechat{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
+}
+ul.ai-list li.deepseek{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
+}
+ul.ai-list li.perplexity{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
+}
+ul.ai-list li.grok{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+}
 
 /*フッター固定
 ================================================================================================*/
@@ -133,8 +407,222 @@
 }
 
 
-/*post_author
+/*生成された記事
 ================================================================================================*/
+body #main .generated-article h3{
+background-size: 50px auto;
+background-repeat: no-repeat;
+height:50px;
+padding-left:60px;
+background-color: transparent;
+margin-bottom: 0;
+padding-bottom: 0;
+padding-top: 5px;
+}
+body #main .generated-article h3 span{
+  display: block;
+  font-size: 11px;
+  color: #AAAAAA;
+}
+
+body #main .generated-article p.ai-info{
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 13px;
+  line-height: 21px;
+}
+.generated-article h3.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
+}
+.generated-article h3.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
+}
+.generated-article h3.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
+}
+.generated-article h3.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
+}
+.generated-article h3.lechat{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
+}
+.generated-article h3.deepseek{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
+}
+.generated-article h3.perplexity{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
+}
+.generated-article h3.grok{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+}
+
+/*合わせて読みたい
+================================================================================================*/
+#post-single .ai-written a[target="_blank"] {
+	background-image:none;
+}
+
+#post-single .ai-written ul {
+	border:1px solid #eeeeee;
+	border-radius: 0px 0px 3px 3px;
+}
+
+#post-single .ai-written .ai-written-title {
+	background-color:#031b4e;
+	padding:10px;
+	font-size:11px;
+	line-height:12px;
+	color:#ffffff;
+	border-radius: 3px 3px 0px 0px;
+	background-image:url("/wp/wp-content/themes/east/images/icon/link_bl.png");
+	background-repeat:no-repeat;
+	background-size:24px auto;
+	padding-left:32px;
+	background-position:5px center;
+}
+
+#post-single .ai-written ul li a{
+	width:100%;
+	display:block;
+	box-sizing: border-box;
+	padding-left:10px;
+	padding-right:10px;
+	color:#333;
+}
+#post-single .ai-written ul li .ai-written-wap{
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:1px solid #eeeeee;
+}
+#post-single .ai-written ul li:last-child .ai-written-wap{
+	border-bottom:none;
+	padding-bottom:10px;
+}
+#post-single .ai-written ul li .ai-written-img{
+	width:15%;
+	float:left;
+    border-radius: 3px;
+    overflow: hidden;
+}
+#post-single .ai-written ul li .ai-written-img img {
+	width:100%;
+	height:35px;
+	object-fit: cover;
+	margin-right:17px;
+}
+#post-single .ai-written ul li .ai-written-content{
+	display:block;
+	width:80%;
+	float:right;
+}
+body #post-single .ai-written ul li a .ai-written-content-title{
+	font-weight:bold;
+	font-size:12px;
+	line-height:16px;
+}
+
+
+@media only screen and (min-width: 680px) {
+  /*フッター固定
+================================================================================================*/
+ .fixed-footer {
+    padding: 15px 0;
+    height: 85px;
+  }
+  .fixed-footer .footer-text {
+    margin-bottom: 12px;
+  }
+  .fixed-footer .icon-nav {
+    gap: 12px;
+  }
+  .fixed-footer .icon-item {
+    padding: 3px;
+  }
+
+    /*合わせて読みたい
+================================================================================================*/
+#post-single .ai-written .ai-written-title {
+	font-size:14px;
+}
+#post-single .ai-written ul li a{
+	width:100%;
+	display:block;
+	box-sizing: border-box;
+	padding-left:15px;
+	padding-right:15px;
+	color:#333;
+}
+#post-single .ai-written ul li .ai-written-wap{
+	padding-top:15px;
+	padding-bottom:15px;
+	border-bottom:1px solid #eeeeee;
+}
+#post-single .ai-written ul li:last-child .ai-written-wap{
+	border-bottom:none;
+	padding-bottom:15px;
+}
+#post-single .ai-written ul li .ai-written-img{
+	width:200px;
+}
+
+#post-single .ai-written ul li .ai-written-img img {
+	width:100%;
+	height:60px;
+	object-fit: cover;
+	vertical-align:bottom;
+}
+
+#post-single .ai-written ul li .ai-written-content{
+	width:380px;
+	float:right;
+  padding-top: 10px;
+}
+
+body #post-single .ai-written ul li a .ai-written-content-title{
+	line-height:22px;
+	font-size:16px;
+}
+
+body #post-single .ai-written ul li a .ai-written-content-date{
+	font-size:12px;
+	background-image:url(/wp/wp-content/themes/east/images/icon/time_bl.png);
+	background-repeat:no-repeat;
+	background-size:12px auto;
+	padding-left:17px;
+	background-position:0px 0px;
+	line-height:20px;
+	margin-top:10px;
+}
+    
+    .ai-written-content-title{
+        transition-duration: 0.3s;
+    }
+
+}
+</style>
+
+<?php if ( has_tag('index') ) : ?>
+  <div id="post-single" class="index-contents">
+<?php else : ?>
+  <div id="post-single" class="ai-contents">
+<?php endif ; ?>
+
+<?php if(have_posts()): while(have_posts()):
+the_post(); ?>
+<?php the_content(); ?>
+<?php endwhile; endif; ?>
+
+  <?php if ( ! has_tag('index') ) : ?>
+    <div class="ai-generated-mini">※ 本記事はAIによる生成・編集サポートを含みます。</div>
+  <?php endif ; ?>
+</div>
+<!-----------------------------------------------------------------------------------------------------> 
+
+
+
+
+<!-----------------------------------------------------------------------------------------------------> 
+<style type="text/css">
 .post_author {
   padding: 25px 25px 25px 25px;
   border-radius: 0 0 10px 10px;
@@ -206,212 +694,10 @@
   text-decoration: none;
 }
 
-/*合わせて読みたい
-================================================================================================*/
-#post-single .ai-written a[target="_blank"] {
-	background-image:none;
-}
-
-#post-single .ai-written ul {
-	border:1px solid #eeeeee;
-	border-radius: 0px 0px 3px 3px;
-}
-
-#post-single .ai-written .ai-written-title {
-	background-color:#031b4e;
-	padding:10px;
-	font-size:11px;
-	line-height:12px;
-	color:#ffffff;
-	border-radius: 3px 3px 0px 0px;
-	background-image:url("/wp/wp-content/themes/east/images/icon/link_bl.png");
-	background-repeat:no-repeat;
-	background-size:24px auto;
-	padding-left:32px;
-	background-position:5px center;
-}
-
-#post-single .ai-written ul li a{
-	width:100%;
-	display:block;
-	box-sizing: border-box;
-	padding-left:10px;
-	padding-right:10px;
-	color:#333;
-}
-#post-single .ai-written ul li .ai-written-wap{
-	padding-top:10px;
-	padding-bottom:10px;
-	border-bottom:1px solid #eeeeee;
-}
-#post-single .ai-written ul li:last-child .ai-written-wap{
-	border-bottom:none;
-	padding-bottom:10px;
-}
-#post-single .ai-written ul li .ai-written-img{
-	width:15%;
-	float:left;
-    border-radius: 3px;
-    overflow: hidden;
-}
-#post-single .ai-written ul li .ai-written-img img {
-	width:100%;
-	height:35px;
-	object-fit: cover;
-	margin-right:17px;
-}
-#post-single .ai-written ul li .ai-written-content{
-	display:block;
-	width:80%;
-	float:right;
-}
-body #post-single .ai-written ul li a .ai-written-content-title{
-	font-weight:bold;
-	font-size:12px;
-	line-height:16px;
-}
-
-.common-prompt{
-    background-color: #000000;
-    color: #FFFFFF;
-    border-radius: 6px;
-    font-size: 12px;
-    padding: 20px 25px;
-    line-height: 18px;
-}
-
-
-
-body #main .generated-article h3{
-background-size: 50px auto;
-background-repeat: no-repeat;
-height:50px;
-padding-left:60px;
-background-color: transparent;
-margin-bottom: 0;
-padding-bottom: 0;
-padding-top: 5px;
-}
-body #main .generated-article h3 span{
-  display: block;
-  font-size: 11px;
-  color: #AAAAAA;
-}
-
-body #main .generated-article p.ai-info{
-  padding-top: 0;
-  margin-top: 0;
-  font-size: 13px;
-  line-height: 21px;
-}
-.generated-article h3.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-}
-.generated-article h3.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-}
-.generated-article h3.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-}
-.generated-article h3.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-}
-.generated-article h3.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-}
-.generated-article h3.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-}
-.generated-article h3.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-}
-.generated-article h3.grok{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
-}
-
-ul.ai-list {
-  padding: 15px 20px;
-  border:1px solid #eeeeee;
-  border-radius: 3px;
-
-}
-ul.ai-list li{
-  background-size: 20px auto;
-  background-repeat: no-repeat;
-  padding-left:30px;
-  font-weight: 700;
-  background-position: left center;
-  margin-bottom: 5px;
-}
-
-ul.ai-list li span{
-  font-size: 11px;
-  color: #AAAAAA;
-  font-weight: 500;
-}
-ul.ai-list li:last-child{
-  margin-bottom: 0;
-}
-ul.ai-list li.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-}
-ul.ai-list li.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-}
-ul.ai-list li.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-}
-ul.ai-list li.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-}
-ul.ai-list li.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-}
-ul.ai-list li.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-}
-ul.ai-list li.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-}
-ul.ai-list li.grok{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
-}
-
-
-.ai-generated-mini{
-  font-size:13px;
-  background:#f7f8f8;
-  padding:10px;
-  line-height: 13px;
-  border-radius: 4px;
-  margin-top: 30px;
-}
-
-
-/* -----------------------------------------
-   PC レイアウト（680px 以上）
-   ----------------------------------------- */
 @media only screen and (min-width: 680px) {
-
-  .fixed-footer {
-    padding: 15px 0;
-    height: 85px;
-  }
-  .fixed-footer .footer-text {
-    margin-bottom: 12px;
-  }
-  .fixed-footer .icon-nav {
-    gap: 12px;
-  }
-  .fixed-footer .icon-item {
-    padding: 3px;
-  }
-  
-
-
   /*post_author
-================================================================================================*/
-.post_author {
+  ================================================================================================*/
+  .post_author {
     width: 740px;
     padding: 25px 50px 25px 50px;
     border-radius: 0 0 10px 10px;
@@ -464,164 +750,12 @@ ul.ai-list li.grok{
   }
 
   .profile-link {
-    margin-top: 8px;
-    font-size: 12px;
+  margin-top: 8px;
+  font-size: 12px;
   }
-
-/*合わせて読みたい
-================================================================================================*/
-#post-single .ai-written .ai-written-title {
-	font-size:14px;
-}
-#post-single .ai-written ul li a{
-	width:100%;
-	display:block;
-	box-sizing: border-box;
-	padding-left:15px;
-	padding-right:15px;
-	color:#333;
-}
-#post-single .ai-written ul li .ai-written-wap{
-	padding-top:15px;
-	padding-bottom:15px;
-	border-bottom:1px solid #eeeeee;
-}
-#post-single .ai-written ul li:last-child .ai-written-wap{
-	border-bottom:none;
-	padding-bottom:15px;
-}
-#post-single .ai-written ul li .ai-written-img{
-	width:200px;
-}
-
-#post-single .ai-written ul li .ai-written-img img {
-	width:100%;
-	height:60px;
-	object-fit: cover;
-	vertical-align:bottom;
-}
-
-#post-single .ai-written ul li .ai-written-content{
-	width:380px;
-	float:right;
-  padding-top: 10px;
-}
-
-body #post-single .ai-written ul li a .ai-written-content-title{
-	line-height:22px;
-	font-size:16px;
-}
-
-body #post-single .ai-written ul li a .ai-written-content-date{
-	font-size:12px;
-	background-image:url(/wp/wp-content/themes/east/images/icon/time_bl.png);
-	background-repeat:no-repeat;
-	background-size:12px auto;
-	padding-left:17px;
-	background-position:0px 0px;
-	line-height:20px;
-	margin-top:10px;
-}
-    
-    .ai-written-content-title{
-        transition-duration: 0.3s;
-    }
-
-
-
-    
-  
 
 }
 </style>
-
-
-
-
-
-
-
-
-
-</head>
-<body>
-<?php get_template_part('partials/header'); ?>
-<div id="pan">
-<?php
-// 記事が属するカテゴリ情報を取得
-$cat = get_the_category();
-$main_cat = $cat[0]; 
-$cat_link = get_category_link($main_cat->cat_ID);
-
-// カスタムフィールドからインデックス記事のURLとタイトルを取得
-$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
-$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
-?>
-<div class="inner">
-    
-    <a href="/"><span class="home">ホーム</span></a> 
-    <span class="separator"> > </span>
-    
-    <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($main_cat->name); ?></a>
-    
-    <?php 
-    // インデックス情報がある場合のみ、階層を追加
-    if ($index_url && $index_title) {
-        // 3. インデックス投稿
-        echo '<span class="separator"> > </span>';
-        echo '<a href="' . esc_url($index_url) . '">' . esc_html($index_title) . '</a>';
-    }
-    ?>
-    
-    <span class="separator"> > </span>
-    <span class="now"><?php the_title(); ?></span>
-    
-</div>
-</div>
-
-
-<div id="wapper">
-<div id="contents">
-
-<?php if ( has_tag('index') ) : ?>
-  <?php get_template_part("partials/post-head_index") ?>
-<?php else : ?>
-  <?php get_template_part("partials/post-head") ?>
-<?php endif ; ?>
-
-<div id="main">
-
-<!-----------------------------------------------------------------------------------------------------> 
-<div class="sns-link">
-<ul>
-<li class="sns-x"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&hashtags=aisiteru" target="_bkank"></a><div class="snsInner"><div class="sns1Tip">Xで共有</div></div></li>
-<li class="sns-fb"><a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns2Tip">Facebookで共有</div></div></li>
-<li class="sns-line pc"><a href="https://social-plugins.line.me/lineit/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns3Tip">LINEで共有</div></div></li>
-<li class="sns-line sp"><a href="https://line.me/R/share?text=<?php the_title(); ?><?php the_permalink(); ?>" target="_bkank"></a><div class="snsInner"><div class="sns3Tip">LINEで共有</div></div></li>
-<li class="sns-url" data-url="<?php the_permalink(); ?>"><div class="snsInner"><div class="sns4TipOk">コピーしました！</div><div class="sns4Tip">URLをコピー</div></div></li>
-</ul>
-</div>
-<!-----------------------------------------------------------------------------------------------------> 
-
-
-<!-----------------------------------------------------------------------------------------------------> 
-<div id="post-single">
-<?php if(have_posts()): while(have_posts()):
-the_post(); ?>
-<?php the_content(); ?>
-<?php endwhile; endif; ?>
-
-  <?php if ( ! has_tag('index') ) : ?>
-    <div class="ai-generated-mini">※ 本記事はAIによる生成・編集サポートを含みます。</div>
-  <?php endif ; ?>
-</div>
-<!-----------------------------------------------------------------------------------------------------> 
-
-
-
-
-
-<!-----------------------------------------------------------------------------------------------------> 
 <div class="post_author">
   <div class="inner">
 
@@ -770,13 +904,6 @@ AIごとの文章の“温度”や“違和感”をすくい取り、AIに足�
   </div>
 </div>
 <!-----------------------------------------------------------------------------------------------------> 
-
-
-
-
-
-
-
 
 
 
@@ -1285,8 +1412,10 @@ jQuery(function($) {
 </div>
 <!-----------------------------------------------------------------------------------------------------> 
 
-
 </div>
+
+
+
 <div id="side">
 <?php get_template_part("partials/cat") ?>
 <?php dynamic_sidebar('sidebar-1'); ?>
