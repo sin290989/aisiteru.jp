@@ -358,6 +358,31 @@ $('#side ul.wpp-list li').hover(function(){
 
 
 <?php
+echo '<h2 class="catTitle">カテゴリ</h2>';
+echo '<ul class="catList">'; 
+echo '<li>';
+echo '<a href="/category/prediction/">AI予測・時事</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/business/">ビジネス・キャリア</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/culture/">創作・エンタメ</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/life/">実用・ライフ</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/technology/">技術・倫理</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/history/">歴史・ミステリー</a>';
+echo '</li>';
+echo '</ul>';
+?>
+
+
+<?php
 echo '<h2 class="aiTitle">生成AI</h2>';
 echo '<ul class="aiList">'; 
 echo '<li>';
@@ -383,31 +408,6 @@ echo '<a href="/editor/lechat/">Le Chat</a>';
 echo '</li>';
 echo '<li>';
 echo '<a href="/editor/grok/">Grok</a>';
-echo '</li>';
-echo '</ul>';
-?>
-
-
-<?php
-echo '<h2 class="catTitle">カテゴリ</h2>';
-echo '<ul class="catList">'; 
-echo '<li>';
-echo '<a href="/category/prediction/">AI予測・時事</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/business/">ビジネス・キャリア</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/culture/">創作・エンタメ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/life/">実用・ライフ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/technology/">技術・倫理</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/history/">歴史・ミステリー</a>';
 echo '</li>';
 echo '</ul>';
 ?>
