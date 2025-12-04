@@ -84,31 +84,7 @@ Template Name:about
     color: #1433d6;
 }
 
-.gaiyo{
-  padding: 20px;
-  border:2px solid #EEEEEE;
-  border-radius: 5px;
-  font-size:14px;
-  line-height: 18px;
-}
 
-.gaiyo li{
-  margin:0 0 20px 0 ;
-}
-
-.gaiyo li:last-child{
-  margin:0;
-}
-
-.gaiyo-title{
-  width: 100px;
-  margin: 0 0 7px 0 ;
-  color: #1433d6;
-}
-
-.gaiyo-con{
-  padding: 0 0 0 0;
-}
 
 #footer{
   border-top:1px solid #f7f8f8;
@@ -148,20 +124,7 @@ Template Name:about
   left: 20px;
 }
 
-.gaiyo{
-  margin:50px 0 0 0;
-  font-size:16px;
-}
 
-.gaiyo-title{
-  border-right:2px solid #EEEEEE;
-  float: left;
-  margin: 0 20px 0 0 ;
-}
-
-.moji3{
-  letter-spacing: 11px;
-}
 
 }
 </style>
@@ -170,42 +133,42 @@ Template Name:about
 <?php get_template_part('partials/header'); ?>
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <a href="/about">私たちのこと</a></span>
+<a href="/"><span class="home">トップページ</span></a> > <a href="/about">ABOUT</a></span>
 </div>
 </div>
 
 <div id="page-wapper">
 <div id="about-contents">
+
 <div class="catch">
-<div class="catch1">「<span>近く</span>」</div>
-<div class="catch2">で支える</div>
-<div class="with"><span>with</span> aisiteru</div>
+<div class="catch1">「<span>多角</span>」</div>
+<div class="catch2">で読み解く</div>
+<div class="with"><span>with</span> AISITERU？</div>
 </div>
+
 <div class="about-text">
-私たちアンドシークは、「<strong>近くで支える</strong>」というシンプルな言葉に、すべてを込めています。<br>
-この「<strong>近く</strong>」とは、物理的な距離だけではありません。お客様との信頼関係を築き、心の距離を縮め、親身になって寄り添う姿勢を意味しています。私たちは、お客様の課題や理想を深く理解し、それを共に探求するパートナーでありたいと考えています。<br>
+AISITERU.jp（AIシテル？）は、「<strong>多角で読み解く</strong>」というシンプルな理念を中心に据えています。<br>
+ここでいう「<strong>多角</strong>」とは、単に情報を並べることではありません。同じテーマを複数のAIに投げかけ、そこに生まれる“解釈の違い”を比較し、読者が世界をより立体的に理解できるようにする姿勢そのものを意味しています。<br>
+私たちは、AIをただのツールとしてではなく、視点を広げるための“思考のパートナー”と捉えています。<br>
 <br>
-私たちは、Webサイトを単なるツールではなく、「<strong>資産</strong>」として位置づけています。<br>
-資産には安定した土台が欠かせません。だからこそ、技術的な安定性と持続可能性を重視し、長くお客様のビジネスを支え続ける存在でありたいと願っています。派手さや流行を追うだけではなく、本当に必要なものを丁寧に選び抜き、真に価値あるWebサイトをつくることをお約束します。<br>
-<br>
-また、地元に根ざした私たちだからこそ気づけるニーズがあります。<br>
-地域の文化や価値観、そして企業が抱える課題を理解し、最適な形で解決へと導く力。それが、地元企業と共に成長してきたアンドシークの強みです。「<strong>近くで支える</strong>」という言葉のもと、迅速で確かなサポートを提供し、お客様に安心と信頼をお届けします。<br>
-<br>
-「<strong>近くで支える（with aisiteru）</strong>」――それは、距離的にも、心のつながりとしても、いつでもお客様のそばにいるという私たちの信念です。<br>
-これからもお客様とともに歩み続け、一緒に未来を創っていくパートナーでありたいと願っています。<br><br>
 
-<div class="gaiyo">
-<ul>
-<li><div class="gaiyo-title moji3">組織名</div><div class="gaiyo-con">aisiteru（アンドシーク）</div></li>
-<li><div class="gaiyo-title moji3">所在地</div><div class="gaiyo-con">〒980-0021　宮城県仙台市青葉区中央2-2-30 日興ビル4F（<a href="https://maps.app.goo.gl/3R1DgFnSzChxN33J9" target="_blank">Google Map</a>）</div></li>
-<li><div class="gaiyo-title moji3">連絡先</div><div class="gaiyo-con">info@aisiteru.jp</div></li>
-<li><div class="gaiyo-title">事業内容</div><div class="gaiyo-con">インターネットメディア事業、インターネット広告制作事業、コンテンツ開発事業 </div></li>
-</ul>
+AISITERU.jpが提示するのは、AIごとの文章の癖や分析軸、結論の違いを読み比べることで見えてくる、新しい学びの形です。<br>
+AIの意見を鵜呑みにするのではなく、「なぜこう書くのか？」「どの視点が抜けているのか？」を考えながら読むことで、情報に対する確かな土台――いわば<strong>知的な資産</strong>を形成することを目指しています。<br>
+流行や表面的な話題に流されず、本質を見極めるための素材を丁寧に選び抜き、長く読み続けられる価値あるコンテンツを届けてまいります。<br>
+<br>
+
+また、本サイトは“離れた場所から一方的に発信するメディア”ではありません。<br>
+AIの多様な視点を読者のそばに置き、日々の思考を支える存在でありたいと考えています。複数のAIを並べて読むことで生まれる気づきや違和感、発見。それらを読者と共有し、共に学び、共に育てていくことが AISITERU.jp の強みです。<br>
+<br>
+
+「<strong>多角で読み解く（with AISITERU）</strong>」——それは、情報との距離を縮め、視点の幅を広げ、考える楽しさを読者と分かち合うという私たちの信念です。<br>
+これからも、AIとの新しい付き合い方を提示しながら、読者とともに未来の知識体験をつくり続ける存在でありたいと願っています。<br><br>
+
 </div>
 
 </div>
 </div>
-</div>
+
 <?php get_template_part('partials/footer'); ?>
 <?php wp_footer(); ?>
 </body>
