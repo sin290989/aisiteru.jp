@@ -21,7 +21,52 @@
 <?php get_template_part("partials/css/post-index-top"); ?>
 
 
+
 <style type="text/css">
+
+.catch{
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.catch1{
+  font-size: 60px;
+  font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+  position: absolute;
+  top:30px;
+  left:0px;
+  font-weight: bold;
+  color: #031b4e;
+  z-index: 10;
+}
+
+.catch2{
+  font-size: 50px;
+  font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+  position: absolute;
+  top:100px;
+  left:80px;
+  font-weight: bold;
+  color: #031b4e;
+  z-index: 10;
+}
+.with{
+  position: absolute;
+  font-size: 16px;
+  color: #031b4e;
+  top:140px;
+  left: 175px;
+  z-index: 20;
+  color:#031b4e;
+  font-weight: bold;
+}
+.catch1 span,
+.with span{
+    color: #1433d6;
+}
+
+
 .blog-main-img{
     /*height: 150px;
     background-color: #ffffff;*/
@@ -64,7 +109,7 @@ ul.post-index-top .head{
     padding-top: 5px;
     color: #46526f;
 }
-ul.post-index-top .head h2{
+ul.post-index-top .head h3{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -89,68 +134,138 @@ ul.post-index-top .head .post-dates{
 	margin-bottom:5px;
 }
 
-/*post-author
--------------------------------------------------------*/
-ul.post-index-top li .post-author{
-    /*position: absolute;
-    bottom:10px;
-    left:10px;
-    z-index: 79;
-    width: 50%;*/
-    display:none;
-}
-ul.post-index-top li .post-author .post-author-img{
-    float: none;
-    overflow:auto;
-    width:30px;
-	height:30px;
-    margin-left:0;
-	border-radius:50%;
-	overflow:hidden;
-    box-sizing: border-box;
-    border:1px solid #CCCCCC;
-    margin-bottom: 0;
-    float: left;
-}
-ul.post-index-top li .post-author .post-author-img img {
-    width:100%;
-	height:auto;
-}
 
-ul.post-index-top li .post-author .post-author-name{
-    font-size: 8px;
-    text-align: center;
-    width: 50px;
-    font-weight: bold;
-    line-height: 8px;
-    float: left;
-    width: auto;
-    padding-top: 18px;
-    margin-left: 5px;
-    letter-spacing: 0;
+.category-block h2{
+   
+	padding:15px;
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:10px;
+	background-repeat:no-repeat;
+	background-size:24px auto;
+	background-position: 10px center;
+	padding-left:42px;
 }
+.category-block h2{background-image: url("/wp/wp-content/themes/aisiteru/images/icon/folder_bl.png");}
+
 /*-----------------------------------*/
 
 @media only screen and (min-width: 680px) {
+.catch{
+  height: 250px;
+}
+
+.catch1{
+  font-size:90px;
+  top:100px;
+  left: -40px;
+}
+
+.catch2{
+ top:100px;
+  left: 300px;
+  z-index: 10;
+  font-size: 85px;
+}
+.with{
+  font-size:24px;
+  top:175px;
+  left: 20px;
+}
 
 .category-block{
     margin-top:50px;
      background-color: #ffffff;
-     padding: 50px;
      border-radius: 5px;
+     position: relative;
+     height:425px;
+     box-sizing: border-box;
+}
+
+.category-block.prediction-block{
+    height:790px;
 }
 ul.post-index-top {
-   
-    
+   background-color: #46526f;
     
 }
 ul.post-index-top li{
-	margin-bottom:15px;
-	padding-bottom:15px;
+    position: absolute;
+    
+}
+ul.post-index-top li:nth-child(1){
+    width:420px;
+    height:335px;
+    top:50px;
+    left:50px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+ul.post-index-top li:nth-child(2) {
+    width:550px;
+    height: 150px;
+    top:50px;
+    left:500px;
+    box-sizing: border-box;
+}
+
+ul.post-index-top li:nth-child(3) {
+    width:550px;
+    height: 150px;
+    top:230px;
+    left:500px;
+    box-sizing: border-box;
+}
+
+
+ul.post-index-top li:nth-child(4){
+    width:420px;
+    height:335px;
+    top:410px;
+    left:50px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+ul.post-index-top li:nth-child(5) {
+    width:550px;
+    height: 150px;
+    top:410px;
+    left:500px;
+    box-sizing: border-box;
+}
+
+ul.post-index-top li:nth-child(6) {
+    width:550px;
+    height: 150px;
+    top:590px;
+    left:500px;
+    box-sizing: border-box;
+}
+
+ul.post-index-top li:nth-child(1) .inner,
+ul.post-index-top li:nth-child(4) .inner{
+	margin:0px;
+	padding:0px;
     width: 100%;
+    height:335px;
     position: relative;
     border-bottom:1px solid #f7f8f8;
 }
+
+ul.post-index-top li:nth-child(2) .inner,
+ul.post-index-top li:nth-child(3) .inner,
+ul.post-index-top li:nth-child(5) .inner,
+ul.post-index-top li:nth-child(6) .inner{
+	margin:0px;
+	padding:0px;
+    width: 100%;
+     height: 150px;
+    position: relative;
+    border-bottom:1px solid #f7f8f8;
+}
+
+
 ul.post-index-top li:last-of-type{
     border-bottom:none;
     margin-bottom: 0;
@@ -159,24 +274,49 @@ ul.post-index-top li:last-of-type{
 
 /*左側
 -------------------------------------------------------*/
-ul.post-index-top .post_thumbnail{
+ul.post-index-top li:nth-child(1) .post_thumbnail,
+ul.post-index-top li:nth-child(4) .post_thumbnail{
     overflow: hidden;
-	width:35%;
+	width:100%;
+	margin-bottom:0;
+    height:170px;
+}
+ul.post-index-top li:nth-child(2) .post_thumbnail,
+ul.post-index-top li:nth-child(3) .post_thumbnail,
+ul.post-index-top li:nth-child(5) .post_thumbnail,
+ul.post-index-top li:nth-child(6) .post_thumbnail{
+    overflow: hidden;
+	width:40%;
 	float:left;
 	margin-bottom:0;
 }
+
+
+
+
+
+
+
+
+
 ul.post-index-top a img{
     transition-duration: 0.3s;
 }
 
 /*右側
 -------------------------------------------------------*/
-ul.post-index-top .head{
-	width:60%;
+ul.post-index-top li:nth-child(1) .head,
+ul.post-index-top li:nth-child(4) .head{
+	width:100%;
+}
+ul.post-index-top li:nth-child(2) .head,
+ul.post-index-top li:nth-child(3) .head,
+ul.post-index-top li:nth-child(5) .head,
+ul.post-index-top li:nth-child(6) .head{
+	width:55%;
 	float:right;
 }
-
-ul.post-index-top .head h2{
+ul.post-index-top .head h3{
     font-size:16px;
 	line-height:24px;
 	margin:0;
@@ -184,7 +324,7 @@ ul.post-index-top .head h2{
     transition-duration: 0.3s;
     overflow: hidden;
 }
-ul.post-index-top .head h2 span {
+ul.post-index-top .head h3 span {
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -197,7 +337,18 @@ ul.post-index-top .head .post-title{
 ul.post-index-top .head .post-content{
     overflow: hidden;
 }
-ul.post-index-top .head .post-content p {
+ul.post-index-top li:nth-child(1) .post-content p,
+ul.post-index-top li:nth-child(4) .post-content p {
+    font-size:13px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+ul.post-index-top li:nth-child(2) .post-content p,
+ul.post-index-top li:nth-child(3) .post-content p,
+ul.post-index-top li:nth-child(5) .post-content p,
+ul.post-index-top li:nth-child(6) .post-content p{
     font-size:13px;
     margin: 0;
     display: -webkit-box;
@@ -205,21 +356,25 @@ ul.post-index-top .head .post-content p {
     -webkit-line-clamp: 2;
 }
 
-/*post-author
--------------------------------------------------------*/
- ul.post-index-top li .post-author{
-    /*margin-top: 10px;
-    position: absolute;
-    left:350px;
-    top:-20px;*/
-    display: none;
+.category-block h2{
+ position: absolute;
+    top:-30px;
+    left:35px;
 }
- ul.post-index-top li .post-author .post-author-name{
-     font-size: 10px;
-     padding-top: 12px;
-     letter-spacing: 0;
-    }
 
+.more-btn a{
+    position:absolute;
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color:  #1433d6;
+    top:200px;
+    right: -20px;
+    border-radius: 50%;
+}
+.category-block.prediction-block .more-btn a{
+   top:400px;
+}
 }
 </style>
 
@@ -247,14 +402,21 @@ ul.post-index-top .head .post-content p {
 <div id="wapper">
 <div id="contents">
 
-<h1>「多角」で読み解く</h1>
-<div><a href="/about">詳しくはこちら</a></div>
+<h1>
+<a href="/about">
+<div class="catch">
+<div class="catch1">「<span>多角</span>」</div>
+<div class="catch2">で読み解く</div>
+<div class="with"><span>with</span> AISITERU？</div>
+</div>
+</a>
+</h1>
 
 
 <div id="main-top">
 
 
-<div class="category-block">
+<div class="category-block prediction-block">
 <h2>AI予測・時事</h2>
 <?php
 //----------------------------------------------------
@@ -272,7 +434,7 @@ $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 // クエリパラメータ（prediction）
 $args_prediction = array(
     'post_type'      => 'post',
-    'posts_per_page' => 3,
+    'posts_per_page' => 6,
     'cat'            => $cat_prediction_id,
 );
 
@@ -286,10 +448,7 @@ $query_prediction = new WP_Query($args_prediction);
     <?php if ( $query_prediction->have_posts() ) : ?>
         <?php while ( $query_prediction->have_posts() ) : $query_prediction->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
+            <div class="inner">
 
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
@@ -310,7 +469,7 @@ $query_prediction = new WP_Query($args_prediction);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -319,17 +478,18 @@ $query_prediction = new WP_Query($args_prediction);
                 <div style="clear:both"></div>
             </div>
             </a>
+           </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>prediction カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/prediction/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/prediction/"></a></div>
 </div>
 
 
-<div class="category-block">
+<div class="category-block business-block">
 <h2>ビジネス・キャリア</h2>
 <?php
 //----------------------------------------------------
@@ -357,10 +517,7 @@ $query_business = new WP_Query($args_business);
     <?php if ( $query_business->have_posts() ) : ?>
         <?php while ( $query_business->have_posts() ) : $query_business->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
+        <div class="inner">
 
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
@@ -381,7 +538,7 @@ $query_business = new WP_Query($args_business);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -390,17 +547,18 @@ $query_business = new WP_Query($args_business);
                 <div style="clear:both"></div>
             </div>
             </a>
+                    </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>business カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/business/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/business/"></a></div>
 </div>
 
 
-<div class="category-block">
+<div class="category-block culture-block">
 <h2>創作・エンタメ</h2>
 <?php
 //----------------------------------------------------
@@ -432,11 +590,8 @@ $query_culture = new WP_Query($args_culture);
     <?php if ( $query_culture->have_posts() ) : ?>
         <?php while ( $query_culture->have_posts() ) : $query_culture->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
-
+       
+            <div class="inner">
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
             <?php if ( has_post_thumbnail() ) : ?>
@@ -456,7 +611,7 @@ $query_culture = new WP_Query($args_culture);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -465,17 +620,18 @@ $query_culture = new WP_Query($args_culture);
                 <div style="clear:both"></div>
             </div>
             </a>
+                    </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>culture カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/culture/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/culture/"></a></div>
 </div>
 
 
-<div class="category-block">
+<div class="category-block life-block">
 <h2>実用・ライフ</h2>
 <?php
 //----------------------------------------------------
@@ -507,11 +663,8 @@ $query_life = new WP_Query($args_life);
     <?php if ( $query_life->have_posts() ) : ?>
         <?php while ( $query_life->have_posts() ) : $query_life->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
-
+       
+            <div class="inner">
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
             <?php if ( has_post_thumbnail() ) : ?>
@@ -531,7 +684,7 @@ $query_life = new WP_Query($args_life);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -540,17 +693,18 @@ $query_life = new WP_Query($args_life);
                 <div style="clear:both"></div>
             </div>
             </a>
+                    </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>life カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/life/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/life/"></a></div>
 </div>
 
 
-<div class="category-block">
+<div class="category-block technology-block">
 <h2>技術・倫理</h2>
 <?php
 //----------------------------------------------------
@@ -582,10 +736,7 @@ $query_technology = new WP_Query($args_technology);
     <?php if ( $query_technology->have_posts() ) : ?>
         <?php while ( $query_technology->have_posts() ) : $query_technology->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
+            <div class="inner">
 
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
@@ -606,7 +757,7 @@ $query_technology = new WP_Query($args_technology);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -615,17 +766,18 @@ $query_technology = new WP_Query($args_technology);
                 <div style="clear:both"></div>
             </div>
             </a>
+                    </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>technology カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/technology/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/technology/"></a></div>
 </div>
 
 
-<div class="category-block">
+<div class="category-block history-block">
 <h2>歴史・ミステリー</h2>
 <?php
 //----------------------------------------------------
@@ -657,11 +809,8 @@ $query_history = new WP_Query($args_history);
     <?php if ( $query_history->have_posts() ) : ?>
         <?php while ( $query_history->have_posts() ) : $query_history->the_post(); ?>
         <li>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar( get_the_author_meta('ID'), 30 ); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
-
+       
+            <div class="inner">
             <a href="<?php the_permalink(); ?>">
             <div class="post_thumbnail">
             <?php if ( has_post_thumbnail() ) : ?>
@@ -685,7 +834,7 @@ $query_history = new WP_Query($args_history);
                 </div>
 
                 <div class="post-title">
-                    <h2><span><?php the_title(); ?></span></h2>
+                    <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -695,13 +844,14 @@ $query_history = new WP_Query($args_history);
                 <div style="clear:both"></div>
             </div>
             </a>
+                    </div>
         </li>
         <?php endwhile; ?>
     <?php else : ?>
         <li>history カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div><a href="/category/history/">すべて見る</a></div>
+<div class="more-btn"><a href="/category/history/"></a></div>
 </div>
 
 
