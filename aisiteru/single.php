@@ -651,7 +651,7 @@ the_post(); ?>
   width: 60px;
   height: 60px;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 30px;
 }
 .profile-img img {
   width: 100%;
@@ -704,58 +704,11 @@ the_post(); ?>
   .post_author {
     width: 740px;
     padding: 25px 50px 25px 50px;
-    border-radius: 0 0 10px 10px;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    border-top: 1px solid #eeeeee;
     margin: 0;
-  }
-  .post_author .inner {
-    width: 100%;
-    position: relative;
-  }
-
-  .profile-img {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 60px;
-    height: 60px;
-    overflow: hidden;
-    border-radius: 25px;
-  }
-  .profile-img img {
-    width: 100%;
-    height: auto;
-    vertical-align: bottom;
   }
 
   .profile-name {
-    position: absolute;
-    top: 40px;
-    left: 70px;
     font-size: 16px;
-    font-weight: bold;
-    color: #031b4e;
-  }
-
-  .profile-role {
-    position: absolute;
-    top: 62px;
-    left: 70px;
-    font-size: 12px;
-    color: #7a869a;
-  }
-
-  .profile-comment {
-    padding-top: 80px;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .profile-link {
-  margin-top: 8px;
-  font-size: 12px;
   }
 
 }
@@ -896,12 +849,13 @@ the_post(); ?>
         // AIタグがない記事だけ、人間著者としてTusamiを出す
         if ( get_the_author_id() == 1 ) {
             echo '<div class="profile-img">';
-            echo get_avatar( get_the_author_id(), 75 );
+            echo '<img src="https://aisiteru.jp/wp/wp-content/uploads/2025/12/mana.webp" alt="mana">';
+            //echo get_avatar( get_the_author_id(), 75 );
             echo '</div>';
-            echo '<div class="profile-name">TOMO</div>';
+            echo '<div class="profile-name">MANA</div>';
             echo '<div class="profile-role">Human</div>';
             echo '<div class="profile-comment">AIシテル？の運営に関わるただ一人の人間です。<br>
-AIごとの文章の“温度”や“違和感”をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
+AIごとの文章の「温度」や「違和感」をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
         }
     }
   ?>
