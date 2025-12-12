@@ -139,6 +139,7 @@ $(function(){
 <li><a href="/about">ABOUT</a></li>
 <li><a href="/contact">CONTACT</a></li>
 <li><a href="/privacy-policy">PRIVACY</a></li>
+<li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
 </ul>
 </div>
 </div>

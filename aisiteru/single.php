@@ -242,9 +242,9 @@ li.sns-url {
 /*※ 本記事はAIによる生成・編集サポートを含みます。<*/
 .ai-generated-mini{
   font-size:13px;
-  background:#f7f8f8;
-  padding:10px;
-  line-height: 13px;
+  background:#faf8c8;
+  padding:10px 18px;
+  line-height: 18px;
   border-radius: 4px;
   margin-top: 30px;
 }
@@ -617,7 +617,7 @@ the_post(); ?>
 <?php endwhile; endif; ?>
 
   <?php if ( ! has_tag('index') ) : ?>
-    <div class="ai-generated-mini">※ 本記事はAIによる生成・編集サポートを含みます。</div>
+    <div class="ai-generated-mini">※ 本記事は、各AIの“思考の違い”を比較するため、AIが生成した内容を原則そのまま掲載しています（誤字など最低限の確認のみ実施）。</div>
   <?php endif ; ?>
 </div>
 <!-----------------------------------------------------------------------------------------------------> 
