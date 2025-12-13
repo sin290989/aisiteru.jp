@@ -56,7 +56,7 @@
 }
 #footer .ft-menu a{
 	color:#46526f;
-}*/
+}
 #stt {
 	position: fixed;
 	bottom: 20px;
