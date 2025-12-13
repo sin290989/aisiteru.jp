@@ -157,19 +157,19 @@ ul.post-index-top .head .post-dates{
 
 .catch1{
   font-size:90px;
-  top:100px;
+  top:140px;
   left: -40px;
 }
 
 .catch2{
- top:100px;
+ top:140px;
   left: 300px;
   z-index: 10;
   font-size: 85px;
 }
 .with{
   font-size:24px;
-  top:175px;
+  top:215px;
   left: 20px;
 }
 
@@ -391,11 +391,7 @@ ul.post-index-top li:nth-child(6) .post-content p{
 
 <?php get_template_part('partials/header'); ?>
 
-<div id="pan">
-  <div class="inner">
-    <span class="home">トップページ</span>
-  </div>
-</div>
+
 
 <div class="blog-main-img"></div>
 
@@ -487,6 +483,80 @@ $query_prediction = new WP_Query($args_prediction);
 </ul>
 <div class="more-btn"><a href="/category/prediction/"></a></div>
 </div>
+
+
+
+<div class="category-block regional-block">
+<h2>地域</h2>
+<?php
+//----------------------------------------------------
+// ③ regional カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// regional カテゴリ
+$cat_regional = get_category_by_slug('regional');
+$cat_regional_id = $cat_regional ? $cat_regional->term_id : 0;
+
+// index タグ
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（regional）
+$args_regional = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_regional_id,
+);
+
+if ( $index_tag_id ) {
+    $args_regional['tag__in'] = array( $index_tag_id );
+}
+
+$query_regional = new WP_Query($args_regional);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_regional->have_posts() ) : ?>
+        <?php while ( $query_regional->have_posts() ) : $query_regional->the_post(); ?>
+        <li>
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+            </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>regional カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/regional/"></a></div>
+</div>
+
 
 
 <div class="category-block business-block">
