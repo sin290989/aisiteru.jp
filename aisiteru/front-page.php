@@ -135,18 +135,7 @@ ul.post-index-top .head .post-dates{
 }
 
 
-.category-block h2{
-   
-	padding:15px;
-	font-size:18px;
-	font-weight:bold;
-	margin-bottom:10px;
-	background-repeat:no-repeat;
-	background-size:24px auto;
-	background-position: 10px center;
-	padding-left:42px;
-}
-.category-block h2{background-image: url("/wp/wp-content/themes/aisiteru/images/icon/folder_bl.png");}
+
 
 /*-----------------------------------*/
 
@@ -174,7 +163,7 @@ ul.post-index-top .head .post-dates{
 }
 
 .category-block{
-    margin-top:50px;
+    margin-top:120px;
      background-color: #ffffff;
      border-radius: 5px;
      position: relative;
@@ -185,6 +174,35 @@ ul.post-index-top .head .post-dates{
 .category-block.prediction-block{
     height:790px;
 }
+
+
+
+
+.category-block h2{
+display: block;
+position:absolute;
+top:-40px;
+left: 25px;
+color: #1433d6;
+color: #031b4e;
+font-size:28px;
+ font-family: 'Noto Sans JP', sans-serif;
+font-weight: 700;
+
+}
+
+.h2en{
+display: block;
+position:absolute;
+top:-40px;
+right: 25px;
+color: #ffffff;
+font-size:70px;
+font-family: 'Noto Sans JP', sans-serif;
+font-weight: 900;
+}
+
+
 ul.post-index-top {
    background-color: #46526f;
     
@@ -356,11 +374,7 @@ ul.post-index-top li:nth-child(6) .post-content p{
     -webkit-line-clamp: 2;
 }
 
-.category-block h2{
- position: absolute;
-    top:-30px;
-    left:35px;
-}
+
 
 .more-btn a{
     position:absolute;
@@ -371,10 +385,19 @@ ul.post-index-top li:nth-child(6) .post-content p{
     top:200px;
     right: -20px;
     border-radius: 50%;
+    transition-duration: 0.2s;
+	background-image:url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 45% auto;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 .category-block.prediction-block .more-btn a{
    top:400px;
 }
+
+
+
+
 }
 </style>
 
@@ -414,6 +437,7 @@ ul.post-index-top li:nth-child(6) .post-content p{
 
 <div class="category-block prediction-block">
 <h2>AI予測・時事</h2>
+<div class="h2en">PREDICTION</div>
 <?php
 //----------------------------------------------------
 // ① prediction カテゴリ（indexタグ付き）3件
@@ -487,7 +511,8 @@ $query_prediction = new WP_Query($args_prediction);
 
 
 <div class="category-block regional-block">
-<h2>地域</h2>
+<h2>地域・社会</h2>
+<div class="h2en">REGIONAL</div>
 <?php
 //----------------------------------------------------
 // ③ regional カテゴリ（indexタグ付き）3件
@@ -561,6 +586,7 @@ $query_regional = new WP_Query($args_regional);
 
 <div class="category-block business-block">
 <h2>ビジネス・キャリア</h2>
+<div class="h2en">BUSINESS</div>
 <?php
 //----------------------------------------------------
 // ② business カテゴリ（indexタグ付き）3件
@@ -630,6 +656,7 @@ $query_business = new WP_Query($args_business);
 
 <div class="category-block culture-block">
 <h2>創作・エンタメ</h2>
+<div class="h2en">CULTURE</div>
 <?php
 //----------------------------------------------------
 // ③ culture カテゴリ（indexタグ付き）3件
@@ -703,6 +730,7 @@ $query_culture = new WP_Query($args_culture);
 
 <div class="category-block life-block">
 <h2>実用・ライフ</h2>
+<div class="h2en">LIFE</div>
 <?php
 //----------------------------------------------------
 // ④ life カテゴリ（indexタグ付き）3件
@@ -776,6 +804,7 @@ $query_life = new WP_Query($args_life);
 
 <div class="category-block technology-block">
 <h2>技術・倫理</h2>
+<div class="h2en">TECHNOLOGY</div>
 <?php
 //----------------------------------------------------
 // ⑤ technology カテゴリ（indexタグ付き）3件
@@ -849,6 +878,7 @@ $query_technology = new WP_Query($args_technology);
 
 <div class="category-block history-block">
 <h2>歴史・ミステリー</h2>
+<div class="h2en">HISTORY</div>
 <?php
 //----------------------------------------------------
 // ⑥ history カテゴリ（indexタグ付き）3件

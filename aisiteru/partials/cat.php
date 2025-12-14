@@ -364,7 +364,7 @@ echo '<li>';
 echo '<a href="/category/prediction/">AI予測・時事</a>';
 echo '</li>';
 echo '<li>';
-echo '<a href="/category/regional/">地域</a>';
+echo '<a href="/category/regional/">地域・社会</a>';
 echo '</li>';
 echo '<li>';
 echo '<a href="/category/business/">ビジネス・キャリア</a>';
