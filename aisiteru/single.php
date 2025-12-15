@@ -289,13 +289,10 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
 
 <?php
 // grok タグが付いている投稿だけ対象
-if (has_tag(['grok', 'index'])) {
+$base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 
-  $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-
-  if ($base_slug) {
-    aisiteru_fixed_footer($base_slug);
-  }
+if ($base_slug) {
+aisiteru_fixed_footer($base_slug);
 }
 ?>
 
