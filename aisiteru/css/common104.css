@@ -356,3 +356,161 @@ strong {
     height: 100%;
   }
 }
+
+/*==============================================================================================*/
+/*header*/
+/*==============================================================================================*/
+
+#header {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.95);
+  transition-duration: 0.3s;
+}
+#header .inner {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  margin: 0 auto;
+}
+.logo {
+  position: absolute;
+  top: 25px;
+  left: 22px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#header .message,
+ul.global-menu {
+  display: none;
+}
+@media only screen and (min-width: 680px) {
+  #header {
+    height: 60px;
+    top: 30px;
+  }
+  #header .inner {
+    width: 1100px;
+    height: 60px;
+  }
+  .logo {
+    top: 15px;
+    left: 0;
+  }
+  #header .message {
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 145px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #1433d6;
+  }
+
+  ul.global-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    width: 450px;
+    font-weight: bold;
+  }
+  ul.global-menu li {
+    display: inline;
+    margin-right: 30px;
+  }
+  ul.global-menu li:last-child {
+    margin-right: 0;
+  }
+}
+
+/*==============================================================================================*/
+/*footer*/
+/*==============================================================================================*/
+#footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #ffffff;
+}
+#footer #copy {
+  text-align: center;
+  font-size: 12px;
+}
+.ft-menu {
+  display: none;
+}
+#stt {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 45px;
+  width: 45px;
+}
+#stt img {
+  width: 100%;
+  vertical-align: bottom;
+}
+@media only screen and (min-width: 680px) {
+  #footer {
+    padding: 0;
+    border-top: 1px solid #f7f8f8;
+  }
+  #footer .inner {
+    width: 1100px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  #footer #copy {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  #footer .ft-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 330px;
+    font-size: 11px;
+  }
+  #footer .ft-menu li {
+    display: inline;
+    margin: 0 15px 0 0;
+    letter-spacing: 1px;
+  }
+  #footer .ft-menu a {
+    color: #46526f;
+  }
+  #stt {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  #stt img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  #stt a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #1433d6;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/top_up_icon.png");
+    background-size: 45% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
