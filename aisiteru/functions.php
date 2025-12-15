@@ -316,5 +316,3 @@ function aisiteru_ai_list_shortcode() {
 }
 add_shortcode('ai_list', 'aisiteru_ai_list_shortcode');
 ?>
-
-

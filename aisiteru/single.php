@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common103.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single51.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single52.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -592,8 +592,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     } // ← PC判定ここまで
-  
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const footer = document.querySelector('.fixed-footer');
+  if (footer) {
+    // 少し間を空けると“演出感”が出る
+    setTimeout(() => {
+      footer.classList.add('is-visible');
+    }, 200);
+  }
+});
+</script>
+
 </body>
 </html>

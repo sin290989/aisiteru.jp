@@ -218,10 +218,14 @@ body ul.wpp-list li a.wpp-post-title{
 #side h2.aiTitle{
     text-align: left;
 }
-#side h2.catTitle,
+
+#side h2.aiTitle,
 #side h2.tagTitle{
     margin-top: 60px;
-}    
+}
+#side h2.catTitle{
+    margin-top: 0px;
+}   
 #side .widget h2::before{
      content: ' RANKING';
      margin:0;

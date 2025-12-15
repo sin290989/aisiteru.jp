@@ -837,7 +837,19 @@ body.prompt-modal-open {
   padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
   height: 85px;
   box-sizing: border-box;
+
+  transform: translateY(100%);
+  opacity: 0;
+  transition:
+  transform 0.5s ease-out,
+  opacity 0.4s ease-out;
 }
+
+.fixed-footer.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 
 /* 上部テキスト（13px） */
 .fixed-footer .footer-text {
