@@ -9,7 +9,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common103.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/style17.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single47.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single51.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -18,31 +18,8 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-  #post-single.ai-contents ol,
-  #post-single.ai-contents ul{
-    background-color: #f7f8f8;
-    padding: 10px 20px;
-    border-radius: 3px;
-    font-size: 14px;
-    margin: 20px 0 0 0;
-  }
-   #post-single.ai-contents ol li,
-  #post-single.ai-contents ul li{
-    border-bottom:1px solid #eeeeee;
-    padding: 10px 0;
-  }
-  #post-single.ai-contents ol li:first-child,
-  #post-single.ai-contents ul li:first-child{
-    padding-top: 0;
-  }
-  #post-single.ai-contents ol li:last-child,
-  #post-single.ai-contents ul li:last-child{
-    padding-bottom: 0;
-    border-bottom:none;
-  }
 
 @media only screen and (min-width: 680px) {
-
 
 }
 </style>
@@ -96,127 +73,7 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
 
 <div id="main">
 
-<!-----------------------------------------------------------------------------------------------------> 
-<style type="text/css">
-.sns-link {
-  position: relative;
-}
-.sns-link ul {
-  width: 220px;
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  top: -70px;
-}
-.sns-link ul li {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  float: left;
-  margin: 0 20px 0 0;
-}
-.sns-link ul li:last-child {
-  margin: 0;
-}
-li.sns-x a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/x.png");
-  background-size: 48% auto;
-}
-li.sns-fb a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/fb.png");
-  background-size: 55% auto;
-}
-li.sns-line a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/line.png");
-  background-size: 55% auto;
-}
-li.sns-url {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/sns/copy.png");
-  background-size: 50% auto;
-  cursor: pointer;
-}
-.snsInner {
-  position: relative;
-}
-li.sns-x a,
-li.sns-fb a,
-li.sns-line a,
-li.sns-url {
-  background-color: #031b4e;
-  transition-duration: 0.5s;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-}
-.sns4TipOk,
-.sns4Tip,
-.sns3Tip,
-.sns2Tip,
-.sns1Tip {
-  display: none;
-}
-
-@media only screen and (min-width: 680px) {
-  .sns-link ul {
-    width: 25px;
-    top: 0;
-    left: -55px;
-    margin: 0;
-  }
-  .sns-link ul li {
-    position: relative;
-    float: none;
-    margin: 0 0 20px 0;
-  }
-
-  li.sns-x a:hover,
-  li.sns-fb a:hover,
-  li.sns-line a:hover,
-  li.sns-url:hover {
-    background-color: #0069ff;
-  }
-  .sns4TipOk,
-  .sns4Tip,
-  .sns3Tip,
-  .sns2Tip,
-  .sns1Tip {
-    display: block;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
-    font-size: 11px;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 10px;
-    text-align: center;
-    opacity: 0;
-    transition-duration: 0.5s;
-    top: -30px;
-    left: 30px;
-  }
-  .sns4TipOk {
-    top: 10px;
-    width: 110px;
-  }
-  .sns4Tip {
-    top: 10px;
-    width: 90px;
-  }
-  .sns3Tip {
-    width: 90px;
-  }
-  .sns2Tip {
-    width: 115px;
-  }
-  .sns1Tip {
-    width: 65px;
-  }
-}
-</style>
+<!---------------------> 
 <div class="sns-link">
 <ul>
 <li class="sns-x"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&hashtags=aisiteru" target="_bkank"></a><div class="snsInner"><div class="sns1Tip">Xで共有</div></div></li>
@@ -226,385 +83,10 @@ li.sns-url {
 <li class="sns-url" data-url="<?php the_permalink(); ?>"><div class="snsInner"><div class="sns4TipOk">コピーしました！</div><div class="sns4Tip">URLをコピー</div></div></li>
 </ul>
 </div>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
 
-<!----------------------------------------------------------------------------------------------------->
-<style type="text/css">
-.common-prompt{
-    background-color: #000000;
-    color: #FFFFFF;
-    border-radius: 6px;
-    font-size: 12px;
-    padding: 20px 25px;
-    line-height: 18px;
-}
-/*※ 本記事はAIによる生成・編集サポートを含みます。<*/
-.ai-generated-mini{
-  font-size:13px;
-  background:#faf8c8;
-  padding:10px 18px;
-  line-height: 18px;
-  border-radius: 4px;
-  margin-top: 30px;
-}
-
-/*冒頭のリスト
-================================================================================================*/
-ul.ai-list {
-  padding: 15px 20px;
-  border:1px solid #eeeeee;
-  border-radius: 3px;
-
-}
-ul.ai-list li{
-  background-size: 20px auto;
-  background-repeat: no-repeat;
-  padding-left:30px;
-  font-weight: 700;
-  background-position: left center;
-  margin-bottom: 5px;
-}
-
-ul.ai-list li span{
-  font-size: 11px;
-  color: #AAAAAA;
-  font-weight: 500;
-}
-ul.ai-list li:last-child{
-  margin-bottom: 0;
-}
-ul.ai-list li.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-}
-ul.ai-list li.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-}
-ul.ai-list li.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-}
-ul.ai-list li.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-}
-ul.ai-list li.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-}
-ul.ai-list li.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-}
-ul.ai-list li.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-}
-ul.ai-list li.grok{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
-}
-
-/*フッター固定
-================================================================================================*/
-.fixed-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  background: rgba(20, 51, 214, 0.9);
-  padding: 10px 0 12px 0;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* iPhone対策 */
-  height: 85px;
-  box-sizing: border-box;
-}
-
-/* 上部テキスト（13px） */
-.fixed-footer .footer-text {
-  font-size: 13px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 8px;
-  line-height: 1.3;
-  padding: 0 10px;
-  font-weight: 700;
-}
-
-/* アイコン行 */
-.fixed-footer .icon-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 通常アイコン（正円 24px） */
-.fixed-footer .icon-item {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-  transition: background 0.15s ease, transform 0.1s ease;
-}
-
-/* タップ時の軽いアニメーション */
-.fixed-footer .icon-item:active {
-  transform: scale(0.9);
-}
-
-.fixed-footer .icon-item.chatgpt a,
-.fixed-footer .icon-item.gemini a,
-.fixed-footer .icon-item.copilot a,
-.fixed-footer .icon-item.claude a,
-.fixed-footer .icon-item.lechat a,
-.fixed-footer .icon-item.deepseek a,
-.fixed-footer .icon-item.perplexity a,
-.fixed-footer .icon-item.grok a {
-  display: block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 90% auto;
-}
-.fixed-footer .icon-item.chatgpt a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-}
-.fixed-footer .icon-item.gemini a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-}
-.fixed-footer .icon-item.copilot a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-}
-.fixed-footer .icon-item.claude a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-}
-.fixed-footer .icon-item.lechat a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-}
-.fixed-footer .icon-item.deepseek a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-}
-.fixed-footer .icon-item.perplexity a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-}
-.fixed-footer .icon-item.grok a {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
-}
-.fixed-footer .icon-item.chatgpt.active,
-.fixed-footer .icon-item.gemini.active,
-.fixed-footer .icon-item.copilot.active,
-.fixed-footer .icon-item.claude.active,
-.fixed-footer .icon-item.lechat.active,
-.fixed-footer .icon-item.deepseek.active,
-.fixed-footer .icon-item.perplexity.active,
-.fixed-footer .icon-item.grok.active,
-.fixed-footer .icon-item.chatgpt:hover,
-.fixed-footer .icon-item.gemini:hover,
-.fixed-footer .icon-item.copilot:hover,
-.fixed-footer .icon-item.claude:hover,
-.fixed-footer .icon-item.lechat:hover,
-.fixed-footer .icon-item.deepseek:hover,
-.fixed-footer .icon-item.perplexity:hover,
-.fixed-footer .icon-item.grok:hover {
-  box-shadow: inset 0 0 0 1px #FF0000; /* 内側に2pxの線 */
-}
-
-
-/*生成された記事
-================================================================================================*/
-body #main .generated-article h3{
-background-size: 50px auto;
-background-repeat: no-repeat;
-height:50px;
-padding-left:60px;
-background-color: transparent;
-margin-bottom: 0;
-padding-bottom: 0;
-padding-top: 5px;
-}
-body #main .generated-article h3 span{
-  display: block;
-  font-size: 11px;
-  color: #AAAAAA;
-}
-
-body #main .generated-article p.ai-info{
-  padding-top: 0;
-  margin-top: 0;
-  font-size: 13px;
-  line-height: 21px;
-}
-.generated-article h3.chatgpt{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
-}
-.generated-article h3.gemini{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
-}
-.generated-article h3.copilot{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
-}
-.generated-article h3.claude{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
-}
-.generated-article h3.lechat{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
-}
-.generated-article h3.deepseek{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
-}
-.generated-article h3.perplexity{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
-}
-.generated-article h3.grok{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
-}
-
-/*合わせて読みたい
-================================================================================================*/
-#post-single .ai-written a[target="_blank"] {
-	background-image:none;
-}
-
-#post-single .ai-written ul {
-	border:1px solid #eeeeee;
-	border-radius: 0px 0px 3px 3px;
-}
-
-#post-single .ai-written .ai-written-title {
-	background-color:#031b4e;
-	padding:10px;
-	font-size:11px;
-	line-height:12px;
-	color:#ffffff;
-	border-radius: 3px 3px 0px 0px;
-	background-image:url("/wp/wp-content/themes/east/images/icon/link_bl.png");
-	background-repeat:no-repeat;
-	background-size:24px auto;
-	padding-left:32px;
-	background-position:5px center;
-}
-
-#post-single .ai-written ul li a{
-	width:100%;
-	display:block;
-	box-sizing: border-box;
-	padding-left:10px;
-	padding-right:10px;
-	color:#333;
-}
-#post-single .ai-written ul li .ai-written-wap{
-	padding-top:10px;
-	padding-bottom:10px;
-	border-bottom:1px solid #eeeeee;
-}
-#post-single .ai-written ul li:last-child .ai-written-wap{
-	border-bottom:none;
-	padding-bottom:10px;
-}
-#post-single .ai-written ul li .ai-written-img{
-	width:15%;
-	float:left;
-    border-radius: 3px;
-    overflow: hidden;
-}
-#post-single .ai-written ul li .ai-written-img img {
-	width:100%;
-	height:35px;
-	object-fit: cover;
-	margin-right:17px;
-}
-#post-single .ai-written ul li .ai-written-content{
-	display:block;
-	width:80%;
-	float:right;
-}
-body #post-single .ai-written ul li a .ai-written-content-title{
-	font-weight:bold;
-	font-size:12px;
-	line-height:16px;
-}
-
-
-@media only screen and (min-width: 680px) {
-  /*フッター固定
-================================================================================================*/
- .fixed-footer {
-    padding: 15px 0;
-    height: 85px;
-  }
-  .fixed-footer .footer-text {
-    margin-bottom: 12px;
-  }
-  .fixed-footer .icon-nav {
-    gap: 12px;
-  }
-  .fixed-footer .icon-item {
-    padding: 3px;
-  }
-
-    /*合わせて読みたい
-================================================================================================*/
-#post-single .ai-written .ai-written-title {
-	font-size:14px;
-}
-#post-single .ai-written ul li a{
-	width:100%;
-	display:block;
-	box-sizing: border-box;
-	padding-left:15px;
-	padding-right:15px;
-	color:#333;
-}
-#post-single .ai-written ul li .ai-written-wap{
-	padding-top:15px;
-	padding-bottom:15px;
-	border-bottom:1px solid #eeeeee;
-}
-#post-single .ai-written ul li:last-child .ai-written-wap{
-	border-bottom:none;
-	padding-bottom:15px;
-}
-#post-single .ai-written ul li .ai-written-img{
-	width:200px;
-}
-
-#post-single .ai-written ul li .ai-written-img img {
-	width:100%;
-	height:60px;
-	object-fit: cover;
-	vertical-align:bottom;
-}
-
-#post-single .ai-written ul li .ai-written-content{
-	width:380px;
-	float:right;
-  padding-top: 10px;
-}
-
-body #post-single .ai-written ul li a .ai-written-content-title{
-	line-height:22px;
-	font-size:16px;
-}
-
-body #post-single .ai-written ul li a .ai-written-content-date{
-	font-size:12px;
-	background-image:url(/wp/wp-content/themes/east/images/icon/time_bl.png);
-	background-repeat:no-repeat;
-	background-size:12px auto;
-	padding-left:17px;
-	background-position:0px 0px;
-	line-height:20px;
-	margin-top:10px;
-}
-    
-    .ai-written-content-title{
-        transition-duration: 0.3s;
-    }
-
-}
-</style>
-
+<!---------------------> 
 <?php if ( has_tag('index') ) : ?>
   <div id="post-single" class="index-contents">
 <?php else : ?>
@@ -620,99 +102,10 @@ the_post(); ?>
     <div class="ai-generated-mini">※ 本記事は、各AIの“思考の違い”を比較するため、AIが生成した内容を原則そのまま掲載しています（誤字など最低限の確認のみ実施）。</div>
   <?php endif ; ?>
 </div>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
 
-
-
-<!-----------------------------------------------------------------------------------------------------> 
-<style type="text/css">
-.post_author {
-  padding: 25px 25px 25px 25px;
-  border-radius: 0 0 10px 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  border-top: 1px solid #eeeeee;
-  margin: 0 10px;
-}
-.post_author .inner {
-  width: 100%;
-  position: relative;
-}
-.post_author h2{
-    font-weight: 700;
-    color:#1433d6;
-}
-/* アバター */
-.profile-img {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 30px;
-}
-.profile-img img {
-  width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
-
-/* 名前（AI名／Tusami） */
-.profile-name {
-  position: absolute;
-  top: 40px;
-  left: 70px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #031b4e;
-}
-
-/* 肩書き（思考型AIエディタ 等） */
-.profile-role {
-  position: absolute;
-  top: 62px;
-  left: 70px;
-  font-size: 12px;
-  color: #7a869a;
-}
-
-/* コメント本文 */
-.profile-comment {
-  padding-top: 80px;  /* アイコン分のスペース */
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* 「このAIエディタが担当した他の記事を見る」リンク */
-.profile-link {
-  margin-top: 8px;
-  font-size: 12px;
-}
-.profile-link a {
-  color: #0069ff;
-  text-decoration: underline;
-}
-.profile-link a:hover {
-  text-decoration: none;
-}
-
-@media only screen and (min-width: 680px) {
-  /*post_author
-  ================================================================================================*/
-  .post_author {
-    width: 740px;
-    padding: 25px 50px 25px 50px;
-    margin: 0;
-  }
-
-  .profile-name {
-    font-size: 16px;
-  }
-
-}
-</style>
+<!---------------------> 
 <div class="post_author">
   <div class="inner">
 
@@ -861,14 +254,9 @@ AIごとの文章の「温度」や「違和感」をすくい取り、AIに足�
   ?>
   </div>
 </div>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
-
-
-
-
-
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 <?php
 $ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity','grok');
 $post_tags = get_the_tags();
@@ -892,11 +280,27 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
         <p><?php echo nl2br( esc_html( $human_comment ) ); ?></p>
     </div>
 <?php endif; ?>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
 
 <?php //get_template_part("partials/prev-next-link") ?>
 <?php get_template_part("partials/related-posts") ?>
+
+
+<?php
+// grok タグが付いている投稿だけ対象
+if (has_tag(['grok', 'index'])) {
+
+  $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
+
+  if ($base_slug) {
+    aisiteru_fixed_footer($base_slug);
+  }
+}
+?>
+
+
+
 
 <!----------------------------------------------------------------------------------------------------->
 <script>
@@ -989,148 +393,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<style type="text/css">
-.prompt,
-.markdown{
-    display:none;
-}
-
-/* ===== プロンプト用モーダル ===== */
-.prompt-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9900;
-    display: none;
-}
-
-.prompt-modal.is-open {
-    display: block;
-}
-
-.prompt-modal__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    bottom: 85px; /* フッターの高さ分カット */
-}
-
-/* -----------------------------------------
-   モバイルファースト：モーダル本体
-   ----------------------------------------- */
-.prompt-modal__content {
-    position: relative;
-    max-width: none;
-    margin: 15px;          /* 上下左右 15px 余白 */
-    padding: 20px;
-    background: #000000;
-    color: #ffffff;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border-radius: 6px;
-    box-sizing: border-box;
-    /* 高さは「画面 - フッター - margin×2」で計算（dvh 優先） */
-    max-height: calc(100dvh - 85px - 30px);
-}
-
-/* dvh 非対応ブラウザ向けフォールバック */
-@supports not (height: 100dvh) {
-    .prompt-modal__content {
-        max-height: calc(100vh - 85px - 30px);
-    }
-}
-
-/* モーダル内すべての要素を白文字に統一 */
-.prompt-modal__content * {
-    color: #ffffff !important;
-}
-
-.prompt-modal__close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    border: none;
-    background: transparent;
-    font-size: 24px;
-    line-height: 1;
-    cursor: pointer;
-    color: #ffffff !important;
-}
-
-body.prompt-modal-open {
-    overflow: hidden;
-}
-
-/* ===== スタイリッシュなスクロールバー ===== */
-.prompt-modal__content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-track {
-    background: #111;
-    border-radius: 4px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #444, #222);
-    border-radius: 4px;
-}
-
-.prompt-modal__content::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #666, #333);
-}
-
-/* FireFox */
-.prompt-modal__content {
-    scrollbar-width: thin;
-    scrollbar-color: #444 #111;
-}
-
-/* パネル共通（中身の文字サイズなど） */
-.prompt-panel {
-    font-size: 12px;
-    line-height: 1.7;
-    display: none;
-}
-.prompt-panel.is-active {
-    display: block;
-}
-
-/* タブエリア */
-.prompt-modal__tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #333;
-}
-
-/* タブボタン */
-.prompt-tab {
-    flex: 0 0 auto;
-    padding: 6px 12px;
-    font-size: 12px;
-    border: none;
-    background: #222;
-    cursor: pointer;
-    border-radius: 4px 4px 0 0;
-}
-
-/* アクティブタブの見た目 */
-.prompt-modal__tabs .prompt-tab.is-active {
-    background: #ffffff;
-    color: #000000 !important;
-}
-@media only screen and (min-width: 680px) {
-    .prompt-modal__content {
-      max-width: 700px;
-      max-height: 80vh;
-      margin: 40px auto;
-      padding: 28px 36px;
-  }
-
-  
-}
-</style>
-
 <div id="prompt-modal" class="prompt-modal">
   <div class="prompt-modal__overlay"></div>
   <div class="prompt-modal__content">
@@ -1151,7 +413,7 @@ body.prompt-modal-open {
     </div>
   </div>
 </div>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
 <!----------------------------------------------------------------------------------------------------->
 <script>
@@ -1211,152 +473,6 @@ jQuery(function($) {
 });
 </script>
 
-<style type="text/css">
-/* ---- 画像＋プロンプト共通 ---- */
-.output-image {
-    position: relative;
-    display: inline-block;
-    margin: 0;
-    border:1px solid #CCCCCC;
-    border-radius: 3px;
-    overflow: hidden;
-    padding:0;
-    background: #031323;
-    line-height: 0 !important;
-    font-size: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.output-image.mt {
-    margin-top:20px;
-}
-
-.output-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    vertical-align:bottom;
-    margin-bottom:0;
-    line-height: 0;
-}
-
-/* 記事内の生プロンプトテキストは非表示 */
-.output-image .image-prompt {
-    display: none;
-}
-
-/* promptボタン */
-.output-image .prompt-button {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    padding: 0 8px;
-    font-size: 11px;
-    line-height: 22px;
-    height: 22px;
-    border: none;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    cursor: pointer;
-    z-index: 5;
-}
-
-/* ---- 画像プロンプト用モーダル ---- */
-.image-prompt-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: none;
-}
-
-/* モーダル表示時 */
-.image-prompt-modal.is-open {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ここを修正：フッター85pxぶん黒幕を避ける */
-.image-prompt-modal__overlay {
-    position: absolute;
-    inset: 0;
-    bottom: 85px; /* ← 追加：フッター高さ分カット */
-    background: rgba(0, 0, 0, 0.9);
-}
-
-/* モーダル本体 */
-.image-prompt-modal__content {
-    position: relative;
-    max-width: 640px;
-
-    /* ここを修正：フッターぶん本体を短くする */
-    max-height: calc(100dvh - 85px - 30px);
-
-    margin: 0 16px;
-    padding: 20px 24px;
-    background: #111;
-    color: #fff;
-    overflow-y: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    border-radius: 4px;
-}
-
-/* dvh 非対応ブラウザフォールバック */
-@supports not (height: 100dvh) {
-    .image-prompt-modal__content {
-        max-height: calc(100vh - 85px - 30px);
-    }
-}
-
-/* モーダル内テキスト */
-.image-prompt-modal__body {
-    white-space: pre-wrap;
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-/* 閉じるボタン */
-.image-prompt-modal__close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* スマホ調整 */
-@media (max-width: 768px) {
-    .image-prompt-modal__content {
-        width: 90%;
-        max-height: calc(100dvh - 85px - 30px);
-        padding: 16px;
-    }
-}
-
-/* AI名 */
-.prompt-ai-name {
-    font-size: 12px;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-/* プロンプト本文 */
-.prompt-ai-text {
-    font-size: 14px;
-    line-height: 1.6;
-    white-space: pre-wrap;
-}
-
-.zu {
-  font-size: 12px;
-  line-height: 12px;
-}
-</style>
-
 
 <div class="image-prompt-modal" id="image-prompt-modal">
   <div class="image-prompt-modal__overlay"></div>
@@ -1368,7 +484,7 @@ jQuery(function($) {
     </div>
   </div>
 </div>
-<!-----------------------------------------------------------------------------------------------------> 
+<!---------------------> 
 
 </div>
 
@@ -1479,13 +595,5 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 </script>
-
-
-
-
-
-
-
-
 </body>
 </html>

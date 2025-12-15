@@ -135,7 +135,7 @@ if ( ! function_exists( 'related_func' ) ) {
             }
 
             $output .= '    <li>';
-            $output .= '      <a href="' . esc_url( $link ) . '" target="_blank">';
+            $output .= '      <a href="' . esc_url( $link ) . '">';
             $output .= '        <div class="ai-written-wap">';
             $output .= '          <div class="ai-written-img">';
             $output .= '            <img src="' . esc_url( $thumbnail_url ) . '" alt="' . esc_attr( $title ) . '">';
@@ -148,6 +148,7 @@ if ( ! function_exists( 'related_func' ) ) {
             $output .= '        </div>';
             $output .= '      </a>';
             $output .= '    </li>';
+
         }
 
         $output .= '  </ul>';
@@ -170,3 +171,150 @@ function custom_post_types_and_taxonomies() {
 }
 add_action('init', 'custom_post_types_and_taxonomies');
 ?>
+<?php
+/**
+ * AI定義（唯一の定義元）
+ */
+function aisiteru_get_ai_definitions() {
+  return [
+    [
+      'slug'  => 'gpt',
+      'class' => 'chatgpt',
+      'label' => 'ChatGPT',
+      'kana'  => 'チャットジーピーティー',
+    ],
+    [
+      'slug'  => 'claude',
+      'class' => 'claude',
+      'label' => 'Claude',
+      'kana'  => 'クロード',
+    ],
+    [
+      'slug'  => 'gemini',
+      'class' => 'gemini',
+      'label' => 'Gemini',
+      'kana'  => 'ジェミニ',
+    ],
+    [
+      'slug'  => 'copilot',
+      'class' => 'copilot',
+      'label' => 'Copilot',
+      'kana'  => 'コパイロット',
+    ],
+    [
+      'slug'  => 'grok',
+      'class' => 'grok',
+      'label' => 'Grok',
+      'kana'  => 'グロック',
+    ],
+    [
+      'slug'  => 'perplexity',
+      'class' => 'perplexity',
+      'label' => 'Perplexity',
+      'kana'  => 'パープレキシティ',
+    ],
+    [
+      'slug'  => 'deepseek',
+      'class' => 'deepseek',
+      'label' => 'DeepSeek',
+      'kana'  => 'ディープシーク',
+    ],
+    [
+      'slug'  => 'lechat',
+      'class' => 'lechat',
+      'label' => 'Le Chat',
+      'kana'  => 'ル・シャ',
+    ],
+  ];
+}
+
+/**
+ * 固定フッター
+ */
+function aisiteru_fixed_footer($base_slug) {
+
+  $ais = aisiteru_get_ai_definitions();
+  $current_slug = get_post_field('post_name', get_post());
+  $items = [];
+
+  foreach ($ais as $ai) {
+
+    $slug = $base_slug . '-' . $ai['slug'];
+
+    // 記事が存在するAIだけ表示
+    $post = get_page_by_path($slug, OBJECT, 'post');
+    if (!$post || $post->post_status !== 'publish') {
+      continue;
+    }
+
+    $items[] = [
+      'class'  => $ai['class'],
+      'label'  => $ai['label'],
+      'url'    => home_url('/' . $slug . '/'),
+      'active' => ($current_slug === $slug),
+    ];
+  }
+
+  if (empty($items)) return;
+  ?>
+  <div class="fixed-footer">
+    <div class="footer-text">共通プロンプトでのAI比較記事</div>
+    <nav class="icon-nav">
+      <?php foreach ($items as $item): ?>
+        <div class="icon-item <?= esc_attr($item['class']) ?><?= $item['active'] ? ' active' : '' ?>">
+          <a href="<?= esc_url($item['url']) ?>">
+            <span class="visually-hidden">
+              <?= esc_html($item['label']) ?>の分析記事を読む
+            </span>
+          </a>
+        </div>
+      <?php endforeach; ?>
+    </nav>
+  </div>
+  <?php
+}
+
+/**
+ * ai-list ショートコード
+ * 使用例：[ai_list]
+ */
+function aisiteru_ai_list_shortcode() {
+
+  $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
+  if (!$base_slug) return '';
+
+  $ais = aisiteru_get_ai_definitions();
+  $items = [];
+
+  foreach ($ais as $ai) {
+
+    $slug = $base_slug . '-' . $ai['slug'];
+
+    $post = get_page_by_path($slug, OBJECT, 'post');
+    if (!$post || $post->post_status !== 'publish') {
+      continue;
+    }
+
+    $items[] = $ai;
+  }
+
+  if (empty($items)) return '';
+
+  ob_start();
+  ?>
+  <ul class="ai-list">
+    <?php foreach ($items as $ai): ?>
+      <li class="<?= esc_attr($ai['class']) ?>">
+        <?= esc_html($ai['label']) ?>
+        <span>（<?= esc_html($ai['kana']) ?>）</span>
+      </li>
+    <?php endforeach; ?>
+  </ul>
+  <?php
+
+  return ob_get_clean();
+}
+add_shortcode('ai_list', 'aisiteru_ai_list_shortcode');
+?>
+
+
