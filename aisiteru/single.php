@@ -590,6 +590,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } // ← PC判定ここまで
 });
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const footer = document.querySelector('.fixed-footer');
@@ -601,6 +602,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
-
 </body>
 </html>
