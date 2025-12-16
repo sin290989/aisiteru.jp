@@ -200,13 +200,24 @@ padding: 20px 25px;
 line-height: 18px;
 }
 /*※ 本記事はAIによる生成・編集サポートを含みます。<*/
+.index-lead{
+font-size:12px;
+padding:10px 15px;
+line-height: 20px;
+margin-top:15px;
+border-radius: 2px;
+border:1px dotted #CCCCCC;
+}
+
 .ai-generated-mini{
-font-size:13px;
-background:#faf8c8;
-padding:10px 18px;
-line-height: 18px;
+font-size:12px;
+background:#ffffff;
+padding:10px 15px;
+line-height: 20px;
 border-radius: 4px;
 margin-top: 30px;
+border-radius: 2px;
+border:1px dotted #CCCCCC;
 }
 
 

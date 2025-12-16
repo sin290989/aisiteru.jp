@@ -72,7 +72,7 @@ Template Name:privacy-policy
 <a href="/"><span class="home">トップページ</span></a> > <a href="/privacy-policy">プライバシーポリシー</a></span>
 </div>
 </div>
-<div class="page-main-img">privacy</div>
+<div class="page-main-img">プライバシーポリシー</div>
 <div id="page-wapper">
 <div id="page-contents">
 <div class="priCon">

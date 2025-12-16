@@ -50,10 +50,11 @@ $(function(){
 <div class="inner">
 <div id="copy">Copyright © <?php echo date("Y"); ?> aisiteru? All Rights Reserved.</div>
 <ul class="ft-menu">
-<li><a href="/">HOME</a></li>
-<li><a href="/about">ABOUT</a></li>
-<li><a href="/contact">CONTACT</a></li>
-<li><a href="/privacy-policy">PRIVACY</a></li>
+<li><a href="/">トップ</a></li>
+<li><a href="/about">AIシテル？について</a></li>
+<li><a href="/contact">お問合せ</a></li>
+<li><a href="/privacy-policy">プライバシーポリシー</a></li>
+<li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
 <li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
 </ul>
 </div>

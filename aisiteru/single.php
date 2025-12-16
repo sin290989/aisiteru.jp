@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single52.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single53.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -92,13 +92,70 @@ $index_title = get_post_meta(get_the_ID(), 'index_title', true);
   <div id="post-single" class="ai-contents">
 <?php endif ; ?>
 
+
+<?php
+$index_theme_title = get_post_meta(get_the_ID(), 'index_theme_title', true);
+$index_title       = get_post_meta(get_the_ID(), 'index_title', true);
+$index_url         = get_post_meta(get_the_ID(), 'index_url', true);
+
+/**
+ * AIタグ → 表示名のマッピング
+ */
+$ai_tag_map = [
+  'chatgpt'     => 'ChatGPT',
+  'claude'      => 'Claude',
+  'gemini'      => 'Gemini',
+  'copilot'     => 'Copilot',
+  'perplexity'  => 'Perplexity',
+  'deepseek'    => 'DeepSeek',
+  'lechat'      => 'LeChat',
+  'grok'        => 'Grok',
+];
+
+$ai_name = '';
+
+$tags = get_the_tags();
+if ( $tags ) {
+  foreach ( $tags as $tag ) {
+    if ( isset($ai_tag_map[$tag->slug]) ) {
+      $ai_name = $ai_tag_map[$tag->slug];
+      break;
+    }
+  }
+}
+?>
+
+<?php if ( ! has_tag('index') && ! empty($index_theme_title) && ! empty($ai_name) ) : ?>
+
+<div class="index-lead">
+この記事は、同一テーマを複数のAIで比較する企画の一部として
+「<?php echo esc_html($index_theme_title); ?>」を
+<?php echo esc_html($ai_name); ?> の視点で考察したものです。
+
+
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
+テーマ全体の整理・他AIの意見比較は下記をご覧ください。
+<div class="index-link">
+👉 <a href="<?php echo esc_url($index_url); ?>">
+<?php echo esc_html($index_title); ?>
+</a> 
+</div>
+<?php endif; ?>
+
+</div>
+<?php endif; ?>
+
+
+
+
 <?php if(have_posts()): while(have_posts()):
 the_post(); ?>
 <?php the_content(); ?>
 <?php endwhile; endif; ?>
 
   <?php if ( ! has_tag('index') ) : ?>
-    <div class="ai-generated-mini">※ 本記事は、各AIの“思考の違い”を比較するため、AIが生成した内容を原則そのまま掲載しています（誤字など最低限の確認のみ実施）。</div>
+    <div class="ai-generated-mini">※ 本記事は、各AIの「思考の違い」を比較するため、AIが生成した内容を原則そのまま掲載しています（誤字など最低限の確認のみ実施）。<br>
+本サイトの編集方針については「<a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a>」をご覧ください。</div>
   <?php endif ; ?>
 </div>
 <!---------------------> 
