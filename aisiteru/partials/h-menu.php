@@ -104,8 +104,6 @@
     margin:0 0 15px 0;  
 }
 .h-menu-inner > ul a{
-    font-size:20px;
-    line-height: 20px;
     color:#FFFFFF;
     font-weight: bold;
     letter-spacing: 2px;;
@@ -201,8 +199,6 @@
     margin:0 0 20px 0;
 }
 .h-menu-inner > ul a{
-    font-size:28px;
-    line-height: 28px;
     color:#FFFFFF;
     font-weight: bold;
     letter-spacing: 2px;;
@@ -352,7 +348,7 @@ $(document).ready(function () {
 
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
-echo '<ul class="catList">'; 
+echo '<ul>'; 
 echo '<li>';
 echo '<a href="/category/prediction/">AI予測・時事</a>';
 echo '</li>';
@@ -380,7 +376,7 @@ echo '</ul>';
 
 <?php
 echo '<h2 class="aiTitle">生成AI</h2>';
-echo '<ul class="aiList">'; 
+echo '<ul>'; 
 echo '<li>';
 echo '<a href="/editor/chatgpt/">ChatGPT</a>';
 echo '</li>';
