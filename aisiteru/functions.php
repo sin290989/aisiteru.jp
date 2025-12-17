@@ -288,6 +288,7 @@ function aisiteru_ai_list_shortcode() {
 
   foreach ($ais as $ai) {
 
+    // 記事の存在チェックは slug（gpt など）
     $slug = $base_slug . '-' . $ai['slug'];
 
     $post = get_page_by_path($slug, OBJECT, 'post');
@@ -305,8 +306,10 @@ function aisiteru_ai_list_shortcode() {
   <ul class="ai-list">
     <?php foreach ($items as $ai): ?>
       <li class="<?= esc_attr($ai['class']) ?>">
-        <?= esc_html($ai['label']) ?>
-        <span>（<?= esc_html($ai['kana']) ?>）</span>
+        <a href="#index-<?= esc_attr($ai['class']) ?>">
+          <?= esc_html($ai['label']) ?>
+          <span>（<?= esc_html($ai['kana']) ?>）</span>
+        </a>
       </li>
     <?php endforeach; ?>
   </ul>
@@ -315,4 +318,5 @@ function aisiteru_ai_list_shortcode() {
   return ob_get_clean();
 }
 add_shortcode('ai_list', 'aisiteru_ai_list_shortcode');
+
 ?>
