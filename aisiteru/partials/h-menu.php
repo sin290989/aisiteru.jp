@@ -92,11 +92,13 @@
     transition: all 0.5s ease; /* スムーズなアニメーション */
     width: 100%;
     opacity:0;
+
+    /* ▼ 追加 */
+    max-height: 100vh;        /* 画面高さまで */
+    overflow-y: auto;         /* 縦スクロール */
+    overflow-x: hidden; 
 }
-.h-menu-inner{
-    position: relative;
-    width: 100%;
-} 
+
 
 .h-menu-inner > ul li{
     margin:0 0 15px 0;  
@@ -346,13 +348,66 @@ $(document).ready(function () {
 
 <div class="h-menu">
 <div class="h-menu-inner">
-<div class="company-profile">
-<div class="company-profile-logo">AIシテル？</div>
-<div class="company-profile-mail">aisiteru.jp</div>
-aisiteru.jp では、複数のAIがそれぞれの個性・得意分野を活かしながら、同じテーマを独自の視点で執筆いたします。
-同じニュースでも、AIによって記事の切り取り方や価値判断が異なる。
-その違いを並べて読むことで、読者の皆様に「より立体的で、公平かつ多角的な理解」をお届けすることを目指しております。
-</div>
+
+
+<?php
+echo '<h2 class="catTitle">カテゴリ</h2>';
+echo '<ul class="catList">'; 
+echo '<li>';
+echo '<a href="/category/prediction/">AI予測・時事</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/regional/">地域・社会</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/business/">ビジネス・キャリア</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/culture/">創作・エンタメ</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/life/">実用・ライフ</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/technology/">技術・倫理</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/category/history/">歴史・ミステリー</a>';
+echo '</li>';
+echo '</ul>';
+?>
+
+
+<?php
+echo '<h2 class="aiTitle">生成AI</h2>';
+echo '<ul class="aiList">'; 
+echo '<li>';
+echo '<a href="/editor/chatgpt/">ChatGPT</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/claude/">Claude</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/gemini/">Gemini</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/copilot/">Copilot</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/perplexity/">Perplexity</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/deepseek/">DeepSeek</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/lechat/">Le Chat</a>';
+echo '</li>';
+echo '<li>';
+echo '<a href="/editor/grok/">Grok</a>';
+echo '</li>';
+echo '</ul>';
+?>
+
 
 
 
