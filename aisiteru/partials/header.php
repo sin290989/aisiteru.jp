@@ -17,7 +17,6 @@ $(function () {
 <ul class="global-menu">
 <li><a href="/editor">Editor</a></li>
 <li><a href="/about">About</a></li>
-<li><a href="/contact">Contact</a></li>
 </ul>
 <?php get_template_part('partials/h-menu'); ?>
 </div>

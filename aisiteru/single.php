@@ -130,20 +130,38 @@ if ( $tags ) {
 <div class="index-lead">
 この記事は、同一テーマを複数のAIで比較する企画の一部として
 「<?php echo esc_html($index_theme_title); ?>」を
-<?php echo esc_html($ai_name); ?> の視点で考察したものです。
-
+<strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
 <?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
 👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
-</a> 
+</a>
 </div>
 <?php endif; ?>
 
 </div>
+
+<?php elseif ( ! has_tag('index') && ! empty($ai_name) ) : ?>
+
+<div class="index-lead">
+この記事は、同一テーマを複数のAIで比較する企画の一部として
+<strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
+
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
+テーマ全体の整理・他AIの意見比較は下記をご覧ください。
+<div class="index-link">
+👉 <a href="<?php echo esc_url($index_url); ?>">
+<?php echo esc_html($index_title); ?>
+</a>
+</div>
 <?php endif; ?>
+
+</div>
+
+<?php endif; ?>
+
 
 
 
@@ -657,6 +675,30 @@ document.addEventListener('DOMContentLoaded', function () {
       footer.classList.add('is-visible');
     }, 200);
   }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const order = [
+    'chatgpt',
+    'gemini',
+    'copilot',
+    'grok',
+    'claude',
+    'perplexity',
+    'deepseek',
+    'lechat'
+  ];
+
+  const container = document.getElementById('ai-index');
+  if (!container) return;
+
+  order.forEach(ai => {
+    const block = container.querySelector(`.ai-block[data-ai="${ai}"]`);
+    if (block) {
+      container.appendChild(block);
+    }
+  });
 });
 </script>
 </body>
