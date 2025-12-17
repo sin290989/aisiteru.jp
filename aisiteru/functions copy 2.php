@@ -1,6 +1,14 @@
 <?php add_theme_support('post-thumbnails'); ?>
 <?php add_image_size('single-thumbnails', 750, 0, false); ?>
 <?php
+// カテゴリーに紐づくタグ一覧を取得
+function my_tags_in_cat( $cat_id ){
+	$post_ids = get_objects_in_term( $cat_id, 'category' );
+	$tags_object = wp_get_object_terms( $post_ids, 'post_tag' );
+	return $tags_object;
+}
+?>
+<?php
 if ( function_exists('register_sidebar') ) {
   register_sidebar(array(
     'name'          => 'サイドバー1',
