@@ -1,332 +1,242 @@
 <style type="text/css">
-/*------------------------------------------------------------------------*/
-/* .h-menu-icon に position: absolute を適用 */
+/* ===============================
+   ハンバーガーアイコン
+=============================== */
 .h-menu-icon {
-    position: absolute;
-    top: 20px; /* 必要に応じて調整 */
-    right: 15px; /* 必要に応じて調整 */
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    left: auto !important;
+    transform: none;
     width: 34px;
     height: 34px;
-    z-index: 1500;
+    z-index: 2000;
 }
 
-/* 新しい .icon-wrapper に position: relative を適用 */
 .icon-wrapper {
-    position: relative; /* 相対位置指定 */
+    position: relative;
     width: 34px;
     height: 34px;
-    background-color: #1433d6; /* 背景色 */
-    border-radius: 50%; /* 正円 */
+    background-color: #1433d6;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column; /* 縦に線を並べる */
-    justify-content: center; /* 線を垂直方向で中央揃え */
-    align-items: center; /* 線を左右中央揃え */
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
-/* 三本線のスタイル */
 .icon-wrapper span {
-    display: block;
-    position: absolute; /* 全ての線を重ねる */
-    width: 15px; /* 線の幅を統一 */
-    height: 2px; /* 線の太さを統一 */
-    background-color: #FFFFFF; /* 線の色 */
-    border-radius: 1px; /* 少し丸みを付ける */
-    transition: all 0.3s ease; /* スムーズなアニメーション */
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 初期位置 */
-.icon-wrapper span:nth-child(1) {
-    transform: translateY(-6px); /* 上の線を上に配置 */
-}
+.icon-wrapper span:nth-child(1) { transform: translateY(-6px); }
+.icon-wrapper span:nth-child(2) { transform: translateY(0); }
+.icon-wrapper span:nth-child(3) { transform: translateY(6px); }
 
-.icon-wrapper span:nth-child(2) {
-    transform: translateY(0); /* 真ん中の線を中央に配置 */
-}
-
-.icon-wrapper span:nth-child(3) {
-    transform: translateY(6px); /* 下の線を下に配置 */
-}
-
-/* アクティブ時（バツになる状態） */
 .icon-wrapper.active span:nth-child(1) {
-    transform: rotate(45deg); /* 45度回転 */
-    width: 20px; /* バツの長さを統一 */
-    height: 2px;
+    transform: rotate(45deg);
+    width: 20px;
 }
-
 .icon-wrapper.active span:nth-child(2) {
-    opacity: 0; /* 真ん中の線を透明化 */
+    opacity: 0;
 }
-
 .icon-wrapper.active span:nth-child(3) {
-    transform: rotate(-45deg); /* -45度回転 */
-    width: 20px; /* バツの長さを統一 */
-    height: 2px;
-}
-/*------------------------------------------------------------------------*/
-
-.menu-bg{
-    margin:0;
-    background-color: #1433d6;
-    height: 5px;
-    position: fixed; /* 絶対位置指定 */
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    transition: all 0.6s ease; /* スムーズなアニメーション */
+    transform: rotate(-45deg);
+    width: 20px;
 }
 
-.service-info{
+/* ===============================
+   背景オーバーレイ
+=============================== */
+.menu-bg {
+    position: fixed;
+    inset: 0;
+    background: #1433d6;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+body.is-menu-open .menu-bg {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===============================
+   メニュー本体
+=============================== */
+.h-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    overflow-y: auto;
+}
+
+body.is-menu-open .h-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.h-menu-inner {
+    max-width: 1000px;
+    margin: 50px auto 50px;
+    padding: 0 20px;
+}
+
+.h-menu h2 {
+    color: #fff;
+    font-size: 15px;
+    margin:15px 0 15px;
+}
+
+.h-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size:14px;
+}
+
+.h-menu li {
+    margin-bottom: 5px;
+}
+
+.h-menu a {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size:14px;
+}
+
+/* ===============================
+   スクロールロック
+=============================== */
+body.is-menu-open {
+    overflow: hidden;
+}
+
+/* ===============================
+   service-info（PCのみ）
+=============================== */
+.service-info {
     display: none;
 }
 
-/**/
-.h-menu{
-    position: fixed; /* 絶対位置指定 */
-    margin: auto; 
-    top:-1000px;
-    right: 0;
-    left: 0;
-    z-index: 101;
-    transition: all 0.5s ease; /* スムーズなアニメーション */
-    width: 100%;
-    opacity:0;
-
-    /* ▼ 追加 */
-    max-height: 100vh;        /* 画面高さまで */
-    overflow-y: auto;         /* 縦スクロール */
-    overflow-x: hidden; 
-}
-
-
-.h-menu-inner > ul li{
-    margin:0 0 15px 0;  
-}
-.h-menu-inner > ul a{
-    color:#FFFFFF;
-    font-weight: bold;
-    letter-spacing: 2px;;
-}
-.h-menu-inner > ul div{
-    font-size:11px;
-    line-height: 11px;
-    color:#FFFFFF;
-}
-
-/*------------------------------------------------------------------------*/
-.company-profile{
-        color: #FFFFFF;
+@media (min-width: 680px) {
+    .h-menu-icon {
         position: absolute;
-        top:210px;
-        left:50px;
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 15px;
+        left: auto !important;
     }
 
-    .company-profile-logo{
-        font-size: 28px;
-        line-height: 28px;
-        font-weight: bold;
-        margin: 0 0 20px 0;
-
+    .icon-wrapper {
+        width: 40px;
+        height: 40px;
     }
 
-
-    .company-profile-mail{
-        font-size: 14px;
-        line-height: 14px;
-        margin: 0 0 10px 0;
-    }
-/*------------------------------------------------------------------------*/
-
-@media only screen and (min-width: 680px) {
-/*------------------------------------------------------------------------*/
-/* .h-menu-icon に position: absolute を適用 */
-.h-menu-icon {
-    top: 10px; /* 必要に応じて調整 */
-    width: 40px;
-    height: 40px;
-}
-
-/* 新しい .icon-wrapper に position: relative を適用 */
-.icon-wrapper {
-    width: 40px;
-    height: 40px;
-}
-
-/* 三本線のスタイル */
-.icon-wrapper span {
-    width: 20px; /* 線の幅を統一 */
-}
-
-/* アクティブ時（バツになる状態） */
-.icon-wrapper.active span:nth-child(1) {
-    width: 24px; /* バツの長さを統一 */
-    height: 3px;
-}
-
-.icon-wrapper.active span:nth-child(3) {
-    width: 24px; /* バツの長さを統一 */
-    height: 3px;
-}
-/*------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------*/
-.menu-bg{
-    left:0px;
-    height: 30px;
-    transition: all 0.5s ease; /* スムーズなアニメーション */
+    .icon-wrapper span {
+        width: 20px;
+        height: 3px;
     }
 
-/*------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------*/
-.h-menu{
-    position: fixed; /* 絶対位置指定 */
-    margin: auto; 
-    top:-1000px;
-    right: 0;
-    left: 0;
-    z-index: 101;
-    transition: all 0.5s ease; /* スムーズなアニメーション */
-    width: 1000px;
-    opacity:0;
-}
-.h-menu-inner{
-    position: relative;
-    width: 1000px;
-    
-}
+    .icon-wrapper span:nth-child(1) { transform: translateY(-7px); }
+    .icon-wrapper span:nth-child(3) { transform: translateY(7px); }
 
-.h-menu-inner > ul li{
-    margin:0 0 20px 0;
-}
-.h-menu-inner > ul a{
-    color:#FFFFFF;
-    font-weight: bold;
-    letter-spacing: 2px;;
-}
-.h-menu-inner > ul div{
-    font-size:13px;
-    line-height: 13px;
-    color:#FFFFFF;
-}
-/*------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------*/
-    .company-profile{
-        color: #FFFFFF;
-        position: absolute;
-        top:50px;
-        left:0;
+    .icon-wrapper.active span:nth-child(1),
+    .icon-wrapper.active span:nth-child(3) {
+        width: 24px;
     }
 
-    .company-profile-logo{
-        font-size: 54px;
-        line-height: 54px;
-        font-weight: bold;
-        margin: 0 0 20px 0;
-
-    }
-
-    .company-profile-mail{
-        font-size: 14px;
-        line-height: 14px;
-        margin: 0 0 20px 0;
-    }
-/*------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------*/
-.service-info{
+    .service-info {
         display: block;
         position: fixed;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 30px;
         line-height: 30px;
         font-size: 11px;
-        z-index: 201;
-        transition: all 0.5s ease; /* スムーズなアニメーション */
+        z-index: 1200;
+        color: #fff;
+         background-color: #1433d6;
     }
+
     .service-info .info-inner {
-        width: 1100px;
+        max-width: 1100px;
         margin: 0 auto;
-        height: 30px;
-        padding:0;
+        padding: 0 20px;
     }
-    .service-info a{
-        color: #ffffff;
+
+    .service-info a {
+        color: #fff;
+        text-decoration: none;
     }
-/*------------------------------------------------------------------------*/
 }
 </style>
 
-<script type="text/javascript">
-$(document).ready(function () {
-    const iconWrapper = $(".icon-wrapper");
-    const hMenu = $(".h-menu");
-    const menuBg = $(".menu-bg");
-    const serviceInfo = $(".service-info");
-    let scrollPosition = 0;
-    let bgHeight;
-    let hMenuTop;
-    const elementsToHide = [
-        "#header .logo", // ヘッダーロゴ
-        "#pan",          // パンくずリスト
-        "#wapper",       // ラッパー要素
-        ".top-wapper",   // トップラッパー
-        "#page-wapper",  // ページラッパー
-        "#footer",       // フッター
-        ".page-main-img", // メインイメージ
-        ".main-visual"   // メインビジュアル
-    ];
-    if ($(window).width() >= 640) {
-        bgHeight = "30px";
-        hMenuTop = "150px";
-    }else{
-        bgHeight = "5px";
-        hMenuTop = "150px";
+<script>
+$(function () {
+    const $icon = $('.icon-wrapper');
+    const $body = $('body');
+    const $menuBg = $('.menu-bg');
+    const $serviceInfo = $('.service-info');
+    const $fixedFooter = $('.fixed-footer');
+
+    function openMenu() {
+        $icon.addClass('active');
+        $body.addClass('is-menu-open');
+
+        // service-info：上にスライドして枠外へ（フェードなし）
+        $serviceInfo.css({
+            transform: 'translateY(-100%)'
+        });
+
+        // fixed-footer：下にスライドして非表示
+        $fixedFooter.removeClass('is-visible');
     }
-    iconWrapper.add(".top-service-link a").on("click", function () {
-        if (!iconWrapper.hasClass("active")) {
-            // メニューを開く
-            iconWrapper.addClass("active");
-            scrollPosition = $(window).scrollTop(); // 現在のスクロール位置を記録
-            menuBg.css("height", "100vh"); //背景を画面いっぱいに伸ばす
-            serviceInfo.css("top", "-50px"); //やっぱり甲子園のテキストだけど画面の外に移動
-            hMenu.css("transition", "all 0s ease"); //
-            hMenu.css("top", hMenuTop);
-            setTimeout(function(){
-                $(elementsToHide.join(", ")).hide();
-                if ($(window).width() >= 640) {
-                    $('#header .message').hide();
-                    $('#header .global-menu').hide();
-                }else{
-                    $('#header .message-sp').hide();
-                }
-                hMenu.css("transition", "all 0.3s ease");
-            },250);
-            setTimeout(function(){
-                hMenu.css("opacity", 1);
-            },300);
+
+    function closeMenu() {
+        $icon.removeClass('active');
+        $body.removeClass('is-menu-open');
+
+        // service-info：元の位置へ戻す
+        $serviceInfo.css({
+            transform: 'translateY(0)'
+        });
+
+        // fixed-footer：再表示
+        $fixedFooter.addClass('is-visible');
+    }
+
+    $icon.on('click', function () {
+        if ($body.hasClass('is-menu-open')) {
+            closeMenu();
         } else {
-            // メニューを閉じる
-            iconWrapper.removeClass("active");
-            menuBg.css("height", bgHeight);
-            hMenu.css("opacity", 0);
-            serviceInfo.css("top", "0px");
-            $(elementsToHide.join(", ")).show();
-            if ($(window).width() >= 640) {
-                $('#header .message').show();
-                $('#header .global-menu').show();
-            }else{
-                $('#header .message-sp').show();
-            }
-            setTimeout(function(){
-                hMenu.css("top", "-1000px");
-            },250);
-            $(window).scrollTop(scrollPosition); // スクロール位置を復元
+            openMenu();
         }
+    });
+
+    $menuBg.on('click', function () {
+        closeMenu();
     });
 });
 </script>
+
+
 
 <div class="h-menu-icon">
     <div class="icon-wrapper">
@@ -337,75 +247,51 @@ $(document).ready(function () {
 </div>
 
 <div class="service-info">
-<div class="info-inner"><a href="https://hsbb.jp" target="_blank">やっぱり甲子園ってスゴい！ 詳しくはこちら　→</a></div>
+    <div class="info-inner">
+        <a href="https://hsbb.jp" target="_blank" rel="noopener">
+            やっぱり甲子園ってスゴい！ 詳しくはこちら →
+        </a>
+    </div>
 </div>
 
 <div class="menu-bg"></div>
 
-<div class="h-menu">
-<div class="h-menu-inner">
+<nav class="h-menu" aria-label="グローバルメニュー">
+    <div class="h-menu-inner">
+
+        <h2>カテゴリ</h2>
+        <ul>
+            <li><a href="/category/prediction/">AI予測・時事</a></li>
+            <li><a href="/category/regional/">地域・社会</a></li>
+            <li><a href="/category/business/">ビジネス・キャリア</a></li>
+            <li><a href="/category/culture/">創作・エンタメ</a></li>
+            <li><a href="/category/life/">実用・ライフ</a></li>
+            <li><a href="/category/technology/">技術・倫理</a></li>
+            <li><a href="/category/history/">歴史・ミステリー</a></li>
+        </ul>
+
+        <h2>生成AI</h2>
+        <ul>
+            <li><a href="/editor/chatgpt/">ChatGPT</a></li>
+            <li><a href="/editor/claude/">Claude</a></li>
+            <li><a href="/editor/gemini/">Gemini</a></li>
+            <li><a href="/editor/copilot/">Copilot</a></li>
+            <li><a href="/editor/perplexity/">Perplexity</a></li>
+            <li><a href="/editor/deepseek/">DeepSeek</a></li>
+            <li><a href="/editor/lechat/">Le Chat</a></li>
+            <li><a href="/editor/grok/">Grok</a></li>
+        </ul>
 
 
-<?php
-echo '<h2 class="catTitle">カテゴリ</h2>';
-echo '<ul>'; 
-echo '<li>';
-echo '<a href="/category/prediction/">AI予測・時事</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/regional/">地域・社会</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/business/">ビジネス・キャリア</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/culture/">創作・エンタメ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/life/">実用・ライフ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/technology/">技術・倫理</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/history/">歴史・ミステリー</a>';
-echo '</li>';
-echo '</ul>';
-?>
+        <ul>
+        <li><a href="/">トップ</a></li>
+        <li><a href="/about">AIシテル？について</a></li>
+        <li><a href="/contact">お問合せ</a></li>
+        <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        <li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
+        <li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
+        </ul>
 
 
-<?php
-echo '<h2 class="aiTitle">生成AI</h2>';
-echo '<ul>'; 
-echo '<li>';
-echo '<a href="/editor/chatgpt/">ChatGPT</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/claude/">Claude</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/gemini/">Gemini</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/copilot/">Copilot</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/perplexity/">Perplexity</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/deepseek/">DeepSeek</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/lechat/">Le Chat</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/grok/">Grok</a>';
-echo '</li>';
-echo '</ul>';
-?>
-
-
-
-
-</div>
-</div>
+    </div>
+</nav>
