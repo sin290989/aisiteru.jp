@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single53.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single54.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -701,5 +701,72 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const footerText = document.querySelector('.fixed-footer .footer-text');
+  if (!footerText) return;
+
+  const defaultText = footerText.textContent;
+
+  const aiLabels = {
+    chatgpt: 'ChatGPT',
+    gemini: 'Gemini',
+    copilot: 'Copilot',
+    grok: 'Grok',
+    claude: 'Claude',
+    perplexity: 'Perplexity',
+    deepseek: 'DeepSeek',
+    lechat: 'Le Chat'
+  };
+
+  const iconNav   = document.querySelector('.fixed-footer .icon-nav');
+  const iconItems = document.querySelectorAll('.fixed-footer .icon-item');
+
+  function changeTextWithFade(text) {
+    if (footerText.textContent === text) return;
+
+    footerText.classList.add('is-fading');
+
+    setTimeout(() => {
+      footerText.textContent = text;
+      footerText.classList.remove('is-fading');
+    }, 150);
+  }
+
+  iconItems.forEach(item => {
+
+    const aiClass = Object.keys(aiLabels).find(cls => item.classList.contains(cls));
+    if (!aiClass) return;
+
+    const label = aiLabels[aiClass];
+
+    // アイコンに入ったら即切り替え
+    item.addEventListener('mouseenter', () => {
+      changeTextWithFade(label);
+    });
+
+    // SP
+    item.addEventListener('touchstart', () => {
+      changeTextWithFade(label);
+    }, { passive: true });
+
+  });
+
+  // アイコン列全体から出たら戻す
+  if (iconNav) {
+    iconNav.addEventListener('mouseleave', () => {
+      changeTextWithFade(defaultText);
+    });
+
+    iconNav.addEventListener('touchend', () => {
+      changeTextWithFade(defaultText);
+    });
+  }
+
+});
+</script>
+
 </body>
 </html>

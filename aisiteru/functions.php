@@ -176,12 +176,6 @@ function aisiteru_get_ai_definitions() {
       'kana'  => 'チャットジーピーティー',
     ],
     [
-      'slug'  => 'claude',
-      'class' => 'claude',
-      'label' => 'Claude',
-      'kana'  => 'クロード',
-    ],
-    [
       'slug'  => 'gemini',
       'class' => 'gemini',
       'label' => 'Gemini',
@@ -198,6 +192,12 @@ function aisiteru_get_ai_definitions() {
       'class' => 'grok',
       'label' => 'Grok',
       'kana'  => 'グロック',
+    ],
+    [
+      'slug'  => 'claude',
+      'class' => 'claude',
+      'label' => 'Claude',
+      'kana'  => 'クロード',
     ],
     [
       'slug'  => 'perplexity',
