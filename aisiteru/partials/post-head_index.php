@@ -3,6 +3,8 @@
   width: 100%;
   position: relative;
   margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* PC以外では普通にimgを表示 */

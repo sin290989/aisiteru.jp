@@ -90,15 +90,10 @@ body.is-menu-open .h-menu {
 
 .h-menu-inner {
     max-width: 1000px;
-    margin: 50px auto 50px;
-    padding: 0 20px;
+    margin: 20px auto 20px;
+    padding: 0;
 }
 
-.h-menu h2 {
-    color: #fff;
-    font-size: 15px;
-    margin:15px 0 15px;
-}
 
 .h-menu ul {
     list-style: none;
@@ -111,13 +106,7 @@ body.is-menu-open .h-menu {
     margin-bottom: 5px;
 }
 
-.h-menu a {
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-size:14px;
-}
+
 
 /* ===============================
    スクロールロック
@@ -150,7 +139,7 @@ body.is-menu-open {
 
     .icon-wrapper span {
         width: 20px;
-        height: 3px;
+        height: 2px;
     }
 
     .icon-wrapper span:nth-child(1) { transform: translateY(-7px); }
@@ -186,6 +175,154 @@ body.is-menu-open {
         text-decoration: none;
     }
 }
+
+
+
+
+.h-menu ul.cat-link li a,
+.h-menu ul.ai-link li a{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    font-style: normal; 
+}
+.h-menu h2.catTitle::before,
+.h-menu h2.aiTitle::before{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    font-style: normal; 
+}  
+
+.h-menu h2{
+	padding:0;
+	font-weight:bold;
+	margin-bottom:4px;
+	margin-top:30px;
+    border-radius: 3px;
+    font-size: 12px;
+    color:#031b4e;
+}
+
+.h-menu h2.catTitle::before,
+.h-menu h2.aiTitle::before{
+    white-space: pre;
+    font-size: 24px;
+    margin-right:15px;
+    margin-left:30px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+  
+.h-menu h2.catTitle::before{
+    content: 'CATEGORY'; 
+}
+.h-menu h2.aiTitle::before{
+    content: 'AI';
+}
+.h-menu h2.catTitle{
+    margin-top:75px;
+}
+.h-menu h2.aiTitle{
+    margin-top:75px;
+}
+.h-menu ul.cat-link,
+.h-menu ul.ai-link{
+    margin: 0 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+.h-menu ul.cat-link li a,
+.h-menu ul.ai-link li a{
+	text-decoration:none;
+	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow.png);
+	background-position:right 20px center;
+	background-size:auto 9px;
+	background-repeat:no-repeat;
+	display:block;
+	height:42px;
+	line-height:42px;
+	font-size:14px;
+	padding-left:15px;
+    transition-duration: 0.3s;
+    box-sizing: border-box;
+}
+
+.h-menu ul.cat-link li ul li a,
+.h-menu ul.ai-link li ul li a{
+    padding-left:50px;
+    font-size: 14px;
+    height:42px;
+	line-height:42px;
+    border-bottom:solid 1px #f7f8f8;
+    border-top:none;
+    box-sizing: border-box;
+    display: block;
+    
+}
+
+.h-menu ul.cat-link li,
+.h-menu ul.ai-link li{
+    border-bottom:solid 1px #f7f8f8;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.h-menu ul.cat-link li:last-child,
+.h-menu ul.ai-link li:last-child{
+    border:none;
+}
+
+
+.h-menu span.chatgpt,
+.h-menu span.gemini,
+.h-menu span.copilot,
+.h-menu span.claude,
+.h-menu span.lechat,
+.h-menu span.deepseek,
+.h-menu span.perplexity,
+.h-menu span.grok {
+    padding-left: 30px;
+background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+}
+
+.h-menu span.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
+}
+.h-menu span.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
+}
+.h-menu span.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
+}
+.h-menu span.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
+}
+.h-menu span.lechat {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
+}
+.h-menu span.deepseek {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
+}
+.h-menu span.perplexity {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
+}
+.h-menu span.grok {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
+}
+@media (min-width: 680px) {
+
+
+
+}
+
+
+
+
+
+
+
 </style>
 
 <script>
@@ -259,27 +396,27 @@ $(function () {
 <nav class="h-menu" aria-label="グローバルメニュー">
     <div class="h-menu-inner">
 
-        <h2>カテゴリ</h2>
-        <ul>
-            <li><a href="/category/prediction/">AI予測・時事</a></li>
-            <li><a href="/category/regional/">地域・社会</a></li>
-            <li><a href="/category/business/">ビジネス・キャリア</a></li>
-            <li><a href="/category/culture/">創作・エンタメ</a></li>
-            <li><a href="/category/life/">実用・ライフ</a></li>
-            <li><a href="/category/technology/">技術・倫理</a></li>
-            <li><a href="/category/history/">歴史・ミステリー</a></li>
+        <h2 class="catTitle">カテゴリ</h2>
+        <ul class="cat-link">
+            <li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>
+            <li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>
+            <li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>
+            <li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>
+            <li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>
+            <li><a href="/category/technology/"><span class="technology">技術・倫理</span></a></li>
+            <li><a href="/category/history/"><span class="history">歴史・ミステリー</span></a></li>
         </ul>
 
-        <h2>生成AI</h2>
-        <ul>
-            <li><a href="/editor/chatgpt/">ChatGPT</a></li>
-            <li><a href="/editor/claude/">Claude</a></li>
-            <li><a href="/editor/gemini/">Gemini</a></li>
-            <li><a href="/editor/copilot/">Copilot</a></li>
-            <li><a href="/editor/perplexity/">Perplexity</a></li>
-            <li><a href="/editor/deepseek/">DeepSeek</a></li>
-            <li><a href="/editor/lechat/">Le Chat</a></li>
-            <li><a href="/editor/grok/">Grok</a></li>
+        <h2 class="aiTitle">生成AI</h2>
+        <ul class="ai-link">
+            <li><a href="/editor/chatgpt/"><span class="chatgpt">ChatGPT</span></a></li>
+            <li><a href="/editor/gemini/"><span class="gemini">Gemini</span></a></li>
+            <li><a href="/editor/copilot/"><span class="copilot">Copilot</span></a></li>
+            <li><a href="/editor/grok/"><span class="grok">Grok</span></a></li>
+            <li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>
+            <li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>
+            <li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>
+            <li><a href="/editor/lechat/"><span class="lechat">Le Chat</span></a></li>
         </ul>
 
 

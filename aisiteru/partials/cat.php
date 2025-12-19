@@ -1,5 +1,4 @@
 <style type="text/css">
-ul.wpp-list li a,
 ul.post-index h2,
 ul.post-index h3,
 #side h2,
@@ -11,351 +10,196 @@ ul.aiList li a{
 }
 #side .widget h2::before,
 #side h2.catTitle::before,
-#side h2.tagTitle::before,
 #side h2.aiTitle::before,
 h2#related::before{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 900;
     font-style: normal; 
 }    
-/*side
-================================================================================================*/
+
+/* side
+================================================================================================ */
 #side{
     margin:0;
-    padding:10px 0 0 0 ;
+    padding:0 0 50px 0;
 }
 #side h2{
-	padding:0;
-	font-weight:bold;
-	margin-bottom:10px;
-	margin-top:30px;
-    border-radius: 3px;
-    font-size: 12px;
+    padding:0;
+    font-weight:bold;
+    margin-bottom:4px;
+    margin-top:30px;
+    border-radius:3px;
+    font-size:12px;
 }
-#side .widget h2,
 #side h2.catTitle,
-#side h2.tagTitle,
 #side h2.aiTitle{
-    text-align: center;
+    text-align:left;
+    margin-left:30px;
 }
-#side .widget h2::before,
+#side h2.catTitle{
+    margin-top:0px;
+}
+#side h2.aiTitle{
+    margin-top:50px;
+}
 #side h2.catTitle::before,
-#side h2.tagTitle::before,
 #side h2.aiTitle::before{
-    white-space: pre;
-    font-size: 24px;
+    white-space:pre;
+    font-size:24px;
     margin-right:15px;
-    letter-spacing: 1px;
+    letter-spacing:1px;
     color:#031b4e;
 }
-#side .widget h2::before{
-    content: 'RANKING\A';
-    margin:0 0 0 4px;
-}
 #side h2.catTitle::before{
-    content: 'CATEGORY\A'; 
-}
-#side h2.tagTitle::before{
-    content: 'TAG CLOUD\A';
+    content:'CATEGORY'; 
 }
 #side h2.aiTitle::before{
-    content: 'AI\A';
+    content:'AI'; 
 }
-#side h2.tagTitle{
-    margin-top: 60px;
-} 
-
-ul.catList,
-ul.aiList{
-    margin: 0 20px;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #FFFFFF;
+#side ul.catList,
+#side ul.aiList{
+    margin:0 20px;
+    border-radius:5px;
+    overflow:hidden;
+    background-color:#FFFFFF;
 }
-ul.catList li a,
-ul.aiList li a{
-	text-decoration:none;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow.png);
-	background-position:right 20px center;
-	background-size:auto 11px;
-	background-repeat:no-repeat;
-	display:block;
-	height:50px;
-	line-height:50px;
-	font-size:16px;
-	border-bottom:solid 1px #f7f8f8;
-	padding-left:25px;
-    transition-duration: 0.3s;
+#side ul.catList li a,
+#side ul.aiList li a{
+    text-decoration:none;
+    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow.png);
+    background-position:right 20px center;
+    background-size:auto 9px;
+    background-repeat:no-repeat;
+    display:block;
+    height:42px;
+	line-height:42px;
+	font-size:14px;
+    padding-left:15px;
+    transition-duration:0.3s;
+    box-sizing: border-box;
 }
-
-ul.catList li ul li a,
-ul.aiList li ul li a{
+#side ul.catList li ul li a,
+#side ul.aiList li ul li a{
     padding-left:50px;
-    font-size: 14px;
-    height:40px;
-	line-height:40px;
+    font-size:14px;
+    height:42px;
+    line-height:42px;
     border-bottom:solid 1px #f7f8f8;
     border-top:none;
+    box-sizing: border-box;
 }
-
-/*タグクラウドのデザイン*/
-ul.tagcloud{
-margin: 0 20px;
-overflow: hidden;
+#side ul.catList li,
+#side ul.aiList li{
+border-bottom:solid 1px #f7f8f8;
 box-sizing: border-box;
 }
 
-ul.tagcloud li{
-    display: inline;
-    margin-right: 5px;
+#side ul.catList li:last-child,
+#side ul.aiList li:last-child{
+border:none;
 }
 
-ul.tagcloud a{
-	font-size: 13px !important;
-	line-height: 1em;
-	background: #ffffff;
-	display: inline-block;
-	white-space: nowrap;
-	padding: 8px 8px;
+
+
+#side span.chatgpt,
+#side span.gemini,
+#side span.copilot,
+#side span.claude,
+#side span.lechat,
+#side span.deepseek,
+#side span.perplexity,
+#side span.grok {
     padding-left: 30px;
-	margin-top: 3px;
-	border-radius: 3px;
-	text-decoration: none;
-    transition-duration: 0.3s;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/tag_bl.png);
-    background-size: 13px auto;
-    background-repeat: no-repeat;
-    background-position: left 10px center;
-}
-ul.tagcloud a:hover {
-	text-decoration:underline;
-}
-/**/
-ul.wpp-list{
-    font-size:13px;
-    line-height:18px;
-    width: auto;
-    overflow-x: auto;
-  	-webkit-overflow-scrolling: touch;
-  	white-space: nowrap;
-    position: relative;
-    height: 280px;
-    width: 100%;
-    /* IE, Edge 対応 */
-	-ms-overflow-style: none;
-	/* Firefox 対応 */
-	scrollbar-width: none;
-}
-ul.wpp-list li{
-	width:200px;
-    position:absolute;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 50px auto;
-}
-ul.wpp-list li:nth-child(1){
-    top:0;
-    left: 20px;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/rank1.png); 
-}
-ul.wpp-list li:nth-child(2){
-    top:0;
-    left: 250px;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/rank2.png); 
+background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px auto;
 }
 
-ul.wpp-list li:nth-child(3){
-    top:0;
-    left: 480px;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/rank3.png); 
+#side span.chatgpt{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/openai.webp");
 }
-
-ul.wpp-list li:nth-child(4){
-    top:0;
-    left: 710px;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/rank4.png); 
+#side span.gemini{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/gemini.webp");
 }
-ul.wpp-list li:nth-child(5){
-    top:0;
-    left: 940px;
-    padding-right: 30px;
-    background-position: 80px top;
-    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/rank5.png); 
+#side span.copilot{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/copilot.webp");
 }
-
-ul.wpp-list li:nth-child(5) img {
-     margin-right: 50px;
+#side span.claude{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/claude.webp");
 }
-ul.wpp-list img{
-	width:100%;
-	height:auto;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    margin-top: 35px;
+#side span.lechat {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
 }
-ul.wpp-list li a {
-	color:#444444;
-    white-space:normal;
-    display: block;
+#side span.deepseek {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/deepseek.webp");
 }
-ul.wpp-list li a:hover{
-	text-decoration:none;
+#side span.perplexity {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/perplexity.webp");
 }
-body ul.wpp-list li a.wpp-post-title{
-    color:#031b4e;
+#side span.grok {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
+/* PC */
 @media only screen and (min-width: 680px) {
-/*side
-================================================================================================*/
-#side{
-	width:300px;
-	float:right;
-	padding:0;
-}
-#side .widget h2,
-#side h2.catTitle,
-#side h2.tagTitle,
-#side h2.aiTitle{
-    text-align: left;
-}
 
-#side h2.aiTitle,
-#side h2.tagTitle{
-    margin-top: 60px;
+#side{
+    width:300px;
+    float:right;
+    padding:0;
+}
+#side h2.catTitle,
+#side h2.aiTitle{
+    margin-left:0px;
+}
+#side h2.aiTitle{
+    margin-top:60px;
 }
 #side h2.catTitle{
-    margin-top: 0px;
-}   
-#side .widget h2::before{
-     content: ' RANKING';
-     margin:0;
-}
-#side h2.catTitle::before{
-    content: ' CATEGORY'; 
-}
-#side h2.tagTitle::before{
-    content: ' TAG CLOUD';
+    margin-top:0;
 }
 #side h2.aiTitle::before{
-    content: ' AI';
+    content:' AI';
 }
-ul.catList,
-ul.aiList{
+#side ul.catList,
+#side ul.aiList{
     border:none;
 }
-ul.catList li a,
-ul.aiList li a{
+#side ul.catList li a,
+#side ul.aiList li a{
     font-size:14px;
-    border-top:none;
     background-size:auto 8px;
-	background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow_bk.png);
+    background-image:url(/wp/wp-content/themes/aisiteru/images/icon/arrow_bk.png);
 }
-ul.aiList li a:hover, 
-ul.catList li a:hover{
-    color: #0069ff;
+#side ul.aiList li a:hover,
+#side ul.catList li a:hover{
+    color:#0069ff;
     background-position:right 15px center;
 }
-ul.aiList li ul li a,
-ul.catList li ul li a{
+#side ul.aiList li ul li a,
+#side ul.catList li ul li a{
     font-size:12px;
-} 
-/*タグクラウドのデザイン*/
-ul.tagcloud a{
-    font-size: 11px !important;
 }
-ul.tagcloud a:hover{
-    color:#0069ff;
-    text-decoration: none;
-}
-ul.aiList,
-ul.catList,
-ul.tagcloud,
-ul.wpp-list{
-margin: 0;
+#side ul.aiList,
+#side ul.catList{
+    margin:0;
 }
 
-li#wpp-2{
-	overflow:hidden;
-	padding-bottom:15px;
 }
-li#wpp-2 h2{
-	margin-top:0;
-}
-ul.wpp-list{
-	font-size:12px;
-	line-height:18px;
-    position: static;
-    white-space:normal;
-    height: auto;
-    overflow-x: visible;
-}
-ul.wpp-list li{
-	width:100%;
-	padding-top:8px;
-	padding-bottom:8px;
-    margin-bottom: 0;
-    position: static;
-    background-position: left top 15px;
-    background-size: 40px auto;
-}
-ul.wpp-list li:nth-child(4){
-    display: none;
-}
+</style>
 
-ul.wpp-list li:nth-child(5){
-    display: none;
-}    
-ul.wpp-list img{
-	width:40%;
-	height:80px;
-	margin-right:10px;
-    margin-bottom:0px;
-	object-fit: cover; /* この一行を追加するだけ！ */
-    border-radius: 3px;
-    margin-top: 0px;
-}
-ul.wpp-list li:nth-child(5) img {
-     margin-right: 10px;
-}
-ul.wpp-list li a {
-    margin-top: 35px;
-}
-ul.wpp-list li a:hover{
-	text-decoration:none;
-}
-
-#wpp-2 h2.widgettitle{
-	background-size:22px auto;
-	background-position: 12px center;
-	padding-left:42px;
-}
-body ul.wpp-list li a.wpp-post-title{
-    transition-duration: 0.3s;
-    font-weight: bold;
-    color:#031b4e;
-    margin: 0 0 5px 0;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-}
-
-body ul.wpp-list li a.wpp-post-title:hover{
-    color: #0069ff;
-}
-}
-</style> 
-
-<?php if ( !wp_is_mobile() ) : ?>
+<?php if ( ! wp_is_mobile() ) : ?>
 <script type="text/javascript">
-$(function () {
-$('#side ul.wpp-list li').hover(function(){
-    $(".wpp-views .wpp-meta span.wpp-views",this).css('color','#FF0000');
-    $("img.wpp-thumbnail",this).css('transform','scale(1.1)');
-}, function(){
-    $(".wpp-views .wpp-meta span.wpp-views",this).css('color','#46526f');
-    $("img.wpp-thumbnail",this).css('transform','scale(1)');
-});  
+jQuery(function ($) {
+    $('#side ul.wpp-list li').hover(
+        function(){
+            $(".wpp-views .wpp-meta span.wpp-views", this).css('color','#FF0000');
+            $("img.wpp-thumbnail", this).css('transform','scale(1.1)');
+        },
+        function(){
+            $(".wpp-views .wpp-meta span.wpp-views", this).css('color','#46526f');
+            $("img.wpp-thumbnail", this).css('transform','scale(1)');
+        }
+    );
 });
 </script>
 <?php endif; ?>
@@ -363,58 +207,27 @@ $('#side ul.wpp-list li').hover(function(){
 
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
-echo '<ul class="catList">'; 
-echo '<li>';
-echo '<a href="/category/prediction/">AI予測・時事</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/regional/">地域・社会</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/business/">ビジネス・キャリア</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/culture/">創作・エンタメ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/life/">実用・ライフ</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/technology/">技術・倫理</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/category/history/">歴史・ミステリー</a>';
-echo '</li>';
+echo '<ul class="catList">';
+echo '<li><a href="/category/prediction/">AI予測・時事</a></li>';
+echo '<li><a href="/category/regional/">地域・社会</a></li>';
+echo '<li><a href="/category/business/">ビジネス・キャリア</a></li>';
+echo '<li><a href="/category/culture/">創作・エンタメ</a></li>';
+echo '<li><a href="/category/life/">実用・ライフ</a></li>';
+echo '<li><a href="/category/technology/">技術・倫理</a></li>';
+echo '<li><a href="/category/history/">歴史・ミステリー</a></li>';
 echo '</ul>';
 ?>
 
-
 <?php
 echo '<h2 class="aiTitle">生成AI</h2>';
-echo '<ul class="aiList">'; 
-echo '<li>';
-echo '<a href="/editor/chatgpt/">ChatGPT</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/claude/">Claude</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/gemini/">Gemini</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/copilot/">Copilot</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/perplexity/">Perplexity</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/deepseek/">DeepSeek</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/lechat/">Le Chat</a>';
-echo '</li>';
-echo '<li>';
-echo '<a href="/editor/grok/">Grok</a>';
-echo '</li>';
+echo '<ul class="aiList">';
+echo '<li><a href="/editor/chatgpt/"><span class="chatgpt">ChatGPT</span></a></li>';
+echo '<li><a href="/editor/gemini/"><span class="gemini">Gemini</span></a></li>';
+echo '<li><a href="/editor/copilot/"><span class="copilot">Copilot</span></a></li>';
+echo '<li><a href="/editor/grok/"><span class="grok">Grok</span></a></li>';
+echo '<li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>';
+echo '<li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>';
+echo '<li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>';
+echo '<li><a href="/editor/lechat/"><span class="lechat">Le Chat</span></a></li>';
 echo '</ul>';
 ?>

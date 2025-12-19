@@ -220,6 +220,8 @@ body #post-head h1 {
   width: 100%;
   position: relative;
   margin: 20px 0 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 #post-head .post_thumbnail img{
   width: 100%;

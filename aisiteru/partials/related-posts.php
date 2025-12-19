@@ -120,16 +120,17 @@ h2#related{
     font-size: 12px;
 }
 h2#related{
-    text-align: center;
+    text-align: left;
+    margin-left:30px;
 }
 h2#related::before{
     white-space: pre;
     font-size: 24px;
-    /*margin-right:15px;*/
-    letter-spacing: 1px;
+    margin-right:15px;
+    letter-spacing:1px;
 }
 h2#related::before{
-    content: 'RELATION\A';
+    content: 'RELATION';
     color:#031b4e;
 } 
 
@@ -224,6 +225,7 @@ ul.related-posts li img{
 
 h2#related{
     text-align: left;
+    margin-left:0;
 }
 h2#related{
     margin-top: 60px;
