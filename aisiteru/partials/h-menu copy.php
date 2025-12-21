@@ -357,7 +357,7 @@ $(document).ready(function () {
 <a href="/editor/deepseek/">DeepSeek</a>
 </li>
 <li>
-<a href="/editor/lechat/">Le Chat</a>
+<a href="/editor/lechat/">LeChat</a>
 </li>
 <li>
 <a href="/editor/grok/">Grok</a>

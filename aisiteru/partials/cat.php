@@ -228,6 +228,6 @@ echo '<li><a href="/editor/grok/"><span class="grok">Grok</span></a></li>';
 echo '<li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>';
 echo '<li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>';
 echo '<li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>';
-echo '<li><a href="/editor/lechat/"><span class="lechat">Le Chat</span></a></li>';
+echo '<li><a href="/editor/lechat/"><span class="lechat">LeChat</span></a></li>';
 echo '</ul>';
 ?>

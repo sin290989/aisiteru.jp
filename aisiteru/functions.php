@@ -214,7 +214,7 @@ function aisiteru_get_ai_definitions() {
     [
       'slug'  => 'lechat',
       'class' => 'lechat',
-      'label' => 'Le Chat',
+      'label' => 'LeChat',
       'kana'  => 'ル・シャ',
     ],
   ];

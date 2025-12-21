@@ -416,7 +416,7 @@ $(function () {
             <li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>
             <li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>
             <li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>
-            <li><a href="/editor/lechat/"><span class="lechat">Le Chat</span></a></li>
+            <li><a href="/editor/lechat/"><span class="lechat">LeChat</span></a></li>
         </ul>
 
 

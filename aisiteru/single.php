@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function () {
     claude: 'Claude',
     perplexity: 'Perplexity',
     deepseek: 'DeepSeek',
-    lechat: 'Le Chat'
+    lechat: 'LeChat'
   };
 
   const iconNav   = document.querySelector('.fixed-footer .icon-nav');
