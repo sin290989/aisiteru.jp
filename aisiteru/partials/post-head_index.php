@@ -149,24 +149,31 @@ body #post-head_index h1 {
 <div id="post-head_index">
   <div class="inner">
 
-    <div class="post_thumbnail output-image" data-ai="ImageFX">
+   <?php
+// カスタムフィールド thumb_ai を取得（未設定時は ImageFX）
+$thumb_ai = get_post_meta(get_the_ID(), 'thumb_ai', true);
+$thumb_ai = $thumb_ai ? $thumb_ai : 'ImageFX';
+?>
 
-      <?php if (has_post_thumbnail()) : ?>
-          <?php the_post_thumbnail('single-thumbnails'); ?>
-      <?php else : ?>
-          <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-      <?php endif ; ?>
+<div class="post_thumbnail output-image" data-ai="<?php echo esc_attr($thumb_ai); ?>">
 
-      <?php
-      $thumb_prompt = get_post_meta(get_the_ID(), 'thumb_prompt', true);
-      if ($thumb_prompt) :
-      ?>
-        <div class="image-prompt">
-            <?php echo esc_html($thumb_prompt); ?>
-        </div>
-      <?php endif; ?>
+  <?php if (has_post_thumbnail()) : ?>
+      <?php the_post_thumbnail('single-thumbnails'); ?>
+  <?php else : ?>
+      <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+  <?php endif; ?>
 
+  <?php
+  $thumb_prompt = get_post_meta(get_the_ID(), 'thumb_prompt', true);
+  if ($thumb_prompt) :
+  ?>
+    <div class="image-prompt">
+        <?php echo esc_html($thumb_prompt); ?>
     </div>
+  <?php endif; ?>
+
+</div>
+
       
 
     <div class="post-info">
