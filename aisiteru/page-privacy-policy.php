@@ -10,7 +10,7 @@ Template Name:privacy-policy
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
-<title><?php bloginfo('name'); ?></title>
+<title>プライバシーポリシー｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/page.css" type="text/css" />
@@ -72,7 +72,7 @@ Template Name:privacy-policy
 <a href="/"><span class="home">トップページ</span></a> > <a href="/privacy-policy">プライバシーポリシー</a></span>
 </div>
 </div>
-<div class="page-main-img">プライバシーポリシー</div>
+<div class="page-main-img"><h1>プライバシーポリシー</h1></div>
 <div id="page-wapper">
 <div id="page-contents">
 <div class="priCon">

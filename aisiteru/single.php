@@ -323,6 +323,7 @@ the_post(); ?>
             echo '<div class="profile-role">Human</div>';
             echo '<div class="profile-comment">AIシテル？の運営に関わるただ一人の人間です。<br>
 AIごとの文章の「温度」や「違和感」をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
+echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく</a></div>';
         }
     }
   ?>

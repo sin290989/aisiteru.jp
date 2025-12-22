@@ -10,7 +10,7 @@ Template Name:about
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
-<title><?php bloginfo('name'); ?></title>
+<title>AIシテル？について｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/page.css" type="text/css" />
@@ -132,7 +132,7 @@ Template Name:about
 <?php get_template_part('partials/header'); ?>
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <a href="/about">ABOUT</a></span>
+<a href="/"><span class="home">トップページ</span></a> > <a href="/about">AIシテル？について</a></span>
 </div>
 </div>
 
