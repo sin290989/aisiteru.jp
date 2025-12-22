@@ -1,5 +1,4 @@
 <?php add_theme_support('post-thumbnails'); ?>
-<?php add_image_size('single-thumbnails', 750, 0, false); ?>
 <?php
 if ( function_exists('register_sidebar') ) {
   register_sidebar(array(
