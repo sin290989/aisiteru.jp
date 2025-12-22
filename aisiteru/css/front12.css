@@ -69,6 +69,44 @@
   }
 }
 
+
+
+
+
+
+
+.category-block {
+  border-radius: 5px;
+    padding:10px 10px;
+    position: relative;
+    background-color: #ffffff;
+    margin: 80px 10px 0 10px;
+  }
+
+  .category-block h2 {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    color: #1433d6;
+    color: #031b4e;
+    font-size: 22px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    z-index: 11;
+  }
+
+  .h2en {
+    display: block;
+    position: absolute;
+    top: -30px;
+    right: 7px;
+    color: #ffffff;
+    font-size:34px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 900;
+    z-index: 10;
+  }
 /*==============================================================================================*/
 /*post-index-top*/
 /*==============================================================================================*/
@@ -77,14 +115,19 @@ ul.post-index-top li {
   overflow: hidden;
   margin-bottom: 10px;
   position: relative;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom:1px solid #EEEEEE;
 }
 
 ul.post-index-top a {
   display: block;
   text-decoration: none;
 }
-
+ul.post-index-top li:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:0;
+}
 /*左側
 -------------------------------------------------------*/
 ul.post-index-top .post_thumbnail {
@@ -124,7 +167,13 @@ ul.post-index-top .head h3 {
   height: auto;
   padding-top: 5px;
 }
-
+ul.post-index-top .head h3 span {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
 ul.post-index-top .head .post-dates {
   font-size: 12px;
   background-image: url(/wp/wp-content/themes/aisiteru/images/icon/time_bl.png);
@@ -143,6 +192,7 @@ ul.post-index-top .head .post-dates {
     position: relative;
     height: 425px;
     box-sizing: border-box;
+     padding:0;
   }
 
   .category-block.prediction-block {
@@ -178,6 +228,7 @@ ul.post-index-top .head .post-dates {
 
   ul.post-index-top li {
     position: absolute;
+    border-bottom:none;
   }
 
   ul.post-index-top li:nth-child(1) {

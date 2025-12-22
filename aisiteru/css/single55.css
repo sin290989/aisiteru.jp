@@ -67,8 +67,9 @@ ul.check li:last-child {
   line-height: 28px;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
-  padding: 20px;
+  padding: 15px;
   margin: 0 10px;
+  text-align: justify;
 }
 #post-single p {
   margin: 10px 0;
@@ -202,7 +203,7 @@ ul.check li:last-child {
   font-size: 12px;
   padding: 10px 15px;
   line-height: 20px;
-  margin-top: 15px;
+  margin-top: 0px;
   border-radius: 2px;
   border: 1px dotted #cccccc;
 }
