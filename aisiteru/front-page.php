@@ -11,7 +11,7 @@
 <title><?php bloginfo('name'); ?>｜<?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/front12.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/front13.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -119,7 +119,7 @@ $query_prediction = new WP_Query($args_prediction);
         <li>prediction カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/prediction/"></a></div>
+<div class="more-btn"><a href="/category/prediction/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -193,7 +193,7 @@ $query_regional = new WP_Query($args_regional);
         <li>regional カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/regional/"></a></div>
+<div class="more-btn"><a href="/category/regional/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -264,7 +264,7 @@ $query_business = new WP_Query($args_business);
         <li>business カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/business/"></a></div>
+<div class="more-btn"><a href="/category/business/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -338,7 +338,7 @@ $query_culture = new WP_Query($args_culture);
         <li>culture カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/culture/"></a></div>
+<div class="more-btn"><a href="/category/culture/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -412,7 +412,7 @@ $query_life = new WP_Query($args_life);
         <li>life カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/life/"></a></div>
+<div class="more-btn"><a href="/category/life/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -486,7 +486,7 @@ $query_technology = new WP_Query($args_technology);
         <li>technology カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/technology/"></a></div>
+<div class="more-btn"><a href="/category/technology/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -565,7 +565,7 @@ $query_history = new WP_Query($args_history);
         <li>history カテゴリの index タグ付き記事はありません。</li>
     <?php endif; wp_reset_postdata(); ?>
 </ul>
-<div class="more-btn"><a href="/category/history/"></a></div>
+<div class="more-btn"><a href="/category/history/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 </div>
 </div>
