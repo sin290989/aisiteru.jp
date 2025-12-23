@@ -17,13 +17,13 @@ $ai_key = get_post_field( 'post_name', get_post() );
 <title><?php the_title(); ?>の記事一覧｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/post-index.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
-<?php get_template_part("partials/css/post-index") ?>
 </head>
 <body>
 
@@ -39,9 +39,11 @@ $ai_key = get_post_field( 'post_name', get_post() );
 
 <div id="wapper">
 <div id="contents">
-  <h1 class="cate"><?php the_title(); ?></h1>
+  
 
   <div id="main">
+<div class="ai-block">
+    <h1><?php the_title(); ?></h1>
   <?php
   // 現在ページ番号
   $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
@@ -63,13 +65,6 @@ $ai_key = get_post_field( 'post_name', get_post() );
           <li>
               <?php $cat = get_the_category(); ?>
               <?php $cat = $cat ? $cat[0] : null; ?>
-
-              <div class="post-author">
-                  <div class="post-author-img">
-                      <?php echo get_avatar( get_the_author_meta( 'ID' ), 30 ); ?>
-                  </div>
-                  <div class="post-author-name"><?php the_author(); ?></div>
-              </div>
 
               <a href="<?php the_permalink(); ?>">
               <!--サムネイル右側画像-->
@@ -130,6 +125,7 @@ $ai_key = get_post_field( 'post_name', get_post() );
       wp_pagenavi( array( 'query' => $index_query ) );
   }
   ?>
+ </div>
   </div>
 
   <div id="side">

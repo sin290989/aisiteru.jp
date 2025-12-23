@@ -14,13 +14,16 @@ $catname = $cat[0]->name; // カテゴリ名
 <title><?php single_cat_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/post-index.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
-<?php get_template_part("partials/css/post-index") ?>
+<style type="text/css">
+
+</style>
 </head>
 <body>
 
@@ -36,9 +39,11 @@ $catname = $cat[0]->name; // カテゴリ名
 
 <div id="wapper">
 <div id="contents">
-<h1 class="cate"><?php single_cat_title(); ?></h1>
+
 
 <div id="main">
+<div class="category-block">
+<h1><?php single_cat_title(); ?></h1>
 <?php
 // 現在ページ番号
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
@@ -60,10 +65,6 @@ $index_query = new WP_Query( $args );
         <li>
             <?php $cat = get_the_category(); ?>
             <?php $cat = $cat[0]; ?>
-            <div class="post-author">
-                <div class="post-author-img"><?php echo get_avatar(get_the_author_meta( 'ID' ),30); ?></div>
-                <div class="post-author-name"><?php the_author(); ?></div>
-            </div>
 
             <a href="<?php the_permalink(); ?>">
             <!--サムネイル右側画像-->
@@ -122,6 +123,7 @@ if ( function_exists( 'wp_pagenavi' ) ) {
     wp_pagenavi( array( 'query' => $index_query ) );
 }
 ?>
+</div>
 </div>
 
 <div id="side">
