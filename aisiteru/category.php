@@ -22,7 +22,19 @@ $catname = $cat[0]->name; // カテゴリ名
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 <style type="text/css">
+    #main{
+        margin-bottom:80px;
+    }
+    #side{
+        padding-bottom:10px;
+    }
+@media only screen and (min-width: 680px) {3
 
+    #main{
+        margin-bottom:0;
+    }
+    
+}
 </style>
 </head>
 <body>

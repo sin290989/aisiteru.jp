@@ -58,7 +58,7 @@ h2#related::before{
 }
 #side ul.catList,
 #side ul.aiList{
-    margin:0 20px;
+    margin:0 10px;
     border-radius:5px;
     overflow:hidden;
     background-color:#FFFFFF;

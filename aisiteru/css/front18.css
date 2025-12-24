@@ -396,25 +396,7 @@ ul.post-index-top li:nth-child(4) .head .post-dates{
     -webkit-line-clamp: 2;
   }
 
-  .more-btn a {
-    position: absolute;
-    display: block;
-    height: 40px;
-    width: 40px;
-    background-color: #1433d6;
-    top: 200px;
-    right: -20px;
-    border-radius: 50%;
-    transition-duration: 0.2s;
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
-    background-size: 45% auto;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-
-  .category-block.prediction-block .more-btn a {
-    top: 400px;
-  }
+  
 
   .visually-hidden {
     position: absolute;

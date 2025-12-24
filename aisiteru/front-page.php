@@ -11,7 +11,7 @@
 <title><?php bloginfo('name'); ?>｜<?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/front17.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/front18.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -19,13 +19,72 @@
 <?php get_template_part("partials/fonts"); ?>
 <style type="text/css">
 
+h1{
+    padding-top:130px;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 700;
+    padding-bottom:20px;
+    color: #031b4e;
+    text-align: center;
+}
+h1 span {
+  color: #1433d6;
+}
+
+h1 a:hover{
+    text-decoration: none;
+}
 
 
+.more-btn a {
+    display: block;
+    height: 40px;
+    width: 200px;
+    background-color: #1433d6;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 20px;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 16px auto;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    margin: 40px auto 20px auto;
+    line-height: 40px;
+    font-weight: 600;
+  }
 
-
+  
 
 
 @media only screen and (min-width: 680px) {
+h1{
+    padding-top:130px;
+    font-size: 120px;
+    line-height: 120px;
+    padding-bottom:40px;
+}
+
+.more-btn a {
+    margin: 0;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: #1433d6;
+    top: 200px;
+    right: -20px;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 45% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .category-block.prediction-block .more-btn a {
+    top: 400px;
+  }
 
 }
 </style>
@@ -38,16 +97,7 @@
 <div id="wapper">
 <div id="contents">
 
-<h1>
-<a href="/about">
-<div class="catch">
-<div class="catch1">「<span>多角</span>」</div>
-<div class="catch2">で読み解く</div>
-<div class="with"><span>with</span> AISITERU？</div>
-</div>
-</a>
-</h1>
-
+<h1><a href="/about"><span>多角</span>で読み解く</a></h1>
 
 <div id="main-top">
 <div class="category-block prediction-block">

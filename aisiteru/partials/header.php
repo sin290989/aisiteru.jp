@@ -9,15 +9,38 @@ $(function () {
     });  
     });
 </script>
+<style type="text/css">
+
+
+
+
+
+
+@media only screen and (min-width: 680px) {
+    .logo{
+        font-weight: 700;
+    }
+.logo a span{
+    font-weight: 700;
+     color: #031b4e;
+    font-size: 28px;
+}
+
+.logo a:hover{
+    text-decoration: none;
+}
+
+}
+</style>
 <div id="top"></div>
 <div id="header">
 <div class="inner">
-<div class="logo"><a href="/">AIシテル？</a></div>
+<div class="logo"><a href="/"><span>AI</span>シテル？</a></div>
 <div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
-<ul class="global-menu">
+<!--<ul class="global-menu">
 <li><a href="/editor">Editor</a></li>
 <li><a href="/about">About</a></li>
-</ul>
+</ul>-->
 <?php get_template_part('partials/h-menu'); ?>
 </div>
 </div>
