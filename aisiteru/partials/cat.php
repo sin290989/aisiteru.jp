@@ -210,6 +210,7 @@ echo '<h2 class="catTitle">カテゴリ</h2>';
 echo '<ul class="catList">';
 echo '<li><a href="/category/prediction/">AI予測・時事</a></li>';
 echo '<li><a href="/category/regional/">地域・社会</a></li>';
+echo '<li><a href="/category/sports/">スポーツ・格闘技</a></li>';
 echo '<li><a href="/category/business/">ビジネス・キャリア</a></li>';
 echo '<li><a href="/category/culture/">創作・エンタメ</a></li>';
 echo '<li><a href="/category/life/">実用・ライフ</a></li>';

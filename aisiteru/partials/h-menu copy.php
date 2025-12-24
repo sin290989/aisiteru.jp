@@ -317,6 +317,9 @@ $(document).ready(function () {
 <a href="/category/regional/">地域・社会</a>
 </li>
 <li>
+<a href="/category/sports/">スポーツ・格闘技</a>
+</li>
+<li>
 <a href="/category/business/">ビジネス・キャリア</a>
 </li>
 <li>
