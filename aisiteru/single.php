@@ -49,9 +49,10 @@
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
-  color: #333;
+  color: #031b4e;
   border-radius: 3px;
   border: 1px solid #1433d6;
+  transition: all 0.3s ease;
 }
 #post-single .ai-written ul li .ai-written-wap {
   padding-top: 10px;
@@ -94,7 +95,11 @@ body #post-single .ai-written ul li a .ai-written-content-title {
     box-sizing: border-box;
     padding-left: 15px;
     padding-right: 15px;
-    color: #333;
+    border: 1px solid #eeeeee;
+  }
+  #post-single .ai-written ul li a:hover{
+    border: 1px solid #1433d6;
+    color: #1433d6;
   }
   #post-single .ai-written ul li .ai-written-wap {
     padding-top: 15px;
@@ -706,11 +711,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // -------------------
         // AI Written Hover
         // -------------------
-        $('.ai-written li').hover(function(){
-            $(".ai-written-content-title",this).css('color','#0069ff');
-        }, function(){
-            $(".ai-written-content-title",this).css('color','#46526f');
-        });  
+        //$('.ai-written li').hover(function(){
+            //$(".ai-written-content-title",this).css('color','#0069ff');
+        //}, function(){
+            //$(".ai-written-content-title",this).css('color','#46526f');
+        //});  
 
 
         // -------------------
