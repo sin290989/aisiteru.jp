@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single55.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single56.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -18,8 +18,129 @@
  
 <style type="text/css">
 
-@media only screen and (min-width: 680px) {
 
+
+
+#post-single .ai-written a[target="_blank"] {
+  background-image: none;
+}
+
+#post-single .ai-written ul {
+  border-radius: 0px 0px 3px 3px;
+}
+
+#post-single .ai-written .ai-written-title {
+  background-color: #031b4e;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #ffffff;
+  border-radius: 3px 3px 0px 0px;
+  background-image: url("/wp/wp-content/themes/east/images/icon/link_bl.png");
+  background-repeat: no-repeat;
+  background-size: 24px auto;
+  padding-left: 32px;
+  background-position: 5px center;
+}
+
+#post-single .ai-written ul li a {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #333;
+  border-radius: 3px;
+  border: 1px solid #1433d6;
+}
+#post-single .ai-written ul li .ai-written-wap {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+#post-single .ai-written ul li:last-child .ai-written-wap {
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+#post-single .ai-written ul li .ai-written-img {
+  width:20%;
+  float: left;
+  border-radius: 3px;
+  overflow: hidden;
+}
+#post-single .ai-written ul li .ai-written-img img {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 17px;
+}
+#post-single .ai-written ul li .ai-written-content {
+  display: block;
+  width: 75%;
+  float: right;
+}
+body #post-single .ai-written ul li a .ai-written-content-title {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+}
+@media only screen and (min-width: 680px) {
+  #post-single .ai-written .ai-written-title {
+    font-size: 14px;
+  }
+  #post-single .ai-written ul li a {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #333;
+  }
+  #post-single .ai-written ul li .ai-written-wap {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  #post-single .ai-written ul li:last-child .ai-written-wap {
+    border-bottom: none;
+    padding-bottom: 15px;
+  }
+  #post-single .ai-written ul li .ai-written-img {
+    width: 200px;
+  }
+
+  #post-single .ai-written ul li .ai-written-img img {
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
+
+  #post-single .ai-written ul li .ai-written-content {
+    width: 380px;
+    float: right;
+    padding-top: 10px;
+  }
+
+  body #post-single .ai-written ul li a .ai-written-content-title {
+    line-height: 22px;
+    font-size: 16px;
+  }
+
+  body #post-single .ai-written ul li a .ai-written-content-date {
+    font-size: 12px;
+    background-image: url(/wp/wp-content/themes/east/images/icon/time_bl.png);
+    background-repeat: no-repeat;
+    background-size: 12px auto;
+    padding-left: 17px;
+    background-position: 0px 0px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  .ai-written-content-title {
+    transition-duration: 0.3s;
+  }
 }
 </style>
 

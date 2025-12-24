@@ -174,6 +174,10 @@ body.is-menu-open {
         color: #fff;
         text-decoration: none;
     }
+
+    .h-menu-inner{
+        position: relative;
+    }
 }
 
 
@@ -199,7 +203,7 @@ body.is-menu-open {
 	margin-top:30px;
     border-radius: 3px;
     font-size: 12px;
-    color:#031b4e;
+    color:#FFFFFF;
 }
 
 .h-menu h2.catTitle::before,
@@ -222,7 +226,7 @@ body.is-menu-open {
     margin-top:75px;
 }
 .h-menu h2.aiTitle{
-    margin-top:75px;
+    margin-top:40px;
 }
 .h-menu ul.cat-link,
 .h-menu ul.ai-link{
@@ -311,10 +315,95 @@ background-position: left center;
 .h-menu span.grok {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
+
+
+
+.h-menu span.prediction,
+.h-menu span.regional,
+.h-menu span.sports,
+.h-menu span.business,
+.h-menu span.culture,
+.h-menu span.life,
+.h-menu span.technology,
+.h-menu span.history {
+    padding-left: 30px;
+background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+}
+
+.h-menu span.prediction{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction.webp");
+}
+.h-menu span.regional{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional.webp");
+}
+.h-menu span.sports{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports.webp");
+}
+.h-menu span.business{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/business.webp");
+}
+.h-menu span.culture {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/culture.webp");
+}
+.h-menu span.life {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life.webp");
+}
+.h-menu span.technology {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology.webp");
+}
+.h-menu span.history {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history.webp");
+}
+
+
+ul.other-link{
+    margin: 40px 30px 100px 30px;
+}
+ul.other-link a{
+    color:#ffffff;
+    font-weight: 600;
+}
 @media (min-width: 680px) {
+.h-menu ul.cat-link,
+.h-menu ul.ai-link{
 
-
-
+    width: 300px;
+}
+.h-menu h2.catTitle{
+    margin-top: 0;
+    display: block;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    top:100px;
+    left:10px;
+}
+.h-menu ul.cat-link{
+    position: absolute;
+    top:130px;
+    left:10px;
+}
+.h-menu h2.aiTitle{
+    margin-top: 0;
+    display: block;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    top:100px;
+    left:380px;
+}
+.h-menu ul.ai-link{
+    position: absolute;
+    top:130px;
+    left:380px;
+}
+.h-menu .other-link{
+    position: absolute;
+    top:110px;
+    left:750px;
+}
 }
 
 
@@ -400,6 +489,7 @@ $(function () {
         <ul class="cat-link">
             <li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>
             <li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>
+            <li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>
             <li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>
             <li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>
             <li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>
@@ -420,12 +510,11 @@ $(function () {
         </ul>
 
 
-        <ul>
-        <li><a href="/">トップ</a></li>
+        <ul class="other-link">
         <li><a href="/about">AIシテル？について</a></li>
-        <li><a href="/contact">お問合せ</a></li>
-        <li><a href="/privacy-policy">プライバシーポリシー</a></li>
         <li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
+        <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        <li><a href="/contact">お問合せ</a></li>
         <li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
         </ul>
 

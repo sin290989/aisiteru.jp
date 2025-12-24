@@ -139,6 +139,46 @@ background-position: left center;
 #side span.grok {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
+
+
+#side span.prediction,
+#side span.regional,
+#side span.sports,
+#side span.business,
+#side span.culture,
+#side span.life,
+#side span.technology,
+#side span.history {
+    padding-left: 32px;
+background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+}
+
+#side span.prediction{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction.webp");
+}
+#side span.regional{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional.webp");
+}
+#side span.sports{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports.webp");
+}
+#side span.business{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/business.webp");
+}
+#side span.culture {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/culture.webp");
+}
+#side span.life {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life.webp");
+}
+#side span.technology {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology.webp");
+}
+#side span.history {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history.webp");
+}
 /* PC */
 @media only screen and (min-width: 680px) {
 
@@ -208,14 +248,14 @@ jQuery(function ($) {
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
 echo '<ul class="catList">';
-echo '<li><a href="/category/prediction/">AI予測・時事</a></li>';
-echo '<li><a href="/category/regional/">地域・社会</a></li>';
-echo '<li><a href="/category/sports/">スポーツ・格闘技</a></li>';
-echo '<li><a href="/category/business/">ビジネス・キャリア</a></li>';
-echo '<li><a href="/category/culture/">創作・エンタメ</a></li>';
-echo '<li><a href="/category/life/">実用・ライフ</a></li>';
-echo '<li><a href="/category/technology/">技術・倫理</a></li>';
-echo '<li><a href="/category/history/">歴史・ミステリー</a></li>';
+echo '<li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>';
+echo '<li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>';
+echo '<li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>';
+echo '<li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>';
+echo '<li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>';
+echo '<li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>';
+echo '<li><a href="/category/technology/"><span class="technology">技術・倫理</span></a></li>';
+echo '<li><a href="/category/history/"><span class="history">歴史・ミステリー</span></a></li>';
 echo '</ul>';
 ?>
 
