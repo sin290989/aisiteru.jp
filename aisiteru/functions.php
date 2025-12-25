@@ -137,6 +137,7 @@ if ( ! function_exists( 'related_func' ) ) {
             $output .= '          </div>';
             $output .= '          <div style="clear:both;"></div>';
             $output .= '        </div>';
+            $output .= '        <div class="more-arrow"></div>';
             $output .= '      </a>';
             $output .= '    </li>';
 

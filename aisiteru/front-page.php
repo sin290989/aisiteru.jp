@@ -66,7 +66,7 @@ h1{
     padding-bottom:40px;
 }
 
-.more-btn a {
+.more-btn a{
     margin: 0;
     position: absolute;
     height: 40px;
@@ -80,8 +80,12 @@ h1{
     background-size: 45% auto;
     background-position: center center;
     background-repeat: no-repeat;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
-
+  .more-btn a:hover{
+    background-color: #0069ff;
+  }
   .category-block.prediction-block .more-btn a {
     top: 400px;
   }
@@ -701,10 +705,10 @@ $query_history = new WP_Query($args_history);
 <script type="text/javascript">
 jQuery(function ($) {
   $('ul.post-index-top li').hover(function(){
-      $("h2", this).css('color', '#0069ff');
+      $("h3", this).css('color', '#0069ff');
       $(".post_thumbnail img", this).css('transform', 'scale(1.1)');
   }, function(){
-      $("h2", this).css('color', '#031b4e');
+      $("h3", this).css('color', '#031b4e');
       $(".post_thumbnail img", this).css('transform', 'scale(1)');
   });
 });
