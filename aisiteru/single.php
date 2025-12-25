@@ -17,6 +17,33 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
+.human-comment{
+  font-size: 14px;
+  background-color: #f7f8f8;
+  padding: 15px 20px;
+  line-height: 24px;
+  border-radius: 4px;
+  margin-top: 50px;
+  border-radius: 2px;
+}
+body #post-single .human-comment h2 {
+  font-size: 16px;
+  color: #031b4e;
+  margin: 0px 0 0 0;
+  padding: 0 0 7px 0;
+  border-bottom:none;
+}
+
+body #post-single .human-comment p{
+  margin: 0px 0 0 0;
+}
+  
+body #post-single .ai-generated-mini a{
+  text-decoration: underline;
+}
+body #post-single .ai-generated-mini a:hover{
+  text-decoration: none;
+}
   @media only screen and (min-width: 680px) {
  
 }
@@ -165,10 +192,37 @@ if ( $tags ) {
 
 
 
+
 <?php if(have_posts()): while(have_posts()):
 the_post(); ?>
 <?php the_content(); ?>
 <?php endwhile; endif; ?>
+
+<!---------------------> 
+<?php
+$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity','grok');
+$post_tags = get_the_tags();
+$has_ai_tag = false;
+
+if ( $post_tags ) {
+    foreach ( $post_tags as $tag ) {
+        if ( in_array( $tag->slug, $ai_slugs, true ) ) {
+            $has_ai_tag = true;
+            break;
+        }
+    }
+}
+
+$human_comment = get_post_meta( get_the_ID(), 'human_comment', true );
+
+if ( $has_ai_tag && ! empty( $human_comment ) ) :
+?>
+    <div class="human-comment">
+        <h2>※ 編集注（MANA）</h2>
+        <p><?php echo nl2br( esc_html( $human_comment ) ); ?></p>
+    </div>
+<?php endif; ?>
+<!--------------------->
 
   <?php if ( ! has_tag('index') ) : ?>
     <div class="ai-generated-mini">※ 本記事は、各AIの「思考の違い」を比較するため、AIが生成した内容を原則そのまま掲載しています（誤字など最低限の確認のみ実施）。<br>
@@ -330,31 +384,7 @@ echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく
 </div>
 <!---------------------> 
 
-<!---------------------> 
-<?php
-$ai_slugs = array('chatgpt','claude','copilot','deepseek','gemini','lechat','perplexity','grok');
-$post_tags = get_the_tags();
-$has_ai_tag = false;
 
-if ( $post_tags ) {
-    foreach ( $post_tags as $tag ) {
-        if ( in_array( $tag->slug, $ai_slugs, true ) ) {
-            $has_ai_tag = true;
-            break;
-        }
-    }
-}
-
-$human_comment = get_post_meta( get_the_ID(), 'human_comment', true );
-
-if ( $has_ai_tag && ! empty( $human_comment ) ) :
-?>
-    <div class="human-comment">
-        <h2>編集者のコメント</h2>
-        <p><?php echo nl2br( esc_html( $human_comment ) ); ?></p>
-    </div>
-<?php endif; ?>
-<!---------------------> 
 
 
 <?php //get_template_part("partials/prev-next-link") ?>
