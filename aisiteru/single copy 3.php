@@ -53,6 +53,8 @@ body #post-single .ai-generated-mini a:hover{
 
 
 
+
+
 /*================================================================================================*/
 /*プロンプト共通*/
 /*================================================================================================*/
@@ -268,22 +270,21 @@ body #post-single .ai-generated-mini a:hover{
 .image-prompt-modal__overlay {
   position: absolute;
   inset: 0;
+  bottom: 85px;
   background: rgba(0, 0, 0, 0.9);
-  bottom: 85px; /* フッターの高さ分カット */
 }
 
 /* モーダル本体（思想を完全統一） */
 .image-prompt-modal__content {
   position: relative;
-  max-width: none;
-  margin: 15px;
-  padding: 20px;
-  background: #000000;
-  color: #ffffff;
+  max-width: 640px;
+  margin: 15px auto;
+  padding: 20px 24px;
+  background: #111;
+  color: #fff;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  border-radius: 6px;
-  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
   max-height: calc(100dvh - 85px - 30px);
 }
 
@@ -313,12 +314,11 @@ body #post-single .ai-generated-mini a:hover{
   cursor: pointer;
 }
 
-@media only screen and (min-width: 680px) {
+/* スマホ調整 */
+@media (max-width: 768px) {
   .image-prompt-modal__content {
-    max-width: 700px;
-    max-height: 80vh;
-    margin: 40px auto;
-    padding: 28px 36px;
+    width: 90%;
+    padding: 16px;
   }
 }
 
@@ -363,32 +363,6 @@ body.is-modal-open {
   position: fixed;
   width: 100%;
   overflow: hidden;
-}
-
-
-/* ===== スタイリッシュなスクロールバー ===== */
-.image-prompt-modal__content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.image-prompt-modal__content::-webkit-scrollbar-track {
-  background: #111;
-  border-radius: 4px;
-}
-
-.image-prompt-modal__content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #444, #222);
-  border-radius: 4px;
-}
-
-.image-prompt-modal__content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #666, #333);
-}
-
-/* FireFox */
-.image-prompt-modal__content {
-  scrollbar-width: thin;
-  scrollbar-color: #444 #111;
 }
 </style>
 
@@ -880,105 +854,73 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 jQuery(function($) {
 
-  /* =========================================================
-   * 画像ブロックごとに Prompt ボタン生成
-   * ========================================================= */
   $('.output-image').each(function() {
     var $wrap   = $(this);
     var $prompt = $wrap.find('.image-prompt');
 
-    if (!$prompt.length || $.trim($prompt.text()).length === 0) {
-      return;
+    if ($prompt.length && $.trim($prompt.text()).length > 0) {
+
+        var rawText = $.trim($prompt.text());
+        $prompt.hide();
+
+        var aiName = $wrap.attr('data-ai') || '';
+        var label  = aiName ? 'Prompt (' + aiName + ')' : 'Prompt';
+
+        var $btn = $('<button type="button" class="prompt-button">'+ label +'</button>');
+        $wrap.append($btn);
+
+        $btn.on('click', function() {
+
+            // ★ 共通スクロールロックを呼ぶ
+            lockBodyScroll();
+
+            var html = '';
+
+            if (aiName) {
+                html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span>';
+            }
+
+            html += '<button type="button" class="prompt-copy-button" data-raw="' +
+                    $('<div>').text(rawText).html() +
+                    '">Copy</button><br><br>';
+
+            html += '<div class="prompt-ai-text">' +
+                    rawText.replace(/(\r\n|\r|\n)/g, '<br>') +
+                    '</div>';
+
+            $('#image-prompt-modal .image-prompt-modal__body').html(html);
+            $('#image-prompt-modal').addClass('is-open');
+        });
     }
-
-    // 生プロンプト取得
-    var rawText = $.trim($prompt.text());
-    $prompt.hide();
-
-    // AI名
-    var aiName = $wrap.attr('data-ai') || '';
-    var label  = aiName ? 'Prompt (' + aiName + ')' : 'Prompt';
-
-    // ボタン生成
-    var $btn = $('<button type="button" class="prompt-button">' + label + '</button>');
-    $wrap.append($btn);
-
-    /* ---------------------------------------------------------
-     * Promptボタンクリック → モーダル表示
-     * --------------------------------------------------------- */
-    $btn.on('click', function() {
-
-      // 共通スクロールロック
-      if (typeof lockBodyScroll === 'function') {
-        lockBodyScroll();
-      }
-
-      var html = '';
-
-      if (aiName) {
-        html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span>';
-      }
-
-      // Copyボタン（rawを data-raw に保持）
-      html +=
-        '<button type="button" class="prompt-copy-button" data-raw="' +
-        $('<div>').text(rawText).html() +
-        '">Copy</button><br><br>';
-
-      // 表示用テキスト（改行 → <br>）
-      html +=
-        '<div class="prompt-ai-text">' +
-        rawText.replace(/(\r\n|\r|\n)/g, '<br>') +
-        '</div>';
-
-      $('#image-prompt-modal .image-prompt-modal__body').html(html);
-      $('#image-prompt-modal').addClass('is-open');
-    });
   });
 
-  /* =========================================================
-   * Copy処理（UIも必ず切り替える）
-   * ========================================================= */
+  // コピー処理
   $(document).on('click', '.prompt-copy-button', function() {
-    var $btn = $(this);
-    var raw  = $btn.attr('data-raw');
-
-    if (!raw) return;
+    var raw = $(this).attr('data-raw');
 
     var textarea = document.createElement('textarea');
     textarea.innerHTML = raw;
-    var text = textarea.value;
 
-    navigator.clipboard.writeText(text).then(function() {
-      $btn.text('Copied');
-      setTimeout(function() {
-        $btn.text('Copy');
-      }, 1500);
-    });
+    navigator.clipboard.writeText(textarea.value);
   });
 
-  /* =========================================================
-   * モーダルを閉じる
-   * ========================================================= */
-  function closeImagePromptModal() {
+  function closeModal() {
     $('#image-prompt-modal').removeClass('is-open');
 
-    if (typeof unlockBodyScroll === 'function') {
-      unlockBodyScroll();
-    }
+    // ★ 共通スクロールロック解除
+    unlockBodyScroll();
   }
 
-  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', closeImagePromptModal);
+  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', closeModal);
 
   $(document).on('keydown', function(e) {
     if (e.key === 'Escape') {
-      closeImagePromptModal();
+      closeModal();
     }
   });
 
 });
 </script>
-
 
 
 
