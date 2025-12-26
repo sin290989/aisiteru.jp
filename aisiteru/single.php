@@ -7,8 +7,8 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common104.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single70.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single71.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -47,10 +47,6 @@ body #post-single .ai-generated-mini a:hover{
   @media only screen and (min-width: 680px) {
  
 }
-
-
-
-
 
 
 /*================================================================================================*/
@@ -400,6 +396,28 @@ body.is-modal-open {
   scrollbar-width: thin;
   scrollbar-color: #444 #111;
 }
+
+/*トースト*/
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 110px; /* 固定フッターより上 */
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.copy-toast.is-show {
+  opacity: 1;
+}
+
 </style>
 
 
@@ -843,6 +861,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     copyBtn.textContent = 'Copy';
                 }, 1500);
+
+            // ★ これを足すだけ
+  $('#copy-toast').addClass('is-show');
+  setTimeout(function() {
+    $('#copy-toast').removeClass('is-show');
+  }, 1200);
+
             });
         });
     }
@@ -950,22 +975,36 @@ jQuery(function($) {
    * Copy処理（UIも必ず切り替える）
    * ========================================================= */
   $(document).on('click', '.prompt-copy-button', function() {
-    var $btn = $(this);
-    var raw  = $btn.attr('data-raw');
+  var $btn = $(this);
+  var raw  = $btn.attr('data-raw');
 
-    if (!raw) return;
+  if (!raw) return;
 
-    var textarea = document.createElement('textarea');
-    textarea.innerHTML = raw;
-    var text = textarea.value;
+  // HTMLエンティティを戻して改行保持
+  var textarea = document.createElement('textarea');
+  textarea.innerHTML = raw;
+  var text = textarea.value;
 
-    navigator.clipboard.writeText(text).then(function() {
-      $btn.text('Copied');
+  navigator.clipboard.writeText(text).then(function() {
+
+    // ボタン表示切り替え
+    $btn.text('Copied');
+    setTimeout(function() {
+      $btn.text('Copy');
+    }, 1500);
+
+    // ===== トースト表示 =====
+    var $toast = $('#copy-toast');
+    if ($toast.length) {
+      $toast.addClass('is-show');
       setTimeout(function() {
-        $btn.text('Copy');
-      }, 1500);
-    });
+        $toast.removeClass('is-show');
+      }, 1200);
+    }
+
   });
+});
+
 
   /* =========================================================
    * モーダルを閉じる
@@ -1253,6 +1292,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+<div id="copy-toast" class="copy-toast">コピーしました</div>
 
 </body>
 </html>

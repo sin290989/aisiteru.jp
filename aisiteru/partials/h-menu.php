@@ -162,6 +162,7 @@ body.is-menu-open {
         z-index: 1200;
         color: #fff;
          background-color: #1433d6;
+         background-color: #ffffff;
     }
 
     .service-info .info-inner {
@@ -472,13 +473,13 @@ $(function () {
     </div>
 </div>
 
-<div class="service-info">
+<!--<div class="service-info">
     <div class="info-inner">
         <a href="https://hsbb.jp" target="_blank" rel="noopener">
             やっぱり甲子園ってスゴい！ 詳しくはこちら →
         </a>
     </div>
-</div>
+</div>-->
 
 <div class="menu-bg"></div>
 

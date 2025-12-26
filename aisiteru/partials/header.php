@@ -11,11 +11,6 @@ $(function () {
 </script>
 <style type="text/css">
 
-
-
-
-
-
 @media only screen and (min-width: 680px) {
     .logo{
         font-weight: 700;
@@ -23,9 +18,8 @@ $(function () {
 .logo a span{
     font-weight: 700;
      color: #031b4e;
-    font-size: 28px;
+    font-size: 26px;
 }
-
 .logo a:hover{
     text-decoration: none;
 }
