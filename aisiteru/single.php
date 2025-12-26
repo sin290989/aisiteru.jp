@@ -115,7 +115,7 @@ body #post-single .ai-generated-mini a:hover{
   right: 12px;
   border: none;
   background: transparent;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
   color: #ffffff !important;
@@ -184,14 +184,21 @@ body #post-single .ai-generated-mini a:hover{
 
 /* Copyボタン（共通プロンプト側） */
 .prompt-modal__copy {
-  margin: 8px 0 12px;
-  padding: 4px 10px;
-  font-size: 12px;
+  position: absolute;
+  top:8px;
+  right: 50px;
+  padding: 4px 10px 6px 10px;
+  font-size: 11px;
+  line-height: 11px;
   border-radius: 4px;
-  border: 1px solid rgba(255,255,255,.3);
   background: rgba(255,255,255,.1);
+  border:none;
   color: #fff;
   cursor: pointer;
+}
+
+.prompt-modal__copy:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 @media only screen and (min-width: 680px) {
@@ -305,12 +312,13 @@ body #post-single .ai-generated-mini a:hover{
 .image-prompt-modal__close {
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 12px;
   border: none;
   background: transparent;
-  color: #fff;
   font-size: 20px;
+  line-height: 1;
   cursor: pointer;
+  color: #ffffff !important;
 }
 
 @media only screen and (min-width: 680px) {
@@ -343,13 +351,15 @@ body #post-single .ai-generated-mini a:hover{
 
 /* コピー用ボタン（画像側） */
 .prompt-copy-button {
-  display: inline-block;
-  margin-left: 10px;
-  padding: 4px 10px;
+  position: absolute;
+  top:8px;
+  right: 50px;
+  padding: 4px 10px 6px 10px;
   font-size: 11px;
+  line-height: 11px;
   border-radius: 4px;
-  border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,.1);
+  border:none;
   color: #fff;
   cursor: pointer;
 }
