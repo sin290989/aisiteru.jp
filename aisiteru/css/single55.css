@@ -412,11 +412,13 @@ body #main .generated-article p.ai-info {
 /*================================================================================================*/
 /*合わせて読みたい*/
 /*================================================================================================*/
+
 #post-single .ai-written a[target="_blank"] {
   background-image: none;
 }
 
 #post-single .ai-written ul {
+  border: 1px solid #eeeeee;
   border-radius: 0px 0px 3px 3px;
 }
 
@@ -436,17 +438,11 @@ body #main .generated-article p.ai-info {
 
 #post-single .ai-written ul li a {
   width: 100%;
-  height: 70px;
-  position: relative;
   display: block;
   box-sizing: border-box;
-  color: #031b4e;
-  border-radius: 3px;
-  border: 1px solid #1433d6;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #333;
 }
 #post-single .ai-written ul li .ai-written-wap {
   padding-top: 10px;
@@ -458,66 +454,38 @@ body #main .generated-article p.ai-info {
   padding-bottom: 10px;
 }
 #post-single .ai-written ul li .ai-written-img {
-  width:80px;
-  height: 50px;
+  width: 15%;
+  float: left;
   border-radius: 3px;
   overflow: hidden;
-    position: absolute;
-    top:10px;
-    left:10px;
 }
 #post-single .ai-written ul li .ai-written-img img {
   width: 100%;
-  height: 50px;
+  height: 35px;
   object-fit: cover;
   margin-right: 17px;
 }
 #post-single .ai-written ul li .ai-written-content {
   display: block;
-  width: 100%;
-    padding-left:95px;
-    padding-right: 50px;
-    box-sizing: border-box;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+  width: 80%;
+  float: right;
 }
 body #post-single .ai-written ul li a .ai-written-content-title {
   font-weight: bold;
   font-size: 12px;
   line-height: 16px;
 }
-#post-single .ai-written ul li .more-arrow{
-    position: absolute;
-    right:10px;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #1433d6;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
-    background-size:13px auto;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
 @media only screen and (min-width: 680px) {
   #post-single .ai-written .ai-written-title {
     font-size: 14px;
   }
   #post-single .ai-written ul li a {
     width: 100%;
-    height: 90px;
-    border: 1px solid #eeeeee;
-  }
-  #post-single .ai-written ul li a:hover{
-    border: 1px solid #0069ff;
-    color: #0069ff;
-    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #333;
   }
   #post-single .ai-written ul li .ai-written-wap {
     padding-top: 15px;
@@ -530,10 +498,6 @@ body #post-single .ai-written ul li a .ai-written-content-title {
   }
   #post-single .ai-written ul li .ai-written-img {
     width: 200px;
-    position: absolute;
-    top:15px;
-    left:15px;
-    background-color: #1433d6;
   }
 
   #post-single .ai-written ul li .ai-written-img img {
@@ -541,21 +505,14 @@ body #post-single .ai-written ul li a .ai-written-content-title {
     height: 60px;
     object-fit: cover;
     vertical-align: bottom;
-    transition: all 0.3s ease;
   }
 
   #post-single .ai-written ul li .ai-written-content {
-    padding-left:230px;
-    padding-right: 75px;
-    -webkit-line-clamp: 2;
+    width: 380px;
+    float: right;
+    padding-top: 10px;
+  }
 
-  }
-  #post-single .ai-written ul li .more-arrow{
-    right:15px;
-    width: 30px;
-    height: 30px;
-    background-size:16px auto;
-  }
   body #post-single .ai-written ul li a .ai-written-content-title {
     line-height: 22px;
     font-size: 16px;
@@ -576,7 +533,6 @@ body #post-single .ai-written ul li a .ai-written-content-title {
     transition-duration: 0.3s;
   }
 }
-
 
 /*================================================================================================*/
 /*プロンプト共通*/

@@ -1,0 +1,415 @@
+@charset "utf-8";
+/*==============================================================================================*/
+/*catch*/
+/*==============================================================================================*/
+.catch {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.catch1 {
+  font-size: 60px;
+  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  font-weight: bold;
+  color: #031b4e;
+  z-index: 10;
+}
+
+.catch2 {
+  font-size: 50px;
+  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  font-weight: bold;
+  color: #031b4e;
+  z-index: 10;
+}
+
+.with {
+  position: absolute;
+  font-size: 16px;
+  color: #031b4e;
+  top: 140px;
+  left: 175px;
+  z-index: 20;
+  color: #031b4e;
+  font-weight: bold;
+}
+
+.catch1 span,
+.with span {
+  color: #1433d6;
+}
+@media only screen and (min-width: 680px) {
+  .catch {
+    height: 250px;
+  }
+
+  .catch1 {
+    font-size: 90px;
+    top: 140px;
+    left: -40px;
+  }
+
+  .catch2 {
+    top: 140px;
+    left: 300px;
+    z-index: 10;
+    font-size: 85px;
+  }
+  .with {
+    font-size: 24px;
+    top: 215px;
+    left: 20px;
+  }
+}
+
+
+
+
+
+
+
+.category-block {
+  border-radius: 5px;
+    padding:10px 10px;
+    position: relative;
+    background-color: #ffffff;
+    margin: 80px 10px 0 10px;
+  }
+
+  .category-block h2 {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    color: #1433d6;
+    color: #031b4e;
+    font-size: 22px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    z-index: 11;
+  }
+
+  .h2en {
+    display: block;
+    position: absolute;
+    top: -30px;
+    right: 7px;
+    color: #ffffff;
+    font-size:34px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 900;
+    z-index: 10;
+  }
+/*==============================================================================================*/
+/*post-index-top*/
+/*==============================================================================================*/
+ul.post-index-top li {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom:1px solid #EEEEEE;
+}
+
+ul.post-index-top a {
+  display: block;
+  text-decoration: none;
+}
+ul.post-index-top li:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:0;
+}
+/*左側
+-------------------------------------------------------*/
+ul.post-index-top .post_thumbnail {
+  width: 46%;
+  float: left;
+}
+
+ul.post-index-top .post_thumbnail img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  padding: 0;
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
+/*右側
+-------------------------------------------------------*/
+ul.post-index-top .head {
+  width: 52%;
+  float: right;
+  padding-top: 5px;
+  color: #46526f;
+}
+
+ul.post-index-top .head h3 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #031b4e;
+  font-size: 12px;
+  line-height: 18px;
+  background-image: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  padding-top: 5px;
+}
+ul.post-index-top .head h3 span {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+ul.post-index-top .head .post-dates {
+  font-size: 12px;
+  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/time_bl.png);
+  background-repeat: no-repeat;
+  background-size: 12px auto;
+  background-position: left 7px;
+  padding: 0 0 0 16px;
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 680px) {
+  .category-block {
+    margin-top: 120px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: relative;
+    height: 425px;
+    box-sizing: border-box;
+     padding:0;
+  }
+
+  .category-block.prediction-block {
+    height: 790px;
+  }
+
+  .category-block h2 {
+    display: block;
+    position: absolute;
+    top: -40px;
+    left: 25px;
+    color: #1433d6;
+    color: #031b4e;
+    font-size: 28px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+  }
+
+  .h2en {
+    display: block;
+    position: absolute;
+    top: -40px;
+    right: 25px;
+    color: #ffffff;
+    font-size: 70px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 900;
+  }
+
+  ul.post-index-top {
+    background-color: #46526f;
+  }
+
+  ul.post-index-top li {
+    position: absolute;
+    border-bottom:none;
+  }
+
+  ul.post-index-top li:nth-child(1) {
+    width: 420px;
+    height: 335px;
+    top: 50px;
+    left: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(2) {
+    width: 550px;
+    height: 150px;
+    top: 50px;
+    left: 500px;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(3) {
+    width: 550px;
+    height: 150px;
+    top: 230px;
+    left: 500px;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(4) {
+    width: 420px;
+    height: 335px;
+    top: 410px;
+    left: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(5) {
+    width: 550px;
+    height: 150px;
+    top: 410px;
+    left: 500px;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(6) {
+    width: 550px;
+    height: 150px;
+    top: 590px;
+    left: 500px;
+    box-sizing: border-box;
+  }
+
+  ul.post-index-top li:nth-child(1) .inner,
+  ul.post-index-top li:nth-child(4) .inner {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 335px;
+    position: relative;
+    border-bottom: 1px solid #f7f8f8;
+  }
+
+  ul.post-index-top li:nth-child(2) .inner,
+  ul.post-index-top li:nth-child(3) .inner,
+  ul.post-index-top li:nth-child(5) .inner,
+  ul.post-index-top li:nth-child(6) .inner {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    border-bottom: 1px solid #f7f8f8;
+  }
+
+  ul.post-index-top li:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /*左側
+-------------------------------------------------------*/
+  ul.post-index-top li:nth-child(1) .post_thumbnail,
+  ul.post-index-top li:nth-child(4) .post_thumbnail {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 0;
+    height: 170px;
+  }
+
+  ul.post-index-top li:nth-child(2) .post_thumbnail,
+  ul.post-index-top li:nth-child(3) .post_thumbnail,
+  ul.post-index-top li:nth-child(5) .post_thumbnail,
+  ul.post-index-top li:nth-child(6) .post_thumbnail {
+    overflow: hidden;
+    width: 40%;
+    float: left;
+    margin-bottom: 0;
+  }
+
+  ul.post-index-top a img {
+    transition-duration: 0.3s;
+  }
+
+  /*右側
+-------------------------------------------------------*/
+  ul.post-index-top li:nth-child(1) .head,
+  ul.post-index-top li:nth-child(4) .head {
+    width: 100%;
+  }
+
+  ul.post-index-top li:nth-child(2) .head,
+  ul.post-index-top li:nth-child(3) .head,
+  ul.post-index-top li:nth-child(5) .head,
+  ul.post-index-top li:nth-child(6) .head {
+    width: 55%;
+    float: right;
+  }
+
+  ul.post-index-top .head h3 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    transition-duration: 0.3s;
+    overflow: hidden;
+  }
+
+  ul.post-index-top .head h3 span {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  ul.post-index-top .head .post-title {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+  }
+
+  ul.post-index-top .head .post-content {
+    overflow: hidden;
+  }
+
+  ul.post-index-top li:nth-child(1) .post-content p,
+  ul.post-index-top li:nth-child(4) .post-content p {
+    font-size: 13px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  ul.post-index-top li:nth-child(2) .post-content p,
+  ul.post-index-top li:nth-child(3) .post-content p,
+  ul.post-index-top li:nth-child(5) .post-content p,
+  ul.post-index-top li:nth-child(6) .post-content p {
+    font-size: 13px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .more-btn a {
+    position: absolute;
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: #1433d6;
+    top: 200px;
+    right: -20px;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 45% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .category-block.prediction-block .more-btn a {
+    top: 400px;
+  }
+}
