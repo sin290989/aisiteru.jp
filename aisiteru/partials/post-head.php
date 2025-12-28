@@ -415,7 +415,7 @@ body #post-head h1 {
                   echo '<div class="ai-author-info ai-' . esc_attr($tag_slug) . '">';
                   
                   // アイコンを削除し、テキストメッセージのみを出力
-                  echo '<p>この記事を担当したAIは' . esc_html($ai_name) . 'です。</p>';
+                  echo '<p>この記事の考察は、AI「' . esc_html($ai_name) . '」によるものです。</p>';
                   
                   echo '</div>';
                   

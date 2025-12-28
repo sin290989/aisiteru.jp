@@ -156,28 +156,28 @@ background-position: left center;
 }
 
 #side span.prediction{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
 }
 #side span.regional{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional_b.webp");
 }
 #side span.sports{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports_b.webp");
 }
 #side span.business{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/business.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/business_b.webp");
 }
 #side span.culture {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/culture.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/culture_b.webp");
 }
 #side span.life {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life_b.webp");
 }
 #side span.technology {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology_b.webp");
 }
 #side span.history {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history_b.webp");
 }
 /* PC */
 @media only screen and (min-width: 680px) {

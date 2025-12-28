@@ -130,7 +130,7 @@ ul.check li:last-child {
 ================================================================================================*/
   #post-single {
     width: 740px;
-    padding: 25px 50px 40px 50px;
+    padding: 40px 50px 40px 50px;
     box-sizing: border-box;
     margin: 0;
   }
@@ -446,7 +446,6 @@ body #main .generated-article p.ai-info {
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  
 }
 #post-single .ai-written ul li .ai-written-wap {
   padding-top: 10px;
@@ -458,13 +457,13 @@ body #main .generated-article p.ai-info {
   padding-bottom: 10px;
 }
 #post-single .ai-written ul li .ai-written-img {
-  width:80px;
+  width: 80px;
   height: 50px;
   border-radius: 3px;
   overflow: hidden;
-    position: absolute;
-    top:10px;
-    left:10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 #post-single .ai-written ul li .ai-written-img img {
   width: 100%;
@@ -475,36 +474,36 @@ body #main .generated-article p.ai-info {
 #post-single .ai-written ul li .ai-written-content {
   display: block;
   width: 100%;
-    padding-left:100px;
-    padding-right: 48px;
-    box-sizing: border-box;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+  padding-left: 100px;
+  padding-right: 48px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 body #post-single .ai-written ul li a .ai-written-content-title {
   font-weight: bold;
   font-size: 12px;
   line-height: 16px;
 }
-#post-single .ai-written ul li .more-arrow{
-    position: absolute;
-    right:10px;
+#post-single .ai-written ul li .more-arrow {
+  position: absolute;
+  right: 10px;
   top: 0;
   bottom: 0;
   margin: auto 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #1433d6;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
-    background-size:13px auto;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #1433d6;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+  background-size: 13px auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 @media only screen and (min-width: 680px) {
   #post-single .ai-written .ai-written-title {
     font-size: 14px;
@@ -514,7 +513,7 @@ body #post-single .ai-written ul li a .ai-written-content-title {
     height: 90px;
     border: 1px solid #eeeeee;
   }
-  #post-single .ai-written ul li a:hover{
+  #post-single .ai-written ul li a:hover {
     border: 1px solid #0069ff;
     color: #0069ff;
     text-decoration: none;
@@ -532,10 +531,10 @@ body #post-single .ai-written ul li a .ai-written-content-title {
     width: 200px;
     position: absolute;
     height: 60px;
-    top:15px;
-    left:15px;
+    top: 15px;
+    left: 15px;
   }
-   #post-single .ai-written ul li .ai-written-img img {
+  #post-single .ai-written ul li .ai-written-img img {
     width: 100%;
     height: 60px;
     object-fit: cover;
@@ -544,16 +543,15 @@ body #post-single .ai-written ul li a .ai-written-content-title {
   }
 
   #post-single .ai-written ul li .ai-written-content {
-    padding-left:230px;
+    padding-left: 230px;
     padding-right: 75px;
     -webkit-line-clamp: 2;
-
   }
-  #post-single .ai-written ul li .more-arrow{
-    right:15px;
+  #post-single .ai-written ul li .more-arrow {
+    right: 15px;
     width: 30px;
     height: 30px;
-    background-size:16px auto;
+    background-size: 16px auto;
   }
   body #post-single .ai-written ul li a .ai-written-content-title {
     line-height: 22px;
@@ -576,9 +574,373 @@ body #post-single .ai-written ul li a .ai-written-content-title {
   }
 }
 
+/*================================================================================================*/
+/*プロンプト共通*/
+/*================================================================================================*/
+.prompt,
+.markdown {
+  display: none;
+}
 
+/* ===== プロンプト用モーダル ===== */
+.prompt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9900;
+  display: none;
+}
 
+.prompt-modal.is-open {
+  display: block;
+}
 
+.prompt-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  bottom: 85px; /* フッターの高さ分カット */
+}
+
+/* -----------------------------------------
+モバイルファースト：モーダル本体
+----------------------------------------- */
+.prompt-modal__content {
+  position: relative;
+  max-width: none;
+  margin: 15px;
+  padding: 20px;
+  background: #000000;
+  color: #ffffff;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  box-sizing: border-box;
+  max-height: calc(100dvh - 85px - 30px);
+}
+
+/* dvh 非対応ブラウザ向けフォールバック */
+@supports not (height: 100dvh) {
+  .prompt-modal__content {
+    max-height: calc(100vh - 85px - 30px);
+  }
+}
+
+/* モーダル内すべての要素を白文字に統一 */
+.prompt-modal__content * {
+  color: #ffffff !important;
+}
+
+.prompt-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff !important;
+}
+
+/* ===== スタイリッシュなスクロールバー ===== */
+.prompt-modal__content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #444, #222);
+  border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #666, #333);
+}
+
+/* FireFox */
+.prompt-modal__content {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+/* パネル共通 */
+.prompt-panel {
+  font-size: 12px;
+  line-height: 1.7;
+  display: none;
+}
+
+.prompt-panel.is-active {
+  display: block;
+}
+
+/* タブエリア */
+.prompt-modal__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #333;
+}
+
+/* タブボタン */
+.prompt-tab {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  background: #222;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+}
+
+/* アクティブタブ */
+.prompt-modal__tabs .prompt-tab.is-active {
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+/* Copyボタン（共通プロンプト側） */
+.prompt-modal__copy {
+  position: absolute;
+  top: 8px;
+  right: 50px;
+  padding: 4px 10px 6px 10px;
+  font-size: 11px;
+  line-height: 11px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prompt-modal__copy:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (min-width: 680px) {
+  .prompt-modal__content {
+    max-width: 700px;
+    max-height: 80vh;
+    margin: 40px auto;
+    padding: 28px 36px;
+  }
+}
+
+/*================================================================================================*/
+/*画像＋プロンプト共通*/
+/*================================================================================================*/
+.output-image {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #031323;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+.output-image.mt {
+  margin-top: 20px;
+}
+
+.output-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 記事内の生プロンプトテキストは非表示 */
+.output-image .image-prompt {
+  display: none;
+}
+
+/* promptボタン */
+.output-image .prompt-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0 8px;
+  font-size: 11px;
+  line-height: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* ---- 画像プロンプト用モーダル ---- */
+.image-prompt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+/* ★ 修正：flex中央寄せを廃止し、prompt-modalと統一 */
+.image-prompt-modal.is-open {
+  display: block;
+}
+
+/* フッター回避オーバーレイ */
+.image-prompt-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  bottom: 85px; /* フッターの高さ分カット */
+}
+
+/* モーダル本体（思想を完全統一） */
+.image-prompt-modal__content {
+  position: relative;
+  max-width: none;
+  margin: 15px;
+  padding: 20px;
+  background: #000000;
+  color: #ffffff;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  box-sizing: border-box;
+  max-height: calc(100dvh - 85px - 30px);
+}
+
+/* dvh 非対応ブラウザフォールバック */
+@supports not (height: 100dvh) {
+  .image-prompt-modal__content {
+    max-height: calc(100vh - 85px - 30px);
+  }
+}
+
+/* モーダル内テキスト */
+.image-prompt-modal__body {
+  white-space: pre-wrap;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 閉じるボタン */
+.image-prompt-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff !important;
+}
+
+@media only screen and (min-width: 680px) {
+  .image-prompt-modal__content {
+    max-width: 700px;
+    max-height: 80vh;
+    margin: 40px auto;
+    padding: 28px 36px;
+  }
+}
+
+/* AI名 */
+.prompt-ai-name {
+  font-size: 12px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* プロンプト本文 */
+.prompt-ai-text {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.zu {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+/* コピー用ボタン（画像側） */
+.prompt-copy-button {
+  position: absolute;
+  top: 8px;
+  right: 50px;
+  padding: 4px 10px 6px 10px;
+  font-size: 11px;
+  line-height: 11px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prompt-copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 共通スクロールロック */
+body.is-modal-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ===== スタイリッシュなスクロールバー ===== */
+.image-prompt-modal__content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.image-prompt-modal__content::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 4px;
+}
+
+.image-prompt-modal__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #444, #222);
+  border-radius: 4px;
+}
+
+.image-prompt-modal__content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #666, #333);
+}
+
+/* FireFox */
+.image-prompt-modal__content {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+/*トースト*/
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 110px; /* 固定フッターより上 */
+  transform: translateX(-50%);
+  background: rgba(20, 51, 214, 0.85);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.copy-toast.is-show {
+  opacity: 1;
+}
 
 /*================================================================================================*/
 /*フッター固定*/
@@ -851,4 +1213,34 @@ li.sns-url {
   .sns1Tip {
     width: 65px;
   }
+}
+
+.human-comment {
+  font-size: 14px;
+  background-color: #f7f8f8;
+  padding: 15px 20px;
+  line-height: 24px;
+  border-radius: 4px;
+  margin-top: 50px;
+  border-radius: 2px;
+}
+body #post-single .human-comment h2 {
+  font-size: 16px;
+  color: #031b4e;
+  margin: 0px 0 0 0;
+  padding: 0 0 7px 0;
+  border-bottom: none;
+}
+
+body #post-single .human-comment p {
+  margin: 0px 0 0 0;
+}
+
+body #post-single .ai-generated-mini a {
+  text-decoration: underline;
+}
+body #post-single .ai-generated-mini a:hover {
+  text-decoration: none;
+}
+@media only screen and (min-width: 680px) {
 }
