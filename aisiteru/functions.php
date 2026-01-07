@@ -94,54 +94,64 @@ if ( ! function_exists( 'related_func' ) ) {
         $output .= '  <ul>';
 
         foreach ( $ids as $value ) {
-            if ( $value === '' ) {
-                continue;
-            }
+          if ( $value === '' ) {
+              continue;
+          }
 
-            // 数字以外はエラー表示
-            if ( ! ctype_digit( $value ) ) {
-                $output .= '<li>記事IDの指定が正しくありません</li>';
-                continue;
-            }
+          // 数字以外はエラー表示
+          if ( ! ctype_digit( $value ) ) {
+              $output .= '<li>記事IDの指定が正しくありません</li>';
+              continue;
+          }
 
-            $post_id = absint( $value );
-            if ( ! $post_id ) {
-                $output .= '<li>記事IDの指定が正しくありません</li>';
-                continue;
-            }
+          $post_id = absint( $value );
+          if ( ! $post_id ) {
+              $output .= '<li>記事IDの指定が正しくありません</li>';
+              continue;
+          }
 
-            $link = get_permalink( $post_id );
-            if ( ! $link ) {
-                continue;
-            }
+          $link = get_permalink( $post_id );
+          if ( ! $link ) {
+              continue;
+          }
 
-            $title = get_the_title( $post_id );
-            $date  = get_the_modified_date( 'Y.m.d', $post_id );
+          $title = get_the_title( $post_id );
+          $date  = get_the_modified_date( 'Y.m.d', $post_id );
 
-            if ( has_post_thumbnail( $post_id ) ) {
-                $thumbnail_id  = get_post_thumbnail_id( $post_id );
-                $thumbnail_url = wp_get_attachment_url( $thumbnail_id );
-            } else {
-                $thumbnail_url = get_template_directory_uri() . '/images/common/no-image.jpg';
-            }
+          // サムネイルと alt の取得
+          if ( has_post_thumbnail( $post_id ) ) {
+              $thumbnail_id  = get_post_thumbnail_id( $post_id );
+              $thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 
-            $output .= '    <li>';
-            $output .= '      <a href="' . esc_url( $link ) . '">';
-            $output .= '        <div class="ai-written-wap">';
-            $output .= '          <div class="ai-written-img">';
-            $output .= '            <img src="' . esc_url( $thumbnail_url ) . '" alt="' . esc_attr( $title ) . '">';
-            $output .= '          </div>';
-            $output .= '          <div class="ai-written-content">';
-            $output .= '            <div class="ai-written-content-title">' . esc_html( $title ) . '</div>';
-            //$output .= '            <time class="ai-written-content-date pc">' . esc_html( $date ) . '</time>';
-            $output .= '          </div>';
-            $output .= '          <div style="clear:both;"></div>';
-            $output .= '        </div>';
-            $output .= '        <div class="more-arrow"></div>';
-            $output .= '      </a>';
-            $output .= '    </li>';
+              // 画像に設定された alt を取得
+              $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
 
-        }
+              // alt 未設定時は記事タイトルにフォールバック
+              if ( $alt_text === '' ) {
+                  $alt_text = $title;
+              }
+          } else {
+              $thumbnail_url = get_template_directory_uri() . '/images/common/no-image.jpg';
+              $alt_text      = '';
+          }
+
+          $output .= '    <li>';
+          $output .= '      <a href="' . esc_url( $link ) . '">';
+          $output .= '        <div class="ai-written-wap">';
+          $output .= '          <div class="ai-written-img">';
+          $output .= '            <img src="' . esc_url( $thumbnail_url ) . '" alt="' . esc_attr( $alt_text ) . '">';
+          $output .= '          </div>';
+          $output .= '          <div class="ai-written-content">';
+          $output .= '            <div class="ai-written-content-title">' . esc_html( $title ) . '</div>';
+          // $output .= '            <time class="ai-written-content-date pc">' . esc_html( $date ) . '</time>';
+          $output .= '          </div>';
+          $output .= '          <div style="clear:both;"></div>';
+          $output .= '        </div>';
+          $output .= '        <div class="more-arrow"></div>';
+          $output .= '      </a>';
+          $output .= '    </li>';
+      }
+
 
         $output .= '  </ul>';
         $output .= '</div>';
