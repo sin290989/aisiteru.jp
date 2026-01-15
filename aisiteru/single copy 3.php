@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single73.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single70.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -17,12 +17,352 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-.index-lead .index-link{
-  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 15px auto;
-  background-position: center left;
-  padding-left:15px
+.human-comment{
+  font-size: 14px;
+  background-color: #f7f8f8;
+  padding: 15px 20px;
+  line-height: 24px;
+  border-radius: 4px;
+  margin-top: 50px;
+  border-radius: 2px;
+}
+body #post-single .human-comment h2 {
+  font-size: 16px;
+  color: #031b4e;
+  margin: 0px 0 0 0;
+  padding: 0 0 7px 0;
+  border-bottom:none;
+}
+
+body #post-single .human-comment p{
+  margin: 0px 0 0 0;
+}
+  
+body #post-single .ai-generated-mini a{
+  text-decoration: underline;
+}
+body #post-single .ai-generated-mini a:hover{
+  text-decoration: none;
+}
+  @media only screen and (min-width: 680px) {
+ 
+}
+
+
+
+
+
+
+
+
+/*================================================================================================*/
+/*プロンプト共通*/
+/*================================================================================================*/
+.prompt,
+.markdown {
+  display: none;
+}
+
+/* ===== プロンプト用モーダル ===== */
+.prompt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9900;
+  display: none;
+}
+
+.prompt-modal.is-open {
+  display: block;
+}
+
+.prompt-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  bottom: 85px; /* フッターの高さ分カット */
+}
+
+/* -----------------------------------------
+モバイルファースト：モーダル本体
+----------------------------------------- */
+.prompt-modal__content {
+  position: relative;
+  max-width: none;
+  margin: 15px;
+  padding: 20px;
+  background: #000000;
+  color: #ffffff;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  box-sizing: border-box;
+  max-height: calc(100dvh - 85px - 30px);
+}
+
+/* dvh 非対応ブラウザ向けフォールバック */
+@supports not (height: 100dvh) {
+  .prompt-modal__content {
+    max-height: calc(100vh - 85px - 30px);
+  }
+}
+
+/* モーダル内すべての要素を白文字に統一 */
+.prompt-modal__content * {
+  color: #ffffff !important;
+}
+
+.prompt-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff !important;
+}
+
+/* ===== スタイリッシュなスクロールバー ===== */
+.prompt-modal__content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #444, #222);
+  border-radius: 4px;
+}
+
+.prompt-modal__content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #666, #333);
+}
+
+/* FireFox */
+.prompt-modal__content {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+/* パネル共通 */
+.prompt-panel {
+  font-size: 12px;
+  line-height: 1.7;
+  display: none;
+}
+
+.prompt-panel.is-active {
+  display: block;
+}
+
+/* タブエリア */
+.prompt-modal__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #333;
+}
+
+/* タブボタン */
+.prompt-tab {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  background: #222;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+}
+
+/* アクティブタブ */
+.prompt-modal__tabs .prompt-tab.is-active {
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+/* Copyボタン（共通プロンプト側） */
+.prompt-modal__copy {
+  margin: 8px 0 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 680px) {
+  .prompt-modal__content {
+    max-width: 700px;
+    max-height: 80vh;
+    margin: 40px auto;
+    padding: 28px 36px;
+  }
+}
+
+/*================================================================================================*/
+/*画像＋プロンプト共通*/
+/*================================================================================================*/
+.output-image {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #031323;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+.output-image.mt {
+  margin-top: 20px;
+}
+
+.output-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 記事内の生プロンプトテキストは非表示 */
+.output-image .image-prompt {
+  display: none;
+}
+
+/* promptボタン */
+.output-image .prompt-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0 8px;
+  font-size: 11px;
+  line-height: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* ---- 画像プロンプト用モーダル ---- */
+.image-prompt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+/* ★ 修正：flex中央寄せを廃止し、prompt-modalと統一 */
+.image-prompt-modal.is-open {
+  display: block;
+}
+
+/* フッター回避オーバーレイ */
+.image-prompt-modal__overlay {
+  position: absolute;
+  inset: 0;
+  bottom: 85px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* モーダル本体（思想を完全統一） */
+.image-prompt-modal__content {
+  position: relative;
+  max-width: 640px;
+  margin: 15px auto;
+  padding: 20px 24px;
+  background: #111;
+  color: #fff;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  max-height: calc(100dvh - 85px - 30px);
+}
+
+/* dvh 非対応ブラウザフォールバック */
+@supports not (height: 100dvh) {
+  .image-prompt-modal__content {
+    max-height: calc(100vh - 85px - 30px);
+  }
+}
+
+/* モーダル内テキスト */
+.image-prompt-modal__body {
+  white-space: pre-wrap;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 閉じるボタン */
+.image-prompt-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* スマホ調整 */
+@media (max-width: 768px) {
+  .image-prompt-modal__content {
+    width: 90%;
+    padding: 16px;
+  }
+}
+
+/* AI名 */
+.prompt-ai-name {
+  font-size: 12px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* プロンプト本文 */
+.prompt-ai-text {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.zu {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+/* コピー用ボタン（画像側） */
+.prompt-copy-button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.prompt-copy-button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* 共通スクロールロック */
+body.is-modal-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
 }
 </style>
 
@@ -37,27 +377,23 @@ $cat = get_the_category();
 $main_cat = $cat[0]; 
 $cat_link = get_category_link($main_cat->cat_ID);
 
-// カスタムフィールドから取得
-$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+// カスタムフィールドからインデックス記事のURLとタイトルを取得
+$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
+$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
 ?>
 <div class="inner">
     
     <a href="/"><span class="home">ホーム</span></a> 
     <span class="separator"> > </span>
     
-    <a href="<?php echo esc_url($cat_link); ?>">
-        <?php echo esc_html($main_cat->name); ?>
-    </a>
+    <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($main_cat->name); ?></a>
     
-    <?php
+    <?php 
     // インデックス情報がある場合のみ、階層を追加
-    if ( $index_path && $index_title ) {
+    if ($index_url && $index_title) {
+        // 3. インデックス投稿
         echo '<span class="separator"> > </span>';
-        echo '<a href="' . esc_url($index_path) . '">' . esc_html($index_title) . '</a>';
+        echo '<a href="' . esc_url($index_url) . '">' . esc_html($index_title) . '</a>';
     }
     ?>
     
@@ -66,8 +402,6 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
     
 </div>
 </div>
-
-
 
 
 <div id="wapper">
@@ -105,10 +439,7 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
 <?php
 $index_theme_title = get_post_meta(get_the_ID(), 'index_theme_title', true);
 $index_title       = get_post_meta(get_the_ID(), 'index_title', true);
-$ai_base_slug      = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+$index_url         = get_post_meta(get_the_ID(), 'index_url', true);
 
 /**
  * AIタグ → 表示名のマッピング
@@ -144,10 +475,10 @@ if ( $tags ) {
 「<?php echo esc_html($index_theme_title); ?>」を
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<a href="<?php echo esc_url($index_path); ?>">
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -161,10 +492,10 @@ if ( $tags ) {
 この記事は、同一テーマを複数のAIで比較する企画の一部として
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<a href="<?php echo esc_url($index_path); ?>">
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -175,12 +506,8 @@ if ( $tags ) {
 <?php endif; ?>
 
 
-<?php if (has_tag('index')) : ?>
-<div class="index-lead">
-※この記事は、同一テーマについて複数のAIが行った考察を束ねた「比較インデックス」です。
-結論を示すのではなく、視点の違いそのものを読むことを目的としています。
-</div>
-<?php endif; ?>
+
+
 
 
 <?php if(have_posts()): while(have_posts()):
@@ -256,9 +583,9 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
     ?>
     
    <?php if ( $has_ai_tag ) : ?>
-        <h2>この考察を生成したAI</h2>
+        <h2>この記事を担当したAI</h2>
     <?php else : ?>
-        <h2>このテーマを設計した人</h2>
+        <h2>この記事を書いた人</h2>
   <?php endif; ?>
 
   <?php
@@ -363,10 +690,9 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
             //echo get_avatar( get_the_author_id(), 75 );
             echo '</div>';
             echo '<div class="profile-name">MANA</div>';
-            echo '<div class="profile-role">Human / Editorial Role</div>';
-            echo '<div class="profile-comment"Iシテル？において、記事を書くのではなく、問いと構造を設計する編集人格です。<br>
-複数のAIが同じ条件で考察できるよう枠組みを整え、文章の「温度差」や違和感が読者の思考を歪めないよう、最小限の調整だけを行っています。<br>
-MANAは答えを示す存在ではありません。考察が成立する「場」を整えることが役割です。</div>';
+            echo '<div class="profile-role">Human</div>';
+            echo '<div class="profile-comment">AIシテル？の運営に関わるただ一人の人間です。<br>
+AIごとの文章の「温度」や「違和感」をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
 echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく</a></div>';
         }
     }
@@ -481,13 +807,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     copyBtn.textContent = 'Copy';
                 }, 1500);
-
-            // ★ これを足すだけ
-  $('#copy-toast').addClass('is-show');
-  setTimeout(function() {
-    $('#copy-toast').removeClass('is-show');
-  }, 1200);
-
             });
         });
     }
@@ -535,119 +854,73 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 jQuery(function($) {
 
-  /* =========================================================
-   * 画像ブロックごとに Prompt ボタン生成
-   * ========================================================= */
   $('.output-image').each(function() {
     var $wrap   = $(this);
     var $prompt = $wrap.find('.image-prompt');
 
-    if (!$prompt.length || $.trim($prompt.text()).length === 0) {
-      return;
+    if ($prompt.length && $.trim($prompt.text()).length > 0) {
+
+        var rawText = $.trim($prompt.text());
+        $prompt.hide();
+
+        var aiName = $wrap.attr('data-ai') || '';
+        var label  = aiName ? 'Prompt (' + aiName + ')' : 'Prompt';
+
+        var $btn = $('<button type="button" class="prompt-button">'+ label +'</button>');
+        $wrap.append($btn);
+
+        $btn.on('click', function() {
+
+            // ★ 共通スクロールロックを呼ぶ
+            lockBodyScroll();
+
+            var html = '';
+
+            if (aiName) {
+                html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span>';
+            }
+
+            html += '<button type="button" class="prompt-copy-button" data-raw="' +
+                    $('<div>').text(rawText).html() +
+                    '">Copy</button><br><br>';
+
+            html += '<div class="prompt-ai-text">' +
+                    rawText.replace(/(\r\n|\r|\n)/g, '<br>') +
+                    '</div>';
+
+            $('#image-prompt-modal .image-prompt-modal__body').html(html);
+            $('#image-prompt-modal').addClass('is-open');
+        });
     }
-
-    // 生プロンプト取得
-    var rawText = $.trim($prompt.text());
-    $prompt.hide();
-
-    // AI名
-    var aiName = $wrap.attr('data-ai') || '';
-    var label  = aiName ? 'Prompt (' + aiName + ')' : 'Prompt';
-
-    // ボタン生成
-    var $btn = $('<button type="button" class="prompt-button">' + label + '</button>');
-    $wrap.append($btn);
-
-    /* ---------------------------------------------------------
-     * Promptボタンクリック → モーダル表示
-     * --------------------------------------------------------- */
-    $btn.on('click', function() {
-
-      // 共通スクロールロック
-      if (typeof lockBodyScroll === 'function') {
-        lockBodyScroll();
-      }
-
-      var html = '';
-
-      if (aiName) {
-        html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span>';
-      }
-
-      // Copyボタン（rawを data-raw に保持）
-      html +=
-        '<button type="button" class="prompt-copy-button" data-raw="' +
-        $('<div>').text(rawText).html() +
-        '">Copy</button><br><br>';
-
-      // 表示用テキスト（改行 → <br>）
-      html +=
-        '<div class="prompt-ai-text">' +
-        rawText.replace(/(\r\n|\r|\n)/g, '<br>') +
-        '</div>';
-
-      $('#image-prompt-modal .image-prompt-modal__body').html(html);
-      $('#image-prompt-modal').addClass('is-open');
-    });
   });
 
-  /* =========================================================
-   * Copy処理（UIも必ず切り替える）
-   * ========================================================= */
+  // コピー処理
   $(document).on('click', '.prompt-copy-button', function() {
-  var $btn = $(this);
-  var raw  = $btn.attr('data-raw');
+    var raw = $(this).attr('data-raw');
 
-  if (!raw) return;
+    var textarea = document.createElement('textarea');
+    textarea.innerHTML = raw;
 
-  // HTMLエンティティを戻して改行保持
-  var textarea = document.createElement('textarea');
-  textarea.innerHTML = raw;
-  var text = textarea.value;
-
-  navigator.clipboard.writeText(text).then(function() {
-
-    // ボタン表示切り替え
-    $btn.text('Copied');
-    setTimeout(function() {
-      $btn.text('Copy');
-    }, 1500);
-
-    // ===== トースト表示 =====
-    var $toast = $('#copy-toast');
-    if ($toast.length) {
-      $toast.addClass('is-show');
-      setTimeout(function() {
-        $toast.removeClass('is-show');
-      }, 1200);
-    }
-
+    navigator.clipboard.writeText(textarea.value);
   });
-});
 
-
-  /* =========================================================
-   * モーダルを閉じる
-   * ========================================================= */
-  function closeImagePromptModal() {
+  function closeModal() {
     $('#image-prompt-modal').removeClass('is-open');
 
-    if (typeof unlockBodyScroll === 'function') {
-      unlockBodyScroll();
-    }
+    // ★ 共通スクロールロック解除
+    unlockBodyScroll();
   }
 
-  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', closeImagePromptModal);
+  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', closeModal);
 
   $(document).on('keydown', function(e) {
     if (e.key === 'Escape') {
-      closeImagePromptModal();
+      closeModal();
     }
   });
 
 });
 </script>
-
 
 
 
@@ -912,7 +1185,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
-<div id="copy-toast" class="copy-toast">コピーしました</div>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single73.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single59.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -17,12 +17,35 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-.index-lead .index-link{
-  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 15px auto;
-  background-position: center left;
-  padding-left:15px
+.human-comment{
+  font-size: 14px;
+  background-color: #f7f8f8;
+  padding: 15px 20px;
+  line-height: 24px;
+  border-radius: 4px;
+  margin-top: 50px;
+  border-radius: 2px;
+}
+body #post-single .human-comment h2 {
+  font-size: 16px;
+  color: #031b4e;
+  margin: 0px 0 0 0;
+  padding: 0 0 7px 0;
+  border-bottom:none;
+}
+
+body #post-single .human-comment p{
+  margin: 0px 0 0 0;
+}
+  
+body #post-single .ai-generated-mini a{
+  text-decoration: underline;
+}
+body #post-single .ai-generated-mini a:hover{
+  text-decoration: none;
+}
+  @media only screen and (min-width: 680px) {
+ 
 }
 </style>
 
@@ -37,27 +60,23 @@ $cat = get_the_category();
 $main_cat = $cat[0]; 
 $cat_link = get_category_link($main_cat->cat_ID);
 
-// カスタムフィールドから取得
-$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+// カスタムフィールドからインデックス記事のURLとタイトルを取得
+$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
+$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
 ?>
 <div class="inner">
     
     <a href="/"><span class="home">ホーム</span></a> 
     <span class="separator"> > </span>
     
-    <a href="<?php echo esc_url($cat_link); ?>">
-        <?php echo esc_html($main_cat->name); ?>
-    </a>
+    <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($main_cat->name); ?></a>
     
-    <?php
+    <?php 
     // インデックス情報がある場合のみ、階層を追加
-    if ( $index_path && $index_title ) {
+    if ($index_url && $index_title) {
+        // 3. インデックス投稿
         echo '<span class="separator"> > </span>';
-        echo '<a href="' . esc_url($index_path) . '">' . esc_html($index_title) . '</a>';
+        echo '<a href="' . esc_url($index_url) . '">' . esc_html($index_title) . '</a>';
     }
     ?>
     
@@ -66,8 +85,6 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
     
 </div>
 </div>
-
-
 
 
 <div id="wapper">
@@ -105,10 +122,7 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
 <?php
 $index_theme_title = get_post_meta(get_the_ID(), 'index_theme_title', true);
 $index_title       = get_post_meta(get_the_ID(), 'index_title', true);
-$ai_base_slug      = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+$index_url         = get_post_meta(get_the_ID(), 'index_url', true);
 
 /**
  * AIタグ → 表示名のマッピング
@@ -144,10 +158,10 @@ if ( $tags ) {
 「<?php echo esc_html($index_theme_title); ?>」を
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<a href="<?php echo esc_url($index_path); ?>">
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -161,10 +175,10 @@ if ( $tags ) {
 この記事は、同一テーマを複数のAIで比較する企画の一部として
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<a href="<?php echo esc_url($index_path); ?>">
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -175,12 +189,8 @@ if ( $tags ) {
 <?php endif; ?>
 
 
-<?php if (has_tag('index')) : ?>
-<div class="index-lead">
-※この記事は、同一テーマについて複数のAIが行った考察を束ねた「比較インデックス」です。
-結論を示すのではなく、視点の違いそのものを読むことを目的としています。
-</div>
-<?php endif; ?>
+
+
 
 
 <?php if(have_posts()): while(have_posts()):
@@ -256,9 +266,9 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
     ?>
     
    <?php if ( $has_ai_tag ) : ?>
-        <h2>この考察を生成したAI</h2>
+        <h2>この記事を担当したAI</h2>
     <?php else : ?>
-        <h2>このテーマを設計した人</h2>
+        <h2>この記事を書いた人</h2>
   <?php endif; ?>
 
   <?php
@@ -363,10 +373,9 @@ if ( $has_ai_tag && ! empty( $human_comment ) ) :
             //echo get_avatar( get_the_author_id(), 75 );
             echo '</div>';
             echo '<div class="profile-name">MANA</div>';
-            echo '<div class="profile-role">Human / Editorial Role</div>';
-            echo '<div class="profile-comment"Iシテル？において、記事を書くのではなく、問いと構造を設計する編集人格です。<br>
-複数のAIが同じ条件で考察できるよう枠組みを整え、文章の「温度差」や違和感が読者の思考を歪めないよう、最小限の調整だけを行っています。<br>
-MANAは答えを示す存在ではありません。考察が成立する「場」を整えることが役割です。</div>';
+            echo '<div class="profile-role">Human</div>';
+            echo '<div class="profile-comment">AIシテル？の運営に関わるただ一人の人間です。<br>
+AIごとの文章の「温度」や「違和感」をすくい取り、AIに足りない部分をそっと補うのが役目だと思っています。</div>';
 echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく</a></div>';
         }
     }
@@ -398,23 +407,23 @@ aisiteru_fixed_footer($base_slug);
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-    const modal = document.getElementById('prompt-modal');
+    const modal        = document.getElementById('prompt-modal');
     if (!modal) return;
 
-    const overlay     = modal.querySelector('.prompt-modal__overlay');
-    const closeBtn    = modal.querySelector('.prompt-modal__close');
-    const copyBtn     = modal.querySelector('.prompt-modal__copy');
-    const panelPrompt = modal.querySelector('.prompt-panel--prompt');
-    const panelMd     = modal.querySelector('.prompt-panel--markdown');
-    const tabs        = modal.querySelectorAll('.prompt-tab');
+    const overlay      = modal.querySelector('.prompt-modal__overlay');
+    const closeBtn     = modal.querySelector('.prompt-modal__close');
+    const panelPrompt  = modal.querySelector('.prompt-panel--prompt');
+    const panelMd      = modal.querySelector('.prompt-panel--markdown');
+    const tabs         = modal.querySelectorAll('.prompt-tab');
 
     // 元記事側のソース
-    const promptSource   = document.querySelector('.prompt');
-    const markdownSource = document.querySelector('.markdown');
+    const promptSource   = document.querySelector('.prompt');   // プロンプト
+    const markdownSource = document.querySelector('.markdown'); // 生成記事
 
     function setActiveTab(target) {
         tabs.forEach(function (tab) {
-            tab.classList.toggle('is-active', tab.dataset.target === target);
+            const isActive = tab.dataset.target === target;
+            tab.classList.toggle('is-active', isActive);
         });
 
         panelPrompt.classList.toggle('is-active', target === 'prompt');
@@ -422,35 +431,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const openModal = () => {
+        // 開くたびに中身をセット（記事が変わっても対応できるように）
+        if (promptSource) {
+            panelPrompt.innerHTML = promptSource.innerHTML;
+        } else {
+            panelPrompt.innerHTML = '<p>共通プロンプトが見つかりませんでした。</p>';
+        }
 
-        // 中身をセット
-        panelPrompt.innerHTML = promptSource
-          ? promptSource.innerHTML
-          : '<p>共通プロンプトが見つかりませんでした。</p>';
+        if (markdownSource) {
+            panelMd.innerHTML = markdownSource.innerHTML;
+        } else {
+            panelMd.innerHTML = '<p>生成記事ブロックが見つかりませんでした。</p>';
+        }
 
-        panelMd.innerHTML = markdownSource
-          ? markdownSource.innerHTML
-          : '<p>生成記事ブロックが見つかりませんでした。</p>';
-
+        // デフォルトは「共通プロンプト」タブ
         setActiveTab('prompt');
 
         modal.classList.add('is-open');
-
-        // 共通スクロールロック
-        lockBodyScroll();
+        document.body.classList.add('prompt-modal-open');
     };
 
     const closeModal = () => {
         modal.classList.remove('is-open');
+        document.body.classList.remove('prompt-modal-open');
 
-        // 共通スクロールロック解除
-        unlockBodyScroll();
-
+        // 中身をクリアしておく（不要ならこの2行は削除しても可）
         panelPrompt.innerHTML = '';
         panelMd.innerHTML = '';
     };
 
-    // 「共通プロンプトはこちら」ボタン
+    // 「共通プロンプトはこちら」ボタンクリック
     const btn = document.querySelector('.view-prompt-btn');
     if (btn) {
         btn.addEventListener('click', function (e) {
@@ -459,46 +469,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // タブ切り替え
+    // タブクリック
     tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-            setActiveTab(tab.dataset.target);
+            const target = tab.dataset.target;
+            setActiveTab(target);
         });
     });
 
-    // ★ Copyボタン（アクティブなタブ内容をコピー）
-    if (copyBtn) {
-        copyBtn.addEventListener('click', function () {
-
-            const activePanel = modal.querySelector('.prompt-panel.is-active');
-            if (!activePanel) return;
-
-            // 表示どおり（改行保持）でコピー
-            const text = activePanel.innerText.trim();
-
-            navigator.clipboard.writeText(text).then(() => {
-                copyBtn.textContent = 'Copied';
-                setTimeout(() => {
-                    copyBtn.textContent = 'Copy';
-                }, 1500);
-
-            // ★ これを足すだけ
-  $('#copy-toast').addClass('is-show');
-  setTimeout(function() {
-    $('#copy-toast').removeClass('is-show');
-  }, 1200);
-
-            });
-        });
-    }
-
-    // 閉じる系
+    // オーバーレイクリック
     overlay.addEventListener('click', closeModal);
+
+    // 閉じるボタン
     closeBtn.addEventListener('click', closeModal);
 
-    // ESCキー
+    // ESCキーで閉じる
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        if (e.key === 'Escape') {
             closeModal();
         }
     });
@@ -507,12 +494,10 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-
 <div id="prompt-modal" class="prompt-modal">
   <div class="prompt-modal__overlay"></div>
   <div class="prompt-modal__content">
     <button type="button" class="prompt-modal__close" aria-label="閉じる">×</button>
-    <button type="button" class="prompt-modal__copy">Copy</button>
 
     <div class="prompt-modal__tabs">
       <button type="button" class="prompt-tab is-active" data-target="prompt">
@@ -535,120 +520,59 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 jQuery(function($) {
 
-  /* =========================================================
-   * 画像ブロックごとに Prompt ボタン生成
-   * ========================================================= */
   $('.output-image').each(function() {
     var $wrap   = $(this);
     var $prompt = $wrap.find('.image-prompt');
 
-    if (!$prompt.length || $.trim($prompt.text()).length === 0) {
-      return;
+    if ($prompt.length && $.trim($prompt.text()).length > 0) {
+
+        // 生のプロンプトは非表示
+        $prompt.hide();
+
+        // <div class="output-image" data-ai="chatgpt"> などから取得
+        var aiName = $wrap.attr('data-ai') || '';
+
+        // ボタンに表示する文言を作成
+        var label = 'prompt';
+        if (aiName) {
+            label = 'Prompt (' + aiName + ')';
+        }
+
+        // ボタン生成
+        var $btn = $('<button type="button" class="prompt-button" data-ai="'+ aiName +'">'+ label +'</button>');
+        $wrap.append($btn);
+
+        // クリック時：モーダルにプロンプト＋AI名を表示
+        $btn.on('click', function() {
+            var text = $.trim($prompt.text());
+
+            // モーダル内に入れるHTMLを組み立て
+            var html = '';
+            if (aiName) {
+                html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span><br><br>';
+            }
+            // 改行を <br> に変換
+            html += text.replace(/(\r\n|\r|\n)/g, '<br>');
+
+            $('#image-prompt-modal .image-prompt-modal__body').html(html);
+            $('#image-prompt-modal').addClass('is-open');
+        });
     }
-
-    // 生プロンプト取得
-    var rawText = $.trim($prompt.text());
-    $prompt.hide();
-
-    // AI名
-    var aiName = $wrap.attr('data-ai') || '';
-    var label  = aiName ? 'Prompt (' + aiName + ')' : 'Prompt';
-
-    // ボタン生成
-    var $btn = $('<button type="button" class="prompt-button">' + label + '</button>');
-    $wrap.append($btn);
-
-    /* ---------------------------------------------------------
-     * Promptボタンクリック → モーダル表示
-     * --------------------------------------------------------- */
-    $btn.on('click', function() {
-
-      // 共通スクロールロック
-      if (typeof lockBodyScroll === 'function') {
-        lockBodyScroll();
-      }
-
-      var html = '';
-
-      if (aiName) {
-        html += '<span class="prompt-ai-name">生成AI：' + aiName + '</span>';
-      }
-
-      // Copyボタン（rawを data-raw に保持）
-      html +=
-        '<button type="button" class="prompt-copy-button" data-raw="' +
-        $('<div>').text(rawText).html() +
-        '">Copy</button><br><br>';
-
-      // 表示用テキスト（改行 → <br>）
-      html +=
-        '<div class="prompt-ai-text">' +
-        rawText.replace(/(\r\n|\r|\n)/g, '<br>') +
-        '</div>';
-
-      $('#image-prompt-modal .image-prompt-modal__body').html(html);
-      $('#image-prompt-modal').addClass('is-open');
-    });
   });
 
-  /* =========================================================
-   * Copy処理（UIも必ず切り替える）
-   * ========================================================= */
-  $(document).on('click', '.prompt-copy-button', function() {
-  var $btn = $(this);
-  var raw  = $btn.attr('data-raw');
-
-  if (!raw) return;
-
-  // HTMLエンティティを戻して改行保持
-  var textarea = document.createElement('textarea');
-  textarea.innerHTML = raw;
-  var text = textarea.value;
-
-  navigator.clipboard.writeText(text).then(function() {
-
-    // ボタン表示切り替え
-    $btn.text('Copied');
-    setTimeout(function() {
-      $btn.text('Copy');
-    }, 1500);
-
-    // ===== トースト表示 =====
-    var $toast = $('#copy-toast');
-    if ($toast.length) {
-      $toast.addClass('is-show');
-      setTimeout(function() {
-        $toast.removeClass('is-show');
-      }, 1200);
-    }
-
-  });
-});
-
-
-  /* =========================================================
-   * モーダルを閉じる
-   * ========================================================= */
-  function closeImagePromptModal() {
+  // 閉じる処理
+  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', function() {
     $('#image-prompt-modal').removeClass('is-open');
-
-    if (typeof unlockBodyScroll === 'function') {
-      unlockBodyScroll();
-    }
-  }
-
-  $('.image-prompt-modal__overlay, .image-prompt-modal__close').on('click', closeImagePromptModal);
+  });
 
   $(document).on('keydown', function(e) {
     if (e.key === 'Escape') {
-      closeImagePromptModal();
+      $('#image-prompt-modal').removeClass('is-open');
     }
   });
 
 });
 </script>
-
-
 
 
 <div class="image-prompt-modal" id="image-prompt-modal">
@@ -662,43 +586,6 @@ jQuery(function($) {
   </div>
 </div>
 <!---------------------> 
-
-
-
-
-<script>
-/**
- * Modal Scroll Lock Utility
- * iOS / Android / PC 完全対応
- */
-(function () {
-
-  let scrollPos = 0;
-  let lockCount = 0;
-
-  window.lockBodyScroll = function () {
-    if (lockCount === 0) {
-      scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-      document.body.style.position = 'fixed';
-      document.body.style.top = -scrollPos + 'px';
-      document.body.style.width = '100%';
-    }
-    lockCount++;
-  };
-
-  window.unlockBodyScroll = function () {
-    lockCount--;
-    if (lockCount <= 0) {
-      lockCount = 0;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollPos);
-    }
-  };
-
-})();
-</script>
 
 </div>
 
@@ -912,7 +799,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
-<div id="copy-toast" class="copy-toast">コピーしました</div>
 
 </body>
 </html>
