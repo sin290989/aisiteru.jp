@@ -143,6 +143,7 @@ background-position: left center;
 
 #side span.prediction,
 #side span.regional,
+#side span.society,
 #side span.sports,
 #side span.business,
 #side span.culture,
@@ -150,16 +151,20 @@ background-position: left center;
 #side span.technology,
 #side span.history {
     padding-left: 32px;
-background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 20px auto;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 20px auto;
 }
+
 
 #side span.prediction{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
 }
 #side span.regional{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional_b.webp");
+}
+#side span.society{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society_b.webp");
 }
 #side span.sports{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports_b.webp");
@@ -179,6 +184,7 @@ background-position: left center;
 #side span.history {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history_b.webp");
 }
+
 /* PC */
 @media only screen and (min-width: 680px) {
 
@@ -250,6 +256,7 @@ echo '<h2 class="catTitle">カテゴリ</h2>';
 echo '<ul class="catList">';
 echo '<li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>';
 echo '<li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>';
+echo '<li><a href="/category/society/"><span class="society">社会構造・制度</span></a></li>';
 echo '<li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>';
 echo '<li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>';
 echo '<li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>';
@@ -258,6 +265,7 @@ echo '<li><a href="/category/technology/"><span class="technology">技術・倫�
 echo '<li><a href="/category/history/"><span class="history">歴史・ミステリー</span></a></li>';
 echo '</ul>';
 ?>
+
 
 <?php
 echo '<h2 class="aiTitle">生成AI</h2>';

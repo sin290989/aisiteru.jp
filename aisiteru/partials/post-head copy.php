@@ -208,17 +208,8 @@ body #post-head h1 {
   /* テキスト長に合わせて幅を可変にするため、widthを削除 */
   background-color: #5d065e; /* 例：サイトのイメージカラー（ティール系など） */
   color: #ffffff;
-   background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 15px auto;
-  background-position: center left 10px;
-  padding-left:20px
 }
-.view-index-btn:hover{
-  color: #FFFFFF;
-  text-decoration: none;
-  background-color: #740875;
-}
+
 /* ホバーエフェクト */
 .button-base:hover {
   opacity: 0.85;
@@ -305,18 +296,7 @@ body #post-head h1 {
   }
   .view-index-btn {
     width: auto;
-   background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 18px auto;
-  background-position: center left 10px;
-  padding-left:30px
   }
-.view-index-btn:hover{
-  color: #FFFFFF;
-  text-decoration: none;
-  background-color: #740875;
-}
-
 
     #post-head_index .post_thumbnail {
         position: static;
@@ -451,28 +431,24 @@ body #post-head h1 {
     <?php display_ai_author_message(); ?>
 
     <?php
-// カスタムフィールドから取得
-$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
+    // カスタムフィールドからインデックス記事のURLとタイトルを取得
+    $index_url   = get_post_meta(get_the_ID(), 'index_url', true); 
+    $index_title = get_post_meta(get_the_ID(), 'index_title', true); 
+    ?>
 
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
-?>
-
-<div class="prompt-index-buttons-wrapper">
-    
-    <div class="view-prompt-btn button-base">
-        <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
+    <div class="prompt-index-buttons-wrapper">
+        
+        <div class="view-prompt-btn button-base">
+            <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
+        </div>
+        
+        <?php if ($index_url && $index_title) : ?>
+            <a href="<?php echo esc_url($index_url); ?>" class="view-index-btn button-base">
+                <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
+            </a>
+        <?php endif; ?>
+        
     </div>
-    
-    <?php if ( $index_path && $index_title ) : ?>
-        <a href="<?php echo esc_url($index_path); ?>" class="view-index-btn button-base">
-            <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
-        </a>
-    <?php endif; ?>
-    
-</div>
-
 
 </div>
 

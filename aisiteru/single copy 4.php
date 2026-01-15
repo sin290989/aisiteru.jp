@@ -17,13 +17,7 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-.index-lead .index-link{
-  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 15px auto;
-  background-position: center left;
-  padding-left:15px
-}
+
 
 </style>
 
@@ -38,27 +32,23 @@ $cat = get_the_category();
 $main_cat = $cat[0]; 
 $cat_link = get_category_link($main_cat->cat_ID);
 
-// カスタムフィールドから取得
-$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+// カスタムフィールドからインデックス記事のURLとタイトルを取得
+$index_url = get_post_meta(get_the_ID(), 'index_url', true); 
+$index_title = get_post_meta(get_the_ID(), 'index_title', true); 
 ?>
 <div class="inner">
     
     <a href="/"><span class="home">ホーム</span></a> 
     <span class="separator"> > </span>
     
-    <a href="<?php echo esc_url($cat_link); ?>">
-        <?php echo esc_html($main_cat->name); ?>
-    </a>
+    <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($main_cat->name); ?></a>
     
-    <?php
+    <?php 
     // インデックス情報がある場合のみ、階層を追加
-    if ( $index_path && $index_title ) {
+    if ($index_url && $index_title) {
+        // 3. インデックス投稿
         echo '<span class="separator"> > </span>';
-        echo '<a href="' . esc_url($index_path) . '">' . esc_html($index_title) . '</a>';
+        echo '<a href="' . esc_url($index_url) . '">' . esc_html($index_title) . '</a>';
     }
     ?>
     
@@ -67,8 +57,6 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
     
 </div>
 </div>
-
-
 
 
 <div id="wapper">
@@ -106,10 +94,7 @@ $index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
 <?php
 $index_theme_title = get_post_meta(get_the_ID(), 'index_theme_title', true);
 $index_title       = get_post_meta(get_the_ID(), 'index_title', true);
-$ai_base_slug      = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+$index_url         = get_post_meta(get_the_ID(), 'index_url', true);
 
 /**
  * AIタグ → 表示名のマッピング
@@ -145,14 +130,10 @@ if ( $tags ) {
 「<?php echo esc_html($index_theme_title); ?>」を
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<<<<<<< HEAD
-<a href="<?php echo esc_url($index_url); ?>">
-=======
-👉 <a href="<?php echo esc_url($index_path); ?>">
->>>>>>> e33bc51c7bc2a839616abdc841c3774b5282aa61
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -166,14 +147,10 @@ if ( $tags ) {
 この記事は、同一テーマを複数のAIで比較する企画の一部として
 <strong><?php echo esc_html($ai_name); ?> の視点で考察</strong>したものです。
 
-<?php if ( ! empty($index_title) && ! empty($index_path) ) : ?>
+<?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-<<<<<<< HEAD
-<a href="<?php echo esc_url($index_url); ?>">
-=======
-👉 <a href="<?php echo esc_url($index_path); ?>">
->>>>>>> e33bc51c7bc2a839616abdc841c3774b5282aa61
+👉 <a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -184,12 +161,9 @@ if ( $tags ) {
 <?php endif; ?>
 
 
-<?php if (has_tag('index')) : ?>
-<div class="index-lead">
-※この記事は、同一テーマについて複数のAIが行った考察を束ねた「比較インデックス」です。
-結論を示すのではなく、視点の違いそのものを読むことを目的としています。
-</div>
-<?php endif; ?>
+
+
+
 
 <?php if(have_posts()): while(have_posts()):
 the_post(); ?>

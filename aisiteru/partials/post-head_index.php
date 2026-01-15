@@ -150,7 +150,7 @@ body #post-head_index h1 {
   <div class="inner">
 
    <?php
-// カスタムフィールド thumb_ai を取得（未設定時は ImageFX）
+
 $thumb_ai = get_post_meta(get_the_ID(), 'thumb_ai', true);
 $thumb_ai = $thumb_ai ? $thumb_ai : 'ImageFX';
 ?>

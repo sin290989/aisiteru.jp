@@ -252,6 +252,82 @@ $query_regional = new WP_Query($args_regional);
 </div>
 
 
+
+<div class="category-block society-block">
+<h2>社会構造・制度</h2>
+<div class="h2en">SOCIETY</div>
+<?php
+//----------------------------------------------------
+// ③ society カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// society カテゴリ
+$cat_society = get_category_by_slug('society');
+$cat_society_id = $cat_society ? $cat_society->term_id : 0;
+
+// index タグ
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（society）
+$args_society = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_society_id,
+);
+
+if ( $index_tag_id ) {
+    $args_society['tag__in'] = array( $index_tag_id );
+}
+
+$query_society = new WP_Query($args_society);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_society->have_posts() ) : ?>
+        <?php while ( $query_society->have_posts() ) : $query_society->the_post(); ?>
+        <li>
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+            </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>社会構造・制度カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/society/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+
+
+
 <div class="category-block sports-block">
 <h2>スポーツ・格闘技</h2>
 <div class="h2en">SPORTS</div>

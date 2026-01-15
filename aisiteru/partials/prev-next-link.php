@@ -38,6 +38,7 @@
     .prev-thumb img{
         width: 100%;
         height: auto;
+        
         vertical-align: bottom;
     }
 

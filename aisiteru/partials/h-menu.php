@@ -320,6 +320,7 @@ background-position: left center;
 
 
 .h-menu span.prediction,
+.h-menu span.society,
 .h-menu span.regional,
 .h-menu span.sports,
 .h-menu span.business,
@@ -328,13 +329,16 @@ background-position: left center;
 .h-menu span.technology,
 .h-menu span.history {
     padding-left: 30px;
-background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 20px auto;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 20px auto;
 }
 
 .h-menu span.prediction{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
+}
+.h-menu span.society{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society_b.webp");
 }
 .h-menu span.regional{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional_b.webp");
@@ -357,6 +361,7 @@ background-position: left center;
 .h-menu span.history {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history_b.webp");
 }
+
 
 
 ul.other-link{
@@ -487,9 +492,10 @@ $(function () {
     <div class="h-menu-inner">
 
         <h2 class="catTitle">カテゴリ</h2>
-        <ul class="cat-link">
+       <ul class="cat-link">
             <li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>
             <li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>
+            <li><a href="/category/society/"><span class="society">社会構造・制度</span></a></li>
             <li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>
             <li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>
             <li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>
@@ -497,6 +503,7 @@ $(function () {
             <li><a href="/category/technology/"><span class="technology">技術・倫理</span></a></li>
             <li><a href="/category/history/"><span class="history">歴史・ミステリー</span></a></li>
         </ul>
+
 
         <h2 class="aiTitle">生成AI</h2>
         <ul class="ai-link">
