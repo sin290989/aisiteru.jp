@@ -208,8 +208,17 @@ body #post-head h1 {
   /* テキスト長に合わせて幅を可変にするため、widthを削除 */
   background-color: #5d065e; /* 例：サイトのイメージカラー（ティール系など） */
   color: #ffffff;
+   background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+  background-position: center left 10px;
+  padding-left:20px
 }
-
+.view-index-btn:hover{
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #740875;
+}
 /* ホバーエフェクト */
 .button-base:hover {
   opacity: 0.85;
@@ -296,7 +305,18 @@ body #post-head h1 {
   }
   .view-index-btn {
     width: auto;
+   background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
+  background-repeat: no-repeat;
+  background-size: 18px auto;
+  background-position: center left 10px;
+  padding-left:30px
   }
+.view-index-btn:hover{
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #740875;
+}
+
 
     #post-head_index .post_thumbnail {
         position: static;

@@ -17,7 +17,13 @@
 <?php get_template_part("partials/fonts") ?>
  
 <style type="text/css">
-
+.index-lead .index-link{
+  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+  background-position: center left;
+  padding-left:15px
+}
 
 </style>
 
@@ -133,7 +139,7 @@ if ( $tags ) {
 <?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-👉 <a href="<?php echo esc_url($index_url); ?>">
+<a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -150,7 +156,7 @@ if ( $tags ) {
 <?php if ( ! empty($index_title) && ! empty($index_url) ) : ?>
 テーマ全体の整理・他AIの意見比較は下記をご覧ください。
 <div class="index-link">
-👉 <a href="<?php echo esc_url($index_url); ?>">
+<a href="<?php echo esc_url($index_url); ?>">
 <?php echo esc_html($index_title); ?>
 </a>
 </div>
@@ -161,7 +167,12 @@ if ( $tags ) {
 <?php endif; ?>
 
 
-
+<?php if (has_tag('index')) : ?>
+<div class="index-lead">
+※この記事は、同一テーマについて複数のAIが行った考察を束ねた「比較インデックス」です。
+結論を示すのではなく、視点の違いそのものを読むことを目的としています。
+</div>
+<?php endif; ?>
 
 
 
