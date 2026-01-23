@@ -224,9 +224,11 @@ $query_regional = new WP_Query($args_regional);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -296,9 +298,11 @@ $query_society = new WP_Query($args_society);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -369,9 +373,11 @@ $query_sports = new WP_Query($args_sports);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -438,9 +444,11 @@ $query_business = new WP_Query($args_business);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -510,9 +518,11 @@ $query_culture = new WP_Query($args_culture);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -582,9 +592,11 @@ $query_life = new WP_Query($args_life);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -654,9 +666,11 @@ $query_technology = new WP_Query($args_technology);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>"><?php the_modified_date('Y.m.d'); ?></time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">
@@ -726,9 +740,15 @@ $query_history = new WP_Query($args_history);
 
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                    <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
+                        <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>">
+                            <?php the_modified_date('Y.m.d'); ?>
+                        </time>
+                    <?php else : ?>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                            <?php echo get_the_date('Y.m.d'); ?>
+                        </time>
+                    <?php endif; ?>
                 </div>
 
                 <div class="post-title">

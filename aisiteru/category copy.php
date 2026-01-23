@@ -92,9 +92,17 @@ $index_query = new WP_Query( $args );
             <!--サムネイル左側-->
             <div class="head">
                 <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
+                        <?php
+                        if(get_the_time('U') !== get_the_modified_time('U')){
+                        ?>
+                            <time class="updated" datetime="<?php the_modified_date("Y-m-d H:i:s") ?>"><?php the_modified_date('Y.m.d') ?></time>
+                        <?php
+                        }else{
+                        ?>
+                            <time class="entry-date published" datetime="<?php echo get_the_date("Y-m-d H:i:s") ?>"><?php echo get_the_date('Y.m.d') ?></time>
+                        <?php
+                        }
+                        ?>
                 </div>
 
                 <div class="post-title"><h2><span><?php the_title(); ?></span></h2>

@@ -80,16 +80,11 @@ $ai_key = get_post_field( 'post_name', get_post() );
               <!--サムネイル左側-->
               <div class="head">
                   <div class="post-dates">
-                      <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
-                          <time class="updated" datetime="<?php the_modified_date("Y-m-d H:i:s"); ?>">
-                              <?php the_modified_date('Y.m.d'); ?>
-                          </time>
-                      <?php else : ?>
-                          <time class="entry-date published" datetime="<?php echo get_the_date("Y-m-d H:i:s"); ?>">
-                              <?php echo get_the_date('Y.m.d'); ?>
-                          </time>
-                      <?php endif; ?>
-                  </div>
+                        <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                            <?php echo get_the_date('Y.m.d'); ?>
+                        </time>
+                    </div>
+
 
                   <div class="post-title">
                       <h2><span><?php the_title(); ?></span></h2>
