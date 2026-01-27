@@ -24,55 +24,6 @@
   background-position: center left;
   padding-left:15px
 }
-
-.cluster-block {
-  padding: 25px 25px 25px 25px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  margin: 0 10px;
-  margin-top: 20px;
-}
-.cluster-block h2 {
-  font-weight: 700;
-  color: #1433d6;
-}
-ul.cluster-list{
-  margin-top:10px;
-  margin-bottom:20px;
-}
-ul.cluster-list li a{
-  display: block;
-  padding: 5px;
-  font-weight: bold;
-}
-
-
-.cluster-backlink {
-  margin-top: 8px;
-  font-size: 13px;
-}
-.cluster-backlink a {
-  color: #0069ff;
-  text-decoration: underline;
-}
-.cluster-backlink a:hover {
-  text-decoration: none;
-}
-@media only screen and (min-width: 680px) {
-.cluster-block{
-  width: 740px;
-  padding: 25px 45px 25px 45px;
-  margin: 0;
-  margin-top: 30px;
-  border:none;
-  border-radius: 10px;
-}
-
-
-}
-
-
 </style>
 
 
@@ -433,99 +384,13 @@ echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく
 
 
 
-<?php
-// ===============================
-// クラスタ導線ブロック（完成版）
-// ===============================
 
-// 投稿に設定されたクラスタURL用スラッグ（例: exam-education）
-$cluster_slug = get_post_meta(get_the_ID(), 'cluster_slug', true);
 
-// 今見ているAI記事の base slug（対応するINDEX識別用）
-$base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 
-// 共通で必須の index タグ
-$index_tag_slug = 'index';
 
-// クラスタ定義テーブル
-// key   = cluster_slug（URL識別子）
-// tag   = 抽出に使う投稿タグ
-// label = UI表示名
-$cluster_map = array(
-  'exam-education' => array(
-    'tag'   => 'season-exam',
-    'label' => '受験・教育制度',
-  ),
 
-  // 追加例
-  // 'urban-psychology' => array(
-  //   'tag'   => 'season-urban',
-  //   'label' => '都市心理・空間構造',
-  // ),
-);
 
-if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
-  $cluster_tag_slug = $cluster_map[$cluster_slug]['tag'];
-  $cluster_label   = $cluster_map[$cluster_slug]['label'];
-
-  // タグ term 取得
-  $cluster_term = get_term_by('slug', $cluster_tag_slug, 'post_tag');
-  $index_term   = get_term_by('slug', $index_tag_slug, 'post_tag');
-
-  if ($cluster_term && $index_term && !is_wp_error($cluster_term) && !is_wp_error($index_term)) :
-
-    // index + クラスタタグ の両方が付いた最新3件
-    // ★ ただし「このAI記事と同じ ai_base_slug を持つ INDEX」は除外
-    $related_args = array(
-      'post_type'       => 'post',
-      'posts_per_page' => 3,
-      'tag__and'       => array(
-        $cluster_term->term_id,
-        $index_term->term_id
-      ),
-      'meta_query' => array(
-        array(
-          'key'     => 'ai_base_slug',
-          'value'   => $base_slug,
-          'compare' => '!=',
-        ),
-      ),
-    );
-
-    $related_query = new WP_Query($related_args);
-?>
-<section class="cluster-block">
-
-  <?php if ($related_query->have_posts()) : ?>
-    <div class="cluster-related">
-      <h2>
-        「<?php echo esc_html($cluster_label); ?>」クラスタ内の関連視点
-  </h2>
-      <ul class="cluster-list">
-        <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
-          <li>
-            <a href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </li>
-        <?php endwhile; ?>
-      </ul>
-    </div>
-  <?php endif; ?>
-
-  <div class="cluster-backlink">
-    <a href="/cluster/<?php echo esc_attr($cluster_slug); ?>/">
-      「<?php echo esc_html($cluster_label); ?>」クラスタに戻る
-    </a>
-  </div>
-
-</section>
-<?php
-    wp_reset_postdata();
-  endif;
-endif;
-?>
 
 
 

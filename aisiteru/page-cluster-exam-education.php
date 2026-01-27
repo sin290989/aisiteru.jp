@@ -282,7 +282,7 @@ ul.post-index .head .post-content p {
 
 
 <div id="main-cluster">
-    <ul class="cluster-scope">
+<ul class="cluster-scope">
 <li>入試制度</li>
 <li>学校文化</li>
 <li>評価と努力</li>

@@ -357,6 +357,12 @@ ul.ai-list li.grok {
   .profile-name {
     font-size: 16px;
   }
+
+  .profile-link {
+  margin-top: 8px;
+  font-size: 13px;
+}
+  
 }
 
 /*================================================================================================*/
