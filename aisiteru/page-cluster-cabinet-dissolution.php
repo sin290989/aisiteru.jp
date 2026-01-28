@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Exam Education
+Template Name: Cluster Cabinet Dissolution
 */
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,6 @@ Template Name: Cluster Exam Education
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/post-index") ?>
-
 </head>
 <body>
 
@@ -31,61 +30,85 @@ Template Name: Cluster Exam Education
 </div>
 </div>
 
-
-
 <div id="wapper">
 <div id="contents">
 
-
 <div id="main-cluster">
+
 <ul class="cluster-scope">
-<li>入試制度</li>
-<li>学校文化</li>
-<li>評価と努力</li>
-<li>公平性と選別</li>
-<li>社会的役割</li>
+<li>制度としての解散</li>
+<li>政治的戦略</li>
+<li>民主主義と正統性</li>
+<li>選挙と民意</li>
+<li>権力と責任</li>
 </ul>
+
 <h1><?php the_title(); ?></h1>
 
-<p class="read">受験は、人生の大きな分岐点のように感じられる一方で、努力の意味や制度の公平性がどのように成立しているのかは、必ずしも整理されていません。
-このクラスタでは、AI8社の視点から「受験期の努力」「公平性の認識」「分岐点としての機能」といった論点を構造的に比較した記事のみを収録しています。
-正解を示すためではなく、あなた自身の経験や社会の前提を別の角度から捉え直すための座標としてご利用ください。</p>
+<p class="read">
+内閣解散や解散総選挙は、「勝負の一手」や「政権の戦略」として語られることが多い一方で、制度として民主主義の中にどのように組み込まれてきたのかは、必ずしも整理されていません。
+このクラスタでは、AI8社の視点から「解散権の位置づけ」「民意との関係」「制度と慣例の境界」といった論点を構造的に比較した記事のみを収録しています。
+出来事の是非を判断するためではなく、政治と社会の距離感を別の角度から捉え直すための座標としてご利用ください。
+</p>
 
 <p class="cluster-rule">
-  このクラスタには、<strong>受験・教育制度</strong>に関する最新の投稿を時系列で表示しています（最新15件）。
+  このクラスタには、<strong>内閣解散・解散総選挙</strong>に関する最新の投稿を時系列で表示しています（最新15件）。
 </p>
+
 <div class="cluster-block">
-   
+
 <?php
-// season-exam タグの term を取得
-$season_tag = get_term_by( 'slug', 'season-exam', 'post_tag' );
-$season_tag_id = $season_tag ? $season_tag->term_id : 0;
+// (index + cabinet-dissolution) OR (index + dissolution-election)
 
-// index タグの term を取得
-$index_tag = get_term_by( 'slug', 'index', 'post_tag' );
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// season-exam ＋ index 両方が付いた最新15件を取得（ページネーションなし）
 $args = array(
-    'post_type'       => 'post',
-    'posts_per_page' => 15,
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+  'post_type'       => 'post',
+  'posts_per_page' => 15,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+  'tax_query'      => array(
+    'relation' => 'OR',
+
+    // パターンA: index + cabinet-dissolution
+    array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'index',
+      ),
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'cabinet-dissolution',
+      ),
+    ),
+
+    // パターンB: index + dissolution-election
+    array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'index',
+      ),
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'dissolution-election',
+      ),
+    ),
+  ),
 );
 
 $index_query = new WP_Query( $args );
 ?>
+
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>
         <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
         <li>
-            <?php $cat = get_the_category(); ?>
-            <?php $cat = $cat[0]; ?>
-
             <a href="<?php the_permalink(); ?>">
-            <!--サムネイル右側画像-->
             <div class="post_thumbnail">
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('single-thumbnails'); ?>
@@ -93,9 +116,7 @@ $index_query = new WP_Query( $args );
                 <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
             <?php endif ; ?>
             </div>
-            <!--サムネイル右側画像-->
 
-            <!--サムネイル左側-->
             <div class="head">
                 <div class="post-dates">
                     <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
@@ -109,7 +130,7 @@ $index_query = new WP_Query( $args );
 
                 <div class="post-content pc">
                 <p>
-                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+                <?php echo str_replace("\n", '', strip_tags(get_the_content())); ?>
                 </p>
                 </div>
                 <div style="clear:both"></div>
@@ -119,35 +140,33 @@ $index_query = new WP_Query( $args );
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」タグが付いた記事はまだありません。</li>
+        <li>該当する記事がまだありません。</li>
     <?php endif; ?>
     <div style="clear:both"></div>
 </ul>
 
+<?php wp_reset_postdata(); ?>
 
-<?php
-// クエリを元に戻す
-wp_reset_postdata();
-?>
 </div>
 </div>
 
 <div style="clear:both"></div>
 </div>
-
 </div>
+
 <?php get_template_part('partials/footer'); ?>
 <?php wp_footer(); ?>
+
 <?php if ( !wp_is_mobile() ) : ?>
 <script type="text/javascript">
 $(function () {
-$('ul.post-index li').hover(function(){
-    $("h2",this).css('color','#0069ff');
-    $(".post_thumbnail img",this).css('transform','scale(1.1)');
-}, function(){
-    $("h2",this).css('color','#031b4e');
-    $(".post_thumbnail img",this).css('transform','scale(1)');
-});  
+  $('ul.post-index li').hover(function(){
+      $("h2",this).css('color','#0069ff');
+      $(".post_thumbnail img",this).css('transform','scale(1.1)');
+  }, function(){
+      $("h2",this).css('color','#031b4e');
+      $(".post_thumbnail img",this).css('transform','scale(1)');
+  });  
 });
 </script>
 <?php endif; ?>

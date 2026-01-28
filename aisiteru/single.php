@@ -435,65 +435,74 @@ echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく
 
 <?php
 // ===============================
-// クラスタ導線ブロック（完成版）
+// クラスタ導線ブロック（OR論理対応・完成版）
 // ===============================
 
-// 投稿に設定されたクラスタURL用スラッグ（例: exam-education）
+// 投稿に設定されたクラスタURL用スラッグ
 $cluster_slug = get_post_meta(get_the_ID(), 'cluster_slug', true);
 
-// 今見ているAI記事の base slug（対応するINDEX識別用）
+// 今見ているAI記事の base slug（INDEX識別用）
 $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 
-// 共通で必須の index タグ
+// 必須タグ
 $index_tag_slug = 'index';
 
-// クラスタ定義テーブル
-// key   = cluster_slug（URL識別子）
-// tag   = 抽出に使う投稿タグ
-// label = UI表示名
+// クラスタ定義
 $cluster_map = array(
   'exam-education' => array(
-    'tag'   => 'season-exam',
+    'tags'  => array('season-exam'),
     'label' => '受験・教育制度',
   ),
 
-  // 追加例
-  // 'urban-psychology' => array(
-  //   'tag'   => 'season-urban',
-  //   'label' => '都市心理・空間構造',
-  // ),
+  'cabinet-dissolution' => array(
+    'tags'  => array('cabinet-dissolution', 'dissolution-election'),
+    'label' => '内閣解散・解散総選挙',
+  ),
 );
 
 if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
-  $cluster_tag_slug = $cluster_map[$cluster_slug]['tag'];
-  $cluster_label   = $cluster_map[$cluster_slug]['label'];
+  $cluster_label = $cluster_map[$cluster_slug]['label'];
+  $cluster_tags = $cluster_map[$cluster_slug]['tags'];
 
-  // タグ term 取得
-  $cluster_term = get_term_by('slug', $cluster_tag_slug, 'post_tag');
-  $index_term   = get_term_by('slug', $index_tag_slug, 'post_tag');
+  // OR構造で tax_query を組み立てる
+  // (index AND tag1) OR (index AND tag2)
+  $tax_query = array(
+    'relation' => 'OR'
+  );
 
-  if ($cluster_term && $index_term && !is_wp_error($cluster_term) && !is_wp_error($index_term)) :
-
-    // index + クラスタタグ の両方が付いた最新3件
-    // ★ ただし「このAI記事と同じ ai_base_slug を持つ INDEX」は除外
-    $related_args = array(
-      'post_type'       => 'post',
-      'posts_per_page' => 3,
-      'tag__and'       => array(
-        $cluster_term->term_id,
-        $index_term->term_id
+  foreach ($cluster_tags as $tag_slug) {
+    $tax_query[] = array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => $index_tag_slug,
       ),
-      'meta_query' => array(
-        array(
-          'key'     => 'ai_base_slug',
-          'value'   => $base_slug,
-          'compare' => '!=',
-        ),
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => $tag_slug,
       ),
     );
+  }
 
-    $related_query = new WP_Query($related_args);
+  $related_args = array(
+    'post_type'       => 'post',
+    'posts_per_page' => 3,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'tax_query'      => $tax_query,
+    'meta_query' => array(
+      array(
+        'key'     => 'ai_base_slug',
+        'value'   => $base_slug,
+        'compare' => '!=',
+      ),
+    ),
+  );
+
+  $related_query = new WP_Query($related_args);
 ?>
 <section class="cluster-block">
 
@@ -501,7 +510,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
     <div class="cluster-related">
       <h2>
         「<?php echo esc_html($cluster_label); ?>」クラスタ内の関連視点
-  </h2>
+      </h2>
       <ul class="cluster-list">
         <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
           <li>
@@ -522,10 +531,11 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
 </section>
 <?php
-    wp_reset_postdata();
-  endif;
+  wp_reset_postdata();
 endif;
 ?>
+
+
 
 
 
