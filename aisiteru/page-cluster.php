@@ -363,99 +363,6 @@ ul.post-index .head .post-content p {
 
 
 
-<!------------------------------------------------------------------------------>
-<ul class="cluster-scope">
-  <li>歴史解釈</li>
-  <li>人物像の再構築</li>
-  <li>物語と史実</li>
-</ul>
-
-<h2>大河ドラマ</h2>
-
-<p class="read">
-このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。
-AI8社による複数の考察記事の中から、<strong>最新の視点のみを抜粋して一覧表示</strong>しています。
-人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-
-<?php
-// taiga-drama タグの term を取得
-$season_tag = get_term_by( 'slug', 'taiga-drama', 'post_tag' );
-$season_tag_id = $season_tag ? $season_tag->term_id : 0;
-
-// index タグの term を取得
-$index_tag = get_term_by( 'slug', 'index', 'post_tag' );
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// taiga-drama ＋ index 両方が付いた最新3件を取得
-$args = array(
-    'post_type'       => 'post',
-    'posts_per_page' => 3,   // ← 最新3件固定
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-);
-
-$index_query = new WP_Query( $args );
-?>
-
-<ul class="post-index">
-    <?php if ( $index_query->have_posts() ) : ?>
-        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
-
-        <li>
-            <?php $cat = get_the_category(); ?>
-            <?php $cat = $cat[0]; ?>
-
-            <a href="<?php the_permalink(); ?>">
-            <!--サムネイル右側画像-->
-            <div class="post_thumbnail">
-            <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif ; ?>
-            </div>
-            <!--サムネイル右側画像-->
-
-            <!--サムネイル左側-->
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                <p>
-                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
-                </p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-        </li>
-
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>「index」タグと「taiga-drama」タグが付いた記事はまだありません。</li>
-    <?php endif; ?>
-    <div style="clear:both"></div>
-</ul>
-
-<?php
-// クエリを元に戻す
-wp_reset_postdata();
-?>
-<div class="more-btn"><a href="/cluster/taiga-drama/"><span class="visually-hidden">クラスタページへ</span></a></div>
-</div>
-<!------------------------------------------------------------------------------>
 
 
 
@@ -669,6 +576,202 @@ wp_reset_postdata();
 <!------------------------------------------------------------------------------>
 
 
+<!------------------------------------------------------------------------------>
+<ul class="cluster-scope">
+  <li>資本とリスク</li>
+  <li>制度と市場</li>
+  <li>判断と不確実性</li>
+</ul>
+
+<h2>金融構造</h2>
+
+<p class="read">
+このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。
+AI8社による複数の考察記事の中から、<strong>最新の視点のみを抜粋して一覧表示</strong>しています。
+リスクの扱われ方、制度設計と市場行動の関係、不確実性の中での意思決定といった論点を、比較の入口としてご利用ください。
+</p>
+
+<div class="cluster-block">
+
+<?php
+// finance タグの term を取得
+$season_tag = get_term_by( 'slug', 'finance', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
+
+// index タグの term を取得
+$index_tag = get_term_by( 'slug', 'index', 'post_tag' );
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// finance ＋ index 両方が付いた最新3件を取得
+$args = array(
+    'post_type'       => 'post',
+    'posts_per_page' => 3,   // ← 最新3件固定
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+);
+
+$index_query = new WP_Query( $args );
+?>
+
+<ul class="post-index">
+    <?php if ( $index_query->have_posts() ) : ?>
+        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
+
+        <li>
+            <?php $cat = get_the_category(); ?>
+            <?php $cat = $cat[0]; ?>
+
+            <a href="<?php the_permalink(); ?>">
+            <!--サムネイル右側画像-->
+            <div class="post_thumbnail">
+            <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif ; ?>
+            </div>
+            <!--サムネイル右側画像-->
+
+            <!--サムネイル左側-->
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                <p>
+                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+                </p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+        </li>
+
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>「index」タグと「finance」タグが付いた記事はまだありません。</li>
+    <?php endif; ?>
+    <div style="clear:both"></div>
+</ul>
+
+<?php
+// クエリを元に戻す
+wp_reset_postdata();
+?>
+<div class="more-btn">
+  <a href="/cluster/finance/">
+    <span class="visually-hidden">クラスタページへ</span>
+  </a>
+</div>
+</div>
+<!------------------------------------------------------------------------------>
+
+
+
+
+
+
+<!------------------------------------------------------------------------------>
+<ul class="cluster-scope">
+  <li>歴史解釈</li>
+  <li>人物像の再構築</li>
+  <li>物語と史実</li>
+</ul>
+
+<h2>大河ドラマ</h2>
+
+<p class="read">
+このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。
+AI8社による複数の考察記事の中から、<strong>最新の視点のみを抜粋して一覧表示</strong>しています。
+人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
+</p>
+
+<div class="cluster-block">
+
+<?php
+// taiga-drama タグの term を取得
+$season_tag = get_term_by( 'slug', 'taiga-drama', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
+
+// index タグの term を取得
+$index_tag = get_term_by( 'slug', 'index', 'post_tag' );
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// taiga-drama ＋ index 両方が付いた最新3件を取得
+$args = array(
+    'post_type'       => 'post',
+    'posts_per_page' => 3,   // ← 最新3件固定
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+);
+
+$index_query = new WP_Query( $args );
+?>
+
+<ul class="post-index">
+    <?php if ( $index_query->have_posts() ) : ?>
+        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
+
+        <li>
+            <?php $cat = get_the_category(); ?>
+            <?php $cat = $cat[0]; ?>
+
+            <a href="<?php the_permalink(); ?>">
+            <!--サムネイル右側画像-->
+            <div class="post_thumbnail">
+            <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif ; ?>
+            </div>
+            <!--サムネイル右側画像-->
+
+            <!--サムネイル左側-->
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                <p>
+                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+                </p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+        </li>
+
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>「index」タグと「taiga-drama」タグが付いた記事はまだありません。</li>
+    <?php endif; ?>
+    <div style="clear:both"></div>
+</ul>
+
+<?php
+// クエリを元に戻す
+wp_reset_postdata();
+?>
+<div class="more-btn"><a href="/cluster/taiga-drama/"><span class="visually-hidden">クラスタページへ</span></a></div>
+</div>
+<!------------------------------------------------------------------------------>
 
 </div>
 

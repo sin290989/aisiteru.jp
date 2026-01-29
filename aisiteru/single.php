@@ -462,10 +462,16 @@ $cluster_map = array(
     'label' => '内閣解散・解散総選挙',
   ),
 
-  // ★追加：大河ドラマ
+  // 大河ドラマ
   'taiga-drama' => array(
     'tags'  => array('taiga-drama'),
     'label' => '大河ドラマ',
+  ),
+
+  // ★追加：金融クラスタ
+  'finance' => array(
+    'tags'  => array('finance'),
+    'label' => '金融',
   ),
 );
 
@@ -544,6 +550,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
   wp_reset_postdata();
 endif;
 ?>
+
 
 
 
