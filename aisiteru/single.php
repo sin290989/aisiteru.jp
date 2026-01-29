@@ -448,6 +448,9 @@ $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 $index_tag_slug = 'index';
 
 // クラスタ定義
+// key   = cluster_slug（URL識別子）
+// tags = OR対象タグ配列
+// label= 表示名
 $cluster_map = array(
   'exam-education' => array(
     'tags'  => array('season-exam'),
@@ -458,15 +461,21 @@ $cluster_map = array(
     'tags'  => array('cabinet-dissolution', 'dissolution-election'),
     'label' => '内閣解散・解散総選挙',
   ),
+
+  // ★追加：大河ドラマ
+  'taiga-drama' => array(
+    'tags'  => array('taiga-drama'),
+    'label' => '大河ドラマ',
+  ),
 );
 
 if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
   $cluster_label = $cluster_map[$cluster_slug]['label'];
-  $cluster_tags = $cluster_map[$cluster_slug]['tags'];
+  $cluster_tags  = $cluster_map[$cluster_slug]['tags'];
 
   // OR構造で tax_query を組み立てる
-  // (index AND tag1) OR (index AND tag2)
+  // (index AND tag1) OR (index AND tag2) ...
   $tax_query = array(
     'relation' => 'OR'
   );
@@ -493,6 +502,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
     'orderby'        => 'date',
     'order'          => 'DESC',
     'tax_query'      => $tax_query,
+    // ★このAI記事と同じ ai_base_slug のINDEXは除外
     'meta_query' => array(
       array(
         'key'     => 'ai_base_slug',

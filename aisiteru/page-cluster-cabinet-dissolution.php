@@ -12,7 +12,7 @@ Template Name: Cluster Cabinet Dissolution
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster1.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster2.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -26,7 +26,11 @@ Template Name: Cluster Cabinet Dissolution
 
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <?php the_title(); ?>
+<a href="/"><span class="home">トップページ</span></a>
+>
+<a href="/cluster/">AI比較クラスタ索引</a>
+>
+<?php the_title(); ?>
 </div>
 </div>
 
@@ -36,12 +40,11 @@ Template Name: Cluster Cabinet Dissolution
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>制度としての解散</li>
-<li>政治的戦略</li>
-<li>民主主義と正統性</li>
-<li>選挙と民意</li>
-<li>権力と責任</li>
+  <li>制度としての解散</li>
+  <li>政治的戦略</li>
+  <li>民主主義と正統性</li>
 </ul>
+
 
 <h1><?php the_title(); ?></h1>
 
@@ -148,6 +151,8 @@ $index_query = new WP_Query( $args );
 <?php wp_reset_postdata(); ?>
 
 </div>
+
+<div class="back-btn"><a href="/cluster/">AI比較クラスタ索引へ戻る</a></div>
 </div>
 
 <div style="clear:both"></div>
