@@ -468,10 +468,16 @@ $cluster_map = array(
     'label' => '大河ドラマ',
   ),
 
-  // ★追加：金融クラスタ
+  // 金融
   'finance' => array(
     'tags'  => array('finance'),
-    'label' => '金融',
+    'label' => '金融構造',
+  ),
+
+  // ★追加：相続
+  'inheritance' => array(
+    'tags'  => array('inheritance'),
+    'label' => '相続制度',
   ),
 );
 
@@ -550,18 +556,6 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
   wp_reset_postdata();
 endif;
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -64,14 +64,6 @@ ul.cluster-scope li {
   font-weight: bold;
   text-align: justify;
 }
-
-#main-cluster p.cluster-read{
-  padding: 0 20px;
-  font-size:14px;
-  line-height: 28px;
-  font-weight: bold;
-  text-align: justify;
-}
 .cluster-rule {
 font-size: 12px;
 font-weight: bold;
@@ -191,12 +183,17 @@ ul.post-index .head .post-dates {
     padding: 100px 0 50px 0;
 }
 
-#main-cluster h2 {
-font-size: 48px;
-line-height: 48px;
-margin-bottom: 10px;
+/*#main-cluster h2 {
+font-size: 28px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+margin-bottom: 25px;
 padding: 0 20px;
-}
+margin-top:100px;
+}*/
+
+
+
 
 #main-cluster ul.cluster-scope{
 margin-top:100px;
@@ -209,8 +206,8 @@ ul.cluster-scope li {
     margin-right: 7px;
 }
 #main-cluster p.read{
-font-size:14px;
-line-height: 28px;
+font-size:16px;
+line-height: 32px;
 }
 
 .cluster-rule {
@@ -224,14 +221,10 @@ padding: 0 20px;
 color: #1433d6;
 }
 
-#main-cluster p.cluster-read{
-    font-size:14px;
-line-height: 28px;
-}
 
 
 .cluster-block {
-margin-top:20px;
+margin-top:30px;
 background-color: #ffffff;
 border-radius: 5px;
 position: relative;
@@ -239,10 +232,29 @@ box-sizing: border-box;
 padding: 0;
 }
 
+#main-cluster .cluster-block p{
+font-size:14px;
+line-height: 28px;
+padding: 30px 50px 0 50px;
+}
+
+#main-cluster .cluster-block h2 {
+    display: block;
+    position: absolute;
+    top: -40px;
+    left: 25px;
+    color: #1433d6;
+    color: #031b4e;
+    font-size: 28px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+  }
+
 
 ul.post-index {
     padding: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 ul.post-index li{
     width: 300px;
@@ -302,7 +314,6 @@ ul.post-index .head .post-content p {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    display: none;
 }
 
 
@@ -313,7 +324,7 @@ ul.post-index .head .post-content p {
     height: 40px;
     width: 40px;
     background-color: #1433d6;
-    top:160px;
+    top: 200px;
     right: -20px;
     border-radius: 50%;
     transition-duration: 0.2s;
@@ -364,135 +375,27 @@ ul.post-index .head .post-content p {
 
 <div id="main-cluster">
 
-<h1><span>クラスタ</span>索引</h1>
+<h1>AI比較<span>クラスタ</span>索引</h1>
 
 <p class="read">
-このページは、特定のテーマに対して複数のAIが行った考察記事を、<strong>「分野ごとのクラスタ」という構造で束ねた索引ページ</strong>です。<br>
+このページは、特定のテーマに対して複数のAIが行った考察記事を、
+<strong>「分野ごとのクラスタ」という構造で束ねた索引ページ</strong>です。
 正解や結論を示すことを目的とせず、制度・歴史・文化・社会といった異なる座標軸から、
 同じ問いがどのように切り取られているかを比較できるよう設計されています。
 関心のあるクラスタを入口として、思考の視点がどのように分岐していくかをご覧ください。
-<br>
-<br>
-<br>
 </p>
+
+
+
 
 
 
 
 <!------------------------------------------------------------------------------>
-<ul class="cluster-scope">
-  <li>制度設計</li>
-  <li>家族関係</li>
-  <li>資産移転</li>
-</ul>
 
-<h2>相続制度</h2>
-
-<p class="cluster-read">
-このクラスタでは、相続を「個人の手続き」ではなく、制度・家族関係・資産の移転がどのように結びついているかという視点から捉え直します。<br>
-法制度の設計、感情や責任の分配、社会における富の移動の意味を比較するための入口としてご利用ください。
-</p>
 
 <div class="cluster-block">
-   
-<?php
-// inheritance タグの term を取得
-$season_tag = get_term_by( 'slug', 'inheritance', 'post_tag' );
-$season_tag_id = $season_tag ? $season_tag->term_id : 0;
-
-// index タグの term を取得
-$index_tag = get_term_by( 'slug', 'index', 'post_tag' );
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// inheritance ＋ index 両方が付いた最新3件を取得
-$args = array(
-    'post_type'       => 'post',
-    'posts_per_page' => 3,   // ← 最新3件固定
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-);
-
-$index_query = new WP_Query( $args );
-?>
-<ul class="post-index">
-    <?php if ( $index_query->have_posts() ) : ?>
-        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
-
-        <li>
-            <?php $cat = get_the_category(); ?>
-            <?php $cat = $cat[0]; ?>
-
-            <a href="<?php the_permalink(); ?>">
-            <!--サムネイル右側画像-->
-            <div class="post_thumbnail">
-            <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif ; ?>
-            </div>
-            <!--サムネイル右側画像-->
-
-            <!--サムネイル左側-->
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                <p>
-                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
-                </p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-        </li>
-
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>該当する記事がまだありません。</li>
-    <?php endif; ?>
-    <div style="clear:both"></div>
-</ul>
-
-<?php
-// クエリを元に戻す
-wp_reset_postdata();
-?>
-<div class="more-btn">
-  <a href="/cluster/inheritance/">
-    <span class="visually-hidden">クラスタページへ</span>
-  </a>
-</div>
-</div>
-<!------------------------------------------------------------------------------>
-
-
-
-<!------------------------------------------------------------------------------>
-<ul class="cluster-scope">
-  <li>制度としての解散</li>
-  <li>政治的戦略</li>
-  <li>民主主義と正統性</li>
-</ul>
-
 <h2>内閣解散・解散総選挙</h2>
-
-<p class="cluster-read">
-このクラスタでは、内閣解散や解散総選挙を「政治的な出来事」ではなく、制度としての位置づけと意味から捉え直します。<br>
-戦略と制度、民意と正統性、権力と責任の関係を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-
 <?php
 // (index + cabinet-dissolution) OR (index + dissolution-election)
 // 最新3件のみ表示
@@ -565,11 +468,7 @@ $index_query = new WP_Query( $args );
                     <h3><span><?php the_title(); ?></span></h3>
                 </div>
 
-                <div class="post-content pc">
-                <p>
-                <?php echo str_replace("\n", '', strip_tags(get_the_content())); ?>
-                </p>
-                </div>
+              
                 <div style="clear:both"></div>
             </div>
             </a>
@@ -598,8 +497,9 @@ $index_query = new WP_Query( $args );
 
 <h2>受験・教育制度</h2>
 
-<p class="cluster-read">
-このクラスタでは、受験を「個人の挑戦」ではなく、制度・評価・選別がどのように結びついているかという視点から捉え直します。<br>
+<p class="read">
+このクラスタでは、受験を「個人の挑戦」としてではなく、
+<strong>制度・評価・選別の仕組みとして社会の中にどのように位置づけられているか</strong>という視点から捉え直します。
 努力と公平性、分岐点としての役割、制度が生み出す意味の違いを比較するための入口としてご利用ください。
 </p>
 
@@ -691,8 +591,8 @@ wp_reset_postdata();
 
 <h2>金融構造</h2>
 
-<p class="cluster-read">
-このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。<br>
+<p class="read">
+このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。
 リスクの扱われ方、制度設計と市場行動の関係、不確実性の中での意思決定といった論点を、比較の入口としてご利用ください。
 </p>
 
@@ -793,8 +693,8 @@ wp_reset_postdata();
 
 <h2>大河ドラマ</h2>
 
-<p class="cluster-read">
-このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。<br>
+<p class="read">
+このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。
 人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
 </p>
 

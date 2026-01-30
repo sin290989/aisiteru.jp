@@ -520,6 +520,7 @@ $(function () {
 
         <ul class="other-link">
         <li><a href="/about">AIシテル？について</a></li>
+        <li><a href="/cluster">AI比較クラスタ索引</a></li>
         <li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
         <li><a href="/privacy-policy">プライバシーポリシー</a></li>
         <li><a href="/contact">お問合せ</a></li>
