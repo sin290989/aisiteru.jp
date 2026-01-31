@@ -474,10 +474,16 @@ $cluster_map = array(
     'label' => '金融構造',
   ),
 
-  // ★追加：相続
+  // 相続
   'inheritance' => array(
     'tags'  => array('inheritance'),
     'label' => '相続制度',
+  ),
+
+  // ★追加：不動産
+  'property' => array(
+    'tags'  => array('property'),
+    'label' => '不動産構造',
   ),
 );
 
@@ -556,6 +562,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
   wp_reset_postdata();
 endif;
 ?>
+
 
 
 
