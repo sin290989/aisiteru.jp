@@ -260,57 +260,25 @@ $('.related-posts li').hover(function(){
 <?php
 $max_posts = 12; // 表示件数
 
-// 現在の記事ID
-$current_id = get_the_ID();
-
 // 現在の記事のカテゴリ取得
 $categories = get_the_category();
-$cat_ids = $categories ? wp_list_pluck($categories, 'term_id') : array();
-
-// cluster_slug 取得（カスタムフィールド）
-$cluster_slug = get_post_meta($current_id, 'cluster_slug', true);
+$cat_ids = $categories ? wp_list_pluck( $categories, 'term_id' ) : array();
 
 // 最終的に入れる配列
 $related_posts = array();
 
 // ------------------------
-// 0. 同じ cluster_slug × index タグ
-// ------------------------
-if (!empty($cluster_slug)) {
-    $args0 = array(
-        'posts_per_page' => $max_posts,
-        'orderby'        => 'rand',
-        'post__not_in'  => array($current_id),
-        'meta_query'   => array(
-            array(
-                'key'   => 'cluster_slug',
-                'value' => $cluster_slug,
-                'compare' => '='
-            )
-        ),
-        'tag' => 'index',
-    );
-    $posts0 = get_posts($args0);
-    $related_posts = $posts0;
-}
-
-// ------------------------
 // ① 同カテゴリ × index タグ
 // ------------------------
-if (count($related_posts) < $max_posts) {
-    $args1 = array(
-        'posts_per_page' => $max_posts - count($related_posts),
-        'orderby'        => 'rand',
-        'post__not_in'  => array_merge(
-            array($current_id),
-            wp_list_pluck($related_posts, 'ID')
-        ),
-        'category__in' => $cat_ids,
-        'tag'          => 'index',
-    );
-    $posts1 = get_posts($args1);
-    $related_posts = array_merge($related_posts, $posts1);
-}
+$args1 = array(
+    'posts_per_page' => $max_posts,
+    'orderby'        => 'rand',
+    'post__not_in'   => array( get_the_ID() ),
+    'category__in'   => $cat_ids,
+    'tag'            => 'index',
+);
+$posts1 = get_posts($args1);
+$related_posts = $posts1;
 
 // ------------------------
 // ② index タグのランダム追加
@@ -319,11 +287,8 @@ if (count($related_posts) < $max_posts) {
     $args2 = array(
         'posts_per_page' => $max_posts - count($related_posts),
         'orderby'        => 'rand',
-        'post__not_in'  => array_merge(
-            array($current_id),
-            wp_list_pluck($related_posts, 'ID')
-        ),
-        'tag' => 'index',
+        'post__not_in'   => array_merge(array(get_the_ID()), wp_list_pluck($related_posts, 'ID')),
+        'tag'            => 'index',
     );
     $posts2 = get_posts($args2);
     $related_posts = array_merge($related_posts, $posts2);
@@ -336,10 +301,7 @@ if (count($related_posts) < $max_posts) {
     $args3 = array(
         'posts_per_page' => $max_posts - count($related_posts),
         'orderby'        => 'rand',
-        'post__not_in'  => array_merge(
-            array($current_id),
-            wp_list_pluck($related_posts, 'ID')
-        ),
+        'post__not_in'   => array_merge(array(get_the_ID()), wp_list_pluck($related_posts, 'ID')),
     );
     $posts3 = get_posts($args3);
     $related_posts = array_merge($related_posts, $posts3);
@@ -351,15 +313,13 @@ if (count($related_posts) < $max_posts) {
 if ($related_posts):
 ?>
 <ul class="related-posts">
-<?php foreach ($related_posts as $post) : setup_postdata($post); ?>
+<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
     <li>
         <a href="<?php the_permalink(); ?>">
-            <div class="related-posts-thumb">
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            </div>
+            <div class="related-posts-thumb"><?php the_post_thumbnail('single-thumbnails'); ?></div>
 
             <div class="item-time">
-                <?php if (get_the_time('U') !== get_the_modified_time('U')) : ?>
+                <?php if ( get_the_time('U') !== get_the_modified_time('U') ) : ?>
                     <time class="updated" datetime="<?php the_modified_date('Y-m-d H:i:s'); ?>">
                         <?php the_modified_date('Y.m.d'); ?>
                     </time>
@@ -370,9 +330,7 @@ if ($related_posts):
                 <?php endif; ?>
             </div>
 
-            <div class="related-posts-title">
-                <h3><?php the_title(); ?></h3>
-            </div>
+            <div class="related-posts-title"><h3><?php the_title(); ?></h3></div>
         </a>
     </li>
 <?php endforeach; ?>
@@ -381,7 +339,6 @@ if ($related_posts):
 
 wp_reset_postdata();
 ?>
-
 
 
 <!------------------------------------------------------------------------------------------------------------------------>   
