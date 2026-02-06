@@ -483,10 +483,16 @@ $cluster_map = array(
     'label' => '不動産構造',
   ),
 
-  // ★追加：ゲーム
+  // ゲーム
   'game' => array(
     'tags'  => array('game'),
     'label' => 'ゲーム構造',
+  ),
+
+  // ★追加：オリンピック
+  'olympics' => array(
+    'tags'  => array('olympics'),
+    'label' => 'オリンピック構造',
   ),
 );
 
