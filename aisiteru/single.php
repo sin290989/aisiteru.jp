@@ -492,7 +492,7 @@ $cluster_map = array(
   // ★追加：オリンピック
   'olympics' => array(
     'tags'  => array('olympics'),
-    'label' => 'オリンピック構造',
+    'label' => 'オリンピック',
   ),
 );
 

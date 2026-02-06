@@ -55,7 +55,7 @@ Template Name: Cluster Cabinet Dissolution
 </p>
 
 <p class="cluster-rule">
-  このクラスタには、<strong>内閣解散・解散総選挙</strong>に関する最新の投稿を時系列で表示しています（最新15件）。
+  このクラスタには、<strong>内閣解散・解散総選挙</strong>に関する最新の投稿を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
