@@ -448,9 +448,6 @@ $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 $index_tag_slug = 'index';
 
 // クラスタ定義
-// key   = cluster_slug（URL識別子）
-// tags = OR対象タグ配列
-// label= 表示名
 $cluster_map = array(
   'exam-education' => array(
     'tags'  => array('season-exam'),
@@ -480,10 +477,16 @@ $cluster_map = array(
     'label' => '相続制度',
   ),
 
-  // ★追加：不動産
+  // 不動産
   'property' => array(
     'tags'  => array('property'),
     'label' => '不動産構造',
+  ),
+
+  // ★追加：ゲーム
+  'game' => array(
+    'tags'  => array('game'),
+    'label' => 'ゲーム構造',
   ),
 );
 
@@ -492,8 +495,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
   $cluster_label = $cluster_map[$cluster_slug]['label'];
   $cluster_tags  = $cluster_map[$cluster_slug]['tags'];
 
-  // OR構造で tax_query を組み立てる
-  // (index AND tag1) OR (index AND tag2) ...
+  // OR構造 tax_query
   $tax_query = array(
     'relation' => 'OR'
   );
@@ -515,12 +517,13 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
   }
 
   $related_args = array(
-    'post_type'       => 'post',
+    'post_type'      => 'post',
     'posts_per_page' => 3,
     'orderby'        => 'date',
     'order'          => 'DESC',
     'tax_query'      => $tax_query,
-    // ★このAI記事と同じ ai_base_slug のINDEXは除外
+
+    // 同じINDEX除外
     'meta_query' => array(
       array(
         'key'     => 'ai_base_slug',
@@ -532,36 +535,39 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
   $related_query = new WP_Query($related_args);
 ?>
+
 <section class="cluster-block">
 
-  <?php if ($related_query->have_posts()) : ?>
-    <div class="cluster-related">
-      <h2>
-        「<?php echo esc_html($cluster_label); ?>」クラスタ内の関連視点
-      </h2>
-      <ul class="cluster-list">
-        <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
-          <li>
-            <a href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </li>
-        <?php endwhile; ?>
-      </ul>
-    </div>
-  <?php endif; ?>
+<?php if ($related_query->have_posts()) : ?>
+<div class="cluster-related">
+<h2>
+「<?php echo esc_html($cluster_label); ?>」クラスタ内の関連視点
+</h2>
+<ul class="cluster-list">
+<?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
+<li>
+<a href="<?php the_permalink(); ?>">
+<?php the_title(); ?>
+</a>
+</li>
+<?php endwhile; ?>
+</ul>
+</div>
+<?php endif; ?>
 
-  <div class="cluster-backlink">
-    <a href="/cluster/<?php echo esc_attr($cluster_slug); ?>/">
-      「<?php echo esc_html($cluster_label); ?>」クラスタに戻る
-    </a>
-  </div>
+<div class="cluster-backlink">
+<a href="/cluster/<?php echo esc_attr($cluster_slug); ?>/">
+「<?php echo esc_html($cluster_label); ?>」クラスタに戻る
+</a>
+</div>
 
 </section>
+
 <?php
-  wp_reset_postdata();
+wp_reset_postdata();
 endif;
 ?>
+
 
 
 
