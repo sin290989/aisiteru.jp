@@ -1,0 +1,109 @@
+<!------------------------------------------------------------------------------>
+<ul class="cluster-scope">
+  <li>制度としての解散</li>
+  <li>政治的戦略</li>
+  <li>民主主義と正統性</li>
+</ul>
+
+<h2>内閣解散・解散総選挙</h2>
+
+<p class="cluster-read">
+このクラスタでは、内閣解散や解散総選挙を「政治的な出来事」ではなく、制度としての位置づけと意味から捉え直します。<br>
+戦略と制度、民意と正統性、権力と責任の関係を比較するための入口としてご利用ください。
+</p>
+
+<div class="cluster-block">
+
+<?php
+// (index + cabinet-dissolution) OR (index + dissolution-election)
+// 最新3件のみ表示
+
+$args = array(
+  'post_type'       => 'post',
+  'posts_per_page' => 3,   // ← 最新3件固定
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+  'tax_query'      => array(
+    'relation' => 'OR',
+
+    // パターンA: index + cabinet-dissolution
+    array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'index',
+      ),
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'cabinet-dissolution',
+      ),
+    ),
+
+    // パターンB: index + dissolution-election
+    array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'index',
+      ),
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'slug',
+        'terms'    => 'dissolution-election',
+      ),
+    ),
+  ),
+);
+
+$index_query = new WP_Query( $args );
+?>
+
+<ul class="post-index">
+    <?php if ( $index_query->have_posts() ) : ?>
+        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
+
+        <li>
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif ; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                <p>
+                <?php echo str_replace("\n", '', strip_tags(get_the_content())); ?>
+                </p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+        </li>
+
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>該当する記事がまだありません。</li>
+    <?php endif; ?>
+    <div style="clear:both"></div>
+</ul>
+
+<?php wp_reset_postdata(); ?>
+<div class="more-btn"><a href="/cluster/cabinet-dissolution/"><span class="visually-hidden">クラスタページへ</span></a></div>
+</div>
+<!------------------------------------------------------------------------------>
