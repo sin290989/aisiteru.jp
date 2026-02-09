@@ -489,10 +489,16 @@ $cluster_map = array(
     'label' => 'ゲーム構造',
   ),
 
-  // ★追加：オリンピック
+  // オリンピック
   'olympics' => array(
     'tags'  => array('olympics'),
     'label' => 'オリンピック構造',
+  ),
+
+  // ★追加：恋愛
+  'love' => array(
+    'tags'  => array('love'),
+    'label' => '恋愛構造',
   ),
 );
 
@@ -573,6 +579,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 wp_reset_postdata();
 endif;
 ?>
+
 
 
 
