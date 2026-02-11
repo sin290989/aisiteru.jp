@@ -435,7 +435,7 @@ echo '<div class="profile-link"><a href="/about-mana/">MANAについて詳しく
 
 <?php
 // ===============================
-// クラスタ導線ブロック（OR論理対応・完成版）
+// クラスタ導線ブロック（OR論理対応・完全版）
 // ===============================
 
 // 投稿に設定されたクラスタURL用スラッグ
@@ -447,100 +447,132 @@ $base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
 // 必須タグ
 $index_tag_slug = 'index';
 
+// ===============================
 // クラスタ定義
+// ===============================
 $cluster_map = array(
+
   'exam-education' => array(
     'tags'  => array('season-exam'),
     'label' => '受験・教育制度',
+    'parent'=> null,
   ),
 
   'cabinet-dissolution' => array(
-    'tags'  => array('cabinet-dissolution', 'dissolution-election'),
+    'tags'  => array('cabinet-dissolution','dissolution-election'),
     'label' => '内閣解散・解散総選挙',
+    'parent'=> null,
   ),
 
-  // 大河ドラマ
   'taiga-drama' => array(
     'tags'  => array('taiga-drama'),
     'label' => '大河ドラマ',
+    'parent'=> null,
   ),
 
-  // 金融
   'finance' => array(
     'tags'  => array('finance'),
     'label' => '金融構造',
+    'parent'=> null,
   ),
 
-  // 相続
   'inheritance' => array(
     'tags'  => array('inheritance'),
     'label' => '相続制度',
+    'parent'=> null,
   ),
 
-  // 不動産
   'property' => array(
     'tags'  => array('property'),
     'label' => '不動産構造',
+    'parent'=> null,
   ),
 
-  // ゲーム
   'game' => array(
     'tags'  => array('game'),
     'label' => 'ゲーム構造',
+    'parent'=> null,
   ),
 
-  // オリンピック
   'olympics' => array(
     'tags'  => array('olympics'),
     'label' => 'オリンピック',
+    'parent'=> null,
   ),
 
-  // ★追加：恋愛
   'love' => array(
     'tags'  => array('love'),
     'label' => '恋愛構造',
+    'parent'=> null,
   ),
+
+  // =========================
+  // ★ 働き方（親構造クラスタ）
+  // =========================
+  'work-style' => array(
+    'tags'  => array('career','wage'),
+    'label' => '働き方構造',
+    'parent'=> null,
+  ),
+
+  // 子テーマ
+  'wage' => array(
+    'tags'  => array('wage'),
+    'label' => '賃金構造',
+    'parent'=> 'work-style',
+  ),
+
+  'career' => array(
+    'tags'  => array('career'),
+    'label' => 'キャリア構造',
+    'parent'=> 'work-style',
+  ),
+
 );
 
+// ===============================
+// 処理開始
+// ===============================
 if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
   $cluster_label = $cluster_map[$cluster_slug]['label'];
   $cluster_tags  = $cluster_map[$cluster_slug]['tags'];
+  $parent_slug   = $cluster_map[$cluster_slug]['parent'];
 
+  // ===============================
   // OR構造 tax_query
-  $tax_query = array(
-    'relation' => 'OR'
-  );
+  // ===============================
+  $tax_query = array('relation'=>'OR');
 
   foreach ($cluster_tags as $tag_slug) {
     $tax_query[] = array(
       'relation' => 'AND',
       array(
-        'taxonomy' => 'post_tag',
-        'field'    => 'slug',
-        'terms'    => $index_tag_slug,
+        'taxonomy'=>'post_tag',
+        'field'=>'slug',
+        'terms'=>$index_tag_slug,
       ),
       array(
-        'taxonomy' => 'post_tag',
-        'field'    => 'slug',
-        'terms'    => $tag_slug,
+        'taxonomy'=>'post_tag',
+        'field'=>'slug',
+        'terms'=>$tag_slug,
       ),
     );
   }
 
   $related_args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-    'tax_query'      => $tax_query,
+    'post_type'=>'post',
+    'posts_per_page'=>3,
+    'orderby'=>'date',
+    'order'=>'DESC',
+    'tax_query'=>$tax_query,
 
     // 同じINDEX除外
-    'meta_query' => array(
+    'meta_query'=>array(
       array(
-        'key'     => 'ai_base_slug',
-        'value'   => $base_slug,
-        'compare' => '!=',
+        'key'=>'ai_base_slug',
+        'value'=>$base_slug,
+        'compare'=>'!=',
       ),
     ),
   );
@@ -567,8 +599,19 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 </div>
 <?php endif; ?>
 
+<?php
+// ===============================
+// 戻りリンク生成
+// ===============================
+if ($parent_slug) {
+  $back_url = '/cluster/'.$parent_slug.'/'.$cluster_slug.'/';
+} else {
+  $back_url = '/cluster/'.$cluster_slug.'/';
+}
+?>
+
 <div class="cluster-backlink">
-<a href="/cluster/<?php echo esc_attr($cluster_slug); ?>/">
+<a href="<?php echo esc_url($back_url); ?>">
 「<?php echo esc_html($cluster_label); ?>」クラスタに戻る
 </a>
 </div>
@@ -579,6 +622,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 wp_reset_postdata();
 endif;
 ?>
+
 
 
 

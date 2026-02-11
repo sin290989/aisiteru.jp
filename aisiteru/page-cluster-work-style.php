@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster
+Template Name: Cluster Work Style
 */
 ?>
 <!DOCTYPE html>
@@ -22,15 +22,14 @@ Template Name: Cluster
 
 
 <style type="text/css">
-    h1{
-    font-size: 36px;
-    line-height: 36px;
+#main-cluster h1 {
+    color: #1433d6;
+    font-size: 28px;
+    line-height: 28px;
+    font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
-    padding: 60px 20px 20px 20px;
-    color: #031b4e;
-}
-h1 span {
-  color: #1433d6;
+    margin-bottom: 15px;
+    padding: 0 20px;
 }
 #main-cluster h2 {
     color: #1433d6;
@@ -48,7 +47,7 @@ padding: 0 20px;
 margin-bottom: 20px;
 margin-top:50px;
 }
-ul.cluster-scope li {
+#main-cluster ul.cluster-scope li {
     display: inline;
     background-color: #031b4e;
     padding:2px 7px;
@@ -180,11 +179,13 @@ ul.post-index .head .post-dates {
     font-weight: 600;
   }
 @media only screen and (min-width: 680px) {
-    h1{
-    font-size: 80px;
-    line-height:80px;
-    padding: 0 20px 20px 20px;
+#main-cluster h1 {
+font-size: 74px;
+line-height: 74px;
+margin-bottom: 25px;
+padding: 0 20px;
 }
+
 #contents {
     width: 1100px;
     margin: 0 auto;
@@ -201,7 +202,7 @@ padding: 0 20px;
 #main-cluster ul.cluster-scope{
 margin-top:100px;
 }
-ul.cluster-scope li {
+#main-cluster ul.cluster-scope li {
     padding:3px 10px;
     font-size:12px;
     line-height: 13px;
@@ -355,7 +356,9 @@ ul.post-index .head .post-content p {
 
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <?php the_title(); ?>
+<a href="/"><span class="home">トップページ</span></a> >
+<a href="/cluster/">AI比較クラスタ索引</a> >
+<?php the_title(); ?>
 </div>
 </div>
 
@@ -363,29 +366,24 @@ ul.post-index .head .post-content p {
 <div id="contents">
 
 <div id="main-cluster">
-
-<h1>AI比較<span>クラスタ</span>索引</h1>
+<h1>働き方</h1>
 
 <p class="read">
-このページは、特定のテーマに対して複数のAIが行った考察記事を、<strong>「分野ごとのクラスタ」という構造で束ねた索引ページ</strong>です。<br>
-正解や結論を示すことを目的とせず、制度・歴史・文化・社会といった異なる座標軸から、
-同じ問いがどのように切り取られているかを比較できるよう設計されています。
-関心のあるクラスタを入口として、思考の視点がどのように分岐していくかをご覧ください。
-<br>
+このページは、AI比較クラスタの中でも、<strong>「働き方」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>
+労働市場、制度設計、キャリア形成、報酬構造、雇用形態といった観点から、働き方という概念がどのように社会の中で形成されているのかを、多角的な視点から整理しています。<br>
+ここでは、賃金、キャリア、雇用形態、副業、評価制度など、働き方に関連するテーマクラスタへの入口を提供しています。
 <br>
 <br>
 </p>
-<?php get_template_part('partials/cluster/work-style'); ?>
-<?php get_template_part('partials/cluster/finance'); ?>
-<?php get_template_part('partials/cluster/exam-education'); ?>
-<?php get_template_part('partials/cluster/inheritance'); ?>
-<?php get_template_part('partials/cluster/property'); ?>
-<?php get_template_part('partials/cluster/cabinet-dissolution'); ?>
-<?php get_template_part('partials/cluster/olympics'); ?>
-<?php get_template_part('partials/cluster/taiga-drama'); ?>
-<?php get_template_part('partials/cluster/game'); ?>
-<?php get_template_part('partials/cluster/love'); ?>
 
+
+<?php get_template_part('partials/cluster/work-style-career'); ?>
+<?php get_template_part('partials/cluster/work-style-wage'); ?>
+
+
+<div class="back-btn">
+<a href="/cluster/">AI比較クラスタ索引へ戻る</a>
+</div>
 </div>
 
 <div style="clear:both"></div>
@@ -410,4 +408,5 @@ $('ul.post-index li').hover(function(){
 <?php endif; ?>
 
 </body>
+
 </html>
