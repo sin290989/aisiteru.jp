@@ -104,6 +104,374 @@ h1{
 <h1><a href="/about"><span>多角</span>で読み解く</a></h1>
 
 <div id="main-top">
+
+<div class="category-block society-block">
+<h2>社会</h2>
+<div class="h2en">SOCIETY</div>
+<?php
+//----------------------------------------------------
+// ③ society カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// society カテゴリ
+$cat_society = get_category_by_slug('society');
+$cat_society_id = $cat_society ? $cat_society->term_id : 0;
+
+// index タグ
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（society）
+$args_society = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_society_id,
+);
+
+if ( $index_tag_id ) {
+    $args_society['tag__in'] = array( $index_tag_id );
+}
+
+$query_society = new WP_Query($args_society);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_society->have_posts() ) : ?>
+        <?php while ( $query_society->have_posts() ) : $query_society->the_post(); ?>
+        <li>
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+            </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>社会構造・制度カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/society/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+<div class="category-block culture-block">
+<h2>文化</h2>
+<div class="h2en">CULTURE</div>
+<?php
+//----------------------------------------------------
+// ③ culture カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// culture カテゴリ
+$cat_culture = get_category_by_slug('culture');
+$cat_culture_id = $cat_culture ? $cat_culture->term_id : 0;
+
+// index タグ（上で取得済みの場合は不要ですが、安全のため再利用）
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（culture）
+$args_culture = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_culture_id,
+);
+
+if ( $index_tag_id ) {
+    $args_culture['tag__in'] = array( $index_tag_id );
+}
+
+$query_culture = new WP_Query($args_culture);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_culture->have_posts() ) : ?>
+        <?php while ( $query_culture->have_posts() ) : $query_culture->the_post(); ?>
+        <li>
+       
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+                    </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>culture カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/culture/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+<div class="category-block history-block">
+<h2>歴史</h2>
+<div class="h2en">HISTORY</div>
+<?php
+//----------------------------------------------------
+// ⑥ history カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// history カテゴリ
+$cat_history = get_category_by_slug('history');
+$cat_history_id = $cat_history ? $cat_history->term_id : 0;
+
+// index タグ（再利用）
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（history）
+$args_history = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_history_id,
+);
+
+if ( $index_tag_id ) {
+    $args_history['tag__in'] = array( $index_tag_id );
+}
+
+$query_history = new WP_Query($args_history);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_history->have_posts() ) : ?>
+        <?php while ( $query_history->have_posts() ) : $query_history->the_post(); ?>
+        <li>
+       
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+
+                <div style="clear:both"></div>
+            </div>
+            </a>
+                    </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>history カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/history/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+<div class="category-block regional-block">
+<h2>地域</h2>
+<div class="h2en">REGIONAL</div>
+<?php
+//----------------------------------------------------
+// ③ regional カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// regional カテゴリ
+$cat_regional = get_category_by_slug('regional');
+$cat_regional_id = $cat_regional ? $cat_regional->term_id : 0;
+
+// index タグ
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（regional）
+$args_regional = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_regional_id,
+);
+
+if ( $index_tag_id ) {
+    $args_regional['tag__in'] = array( $index_tag_id );
+}
+
+$query_regional = new WP_Query($args_regional);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_regional->have_posts() ) : ?>
+        <?php while ( $query_regional->have_posts() ) : $query_regional->the_post(); ?>
+        <li>
+            <div class="inner">
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+            </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>regional カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/regional/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+<div class="category-block technology-block">
+<h2>技術</h2>
+<div class="h2en">TECHNOLOGY</div>
+<?php
+//----------------------------------------------------
+// ⑤ technology カテゴリ（indexタグ付き）3件
+//----------------------------------------------------
+
+// technology カテゴリ
+$cat_technology = get_category_by_slug('technology');
+$cat_technology_id = $cat_technology ? $cat_technology->term_id : 0;
+
+// index タグ
+$index_tag = get_term_by('slug', 'index', 'post_tag');
+$index_tag_id = $index_tag ? $index_tag->term_id : 0;
+
+// クエリパラメータ（technology）
+$args_technology = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'cat'            => $cat_technology_id,
+);
+
+if ( $index_tag_id ) {
+    $args_technology['tag__in'] = array( $index_tag_id );
+}
+
+$query_technology = new WP_Query($args_technology);
+?>
+<ul class="post-index-top">
+    <?php if ( $query_technology->have_posts() ) : ?>
+        <?php while ( $query_technology->have_posts() ) : $query_technology->the_post(); ?>
+        <li>
+            <div class="inner">
+
+            <a href="<?php the_permalink(); ?>">
+            <div class="post_thumbnail">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('single-thumbnails'); ?>
+            <?php else : ?>
+                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+            <?php endif; ?>
+            </div>
+
+            <div class="head">
+                <div class="post-dates">
+                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                    </time>
+                </div>
+
+                <div class="post-title">
+                    <h3><span><?php the_title(); ?></span></h3>
+                </div>
+
+                <div class="post-content pc">
+                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            </a>
+                    </div>
+        </li>
+        <?php endwhile; ?>
+    <?php else : ?>
+        <li>technology カテゴリの index タグ付き記事はありません。</li>
+    <?php endif; wp_reset_postdata(); ?>
+</ul>
+<div class="more-btn"><a href="/category/technology/"><span class="visually-hidden">すべて見る</span></a></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="category-block prediction-block">
 <h2>AI予測・時事</h2>
 <div class="h2en">PREDICTION</div>
@@ -178,152 +546,6 @@ $query_prediction = new WP_Query($args_prediction);
 </div>
 
 
-
-<div class="category-block regional-block">
-<h2>地域・社会</h2>
-<div class="h2en">REGIONAL</div>
-<?php
-//----------------------------------------------------
-// ③ regional カテゴリ（indexタグ付き）3件
-//----------------------------------------------------
-
-// regional カテゴリ
-$cat_regional = get_category_by_slug('regional');
-$cat_regional_id = $cat_regional ? $cat_regional->term_id : 0;
-
-// index タグ
-$index_tag = get_term_by('slug', 'index', 'post_tag');
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// クエリパラメータ（regional）
-$args_regional = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'cat'            => $cat_regional_id,
-);
-
-if ( $index_tag_id ) {
-    $args_regional['tag__in'] = array( $index_tag_id );
-}
-
-$query_regional = new WP_Query($args_regional);
-?>
-<ul class="post-index-top">
-    <?php if ( $query_regional->have_posts() ) : ?>
-        <?php while ( $query_regional->have_posts() ) : $query_regional->the_post(); ?>
-        <li>
-            <div class="inner">
-            <a href="<?php the_permalink(); ?>">
-            <div class="post_thumbnail">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif; ?>
-            </div>
-
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-            </div>
-        </li>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>regional カテゴリの index タグ付き記事はありません。</li>
-    <?php endif; wp_reset_postdata(); ?>
-</ul>
-<div class="more-btn"><a href="/category/regional/"><span class="visually-hidden">すべて見る</span></a></div>
-</div>
-
-
-
-<div class="category-block society-block">
-<h2>社会構造・制度</h2>
-<div class="h2en">SOCIETY</div>
-<?php
-//----------------------------------------------------
-// ③ society カテゴリ（indexタグ付き）3件
-//----------------------------------------------------
-
-// society カテゴリ
-$cat_society = get_category_by_slug('society');
-$cat_society_id = $cat_society ? $cat_society->term_id : 0;
-
-// index タグ
-$index_tag = get_term_by('slug', 'index', 'post_tag');
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// クエリパラメータ（society）
-$args_society = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'cat'            => $cat_society_id,
-);
-
-if ( $index_tag_id ) {
-    $args_society['tag__in'] = array( $index_tag_id );
-}
-
-$query_society = new WP_Query($args_society);
-?>
-<ul class="post-index-top">
-    <?php if ( $query_society->have_posts() ) : ?>
-        <?php while ( $query_society->have_posts() ) : $query_society->the_post(); ?>
-        <li>
-            <div class="inner">
-            <a href="<?php the_permalink(); ?>">
-            <div class="post_thumbnail">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif; ?>
-            </div>
-
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-            </div>
-        </li>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>社会構造・制度カテゴリの index タグ付き記事はありません。</li>
-    <?php endif; wp_reset_postdata(); ?>
-</ul>
-<div class="more-btn"><a href="/category/society/"><span class="visually-hidden">すべて見る</span></a></div>
-</div>
-
-
-
-
 <div class="category-block sports-block">
 <h2>スポーツ・格闘技</h2>
 <div class="h2en">SPORTS</div>
@@ -395,7 +617,6 @@ $query_sports = new WP_Query($args_sports);
 </div>
 
 
-
 <div class="category-block business-block">
 <h2>ビジネス・キャリア</h2>
 <div class="h2en">BUSINESS</div>
@@ -461,78 +682,6 @@ $query_business = new WP_Query($args_business);
     <?php endif; wp_reset_postdata(); ?>
 </ul>
 <div class="more-btn"><a href="/category/business/"><span class="visually-hidden">すべて見る</span></a></div>
-</div>
-
-
-<div class="category-block culture-block">
-<h2>創作・エンタメ</h2>
-<div class="h2en">CULTURE</div>
-<?php
-//----------------------------------------------------
-// ③ culture カテゴリ（indexタグ付き）3件
-//----------------------------------------------------
-
-// culture カテゴリ
-$cat_culture = get_category_by_slug('culture');
-$cat_culture_id = $cat_culture ? $cat_culture->term_id : 0;
-
-// index タグ（上で取得済みの場合は不要ですが、安全のため再利用）
-$index_tag = get_term_by('slug', 'index', 'post_tag');
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// クエリパラメータ（culture）
-$args_culture = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'cat'            => $cat_culture_id,
-);
-
-if ( $index_tag_id ) {
-    $args_culture['tag__in'] = array( $index_tag_id );
-}
-
-$query_culture = new WP_Query($args_culture);
-?>
-<ul class="post-index-top">
-    <?php if ( $query_culture->have_posts() ) : ?>
-        <?php while ( $query_culture->have_posts() ) : $query_culture->the_post(); ?>
-        <li>
-       
-            <div class="inner">
-            <a href="<?php the_permalink(); ?>">
-            <div class="post_thumbnail">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif; ?>
-            </div>
-
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-                    </div>
-        </li>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>culture カテゴリの index タグ付き記事はありません。</li>
-    <?php endif; wp_reset_postdata(); ?>
-</ul>
-<div class="more-btn"><a href="/category/culture/"><span class="visually-hidden">すべて見る</span></a></div>
 </div>
 
 
@@ -608,149 +757,22 @@ $query_life = new WP_Query($args_life);
 </div>
 
 
-<div class="category-block technology-block">
-<h2>技術・倫理</h2>
-<div class="h2en">TECHNOLOGY</div>
-<?php
-//----------------------------------------------------
-// ⑤ technology カテゴリ（indexタグ付き）3件
-//----------------------------------------------------
-
-// technology カテゴリ
-$cat_technology = get_category_by_slug('technology');
-$cat_technology_id = $cat_technology ? $cat_technology->term_id : 0;
-
-// index タグ
-$index_tag = get_term_by('slug', 'index', 'post_tag');
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
-
-// クエリパラメータ（technology）
-$args_technology = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'cat'            => $cat_technology_id,
-);
-
-if ( $index_tag_id ) {
-    $args_technology['tag__in'] = array( $index_tag_id );
-}
-
-$query_technology = new WP_Query($args_technology);
-?>
-<ul class="post-index-top">
-    <?php if ( $query_technology->have_posts() ) : ?>
-        <?php while ( $query_technology->have_posts() ) : $query_technology->the_post(); ?>
-        <li>
-            <div class="inner">
-
-            <a href="<?php the_permalink(); ?>">
-            <div class="post_thumbnail">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif; ?>
-            </div>
-
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
-
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
-
-                <div class="post-content pc">
-                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
-                </div>
-                <div style="clear:both"></div>
-            </div>
-            </a>
-                    </div>
-        </li>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>technology カテゴリの index タグ付き記事はありません。</li>
-    <?php endif; wp_reset_postdata(); ?>
-</ul>
-<div class="more-btn"><a href="/category/technology/"><span class="visually-hidden">すべて見る</span></a></div>
-</div>
 
 
-<div class="category-block history-block">
-<h2>歴史・ミステリー</h2>
-<div class="h2en">HISTORY</div>
-<?php
-//----------------------------------------------------
-// ⑥ history カテゴリ（indexタグ付き）3件
-//----------------------------------------------------
 
-// history カテゴリ
-$cat_history = get_category_by_slug('history');
-$cat_history_id = $cat_history ? $cat_history->term_id : 0;
 
-// index タグ（再利用）
-$index_tag = get_term_by('slug', 'index', 'post_tag');
-$index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// クエリパラメータ（history）
-$args_history = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'cat'            => $cat_history_id,
-);
 
-if ( $index_tag_id ) {
-    $args_history['tag__in'] = array( $index_tag_id );
-}
 
-$query_history = new WP_Query($args_history);
-?>
-<ul class="post-index-top">
-    <?php if ( $query_history->have_posts() ) : ?>
-        <?php while ( $query_history->have_posts() ) : $query_history->the_post(); ?>
-        <li>
-       
-            <div class="inner">
-            <a href="<?php the_permalink(); ?>">
-            <div class="post_thumbnail">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif; ?>
-            </div>
 
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
 
-                <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
-                </div>
 
-                <div class="post-content pc">
-                    <p><?php echo str_replace('\n', '', strip_tags( get_the_content() )); ?></p>
-                </div>
 
-                <div style="clear:both"></div>
-            </div>
-            </a>
-                    </div>
-        </li>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>history カテゴリの index タグ付き記事はありません。</li>
-    <?php endif; wp_reset_postdata(); ?>
-</ul>
-<div class="more-btn"><a href="/category/history/"><span class="visually-hidden">すべて見る</span></a></div>
-</div>
+
+
+
+
+
 </div>
 </div>
 

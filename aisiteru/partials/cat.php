@@ -254,15 +254,21 @@ jQuery(function ($) {
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
 echo '<ul class="catList">';
+echo '<li><a href="/category/society/"><span class="society">社会</span></a></li>';
+//echo '<li><a href="/category/economy/"><span class="society">経済</span></a></li>';
+//echo '<li><a href="/category/work/"><span class="society">仕事</span></a></li>';
+//echo '<li><a href="/category/education/"><span class="society">教育</span></a></li>';
+//echo '<li><a href="/category/politics/"><span class="society">政治</span></a></li>';
+echo '<li><a href="/category/culture/"><span class="culture">文化</span></a></li>';
+echo '<li><a href="/category/history/"><span class="history">歴史</span></a></li>';
+echo '<li><a href="/category/regional/"><span class="regional">地域</span></a></li>';
+echo '<li><a href="/category/technology/"><span class="technology">技術</span></a></li>';
 echo '<li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>';
-echo '<li><a href="/category/regional/"><span class="regional">地域・社会</span></a></li>';
-echo '<li><a href="/category/society/"><span class="society">社会構造・制度</span></a></li>';
 echo '<li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>';
 echo '<li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>';
-echo '<li><a href="/category/culture/"><span class="culture">創作・エンタメ</span></a></li>';
 echo '<li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>';
-echo '<li><a href="/category/technology/"><span class="technology">技術・倫理</span></a></li>';
-echo '<li><a href="/category/history/"><span class="history">歴史・ミステリー</span></a></li>';
+
+
 echo '</ul>';
 ?>
 

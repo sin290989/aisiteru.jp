@@ -558,7 +558,7 @@ $query_business = new WP_Query($args_business);
 
 
 <div class="category-block culture-block">
-<h2>創作・エンタメ</h2>
+<h2>文化</h2>
 <?php
 //----------------------------------------------------
 // ③ culture カテゴリ（indexタグ付き）3件
