@@ -1,4 +1,4 @@
-
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>入試制度</li>
@@ -6,7 +6,7 @@
   <li>公平性と選別</li>
 </ul>
 
-<h2>受験・教育制度</h2>
+<h2 class="h-topic">受験・教育</h2>
 
 <p class="cluster-read">
 このクラスタでは、受験を「個人の挑戦」ではなく、制度・評価・選別がどのように結びついているかという視点から捉え直します。<br>
@@ -63,7 +63,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -90,3 +90,4 @@ wp_reset_postdata();
 <div class="more-btn"><a href="/cluster/exam-education/"><span class="visually-hidden">クラスタページへ</span></a></div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

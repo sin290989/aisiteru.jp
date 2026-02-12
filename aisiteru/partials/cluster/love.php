@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>関係性と感情</li>
@@ -5,7 +6,7 @@
   <li>選択と不確実性</li>
 </ul>
 
-<h2>恋愛構造</h2>
+<h2 class="h-topic">恋愛</h2>
 
 <p class="cluster-read">
 このクラスタでは、恋愛を「個人の感情や相性」だけではなく、「社会構造・制度・市場・価値観がどのように結びついているか」という視点から捉え直します。<br>
@@ -63,7 +64,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -94,3 +95,4 @@ wp_reset_postdata();
 </div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

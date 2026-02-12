@@ -454,7 +454,7 @@ $cluster_map = array(
 
   'exam-education' => array(
     'tags'  => array('season-exam'),
-    'label' => '受験・教育制度',
+    'label' => '受験・教育',
     'parent'=> null,
   ),
 
@@ -472,25 +472,25 @@ $cluster_map = array(
 
   'finance' => array(
     'tags'  => array('finance'),
-    'label' => '金融構造',
+    'label' => '金融',
     'parent'=> null,
   ),
 
   'inheritance' => array(
     'tags'  => array('inheritance'),
-    'label' => '相続制度',
+    'label' => '相続',
     'parent'=> null,
   ),
 
   'property' => array(
     'tags'  => array('property'),
-    'label' => '不動産構造',
+    'label' => '不動産',
     'parent'=> null,
   ),
 
   'game' => array(
     'tags'  => array('game'),
-    'label' => 'ゲーム構造',
+    'label' => 'ゲーム',
     'parent'=> null,
   ),
 
@@ -502,7 +502,7 @@ $cluster_map = array(
 
   'love' => array(
     'tags'  => array('love'),
-    'label' => '恋愛構造',
+    'label' => '恋愛',
     'parent'=> null,
   ),
 
@@ -511,20 +511,20 @@ $cluster_map = array(
   // =========================
   'work-style' => array(
     'tags'  => array('career','wage'),
-    'label' => '働き方構造',
+    'label' => '働き方',
     'parent'=> null,
   ),
 
   // 子テーマ
   'wage' => array(
     'tags'  => array('wage'),
-    'label' => '賃金構造',
+    'label' => '賃金',
     'parent'=> 'work-style',
   ),
 
   'career' => array(
     'tags'  => array('career'),
-    'label' => 'キャリア構造',
+    'label' => 'キャリア',
     'parent'=> 'work-style',
   ),
 

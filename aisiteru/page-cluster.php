@@ -18,30 +18,52 @@ Template Name: Cluster
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/post-index") ?>
-
-
-
 <style type="text/css">
-    h1{
+h2{
+    color: #1433d6;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+}
+.h-index{
     font-size: 36px;
     line-height: 36px;
     font-weight: 700;
     padding: 60px 20px 20px 20px;
     color: #031b4e;
 }
-h1 span {
-  color: #1433d6;
-}
-#main-cluster h2 {
+.h-index span.cluster {
     color: #1433d6;
-    font-size: 28px;
-    line-height: 28px;
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 700;
+}
+
+.h-structural{
+    font-size:48px;
+    line-height: 48px;
     margin-bottom: 15px;
     padding: 0 20px;
 }
-#main-cluster ul.cluster-scope{
+
+
+.h-topic{
+    font-size: 28px;
+    line-height: 28px;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+p.top-read{
+  padding: 0 20px;
+  font-size:14px;
+  line-height: 28px;
+  font-weight: bold;
+  text-align: justify;
+}
+p.cluster-read{
+  padding: 0 20px;
+  font-size:14px;
+  line-height: 28px;
+  font-weight: bold;
+  text-align: justify;
+}
+ul.cluster-scope{
 color:#FFFFFF; 
 font-weight: 500;
 padding: 0 20px;
@@ -49,38 +71,77 @@ margin-bottom: 20px;
 margin-top:50px;
 }
 ul.cluster-scope li {
-    display: inline;
-    background-color: #031b4e;
-    padding:2px 7px;
-    font-size:10px;
-    font-size:10px;
-    border-radius:20px;
-    margin-right: 4px;
+display: inline;
+background-color: #031b4e;
+padding:2px 7px;
+font-size:10px;
+font-size:10px;
+border-radius:20px;
+margin-right: 4px;
 }
-#main-cluster p.read{
-  padding: 0 20px;
-  font-size:14px;
-  line-height: 28px;
-  font-weight: bold;
-  text-align: justify;
+@media only screen and (min-width: 680px) {
+
+    .h-index {
+        font-size: 80px;
+        line-height:80px;
+        padding: 0 20px 20px 20px;
+    }
+    .h-index span.ai{
+        font-size:120%;
+        line-height:120%;
+        margin-top: 20px;
+    }
+
+    .h-structural{
+        font-size: 68px;
+        line-height: 68px;
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+    .h-structural span{
+        margin-left:30px;
+        color: #EEEEEE;
+        font-size: 38px;
+    }
+    .h-topic{
+        font-size: 48px;
+        line-height: 48px;
+        margin-bottom: 10px;
+        padding: 0 20px;
+    }
+    p.top-read{
+        font-size:14px;
+        line-height: 28px;
+    }
+    p.cluster-read{
+        font-size:14px;
+        line-height: 28px;
+    }
+    ul.cluster-scope li {
+        padding:3px 10px;
+        font-size:12px;
+        line-height: 13px;
+        border-radius:20px;
+        margin-right: 7px;
+    }
+
+
+}    
+
+</style>
+
+<style type="text/css">
+/*構造クラスタ*/
+.structural-cluster-box{
+margin-top:60px;
+}
+.structural-cluster-box h2 {
+
 }
 
-#main-cluster p.cluster-read{
-  padding: 0 20px;
-  font-size:14px;
-  line-height: 28px;
-  font-weight: bold;
-  text-align: justify;
-}
-.cluster-rule {
-font-size: 12px;
-font-weight: bold;
-margin-top: 10px;
-padding: 0 20px;
-}
-
-.cluster-rule strong{
-color: #1433d6;
+/*構造クラスタ*/
+.topic-cluster-box{
+margin-top:60px;
 }
 .cluster-block {
   border-radius: 5px;
@@ -89,9 +150,30 @@ color: #1433d6;
   background-color: #ffffff;
   margin: 30px 10px 0 10px;
 }
+@media only screen and (min-width: 680px) {
+/*構造クラスタ*/
+.structural-cluster-box{
+margin-top:60px;
+}
+/*構造クラスタ*/
+.topic-cluster-box{
+margin-top:100px;
+}
+.cluster-block {
+margin-top:20px;
+background-color: #ffffff;
+border-radius: 5px;
+position: relative;
+box-sizing: border-box;
+padding: 0;
+}
+
+}
+</style>
 
 
 
+<style type="text/css">
 ul.post-index li{
     width: 100%;
     overflow:hidden;
@@ -137,7 +219,7 @@ ul.post-index .head{
     padding-top: 0px;
     color: #46526f;
 }
-ul.post-index .head h3{
+ul.post-index .head .h-post-title{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -180,63 +262,11 @@ ul.post-index .head .post-dates {
     font-weight: 600;
   }
 @media only screen and (min-width: 680px) {
-    h1{
-    font-size: 80px;
-    line-height:80px;
-    padding: 0 20px 20px 20px;
-}
+
 #contents {
     width: 1100px;
     margin: 0 auto;
     padding: 100px 0 50px 0;
-}
-
-#main-cluster h2 {
-font-size: 48px;
-line-height: 48px;
-margin-bottom: 10px;
-padding: 0 20px;
-}
-
-#main-cluster ul.cluster-scope{
-margin-top:100px;
-}
-ul.cluster-scope li {
-    padding:3px 10px;
-    font-size:12px;
-    line-height: 13px;
-    border-radius:20px;
-    margin-right: 7px;
-}
-#main-cluster p.read{
-font-size:14px;
-line-height: 28px;
-}
-
-.cluster-rule {
-font-size: 14px;
-font-weight: bold;
-margin-top: 15px;
-padding: 0 20px;
-}
-
-.cluster-rule strong{
-color: #1433d6;
-}
-
-#main-cluster p.cluster-read{
-    font-size:14px;
-line-height: 28px;
-}
-
-
-.cluster-block {
-margin-top:20px;
-background-color: #ffffff;
-border-radius: 5px;
-position: relative;
-box-sizing: border-box;
-padding: 0;
 }
 
 
@@ -273,7 +303,7 @@ ul.post-index a img{
 ul.post-index .head{
 	width:100%;
 }
-ul.post-index .head h3{
+ul.post-index .head .h-post-title{
     font-size:16px;
 	line-height:24px;
 	margin:0;
@@ -281,7 +311,7 @@ ul.post-index .head h3{
     transition-duration: 0.3s;
     overflow: hidden;
 }
-ul.post-index .head h3 span {
+ul.post-index .head .h-post-title span {
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -304,8 +334,6 @@ ul.post-index .head .post-content p {
     overflow: hidden;
     display: none;
 }
-
-
 
 .more-btn a{
     margin: 0;
@@ -331,7 +359,7 @@ ul.post-index .head .post-content p {
     top: 400px;
   }
 
-    .visually-hidden {
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -364,9 +392,9 @@ ul.post-index .head .post-content p {
 
 <div id="main-cluster">
 
-<h1>AI比較<span>クラスタ</span>索引</h1>
+<h1 class="h-index"><span class="ai">AI</span>比較<span class="cluster">クラスタ</span>索引</h1>
 
-<p class="read">
+<p class="top-read">
 このページは、特定のテーマに対して複数のAIが行った考察記事を、<strong>「分野ごとのクラスタ」という構造で束ねた索引ページ</strong>です。<br>
 正解や結論を示すことを目的とせず、制度・歴史・文化・社会といった異なる座標軸から、
 同じ問いがどのように切り取られているかを比較できるよう設計されています。
@@ -375,6 +403,8 @@ ul.post-index .head .post-content p {
 <br>
 <br>
 </p>
+
+
 <?php get_template_part('partials/cluster/work-style'); ?>
 <?php get_template_part('partials/cluster/finance'); ?>
 <?php get_template_part('partials/cluster/exam-education'); ?>

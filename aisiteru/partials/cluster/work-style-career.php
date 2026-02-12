@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>キャリア形成と選択</li>
@@ -5,7 +6,7 @@
   <li>機会と不確実性</li>
 </ul>
 
-<h2>キャリア構造</h2>
+<h2 class="h-topic">キャリア</h2>
 
 <p class="cluster-read">
 このクラスタでは、キャリアを「個人の意思や努力」だけではなく、「教育制度・労働市場・企業構造・社会環境がどのように結びついているか」という視点から捉え直します。<br>
@@ -61,7 +62,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -95,3 +96,4 @@ wp_reset_postdata();
 </div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

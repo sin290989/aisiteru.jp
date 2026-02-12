@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>制度と運営構造</li>
@@ -5,7 +6,7 @@
   <li>政治と社会的影響</li>
 </ul>
 
-<h2>オリンピック</h2>
+<h2 class="h-topic">オリンピック</h2>
 
 <p class="cluster-read">
 このクラスタでは、オリンピックを「スポーツ大会」ではなく、制度設計・競技価値・政治や社会との関係がどのように結びついているかという視点から捉え直します。<br>
@@ -62,7 +63,7 @@ $index_query = new WP_Query( $args );
 </div>
 
 <div class="post-title">
-<h3><span><?php the_title(); ?></span></h3>
+<h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
 </div>
 
 <div class="post-content pc">
@@ -98,3 +99,4 @@ wp_reset_postdata();
 
 </div>
 <!------------------------------------------------------------------------------>
+</div>

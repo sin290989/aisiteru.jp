@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>歴史解釈</li>
@@ -5,7 +6,7 @@
   <li>物語と史実</li>
 </ul>
 
-<h2>大河ドラマ</h2>
+<h2 class="h-topic">大河ドラマ</h2>
 
 <p class="cluster-read">
 このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。<br>
@@ -63,7 +64,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -90,3 +91,4 @@ wp_reset_postdata();
 <div class="more-btn"><a href="/cluster/taiga-drama/"><span class="visually-hidden">クラスタページへ</span></a></div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

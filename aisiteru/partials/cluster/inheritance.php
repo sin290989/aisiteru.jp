@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>制度設計</li>
@@ -5,7 +6,7 @@
   <li>資産移転</li>
 </ul>
 
-<h2>相続制度</h2>
+<h2 class="h-topic">相続</h2>
 
 <p class="cluster-read">
 このクラスタでは、相続を「個人の手続き」ではなく、制度・家族関係・資産の移転がどのように結びついているかという視点から捉え直します。<br>
@@ -62,7 +63,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -93,3 +94,4 @@ wp_reset_postdata();
 </div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

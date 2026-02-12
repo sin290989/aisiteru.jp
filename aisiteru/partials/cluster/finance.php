@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>資本とリスク</li>
@@ -5,7 +6,7 @@
   <li>判断と不確実性</li>
 </ul>
 
-<h2>金融構造</h2>
+<h2 class="h-topic">金融</h2>
 
 <p class="cluster-read">
 このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。<br>
@@ -63,7 +64,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -94,3 +95,4 @@ wp_reset_postdata();
 </div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

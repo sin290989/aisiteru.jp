@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
 <li>ゲーム設計とシステム構造</li>
@@ -5,7 +6,7 @@
 <li>社会と文化的影響</li>
 </ul>
 
-<h2>ゲーム構造</h2>
+<h2 class="h-topic">ゲーム</h2>
 
 <p class="cluster-read">
 このクラスタでは、ゲームを「個別のタイトル」ではなく、設計思想・報酬構造・プレイヤー体験がどのように結びついているかという視点から捉え直します。<br>
@@ -64,7 +65,7 @@ $index_query = new WP_Query( $args );
 </div>
 
 <div class="post-title">
-<h3><span><?php the_title(); ?></span></h3>
+<h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
 </div>
 
 <div class="post-content pc">
@@ -99,3 +100,4 @@ wp_reset_postdata();
 
 </div>
 <!------------------------------------------------------------------------------>
+</div>

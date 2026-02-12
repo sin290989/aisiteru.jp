@@ -1,11 +1,6 @@
+<div class="structural-cluster-box">
 <!------------------------------------------------------------------------------>
-<ul class="cluster-scope">
-  <li>キャリアと成長</li>
-  <li>報酬と労働市場</li>
-  <li>選択と不確実性</li>
-</ul>
-
-<h2>働き方構造</h2>
+<h2 class="h-structural">働き方</h2>
 
 <p class="cluster-read">
 このクラスタでは、働き方を「個人の意思や努力」だけではなく、「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
@@ -68,7 +63,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -102,3 +97,4 @@ wp_reset_postdata();
 </div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>

@@ -1,3 +1,4 @@
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <ul class="cluster-scope">
   <li>制度としての解散</li>
@@ -5,7 +6,7 @@
   <li>民主主義と正統性</li>
 </ul>
 
-<h2>内閣解散・解散総選挙</h2>
+<h2 class="h-topic">内閣解散・解散総選挙</h2>
 
 <p class="cluster-read">
 このクラスタでは、内閣解散や解散総選挙を「政治的な出来事」ではなく、制度としての位置づけと意味から捉え直します。<br>
@@ -83,7 +84,7 @@ $index_query = new WP_Query( $args );
                 </div>
 
                 <div class="post-title">
-                    <h3><span><?php the_title(); ?></span></h3>
+                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
                 </div>
 
                 <div class="post-content pc">
@@ -107,3 +108,4 @@ $index_query = new WP_Query( $args );
 <div class="more-btn"><a href="/cluster/cabinet-dissolution/"><span class="visually-hidden">クラスタページへ</span></a></div>
 </div>
 <!------------------------------------------------------------------------------>
+</div>
