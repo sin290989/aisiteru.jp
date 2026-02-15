@@ -139,8 +139,10 @@ background-position: left center;
 #side span.grok {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
-
-
+#side span.education,
+#side span.work,
+#side span.economy,
+#side span.politics,
 #side span.prediction,
 #side span.regional,
 #side span.society,
@@ -155,8 +157,18 @@ background-position: left center;
     background-repeat: no-repeat;
     background-size: 20px auto;
 }
-
-
+#side span.education{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/education_b.webp");
+}
+#side span.work{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/work_b.webp");
+}
+#side span.economy{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/economy_b.webp");
+}
+#side span.politics{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/politics_b.webp");
+}
 #side span.prediction{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
 }
@@ -164,7 +176,7 @@ background-position: left center;
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional_b.webp");
 }
 #side span.society{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society_b.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society2_b.webp");
 }
 #side span.sports{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports_b.webp");
@@ -179,7 +191,7 @@ background-position: left center;
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life_b.webp");
 }
 #side span.technology {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology_b.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology2_b.webp");
 }
 #side span.history {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history_b.webp");
@@ -254,11 +266,12 @@ jQuery(function ($) {
 <?php
 echo '<h2 class="catTitle">カテゴリ</h2>';
 echo '<ul class="catList">';
+
 echo '<li><a href="/category/society/"><span class="society">社会</span></a></li>';
-//echo '<li><a href="/category/economy/"><span class="society">経済</span></a></li>';
-//echo '<li><a href="/category/work/"><span class="society">仕事</span></a></li>';
-//echo '<li><a href="/category/education/"><span class="society">教育</span></a></li>';
-//echo '<li><a href="/category/politics/"><span class="society">政治</span></a></li>';
+echo '<li><a href="/category/politics/"><span class="politics">政治</span></a></li>';
+echo '<li><a href="/category/economy/"><span class="economy">経済</span></a></li>';
+echo '<li><a href="/category/work/"><span class="work">仕事</span></a></li>';
+//echo '<li><a href="/category/education/"><span class="education">教育</span></a></li>';
 echo '<li><a href="/category/culture/"><span class="culture">文化</span></a></li>';
 echo '<li><a href="/category/history/"><span class="history">歴史</span></a></li>';
 echo '<li><a href="/category/regional/"><span class="regional">地域</span></a></li>';

@@ -316,9 +316,10 @@ background-position: left center;
 .h-menu span.grok {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/grok.webp");
 }
-
-
-
+.h-menu span.education,
+.h-menu span.work,
+.h-menu span.economy,
+.h-menu span.politics,
 .h-menu span.prediction,
 .h-menu span.society,
 .h-menu span.regional,
@@ -333,12 +334,23 @@ background-position: left center;
     background-repeat: no-repeat;
     background-size: 20px auto;
 }
-
+.h-menu span.education{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/education_b.webp");
+}
+.h-menu span.work{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/work_b.webp");
+}
+.h-menu span.politics{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/politics_b.webp");
+}
+.h-menu span.economy{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/economy_b.webp");
+}
 .h-menu span.prediction{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
 }
 .h-menu span.society{
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society_b.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/society2_b.webp");
 }
 .h-menu span.regional{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/regional_b.webp");
@@ -356,7 +368,7 @@ background-position: left center;
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life_b.webp");
 }
 .h-menu span.technology {
-  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology_b.webp");
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/technology2_b.webp");
 }
 .h-menu span.history {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/history_b.webp");
@@ -494,6 +506,10 @@ $(function () {
         <h2 class="catTitle">カテゴリ</h2>
        <ul class="cat-link">
             <li><a href="/category/society/"><span class="society">社会</span></a></li>
+            <li><a href="/category/politics/"><span class="politics">政治</span></a></li>
+            <li><a href="/category/economy/"><span class="economy">経済</span></a></li>
+            <li><a href="/category/work/"><span class="work">仕事</span></a></li>
+            <!--<li><a href="/category/education/"><span class="education">教育</span></a></li>-->
             <li><a href="/category/culture/"><span class="culture">文化</span></a></li>
             <li><a href="/category/history/"><span class="history">歴史</span></a></li>
             <li><a href="/category/regional/"><span class="regional">地域</span></a></li>
