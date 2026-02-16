@@ -271,7 +271,7 @@ echo '<li><a href="/category/society/"><span class="society">社会</span></a></
 echo '<li><a href="/category/politics/"><span class="politics">政治</span></a></li>';
 echo '<li><a href="/category/economy/"><span class="economy">経済</span></a></li>';
 echo '<li><a href="/category/work/"><span class="work">仕事</span></a></li>';
-//echo '<li><a href="/category/education/"><span class="education">教育</span></a></li>';
+echo '<li><a href="/category/education/"><span class="education">教育</span></a></li>';
 echo '<li><a href="/category/culture/"><span class="culture">文化</span></a></li>';
 echo '<li><a href="/category/history/"><span class="history">歴史</span></a></li>';
 echo '<li><a href="/category/regional/"><span class="regional">地域</span></a></li>';
