@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster
+Template Name: Cluster Money
 */
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,15 @@ Template Name: Cluster
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/post-index") ?>
+
+
+
 <style type="text/css">
+h1{
+    color: #1433d6;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+}
 h2{
     color: #1433d6;
     font-family: "Noto Sans JP", sans-serif;
@@ -41,8 +49,6 @@ h2{
     margin-bottom: 15px;
     padding: 0 20px;
 }
-
-
 .h-topic{
     font-size: 28px;
     line-height: 28px;
@@ -98,11 +104,7 @@ margin-right: 4px;
         margin-bottom: 20px;
         padding: 0 20px;
     }
-    .h-structural span{
-        margin-left:30px;
-        color: #EEEEEE;
-        font-size: 38px;
-    }
+
     .h-topic{
         font-size: 48px;
         line-height: 48px;
@@ -261,6 +263,26 @@ ul.post-index .head .post-dates {
     line-height: 40px;
     font-weight: 600;
   }
+
+
+  
+.back-btn a {
+    display: block;
+    height: 40px;
+    width: 280px;
+    background-color: #1433d6;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 20px;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 16px auto;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    margin: 40px auto 20px auto;
+    line-height: 40px;
+    font-weight: 600;
+  }
 @media only screen and (min-width: 680px) {
 
 #contents {
@@ -371,6 +393,8 @@ ul.post-index .head .post-content p {
     border: 0;
   }
 
+
+
 }
 </style>
 
@@ -383,7 +407,9 @@ ul.post-index .head .post-content p {
 
 <div id="pan">
 <div class="inner">
-<a href="/"><span class="home">トップページ</span></a> > <?php the_title(); ?>
+<a href="/"><span class="home">トップページ</span></a> >
+<a href="/cluster/">AI比較クラスタ索引</a> >
+<?php the_title(); ?>
 </div>
 </div>
 
@@ -391,29 +417,23 @@ ul.post-index .head .post-content p {
 <div id="contents">
 
 <div id="main-cluster">
-
-<h1 class="h-index"><span class="ai">AI</span>比較<span class="cluster">クラスタ</span>索引</h1>
+<h1 class="h-structural">お金</h1>
 
 <p class="top-read">
-このページは、特定のテーマに対して複数のAIが行った考察記事を、<strong>「分野ごとのクラスタ」という構造で束ねた索引ページ</strong>です。<br>
-正解や結論を示すことを目的とせず、制度・歴史・文化・社会といった異なる座標軸から、
-同じ問いがどのように切り取られているかを比較できるよう設計されています。
-関心のあるクラスタを入口として、思考の視点がどのように分岐していくかをご覧ください。
-<br>
+このページは、AI比較クラスタの中でも、<strong>「お金」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>
+通貨制度、金融設計、資産移転、税制、市場構造といった観点から、お金という概念がどのように社会の中で設計・運用されているのかを、多角的な視点から整理しています。<br>
+ここでは、相続、デジタル通貨、金融技術、資産構造など、お金に関連するテーマクラスタへの入口を提供しています。
 <br>
 <br>
 </p>
 
-<?php get_template_part('partials/cluster/money'); ?>
-<?php get_template_part('partials/cluster/work-style'); ?>
-<?php get_template_part('partials/cluster/finance'); ?>
-<?php get_template_part('partials/cluster/exam-education'); ?>
-<?php get_template_part('partials/cluster/property'); ?>
-<?php get_template_part('partials/cluster/cabinet-dissolution'); ?>
-<?php get_template_part('partials/cluster/olympics'); ?>
-<?php get_template_part('partials/cluster/taiga-drama'); ?>
-<?php get_template_part('partials/cluster/game'); ?>
-<?php get_template_part('partials/cluster/love'); ?>
+<?php get_template_part('partials/cluster/money-digital-money'); ?>
+<?php get_template_part('partials/cluster/money-inheritance'); ?>
+
+
+<div class="back-btn">
+<a href="/cluster/">AI比較クラスタ索引へ戻る</a>
+</div>
 
 </div>
 
@@ -439,4 +459,5 @@ $('ul.post-index li').hover(function(){
 <?php endif; ?>
 
 </body>
+
 </html>

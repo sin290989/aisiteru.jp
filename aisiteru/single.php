@@ -476,12 +476,6 @@ $cluster_map = array(
     'parent'=> null,
   ),
 
-  'inheritance' => array(
-    'tags'  => array('inheritance'),
-    'label' => '相続',
-    'parent'=> null,
-  ),
-
   'property' => array(
     'tags'  => array('property'),
     'label' => '不動産',
@@ -515,7 +509,6 @@ $cluster_map = array(
     'parent'=> null,
   ),
 
-  // 子テーマ
   'wage' => array(
     'tags'  => array('wage'),
     'label' => '賃金',
@@ -526,6 +519,28 @@ $cluster_map = array(
     'tags'  => array('career'),
     'label' => 'キャリア',
     'parent'=> 'work-style',
+  ),
+
+  // =========================
+  // ★ お金（親構造クラスタ）
+  // =========================
+  'money' => array(
+    'tags'  => array('inheritance','digital-money'),
+    'label' => 'お金',
+    'parent'=> null,
+  ),
+
+  // 子テーマ
+  'inheritance' => array(
+    'tags'  => array('inheritance'),
+    'label' => '相続',
+    'parent'=> 'money',
+  ),
+
+  'digital-money' => array(
+    'tags'  => array('digital-money'),
+    'label' => 'デジタル通貨',
+    'parent'=> 'money',
   ),
 
 );
@@ -622,6 +637,7 @@ if ($parent_slug) {
 wp_reset_postdata();
 endif;
 ?>
+
 
 
 

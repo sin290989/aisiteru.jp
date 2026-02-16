@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Inheritance
+Template Name: Cluster Money - Digital Money
 */
 ?>
 <!DOCTYPE html>
@@ -32,6 +32,8 @@ Template Name: Cluster Inheritance
 >
 <a href="/cluster/">AI比較クラスタ索引</a>
 >
+<a href="/cluster/money/">お金クラスタ</a>
+>
 <?php the_title(); ?>
 </div>
 </div>
@@ -42,45 +44,44 @@ Template Name: Cluster Inheritance
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>制度設計</li>
-<li>家族構造と意思決定</li>
-<li>資産と社会的影響</li>
+<li>通貨設計と制度変化</li>
+<li>決済インフラの再編</li>
+<li>国家と市場の関係</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-相続は、財産の引き継ぎという個人的な出来事として語られることが多い一方で、法律制度、市場構造、家族関係、社会的期待といった複数の枠組みの中で成立しています。
-このクラスタでは、AI8社の視点から「制度としての相続」「意思決定の前提」「資産移転が社会にもたらす影響」といった論点を構造的に比較した記事のみを収録しています。
-正解や対策を提示するためではなく、相続がどのような前提のもとで“設計されているか”を読み解くための座標としてご利用ください。
+デジタル通貨は、単なる新しい支払い手段ではなく、通貨設計、金融インフラ、国家と市場の関係を再定義する可能性を持つ領域です。
+本クラスタは、構造クラスタ「お金」の下位テーマとして、AI8社の視点から「CBDCの設計思想」「キャッシュレス化の構造」「暗号資産と主権」といった論点を構造的に比較した記事のみを収録しています。
+正解や推奨を提示するためではなく、デジタル通貨が経済構造の中でどのような再編をもたらし得るのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-このクラスタには、<strong>相続</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>デジタル通貨</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// ★ ページ番号取得（PageNavi用）
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 
-// inheritance タグ
-$season_tag = get_term_by( 'slug', 'inheritance', 'post_tag' );
+// digital-money タグ
+$season_tag = get_term_by( 'slug', 'digital-money', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
 // index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// inheritance ＋ index
+// digital-money ＋ index
 $args = array(
 'post_type'      => 'post',
 'posts_per_page' => 15,
 'tag__and'       => array( $season_tag_id, $index_tag_id ),
 'orderby'        => 'date',
 'order'          => 'DESC',
-'paged'          => $paged,   // ★追加
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
@@ -128,14 +129,13 @@ $index_query = new WP_Query( $args );
 
 <?php endwhile; ?>
 <?php else : ?>
-<li>「index」タグと「inheritance」タグが付いた記事はまだありません。</li>
+<li>「index」タグと「digital-money」タグが付いた記事はまだありません。</li>
 <?php endif; ?>
 
 <div style="clear:both"></div>
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
 wp_pagenavi( array( 'query' => $index_query ) );
 }
@@ -146,7 +146,7 @@ wp_pagenavi( array( 'query' => $index_query ) );
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">AI比較クラスタ索引へ戻る</a>
+<a href="/cluster/money/">お金クラスタへ戻る</a>
 </div>
 
 </div>
