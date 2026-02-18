@@ -490,14 +490,6 @@ $(function () {
     </div>
 </div>
 
-<!--<div class="service-info">
-    <div class="info-inner">
-        <a href="https://hsbb.jp" target="_blank" rel="noopener">
-            やっぱり甲子園ってスゴい！ 詳しくはこちら →
-        </a>
-    </div>
-</div>-->
-
 <div class="menu-bg"></div>
 
 <nav class="h-menu" aria-label="グローバルメニュー">

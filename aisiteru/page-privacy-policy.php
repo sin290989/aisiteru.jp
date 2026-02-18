@@ -66,13 +66,13 @@ Template Name:privacy-policy
 </style>
 </head>
 <body>
-<?php get_template_part('partials/header'); ?>
-<div id="pan">
+<?php get_template_part('partials/header2'); ?>
+<div id="pan" style="background-color: #f7f8f8;">
 <div class="inner">
 <a href="/"><span class="home">トップページ</span></a> > <a href="/privacy-policy">プライバシーポリシー</a></span>
 </div>
 </div>
-<div class="page-main-img"><h1>プライバシーポリシー</h1></div>
+
 <div id="page-wapper">
 <div id="page-contents">
 <div class="priCon">
@@ -162,7 +162,7 @@ Googleによって広告の第三者配信が認められている広告配信�
 </div>
 </div>
 </div>
-<?php get_template_part('partials/footer'); ?>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
