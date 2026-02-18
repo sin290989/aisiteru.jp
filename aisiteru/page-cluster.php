@@ -264,7 +264,7 @@ ul.post-index .head .post-dates {
 @media only screen and (min-width: 680px) {
 
 #contents {
-    width: 1100px;
+    width: 830px;
     margin: 0 auto;
     padding: 100px 0 50px 0;
 }
@@ -275,7 +275,7 @@ ul.post-index {
     padding-bottom: 20px;
 }
 ul.post-index li{
-    width: 300px;
+    width: 210px;
     float: left;
     border-bottom: none;
 }
@@ -304,7 +304,7 @@ ul.post-index .head{
 	width:100%;
 }
 ul.post-index .head .h-post-title{
-    font-size:16px;
+    font-size:15px;
 	line-height:24px;
 	margin:0;
 	padding:0;
