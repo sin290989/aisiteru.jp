@@ -96,10 +96,9 @@ body.is-menu-open {
 =============================== */
 .h-menu h2{
     font-weight:bold;
-    margin:30px 20px 10px;
+    margin:0px 20px 10px;
     font-size: 12px;
     color:#1433d6;
-    border-bottom:1px solid #e5e5e5;
     padding-bottom:5px;
 }
 
@@ -108,8 +107,7 @@ body.is-menu-open {
 =============================== */
 .h-menu ul.cat-link,
 .h-menu ul.ai-link{
-    margin: 0 20px;
-    border-radius: 5px;
+    margin: 0 5px;
     overflow: hidden;
     background: transparent;   /* ← 背景なし */
 }
