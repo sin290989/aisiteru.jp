@@ -69,7 +69,7 @@ ul.global-menu {
 .logo a span{
     font-weight: 700;
      color: #031b4e;
-    font-size: 20px;
+    font-size: 16px;
 }
 .logo a:hover{
     text-decoration: none;
@@ -79,7 +79,7 @@ ul.global-menu {
     position: absolute;
     top: 18px;
     left: 155px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: #1433d6;
   }
@@ -293,8 +293,7 @@ ul.global-menu {
 <div id="top"></div>
 <div id="header">
 <div class="inner">
-<div class="logo"><a href="/"><span>AI</span>シテル？</a></div>
-<div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
+<div class="logo"><a href="/"><span>AI</span> SITERU？</a></div>
 <?php get_template_part('partials/h-menu2'); ?>
 </div>
 </div>

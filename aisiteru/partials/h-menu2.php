@@ -95,7 +95,7 @@ body.is-menu-open {
 =============================== */
 .h-menu h2{
     font-weight: 600;
-    margin:0px 0 0;
+    margin:0 0 15px 0;
     padding-bottom:0px;
     font-size: 13px;
 }
@@ -105,7 +105,7 @@ body.is-menu-open {
 =============================== */
 
 .cat-area{
-    margin: 15px 0 0 0;
+    margin: 0;
     padding: 15px 0;
     border-top:1px solid #EEEEEE;
     border-bottom:1px solid #EEEEEE;
@@ -116,11 +116,11 @@ body.is-menu-open {
 }
 .h-menu ul.cat-link,
 .h-menu ul.ai-link{
-    margin: 0 0 0 0;
+    margin: 0 5px 0 5px;
     padding: 0;
     overflow: hidden;
     background: transparent;   /* ← 背景なし */
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
@@ -135,14 +135,18 @@ body.is-menu-open {
 
 
 }
-
+.h-menu ul.ai-link li,
+.h-menu ul.cat-link li{
+    width: 50%;
+    float:left;
+}
 
 /* ===============================
    その他リンク
 =============================== */
 ul.other-link{
-    margin: 0;
-    font-size: 13px;
+    margin: 0 0 20px 0;
+    font-size: 12px;
 }
 
 ul.other-link a{
@@ -151,8 +155,8 @@ ul.other-link a{
     padding:0 0;       /* 少し詰める */
 }
 ul.other-link-bottom{
-    margin: 0;
-    font-size: 13px;
+    margin: 20px 0 20px 0;
+    font-size: 11px;
 }
 
 ul.other-link-bottom a{
@@ -289,7 +293,7 @@ ul.other-link-bottom a:hover{
 
 /* 共通アイコン設定 */
 .h-menu .cat-link span {
-    padding-left: 30px;
+    padding-left: 25px;
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 18px 18px;
@@ -336,7 +340,7 @@ ul.other-link-bottom a:hover{
 
 /* AIアイコン共通 */
 .h-menu .ai-link span {
-    padding-left: 30px;
+    padding-left: 25px;
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 18px 18px;
@@ -424,7 +428,7 @@ $(function () {
         }
     });
 
-    /* ===== カテゴリ開閉 ===== */
+/* ===== カテゴリ開閉 ===== */
 $('.catTitle').on('click', function(){
 
     const $title = $(this);
@@ -436,7 +440,7 @@ $('.catTitle').on('click', function(){
 });
 
 
-    $('.aiTitle').on('click', function(){
+$('.aiTitle').on('click', function(){
 
     const $title = $(this);
     const $list = $title.next('.ai-link');
@@ -467,7 +471,7 @@ $('.catTitle').on('click', function(){
 </ul>
 
 <div class="cat-area">
-<h2 class="catTitle">カテゴリ</h2>
+<h2 class="catTitle">CATEGORY</h2>
 <ul class="cat-link">
 <li><a href="/category/society/"><span class="icon-society">社会</span></a></li>
 <li><a href="/category/politics/"><span class="icon-politics">政治</span></a></li>
@@ -478,15 +482,12 @@ $('.catTitle').on('click', function(){
 <li><a href="/category/history/"><span class="icon-history">歴史</span></a></li>
 <li><a href="/category/regional/"><span class="icon-regional">地域</span></a></li>
 <li><a href="/category/technology/"><span class="icon-technology">技術</span></a></li>
-<li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>
-<li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>
-<li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>
-<li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>
+<div style="clear:both;"></div>
 </ul>
 </div>
 
 <div class="ai-area">
-<h2 class="aiTitle">生成AI</h2>
+<h2 class="aiTitle">8AI</h2>
 <ul class="ai-link">
 <li><a href="/editor/chatgpt/"><span class="chatgpt">ChatGPT</span></a></li>
 <li><a href="/editor/gemini/"><span class="gemini">Gemini</span></a></li>
@@ -496,6 +497,7 @@ $('.catTitle').on('click', function(){
 <li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>
 <li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>
 <li><a href="/editor/lechat/"><span class="lechat">LeChat</span></a></li>
+<div style="clear:both;"></div>
 </ul>
 </div>
 
