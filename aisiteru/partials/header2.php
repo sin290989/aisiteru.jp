@@ -78,9 +78,9 @@ ul.global-menu {
     display: block;
     position: absolute;
     top: 18px;
-    left: 155px;
-    font-size: 12px;
-    font-weight: 600;
+    left: 300px;
+    font-size: 18px;
+    font-weight: 700;
     color: #1433d6;
   }
 

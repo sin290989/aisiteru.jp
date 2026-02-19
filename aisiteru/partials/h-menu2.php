@@ -482,6 +482,10 @@ $('.aiTitle').on('click', function(){
 <li><a href="/category/history/"><span class="icon-history">歴史</span></a></li>
 <li><a href="/category/regional/"><span class="icon-regional">地域</span></a></li>
 <li><a href="/category/technology/"><span class="icon-technology">技術</span></a></li>
+<li><a href="/category/prediction/"><span class="prediction">時事</span></a></li>
+<li><a href="/category/sports/"><span class="sports">スポーツ</span></a></li>
+<li><a href="/category/business/"><span class="business">ビジネス</span></a></li>
+<li><a href="/category/life/"><span class="life">ライフ</span></a></li>
 <div style="clear:both;"></div>
 </ul>
 </div>

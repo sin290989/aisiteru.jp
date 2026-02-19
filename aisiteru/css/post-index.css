@@ -3,7 +3,8 @@
   margin-left: 0;
   margin-right: 0;
 }
-.blog-main-img{}
+.blog-main-img {
+}
 
 .ai-block,
 .category-block {
@@ -25,17 +26,17 @@
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
 }
-ul.post-index li{
-    width: 100%;
-    overflow:hidden;
-    margin-bottom: 10px;
-    position: relative;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eeeeee;
+ul.post-index li {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
 }
-ul.post-index a{
-	display:block;
-    text-decoration: none;
+ul.post-index a {
+  display: block;
+  text-decoration: none;
 }
 ul.post-index li:last-child {
   border-bottom: none;
@@ -44,40 +45,40 @@ ul.post-index li:last-child {
 }
 /*左側
 -------------------------------------------------------*/
-ul.post-index .post_thumbnail{
-	width:46%;
-    float: left;
+ul.post-index .post_thumbnail {
+  width: 46%;
+  float: left;
 }
 
-ul.post-index .post_thumbnail img{
-	width:100%;
-	height:auto;
-	vertical-align:bottom;
-    padding: 0;
-    margin-bottom: 0;
-    border-radius: 3px;
+ul.post-index .post_thumbnail img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  padding: 0;
+  margin-bottom: 0;
+  border-radius: 3px;
 }
 /*右側
 -------------------------------------------------------*/
-ul.post-index .head{
-    width:52%;
-    float: right;
-    padding-top: 0px;
-    color: #46526f;
+ul.post-index .head {
+  width: 52%;
+  float: right;
+  padding-top: 0px;
+  color: #46526f;
 }
-ul.post-index .head h2{
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    color: #031b4e;
-	font-size:12px;
-    line-height: 18px;
-	background-image:none;
-	border:none;
-	margin:0;
-	padding:0;
-	height:auto;
-    padding-top: 0px;
+ul.post-index .head h2 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #031b4e;
+  font-size: 12px;
+  line-height: 18px;
+  background-image: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  padding-top: 0px;
 }
 ul.post-index .head .post-dates {
   font-size: 12px;
@@ -89,73 +90,72 @@ ul.post-index .head .post-dates {
   margin-bottom: 0px;
 }
 
-
 @media only screen and (min-width: 680px) {
-.ai-block,
-.category-block {
-padding: 0;
-margin: 33px 0 0 0;
-}
-.ai-block h1,
-.category-block h1 {
-top: -40px;
-left: 25px;
-}
-ul.post-index {
+  .ai-block,
+  .category-block {
+    padding: 0;
+    margin: 33px 0 0 0;
+  }
+  .ai-block h1,
+  .category-block h1 {
+    top: -40px;
+    left: 25px;
+  }
+  ul.post-index {
     padding: 50px;
-}
-ul.post-index li{
-	margin-bottom:15px;
-	padding-bottom:15px;
-}
-ul.post-index li:last-of-type{
-    border-bottom:none;
+  }
+  ul.post-index li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  ul.post-index li:last-of-type {
+    border-bottom: none;
     margin-bottom: 0;
-    padding-bottom: 0;;
-}
-/*左側
+    padding-bottom: 0;
+  }
+  /*左側
 -------------------------------------------------------*/
-ul.post-index .post_thumbnail{
+  ul.post-index .post_thumbnail {
     overflow: hidden;
-	width:35%;
-}
-ul.post-index a img{
+    width: 35%;
+  }
+  ul.post-index a img {
     transition-duration: 0.3s;
-}
-/*右側
+  }
+  /*右側
 -------------------------------------------------------*/
-ul.post-index .head{
-	width:60%;
-	float:right;
-}
-ul.post-index .head h2{
-    font-size:16px;
-	line-height:24px;
-	margin:0;
-	padding:0;
+  ul.post-index .head {
+    width: 60%;
+    float: right;
+  }
+  ul.post-index .head h2 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
     transition-duration: 0.3s;
     overflow: hidden;
-}
-ul.post-index .head h2 span {
+  }
+  ul.post-index .head h2 span {
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-}
-ul.post-index .head .post-title{
-	margin-bottom:10px;
-	padding-bottom:0;
-}
-ul.post-index .head .post-content{
+  }
+  ul.post-index .head .post-title {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+  }
+  ul.post-index .head .post-content {
     overflow: hidden;
-}
-ul.post-index .head .post-content p {
-    font-size:13px;
+  }
+  ul.post-index .head .post-content p {
+    font-size: 13px;
     line-height: 20px;
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-}
+  }
 }
