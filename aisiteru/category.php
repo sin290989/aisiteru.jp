@@ -13,7 +13,7 @@ $catname = $cat[0]->name; // カテゴリ名
 <meta name="format-detection" content="telephone=no">
 <title><?php single_cat_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common107.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/post-index.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -28,10 +28,16 @@ $catname = $cat[0]->name; // カテゴリ名
     #side{
         padding-bottom:10px;
     }
-@media only screen and (min-width: 680px) {3
+@media only screen and (min-width: 680px) {
 
-    #main{
+    body #contents{
+        width: 900px;
+    }
+    body #main{
         margin-bottom:0;
+        width: 900px;
+        margin-top:60px;
+        background-color: #EEEEEE;
     }
     
 }
@@ -39,7 +45,7 @@ $catname = $cat[0]->name; // カテゴリ名
 </head>
 <body>
 
-<?php get_template_part('partials/header'); ?>
+<?php get_template_part('partials/header2'); ?>
 
 <div id="pan">
 <div class="inner">
@@ -130,11 +136,7 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 </div>
 </div>
 
-<div id="side">
-<?php dynamic_sidebar('sidebar-1'); ?>
-<?php get_template_part("partials/cat") ?>
-<?php //get_template_part("partials/tag") ?>  
-</div>
+
 <div style="clear:both"></div>
 
 </div>
@@ -142,7 +144,7 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 
 
 </div>
-<?php get_template_part('partials/footer'); ?>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 
 <?php if ( !wp_is_mobile() ) : ?>

@@ -31,7 +31,7 @@
   }
   #footer .inner {
     width: 100%;
-    height: 200px;
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
     position: relative;

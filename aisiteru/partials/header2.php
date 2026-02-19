@@ -64,12 +64,12 @@ ul.global-menu {
     top: 15px;
     left: 30px;
     font-weight: 700;
-    font-size: 19px;
+    font-size: 16px;
   }
 .logo a span{
     font-weight: 700;
      color: #031b4e;
-    font-size: 22px;
+    font-size: 20px;
 }
 .logo a:hover{
     text-decoration: none;
@@ -80,25 +80,11 @@ ul.global-menu {
     top: 18px;
     left: 155px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
     color: #1433d6;
   }
 
-  ul.global-menu {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    width: 450px;
-    font-weight: bold;
-  }
-  ul.global-menu li {
-    display: inline;
-    margin-right: 30px;
-  }
-  ul.global-menu li:last-child {
-    margin-right: 0;
-  }
+
 }
 
 
@@ -285,6 +271,20 @@ ul.global-menu {
     width: 100%;
     height: 100%;
   }
+
+  #pan {
+    position:fixed;
+    margin: 0;
+    padding: 0;
+    top:13px;
+    right:30px;
+    z-index: 1500;
+  }
+
+  #pan span.home {
+  background-image:none;
+  padding-left:0;
+}
 }
 </style>
 
@@ -295,10 +295,6 @@ ul.global-menu {
 <div class="inner">
 <div class="logo"><a href="/"><span>AI</span>シテル？</a></div>
 <div class="message"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
-<!--<ul class="global-menu">
-<li><a href="/editor">Editor</a></li>
-<li><a href="/about">About</a></li>
-</ul>-->
 <?php get_template_part('partials/h-menu2'); ?>
 </div>
 </div>

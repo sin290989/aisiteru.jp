@@ -12,7 +12,7 @@ Template Name:privacy-policy
 <meta name="format-detection" content="telephone=no">
 <title>プライバシーポリシー｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common106.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common108.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/page.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -62,6 +62,14 @@ Template Name:privacy-policy
 @media only screen and (min-width: 680px) {   
 
 
+#contents900{
+    box-sizing: border-box;
+    background-color: #1433d6;
+    
+}
+ .inner-con{
+    margin:0;
+}
 }
 </style>
 </head>
@@ -74,7 +82,9 @@ Template Name:privacy-policy
 </div>
 
 <div id="page-wapper">
-<div id="page-contents">
+<div id="contents900">
+<h1>プライバシーポリシー</h1>
+<div class="inner-con">
 <div class="priCon">
 本プライバシーポリシーは、aisiteru(https://aisiteru.jp）（以下、「当サイト」とします。)の各種サービス（当サイトによる情報提供、各種お問合せの受付等）において、当サイトの訪問者（以下、「訪問者」とします。）の個人情報もしくはそれに準ずる情報を取り扱う際に、当サイトが遵守する方針を示したものです。<br>
 <br>
@@ -159,6 +169,7 @@ Googleによって広告の第三者配信が認められている広告配信�
 <br>
 平成19年2月12日　策定<br>
 令和4年年6月25日　改訂<br>
+</div>
 </div>
 </div>
 </div>

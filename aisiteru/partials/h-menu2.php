@@ -77,14 +77,13 @@ body.is-menu-open {
    共通内部構造
 =============================== */
 .h-menu-inner {
-    padding: 20px 0;
+    padding: 20px 20px;
 }
 
 .h-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size:14px;
 }
 
 .h-menu li {
@@ -95,21 +94,33 @@ body.is-menu-open {
    見出し
 =============================== */
 .h-menu h2{
-    font-weight:bold;
-    margin:0px 20px 10px;
-    font-size: 12px;
-    color:#1433d6;
-    padding-bottom:5px;
+    font-weight: 600;
+    margin:0px 0 0;
+    padding-bottom:0px;
+    font-size: 13px;
 }
 
 /* ===============================
    リンクブロック
 =============================== */
+
+.cat-area{
+    margin: 15px 0 0 0;
+    padding: 15px 0;
+    border-top:1px solid #EEEEEE;
+    border-bottom:1px solid #EEEEEE;
+}
+.ai-area{
+    padding: 15px 0;
+    border-bottom:1px solid #EEEEEE;
+}
 .h-menu ul.cat-link,
 .h-menu ul.ai-link{
-    margin: 0 5px;
+    margin: 0 0 0 0;
+    padding: 0;
     overflow: hidden;
     background: transparent;   /* ← 背景なし */
+    font-size: 13px;
 }
 
 
@@ -117,12 +128,12 @@ body.is-menu-open {
 .h-menu ul.ai-link li a{
     text-decoration:none;
     display:block;
-    height:34px;          /* ← かなり詰める */
-    line-height:34px;    /* ← 行間を揃える */
-    font-size:13px;       /* ← 小さく */
-    padding-left:15px;
+    height:32px;          /* ← かなり詰める */
+    line-height:32px;  /* ← 行間を揃える */
+    padding-left:0;
     box-sizing: border-box;
-    color:#333;
+
+
 }
 
 
@@ -130,34 +141,28 @@ body.is-menu-open {
    その他リンク
 =============================== */
 ul.other-link{
-    margin: 20px 20px 20px;
+    margin: 0;
+    font-size: 13px;
 }
 
 ul.other-link a{
-    color:#1433d6;
-    font-weight: 600;
     text-decoration:none;
     display:block;
-    padding:6px 0;       /* 少し詰める */
-    font-size:13px;      /* ← 13px指定 */
+    padding:0 0;       /* 少し詰める */
 }
 ul.other-link-bottom{
-    margin: 40px 20px 30px;
-    border-top:1px solid #e5e5e5;
-    padding-top:20px;
+    margin: 0;
+    font-size: 13px;
 }
 
 ul.other-link-bottom a{
-    color:#777;
-    font-size:11px;
     text-decoration:none;
     display:block;
-    padding:2px 0;
-    font-weight: 600;
+    padding:0;
 }
 
 ul.other-link-bottom a:hover{
-    color:#1433d6;
+
 }
 
 
@@ -194,7 +199,7 @@ ul.other-link-bottom a:hover{
     position: absolute;
     right: 20px;
     font-size: 14px;
-    color: #1433d6;
+
 }
 
 .h-menu h2.catTitle.is-closed::after {
@@ -212,7 +217,7 @@ ul.other-link-bottom a:hover{
     position: absolute;
     right: 20px;
     font-size: 14px;
-    color: #1433d6;
+
 }
 
 .h-menu h2.aiTitle.is-closed::after {
@@ -234,7 +239,7 @@ ul.other-link-bottom a:hover{
         position: fixed;
         top: 0;
         left: 0;
-        width: 250px;           /* ← 250pxに変更 */
+        width: 280px;           /* ← 250pxに変更 */
         height: 100vh;
         transform: none;
         background: #ffffff;
@@ -246,7 +251,7 @@ ul.other-link-bottom a:hover{
     }
 
     body {
-        margin-left: 250px;     /* ← 250pxに変更 */
+        margin-left: 280px;     /* ← 250pxに変更 */
     }
 }
 
@@ -362,6 +367,18 @@ ul.other-link-bottom a:hover{
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/ai/mistral.webp");
 }
 
+.h-menu span.prediction{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/prediction_b.webp");
+}
+.h-menu span.sports{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/sports_b.webp");
+}
+.h-menu span.business{
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/business_b.webp");
+}
+.h-menu span.life {
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life_b.webp");
+}
 </style>
 
 
@@ -442,15 +459,16 @@ $('.catTitle').on('click', function(){
 </div>
 
 <nav class="h-menu" aria-label="グローバルメニュー">
-    <div class="h-menu-inner">
+<div class="h-menu-inner">
 
-    <ul class="other-link">
-            <li><a href="/about">AIシテル？について</a></li>
-            <li><a href="/cluster">AI比較クラスタ索引</a></li>
-        </ul>
+<ul class="other-link">
+<li><a href="/about">AIシテル？について</a></li>
+<li><a href="/cluster">AI比較クラスタ索引</a></li>
+</ul>
 
-        <h2 class="catTitle">カテゴリ</h2>
-        <ul class="cat-link">
+<div class="cat-area">
+<h2 class="catTitle">カテゴリ</h2>
+<ul class="cat-link">
 <li><a href="/category/society/"><span class="icon-society">社会</span></a></li>
 <li><a href="/category/politics/"><span class="icon-politics">政治</span></a></li>
 <li><a href="/category/economy/"><span class="icon-economy">経済</span></a></li>
@@ -460,27 +478,34 @@ $('.catTitle').on('click', function(){
 <li><a href="/category/history/"><span class="icon-history">歴史</span></a></li>
 <li><a href="/category/regional/"><span class="icon-regional">地域</span></a></li>
 <li><a href="/category/technology/"><span class="icon-technology">技術</span></a></li>
-
-        </ul>
-
-        <h2 class="aiTitle">生成AI</h2>
-        <ul class="ai-link">
-    <li><a href="/editor/chatgpt/"><span class="chatgpt">ChatGPT</span></a></li>
-    <li><a href="/editor/gemini/"><span class="gemini">Gemini</span></a></li>
-    <li><a href="/editor/copilot/"><span class="copilot">Copilot</span></a></li>
-    <li><a href="/editor/grok/"><span class="grok">Grok</span></a></li>
-    <li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>
-    <li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>
-    <li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>
-    <li><a href="/editor/lechat/"><span class="lechat">LeChat</span></a></li>
+<li><a href="/category/prediction/"><span class="prediction">AI予測・時事</span></a></li>
+<li><a href="/category/sports/"><span class="sports">スポーツ・格闘技</span></a></li>
+<li><a href="/category/business/"><span class="business">ビジネス・キャリア</span></a></li>
+<li><a href="/category/life/"><span class="life">実用・ライフ</span></a></li>
 </ul>
+</div>
+
+<div class="ai-area">
+<h2 class="aiTitle">生成AI</h2>
+<ul class="ai-link">
+<li><a href="/editor/chatgpt/"><span class="chatgpt">ChatGPT</span></a></li>
+<li><a href="/editor/gemini/"><span class="gemini">Gemini</span></a></li>
+<li><a href="/editor/copilot/"><span class="copilot">Copilot</span></a></li>
+<li><a href="/editor/grok/"><span class="grok">Grok</span></a></li>
+<li><a href="/editor/claude/"><span class="claude">Claude</span></a></li>
+<li><a href="/editor/perplexity/"><span class="perplexity">Perplexity</span></a></li>
+<li><a href="/editor/deepseek/"><span class="deepseek">DeepSeek</span></a></li>
+<li><a href="/editor/lechat/"><span class="lechat">LeChat</span></a></li>
+</ul>
+</div>
+
 
 <ul class="other-link-bottom">
-            <li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
-        <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-        <li><a href="/contact">お問合せ</a></li>
-        <li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
-        </ul>
+<li><a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></li>
+<li><a href="/privacy-policy">プライバシーポリシー</a></li>
+<li><a href="/contact">お問合せ</a></li>
+<li><a href="https://x.com/aisiterujp" target="_blank">X（@aisiterujp）</a></li>
+</ul>
 
-    </div>
+</div>
 </nav>
