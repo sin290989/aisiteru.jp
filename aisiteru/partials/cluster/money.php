@@ -1,11 +1,5 @@
 <div class="structural-cluster-box">
 <!------------------------------------------------------------------------------>
-<h2 class="h-structural">お金</h2>
-
-<p class="cluster-read">
-このクラスタでは、お金を「個人の収入や支出」だけではなく、「金融制度・通貨設計・資産構造・国家と市場の関係がどのように結びついているか」という視点から捉え直します。<br>
-資産形成、相続構造、デジタル通貨の設計、金融技術の変化といった論点を、比較の入口としてご利用ください。
-</p>
 
 <div class="cluster-block">
 
@@ -35,7 +29,21 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-structural">お金</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、お金を「個人の収入や支出」だけではなく、「金融制度・通貨設計・資産構造・国家と市場の関係がどのように結びついているか」という視点から捉え直します。<br>
+資産形成、相続構造、デジタル通貨の設計、金融技術の変化といった論点を、比較の入口としてご利用ください。
+</p>
+
+
+
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

@@ -1,20 +1,13 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-<ul class="cluster-scope">
+
+
+<div class="cluster-block">
+ <ul class="cluster-scope">
   <li>入試制度</li>
   <li>評価と努力</li>
   <li>公平性と選別</li>
 </ul>
-
-<h2 class="h-topic">受験・教育</h2>
-
-<p class="cluster-read">
-このクラスタでは、受験を「個人の挑戦」ではなく、制度・評価・選別がどのように結びついているかという視点から捉え直します。<br>
-努力と公平性、分岐点としての役割、制度が生み出す意味の違いを比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
 // season-exam タグの term を取得
 $season_tag = get_term_by( 'slug', 'season-exam', 'post_tag' );
@@ -34,7 +27,19 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">受験・教育</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、受験を「個人の挑戦」ではなく、制度・評価・選別がどのように結びついているかという視点から捉え直します。<br>
+努力と公平性、分岐点としての役割、制度が生み出す意味の違いを比較するための入口としてご利用ください。
+</p>  
+
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>
         <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>

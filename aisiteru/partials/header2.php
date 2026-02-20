@@ -207,11 +207,11 @@ ul.global-menu {
     padding: 0;
   }
 
-  #contents {
+  /*#contents {
     width: 1100px;
     margin: 0 auto;
     padding: 50px 0 50px 0;
-  }
+  }*/
 
   #page-title {
     width: 100%;

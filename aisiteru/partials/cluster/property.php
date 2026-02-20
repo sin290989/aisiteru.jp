@@ -1,20 +1,11 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>制度設計</li>
   <li>権利と取引</li>
   <li>空間と資産価値</li>
 </ul>
-
-<h2 class="h-topic">不動産</h2>
-
-<p class="cluster-read">
-このクラスタでは、不動産を「個別の物件」ではなく、制度・権利・市場がどのように結びついているかという視点から捉え直します。<br>
-登記や契約の設計、取引と利用の境界、空間が資産として扱われる意味を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
 // property タグの term を取得
 $season_tag = get_term_by( 'slug', 'property', 'post_tag' );
@@ -34,7 +25,19 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">不動産</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、不動産を「個別の物件」ではなく、制度・権利・市場がどのように結びついているかという視点から捉え直します。<br>
+登記や契約の設計、取引と利用の境界、空間が資産として扱われる意味を比較するための入口としてご利用ください。
+</p>
+
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>
         <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>

@@ -1,40 +1,44 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+
+<div class="cluster-block">
 <ul class="cluster-scope">
 <li>ゲーム設計とシステム構造</li>
 <li>達成感と心理設計</li>
 <li>社会と文化的影響</li>
 </ul>
 
-<h2 class="h-topic">ゲーム</h2>
-
-<p class="cluster-read">
-このクラスタでは、ゲームを「個別のタイトル」ではなく、設計思想・報酬構造・プレイヤー体験がどのように結びついているかという視点から捉え直します。<br>
-難易度設計、報酬ループ、コミュニティ形成、文化的影響を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
-// game タグの term を取得
+// game タグ取得
 $season_tag = get_term_by( 'slug', 'game', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// index タグの term を取得
+// index タグ取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// game ＋ index 両方が付いた最新3件を取得
+// game ＋ index 両方が付いた最新3件取得
 $args = array(
 'post_type'      => 'post',
-'posts_per_page' => 3,   // ← 最新3件固定
+'posts_per_page' => 3,
 'tag__and'       => array( $season_tag_id, $index_tag_id ),
 'orderby'        => 'date',
 'order'          => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+
+<h2 class="h-topic">ゲーム</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、ゲームを「個別のタイトル」ではなく、設計思想・報酬構造・プレイヤー体験がどのように結びついているかという視点から捉え直します。<br>
+難易度設計、報酬ループ、コミュニティ形成、文化的影響を比較するための入口としてご利用ください。
+</p>
 
 <ul class="post-index">
 
@@ -88,9 +92,7 @@ $index_query = new WP_Query( $args );
 <div style="clear:both"></div>
 </ul>
 
-<?php
-wp_reset_postdata();
-?>
+<?php wp_reset_postdata(); ?>
 
 <div class="more-btn">
 <a href="/cluster/game/">

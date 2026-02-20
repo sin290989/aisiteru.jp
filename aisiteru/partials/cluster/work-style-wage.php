@@ -1,19 +1,11 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>労働と市場価値</li>
   <li>制度と報酬構造</li>
   <li>選択と経済的不確実性</li>
 </ul>
-
-<h2 class="h-topic">賃金</h2>
-
-<p class="cluster-read">
-このクラスタでは、賃金を「個人の能力や成果」だけではなく、「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
-賃金決定の仕組み、賃金と社会制度・経済構造の関係、報酬形成における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
 
 <?php
 // wage タグの term を取得
@@ -34,7 +26,16 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">賃金</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、賃金を「個人の能力や成果」だけではなく、「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
+賃金決定の仕組み、賃金と社会制度・経済構造の関係、報酬形成における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+</p>
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

@@ -1,16 +1,8 @@
 <div class="structural-cluster-box">
 <!------------------------------------------------------------------------------>
-<h2 class="h-structural">働き方</h2>
-
 
 
 <div class="cluster-block">
-
-<p class="cluster-read">
-このクラスタでは、働き方を「個人の意思や努力」だけではなく、「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
-キャリア形成、賃金構造、雇用形態の変化、働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
-</p>
-
 <?php
 // career タグ
 $career_tag = get_term_by( 'slug', 'career', 'post_tag' );
@@ -37,7 +29,20 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-structural">働き方</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、働き方を「個人の意思や努力」だけではなく、「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
+キャリア形成、賃金構造、雇用形態の変化、働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+</p>
+
+
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

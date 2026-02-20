@@ -1,20 +1,13 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
+
 <ul class="cluster-scope">
   <li>通貨設計</li>
   <li>決済インフラ</li>
   <li>国家と金融統治</li>
 </ul>
 
-<h2 class="h-topic">デジタル通貨</h2>
-
-<p class="cluster-read">
-このクラスタでは、デジタル通貨を「新しい支払い手段」ではなく、通貨設計・決済インフラ・国家と市場の関係がどのように再編されるかという視点から捉え直します。<br>
-CBDC、暗号資産、キャッシュレス化といった動きが、経済構造や統治構造にどのような影響を与えるのかを比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
 // digital-money タグの term を取得
 $season_tag = get_term_by( 'slug', 'digital-money', 'post_tag' );
@@ -34,7 +27,18 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">デジタル通貨</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、デジタル通貨を「新しい支払い手段」ではなく、通貨設計・決済インフラ・国家と市場の関係がどのように再編されるかという視点から捉え直します。<br>
+CBDC、暗号資産、キャッシュレス化といった動きが、経済構造や統治構造にどのような影響を与えるのかを比較するための入口としてご利用ください。
+</p>
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

@@ -1,19 +1,11 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>資本とリスク</li>
   <li>制度と市場</li>
   <li>判断と不確実性</li>
 </ul>
-
-<h2 class="h-topic">金融</h2>
-
-<p class="cluster-read">
-このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。<br>
-リスクの扱われ方、制度設計と市場行動の関係、不確実性の中での意思決定といった論点を、比較の入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
 
 <?php
 // finance タグの term を取得
@@ -34,7 +26,17 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">金融</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、金融を「お金の運用」ではなく、「制度・市場・人間の判断がどのように結びついているか」という視点から捉え直します。<br>
+リスクの扱われ方、制度設計と市場行動の関係、不確実性の中での意思決定といった論点を、比較の入口としてご利用ください。
+</p>
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

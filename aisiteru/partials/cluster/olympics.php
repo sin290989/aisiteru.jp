@@ -1,20 +1,14 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+
+
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>制度と運営構造</li>
   <li>競技と価値創出</li>
   <li>政治と社会的影響</li>
 </ul>
 
-<h2 class="h-topic">オリンピック</h2>
-
-<p class="cluster-read">
-このクラスタでは、オリンピックを「スポーツ大会」ではなく、制度設計・競技価値・政治や社会との関係がどのように結びついているかという視点から捉え直します。<br>
-大会運営の仕組み、競技が持つ象徴的意味、国家や市場との関係性を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
 // olympics タグの term を取得
 $season_tag = get_term_by( 'slug', 'olympics', 'post_tag' );
@@ -34,7 +28,18 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">オリンピック</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、オリンピックを「スポーツ大会」ではなく、制度設計・競技価値・政治や社会との関係がどのように結びついているかという視点から捉え直します。<br>
+大会運営の仕組み、競技が持つ象徴的意味、国家や市場との関係性を比較するための入口としてご利用ください。
+</p>   
+
 
 <ul class="post-index">
 <?php if ( $index_query->have_posts() ) : ?>

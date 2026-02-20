@@ -1,20 +1,12 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>制度設計</li>
   <li>家族関係</li>
   <li>資産移転</li>
 </ul>
 
-<h2 class="h-topic">相続</h2>
-
-<p class="cluster-read">
-このクラスタでは、相続を「個人の手続き」ではなく、制度・家族関係・資産の移転がどのように結びついているかという視点から捉え直します。<br>
-法制度の設計、感情や責任の分配、社会における富の移動の意味を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
-   
 <?php
 // inheritance タグの term を取得
 $season_tag = get_term_by( 'slug', 'inheritance', 'post_tag' );
@@ -34,7 +26,17 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+<h2 class="h-topic">相続</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、相続を「個人の手続き」ではなく、制度・家族関係・資産の移転がどのように結びついているかという視点から捉え直します。<br>
+法制度の設計、感情や責任の分配、社会における富の移動の意味を比較するための入口としてご利用ください。
+</p>
+
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>
         <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>

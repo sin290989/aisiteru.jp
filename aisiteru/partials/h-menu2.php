@@ -467,7 +467,7 @@ $('.aiTitle').on('click', function(){
 
 <ul class="other-link">
 <li><a href="/about">AIシテル？について</a></li>
-<li><a href="/cluster">AI比較クラスタ索引</a></li>
+<li><a href="/cluster">クラスタ索引</a></li>
 </ul>
 
 <div class="cat-area">

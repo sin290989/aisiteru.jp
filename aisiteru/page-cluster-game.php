@@ -12,25 +12,24 @@ Template Name: Cluster Game
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common108.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster3.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_theme.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
-<?php get_template_part("partials/css/post-index") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 </head>
 
 <body>
 
-<?php get_template_part('partials/header'); ?>
+<?php get_template_part('partials/header2'); ?>
 
 <div id="pan">
 <div class="inner">
 <a href="/"><span class="home">トップページ</span></a>
 >
-<a href="/cluster/">AI比較クラスタ索引</a>
+<a href="/cluster/">クラスタ索引</a>
 >
 <?php the_title(); ?>
 </div>
@@ -146,7 +145,7 @@ wp_reset_postdata();
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">AI比較クラスタ索引へ戻る</a>
+<a href="/cluster/">クラスタ索引へ戻る</a>
 </div>
 
 </div>
@@ -155,7 +154,7 @@ wp_reset_postdata();
 </div>
 </div>
 
-<?php get_template_part('partials/footer'); ?>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 
 <?php if ( !wp_is_mobile() ) : ?>

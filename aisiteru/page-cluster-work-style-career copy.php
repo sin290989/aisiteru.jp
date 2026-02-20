@@ -30,7 +30,7 @@ Template Name: Cluster Work Style - Career
 <div class="inner">
 <a href="/"><span class="home">トップページ</span></a>
 >
-<a href="/cluster/">AI比較クラスタ索引</a>
+<a href="/cluster/">クラスタ索引</a>
 >
 <a href="/cluster/work-style/">働き方クラスタ</a>
 >

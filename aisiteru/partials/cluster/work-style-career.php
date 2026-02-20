@@ -1,19 +1,11 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>キャリア形成と選択</li>
   <li>教育・経験と労働市場</li>
   <li>機会と不確実性</li>
 </ul>
-
-<h2 class="h-topic">キャリア</h2>
-
-<p class="cluster-read">
-このクラスタでは、キャリアを「個人の意思や努力」だけではなく、「教育制度・労働市場・企業構造・社会環境がどのように結びついているか」という視点から捉え直します。<br>
-キャリア形成の仕組み、キャリアと社会制度・労働市場の関係、職業選択やキャリア分岐における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
 
 <?php
 // career タグの term を取得
@@ -34,7 +26,17 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">キャリア</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、キャリアを「個人の意思や努力」だけではなく、「教育制度・労働市場・企業構造・社会環境がどのように結びついているか」という視点から捉え直します。<br>
+キャリア形成の仕組み、キャリアと社会制度・労働市場の関係、職業選択やキャリア分岐における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+</p>
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

@@ -1,19 +1,13 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+
+
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>制度としての解散</li>
   <li>政治的戦略</li>
   <li>民主主義と正統性</li>
 </ul>
-
-<h2 class="h-topic">内閣解散・解散総選挙</h2>
-
-<p class="cluster-read">
-このクラスタでは、内閣解散や解散総選挙を「政治的な出来事」ではなく、制度としての位置づけと意味から捉え直します。<br>
-戦略と制度、民意と正統性、権力と責任の関係を比較するための入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
 
 <?php
 // (index + cabinet-dissolution) OR (index + dissolution-election)
@@ -60,7 +54,19 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">内閣解散・解散総選挙</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+<p class="cluster-read">
+このクラスタでは、内閣解散や解散総選挙を「政治的な出来事」ではなく、制度としての位置づけと意味から捉え直します。<br>
+戦略と制度、民意と正統性、権力と責任の関係を比較するための入口としてご利用ください。
+</p>
+
+
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>

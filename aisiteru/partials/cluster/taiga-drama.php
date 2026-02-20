@@ -1,19 +1,14 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
+
+
+<div class="cluster-block">
 <ul class="cluster-scope">
   <li>歴史解釈</li>
   <li>人物像の再構築</li>
   <li>物語と史実</li>
 </ul>
 
-<h2 class="h-topic">大河ドラマ</h2>
-
-<p class="cluster-read">
-このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。<br>
-人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
-</p>
-
-<div class="cluster-block">
 
 <?php
 // taiga-drama タグの term を取得
@@ -34,7 +29,18 @@ $args = array(
 );
 
 $index_query = new WP_Query( $args );
+
+// ★ 総件数取得
+$total_count = $index_query->found_posts;
 ?>
+
+<h2 class="h-topic">大河ドラマ</h2>
+<div class="total-count"><?php echo $total_count; ?><span>件</span></div>
+
+<p class="cluster-read">
+このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。<br>
+人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
+</p>
 
 <ul class="post-index">
     <?php if ( $index_query->have_posts() ) : ?>
