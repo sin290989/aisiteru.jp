@@ -383,6 +383,33 @@ ul.other-link-bottom a:hover{
 .h-menu span.life {
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/category/life_b.webp");
 }
+
+
+
+/* ===============================
+   メニュー用 半透明レイヤー（スマホのみ）
+=============================== */
+@media (max-width: 679px) {
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050; /* h-menu(1100)より下 */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+
+    body.is-menu-open .menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
 </style>
 
 
@@ -515,3 +542,4 @@ $('.aiTitle').on('click', function(){
 
 </div>
 </nav>
+<div class="menu-overlay"></div>
