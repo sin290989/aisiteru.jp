@@ -504,7 +504,7 @@ $cluster_map = array(
   // ★ 働き方（親構造クラスタ）
   // =========================
   'work-style' => array(
-    'tags'  => array('career','wage'),
+    'tags'  => array('career','wage','employment-type'),
     'label' => '働き方',
     'parent'=> null,
   ),
@@ -518,6 +518,13 @@ $cluster_map = array(
   'career' => array(
     'tags'  => array('career'),
     'label' => 'キャリア',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：雇用形態
+  'employment-type' => array(
+    'tags'  => array('employment-type'),
+    'label' => '雇用形態',
     'parent'=> 'work-style',
   ),
 
@@ -543,7 +550,6 @@ $cluster_map = array(
     'parent'=> 'money',
   ),
 
-  // ★ 追加：投資
   'investment' => array(
     'tags'  => array('investment'),
     'label' => '投資',
@@ -644,7 +650,6 @@ if ($parent_slug) {
 wp_reset_postdata();
 endif;
 ?>
-
 
 
 

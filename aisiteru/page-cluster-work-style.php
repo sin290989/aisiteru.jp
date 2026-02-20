@@ -434,7 +434,7 @@ ul.post-index .head .post-content p {
 
 </p>
 
-
+<?php get_template_part('partials/cluster/work-style-employment-type'); ?>
 <?php get_template_part('partials/cluster/work-style-wage'); ?>
 <?php get_template_part('partials/cluster/work-style-career'); ?>
 
