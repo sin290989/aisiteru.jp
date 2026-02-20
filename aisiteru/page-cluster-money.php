@@ -437,6 +437,7 @@ ul.post-index .head .post-content p {
 ここでは、相続、デジタル通貨、金融技術、資産構造など、お金に関連するテーマクラスタへの入口を提供しています。
 </p>
 
+<?php get_template_part('partials/cluster/money-investment'); ?>
 <?php get_template_part('partials/cluster/money-digital-money'); ?>
 <?php get_template_part('partials/cluster/money-inheritance'); ?>
 

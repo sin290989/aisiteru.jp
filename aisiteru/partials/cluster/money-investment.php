@@ -1,39 +1,29 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-
 <div class="cluster-block">
 
+<ul class="cluster-scope">
+  <li>資産形成と時間構造</li>
+  <li>市場設計とリスク配分</li>
+  <li>国家政策と投資環境</li>
+</ul>
+
 <?php
-// inheritance タグ
-$inheritance_tag = get_term_by( 'slug', 'inheritance', 'post_tag' );
-$inheritance_tag_id = $inheritance_tag ? $inheritance_tag->term_id : 0;
+// investment タグの term を取得
+$season_tag = get_term_by( 'slug', 'investment', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// digital-money タグ
-$digital_money_tag = get_term_by( 'slug', 'digital-money', 'post_tag' );
-$digital_money_tag_id = $digital_money_tag ? $digital_money_tag->term_id : 0;
-
-// ★ investment タグ追加
-$investment_tag = get_term_by( 'slug', 'investment', 'post_tag' );
-$investment_tag_id = $investment_tag ? $investment_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ inheritance or digital-money or investment
-*/
+// investment ＋ index 両方が付いた最新3件を取得
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array(
-        $inheritance_tag_id,
-        $digital_money_tag_id,
-        $investment_tag_id
-    ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'post_type'       => 'post',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -42,12 +32,12 @@ $index_query = new WP_Query( $args );
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">お金</h2>
+<h2 class="h-topic">投資</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、お金を「個人の収入や支出」だけではなく、「金融制度・通貨設計・資産構造・国家と市場の関係がどのように結びついているか」という視点から捉え直します。<br>
-資産形成、相続構造、デジタル通貨の設計、投資市場の構造、金融技術の変化といった論点を、比較の入口としてご利用ください。
+このクラスタでは、投資を「資産を増やす手段」としてではなく、資産形成の時間構造・市場設計・国家政策との関係がどのように交差する領域かという視点から捉え直します。<br>
+長期投資、リスク分散、国家の市場介入といった論点が、経済構造や社会構造にどのような意味を持つのかを比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -93,7 +83,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」＋「inheritance」「digital-money」「investment」タグの記事はまだありません。</li>
+        <li>該当する記事がまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -104,7 +94,7 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/money/">
+  <a href="/cluster/money/investment/">
     <span class="visually-hidden">クラスタページへ</span>
   </a>
 </div>
