@@ -1,44 +1,29 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-
 <div class="cluster-block">
 
+<ul class="cluster-scope">
+  <li>信用創造と時間構造</li>
+  <li>金利設計とリスク移転</li>
+  <li>家計・企業・国家の債務関係</li>
+</ul>
+
 <?php
-// inheritance タグ
-$inheritance_tag = get_term_by( 'slug', 'inheritance', 'post_tag' );
-$inheritance_tag_id = $inheritance_tag ? $inheritance_tag->term_id : 0;
+// credit タグの term を取得（ローン）
+$season_tag = get_term_by( 'slug', 'credit', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// digital-money タグ
-$digital_money_tag = get_term_by( 'slug', 'digital-money', 'post_tag' );
-$digital_money_tag_id = $digital_money_tag ? $digital_money_tag->term_id : 0;
-
-// investment タグ
-$investment_tag = get_term_by( 'slug', 'investment', 'post_tag' );
-$investment_tag_id = $investment_tag ? $investment_tag->term_id : 0;
-
-// ★ 追加：credit タグ（ローン）
-$credit_tag = get_term_by( 'slug', 'credit', 'post_tag' );
-$credit_tag_id = $credit_tag ? $credit_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ inheritance or digital-money or investment or credit
-*/
+// credit ＋ index 両方が付いた最新3件を取得
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array(
-        $inheritance_tag_id,
-        $digital_money_tag_id,
-        $investment_tag_id,
-        $credit_tag_id
-    ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'post_type'       => 'post',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -47,12 +32,14 @@ $index_query = new WP_Query( $args );
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">お金</h2>
+<h2 class="h-topic">ローン</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、お金を「個人の収入や支出」だけではなく、「金融制度・通貨設計・資産構造・国家と市場の関係がどのように結びついているか」という視点から捉え直します。<br>
-資産形成、相続構造、デジタル通貨の設計、投資市場の構造、ローンや信用創造の仕組み、金融技術の変化といった論点を、比較の入口としてご利用ください。
+このクラスタでは、ローンを「お金を借りる手段」としてではなく、
+信用創造の仕組み・金利設計・家計や企業財務との接続がどのように社会構造と結びついているかという視点から捉え直します。<br>
+住宅ローンや教育ローン、企業融資、金利変動リスク、債務と成長の関係といった論点が、
+経済構造や国家政策とどのように交差しているのかを比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -98,11 +85,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>
-        「index」＋
-        「inheritance」「digital-money」「investment」「credit」
-        タグの記事はまだありません。
-        </li>
+        <li>該当する記事がまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -113,7 +96,7 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/money/">
+  <a href="/cluster/money/credit/">
     <span class="visually-hidden">クラスタページへ</span>
   </a>
 </div>

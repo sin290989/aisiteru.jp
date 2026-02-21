@@ -438,6 +438,7 @@ ul.post-index .head .post-content p {
 </p>
 
 <?php get_template_part('partials/cluster/money-investment'); ?>
+<?php get_template_part('partials/cluster/money-credit'); ?>
 <?php get_template_part('partials/cluster/money-digital-money'); ?>
 <?php get_template_part('partials/cluster/money-inheritance'); ?>
 

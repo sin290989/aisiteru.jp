@@ -576,7 +576,7 @@ $cluster_map = array(
   // ★ お金（親構造クラスタ）
   // =========================
   'money' => array(
-    'tags'  => array('inheritance','digital-money','investment'),
+    'tags'  => array('inheritance','digital-money','investment','credit'), // ★ ローン追加
     'label' => 'お金',
     'parent'=> null,
   ),
@@ -597,6 +597,13 @@ $cluster_map = array(
   'investment' => array(
     'tags'  => array('investment'),
     'label' => '投資',
+    'parent'=> 'money',
+  ),
+
+  // ★ 追加：ローン
+  'credit' => array(
+    'tags'  => array('credit'),
+    'label' => 'ローン',
     'parent'=> 'money',
   ),
 
