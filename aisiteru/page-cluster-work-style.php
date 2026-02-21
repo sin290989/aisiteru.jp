@@ -436,6 +436,7 @@ ul.post-index .head .post-content p {
 
 <?php get_template_part('partials/cluster/work-style-employment-type'); ?>
 <?php get_template_part('partials/cluster/work-style-working-hours'); ?>
+<?php get_template_part('partials/cluster/work-style-performance-evaluation'); ?>
 <?php get_template_part('partials/cluster/work-style-wage'); ?>
 <?php get_template_part('partials/cluster/work-style-career'); ?>
 

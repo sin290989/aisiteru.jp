@@ -504,7 +504,7 @@ $cluster_map = array(
   // ★ 働き方（親構造クラスタ）
   // =========================
   'work-style' => array(
-    'tags'  => array('career','wage','employment-type','working-hours'),
+    'tags'  => array('career','wage','employment-type','working-hours','performance-evaluation'),
     'label' => '働き方',
     'parent'=> null,
   ),
@@ -528,10 +528,17 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：労働時間
+  // ★ 労働時間
   'working-hours' => array(
     'tags'  => array('working-hours'),
     'label' => '労働時間',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：評価制度
+  'performance-evaluation' => array(
+    'tags'  => array('performance-evaluation'),
+    'label' => '評価制度',
     'parent'=> 'work-style',
   ),
 
