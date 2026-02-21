@@ -441,6 +441,7 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/work-style-career'); ?>
 <?php get_template_part('partials/cluster/work-style-job-change'); ?>
 <?php get_template_part('partials/cluster/work-style-side-job'); ?>
+<?php get_template_part('partials/cluster/work-style-ai-work'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ戻る</a>

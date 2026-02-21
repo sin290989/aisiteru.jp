@@ -26,9 +26,13 @@ $performance_eval_tag_id = $performance_eval_tag ? $performance_eval_tag->term_i
 $job_change_tag = get_term_by( 'slug', 'job-change', 'post_tag' );
 $job_change_tag_id = $job_change_tag ? $job_change_tag->term_id : 0;
 
-// ★ 追加：side-job タグ（副業）
+// side-job タグ（副業）
 $side_job_tag = get_term_by( 'slug', 'side-job', 'post_tag' );
 $side_job_tag_id = $side_job_tag ? $side_job_tag->term_id : 0;
+
+// ★ 追加：ai-work タグ（AIと仕事）
+$ai_work_tag = get_term_by( 'slug', 'ai-work', 'post_tag' );
+$ai_work_tag_id = $ai_work_tag ? $ai_work_tag->term_id : 0;
 
 // index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
@@ -37,7 +41,7 @@ $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 /*
 index 必須 ＋
 career or wage or employment-type or working-hours
-or performance-evaluation or job-change or side-job
+or performance-evaluation or job-change or side-job or ai-work
 */
 $args = array(
     'post_type'      => 'post',
@@ -50,7 +54,8 @@ $args = array(
         $working_hours_tag_id,
         $performance_eval_tag_id,
         $job_change_tag_id,
-        $side_job_tag_id
+        $side_job_tag_id,
+        $ai_work_tag_id
     ),
     'orderby'        => 'date',
     'order'          => 'DESC',
@@ -69,7 +74,8 @@ $total_count = $index_query->found_posts;
 このクラスタでは、働き方を「個人の意思や努力」だけではなく、
 「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
 キャリア形成、賃金構造、雇用形態の変化、労働時間の設計、評価制度の設計、転職による流動性の拡大、
-副業による収入分散とリスク再配分、働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+副業による収入分散とリスク再配分、AI導入による役割再編と価値創出の変化、
+働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -116,7 +122,7 @@ $total_count = $index_query->found_posts;
 <li>
 「index」＋
 「career」「wage」「employment-type」「working-hours」
-「performance-evaluation」「job-change」「side-job」
+「performance-evaluation」「job-change」「side-job」「ai-work」
 タグの記事はまだありません。
 </li>
 <?php endif; ?>

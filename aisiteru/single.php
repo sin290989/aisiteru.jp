@@ -511,7 +511,8 @@ $cluster_map = array(
         'working-hours',
         'performance-evaluation',
         'job-change',
-        'side-job' // ★ 追加：副業
+        'side-job',
+        'ai-work' // ★ 追加：AIと仕事
     ),
     'label' => '働き方',
     'parent'=> null,
@@ -557,10 +558,17 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：副業
+  // ★ 副業
   'side-job' => array(
     'tags'  => array('side-job'),
     'label' => '副業',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：AIと仕事
+  'ai-work' => array(
+    'tags'  => array('ai-work'),
+    'label' => 'AIと仕事',
     'parent'=> 'work-style',
   ),
 
