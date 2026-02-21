@@ -26,6 +26,10 @@ $performance_eval_tag_id = $performance_eval_tag ? $performance_eval_tag->term_i
 $job_change_tag = get_term_by( 'slug', 'job-change', 'post_tag' );
 $job_change_tag_id = $job_change_tag ? $job_change_tag->term_id : 0;
 
+// ★ 追加：side-job タグ（副業）
+$side_job_tag = get_term_by( 'slug', 'side-job', 'post_tag' );
+$side_job_tag_id = $side_job_tag ? $side_job_tag->term_id : 0;
+
 // index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
@@ -33,7 +37,7 @@ $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 /*
 index 必須 ＋
 career or wage or employment-type or working-hours
-or performance-evaluation or job-change
+or performance-evaluation or job-change or side-job
 */
 $args = array(
     'post_type'      => 'post',
@@ -45,7 +49,8 @@ $args = array(
         $employment_tag_id,
         $working_hours_tag_id,
         $performance_eval_tag_id,
-        $job_change_tag_id
+        $job_change_tag_id,
+        $side_job_tag_id
     ),
     'orderby'        => 'date',
     'order'          => 'DESC',
@@ -64,70 +69,69 @@ $total_count = $index_query->found_posts;
 このクラスタでは、働き方を「個人の意思や努力」だけではなく、
 「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
 キャリア形成、賃金構造、雇用形態の変化、労働時間の設計、評価制度の設計、転職による流動性の拡大、
-働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+副業による収入分散とリスク再配分、働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
 </p>
 
 <ul class="post-index">
-    <?php if ( $index_query->have_posts() ) : ?>
-        <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
+<?php if ( $index_query->have_posts() ) : ?>
+<?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
-        <li>
-            <?php $cat = get_the_category(); ?>
-            <?php $cat = $cat[0]; ?>
+<li>
+<a href="<?php the_permalink(); ?>">
 
-            <a href="<?php the_permalink(); ?>">
+<div class="post_thumbnail">
+<?php if (has_post_thumbnail()) : ?>
+<?php the_post_thumbnail('single-thumbnails'); ?>
+<?php else : ?>
+<img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
+<?php endif ; ?>
+</div>
 
-            <div class="post_thumbnail">
-            <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('single-thumbnails'); ?>
-            <?php else : ?>
-                <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
-            <?php endif ; ?>
-            </div>
+<div class="head">
 
-            <div class="head">
-                <div class="post-dates">
-                    <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
-                        <?php echo get_the_date('Y.m.d'); ?>
-                    </time>
-                </div>
+<div class="post-dates">
+<time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
+<?php echo get_the_date('Y.m.d'); ?>
+</time>
+</div>
 
-                <div class="post-title">
-                    <h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
-                </div>
+<div class="post-title">
+<h3 class="h-post-title"><span><?php the_title(); ?></span></h3>
+</div>
 
-                <div class="post-content pc">
-                <p>
-                <?php echo str_replace("\n", '', strip_tags($post->post_content)); ?>
-                </p>
-                </div>
+<div class="post-content pc">
+<p>
+<?php echo str_replace("\n", '', strip_tags($post->post_content)); ?>
+</p>
+</div>
 
-                <div style="clear:both"></div>
-            </div>
+<div style="clear:both"></div>
+</div>
 
-            </a>
-        </li>
+</a>
+</li>
 
-        <?php endwhile; ?>
-    <?php else : ?>
-        <li>「index」＋
-        「career」「wage」「employment-type」「working-hours」
-        「performance-evaluation」「job-change」
-        タグの記事はまだありません。</li>
-    <?php endif; ?>
+<?php endwhile; ?>
+<?php else : ?>
+<li>
+「index」＋
+「career」「wage」「employment-type」「working-hours」
+「performance-evaluation」「job-change」「side-job」
+タグの記事はまだありません。
+</li>
+<?php endif; ?>
 
-    <div style="clear:both"></div>
+<div style="clear:both"></div>
 </ul>
 
-<?php
-wp_reset_postdata();
-?>
+<?php wp_reset_postdata(); ?>
 
 <div class="more-btn">
-  <a href="/cluster/work-style/">
-    <span class="visually-hidden">クラスタページへ</span>
-  </a>
+<a href="/cluster/work-style/">
+<span class="visually-hidden">クラスタページへ</span>
+</a>
 </div>
+
 </div>
 <!------------------------------------------------------------------------------>
 </div>

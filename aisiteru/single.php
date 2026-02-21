@@ -510,7 +510,8 @@ $cluster_map = array(
         'employment-type',
         'working-hours',
         'performance-evaluation',
-        'job-change' // ★ 追加：転職
+        'job-change',
+        'side-job' // ★ 追加：副業
     ),
     'label' => '働き方',
     'parent'=> null,
@@ -549,10 +550,17 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：転職
+  // ★ 転職
   'job-change' => array(
     'tags'  => array('job-change'),
     'label' => '転職',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：副業
+  'side-job' => array(
+    'tags'  => array('side-job'),
+    'label' => '副業',
     'parent'=> 'work-style',
   ),
 
