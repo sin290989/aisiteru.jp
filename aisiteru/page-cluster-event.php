@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Money
+Template Name: Cluster Event
 */
 ?>
 <!DOCTYPE html>
@@ -278,7 +278,7 @@ ul.post-index .head .post-dates {
 }
 
 
-.more-btn a {
+.more-btn a{
     display: block;
     height: 40px;
     width: 200px;
@@ -303,11 +303,6 @@ ul.post-index .head .post-dates {
     padding: 100px 0 50px 0;
 }
 
-/*
-ul.post-index {
-    padding: 50px;
-    padding-bottom: 20px;
-}*/
 ul.post-index li{
     width:240px;
     float: left;
@@ -377,8 +372,8 @@ ul.post-index .head .post-content p {
     background-color: #1433d6;
     bottom:-20px;
     right: 0;
-  left: 0;
-  margin: 0 auto;
+    left: 0;
+    margin: 0 auto;
     border-radius: 50%;
     transition-duration: 0.2s;
     background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
@@ -388,28 +383,29 @@ ul.post-index .head .post-content p {
     text-decoration: none;
     transition: all 0.3s ease;
   }
-  .more-btn a:hover{
-    background-color: #0069ff;
-  }
-  .category-block.prediction-block .more-btn a {
-    top: 400px;
-  }
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
+    .more-btn a:hover{
+        background-color: #0069ff;
+    }
+
+    .category-block.prediction-block .more-btn a {
+        top: 400px;
+    }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 
 }
 </style>
-
 
 
 </head>
@@ -429,18 +425,16 @@ ul.post-index .head .post-content p {
 <div id="contents">
 
 <div id="main-cluster">
-<h1 class="h-structural">お金</h1>
+<h1 class="h-structural">イベント</h1>
 
 <p class="top-read">
-このページは、AI比較クラスタの中でも、<strong>「お金」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>
-通貨制度、金融設計、資産移転、税制、市場構造といった観点から、お金という概念がどのように社会の中で設計・運用されているのかを、多角的な視点から整理しています。<br>
-ここでは、相続、デジタル通貨、金融技術、資産構造など、お金に関連するテーマクラスタへの入口を提供しています。
+このページは、AI比較クラスタの中でも、<strong>「イベント」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>
+スポーツ大会や季節行事を単なる出来事としてではなく、制度設計・運営構造・経済的影響・メディア構造・国家や地域との関係といった観点から整理しています。<br>
+ここでは、WBCや箱根駅伝など、イベントを軸に社会との接点を読み解くテーマクラスタへの入口を提供しています。
 </p>
 
-<?php get_template_part('partials/cluster/money-investment'); ?>
-<?php get_template_part('partials/cluster/money-digital-money'); ?>
-<?php get_template_part('partials/cluster/money-inheritance'); ?>
-
+<?php get_template_part('partials/cluster/event-wbc'); ?>
+<?php get_template_part('partials/cluster/event-hakone-ekiden'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ戻る</a>

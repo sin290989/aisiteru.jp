@@ -196,7 +196,7 @@ margin-top:100px;
 .cluster-block {
     margin: 0;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 30px;
     position: relative;
     box-sizing: border-box;
     padding:50px 50px 20px 50px;
@@ -439,6 +439,7 @@ ul.post-index .head .post-content p {
 
 <?php get_template_part('partials/cluster/money'); ?>
 <?php get_template_part('partials/cluster/work-style'); ?>
+<?php get_template_part('partials/cluster/event'); ?>
 <?php get_template_part('partials/cluster/finance'); ?>
 <?php get_template_part('partials/cluster/exam-education'); ?>
 <?php get_template_part('partials/cluster/property'); ?>

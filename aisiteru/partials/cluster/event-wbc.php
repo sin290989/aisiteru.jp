@@ -1,57 +1,40 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
+<ul class="cluster-scope">
+  <li>大会運営と制度構造</li>
+  <li>競技価値と商業構造</li>
+  <li>国家とメディアの関係性</li>
+</ul>
+
 <?php
-// career タグ
-$career_tag = get_term_by( 'slug', 'career', 'post_tag' );
-$career_tag_id = $career_tag ? $career_tag->term_id : 0;
+// wbc タグの term を取得
+$season_tag = get_term_by( 'slug', 'wbc', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// wage タグ
-$wage_tag = get_term_by( 'slug', 'wage', 'post_tag' );
-$wage_tag_id = $wage_tag ? $wage_tag->term_id : 0;
-
-// employment-type タグ
-$employment_tag = get_term_by( 'slug', 'employment-type', 'post_tag' );
-$employment_tag_id = $employment_tag ? $employment_tag->term_id : 0;
-
-// working-hours タグ（労働時間）
-$working_hours_tag = get_term_by( 'slug', 'working-hours', 'post_tag' );
-$working_hours_tag_id = $working_hours_tag ? $working_hours_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ career or wage or employment-type or working-hours
-*/
+// wbc ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array(
-        $career_tag_id,
-        $wage_tag_id,
-        $employment_tag_id,
-        $working_hours_tag_id
-    ),
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
     'orderby'        => 'date',
     'order'          => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
-
 // ★ 総件数取得
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">働き方</h2>
+<h2 class="h-topic">WBC</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
-
 <p class="cluster-read">
-このクラスタでは、働き方を「個人の意思や努力」だけではなく、
-「労働市場・制度設計・産業構造・技術変化がどのように結びついているか」という視点から捉え直します。<br>
-キャリア形成、賃金構造、雇用形態の変化、労働時間の設計、働き方の選択における意思決定と不確実性といった論点を、比較の入口としてご利用ください。
+このクラスタでは、WBCを「国際野球大会」としてではなく、「大会運営・制度設計・商業構造・国家表象がどのように結びついているか」という視点から捉え直します。<br>
+競技価値の形成、放映権やスポンサー構造、ナショナルアイデンティティとの関係といった論点を、比較の入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -97,7 +80,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」＋「career」「wage」「employment-type」「working-hours」タグの記事はまだありません。</li>
+        <li>「index」タグと「wbc」タグが付いた記事はまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -108,7 +91,7 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/work-style/">
+  <a href="/cluster/event/wbc/">
     <span class="visually-hidden">クラスタページへ</span>
   </a>
 </div>

@@ -196,7 +196,7 @@ margin-top:100px;
 .cluster-block {
     margin: 0;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 30px;
     position: relative;
     box-sizing: border-box;
     padding:50px 50px 20px 50px;
@@ -435,6 +435,7 @@ ul.post-index .head .post-content p {
 </p>
 
 <?php get_template_part('partials/cluster/work-style-employment-type'); ?>
+<?php get_template_part('partials/cluster/work-style-working-hours'); ?>
 <?php get_template_part('partials/cluster/work-style-wage'); ?>
 <?php get_template_part('partials/cluster/work-style-career'); ?>
 

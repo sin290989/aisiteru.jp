@@ -1,45 +1,45 @@
-#main-cluster{
-    padding-top: 50px;
+#main-cluster {
+  padding-top: 50px;
 }
 #main-cluster h1 {
-    color: #1433d6;
-    font-size: 28px;
-    line-height: 28px;
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 700;
-    margin-bottom: 15px;
-    padding: 0 20px;
+  color: #1433d6;
+  font-size: 28px;
+  line-height: 28px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+  padding: 0 20px;
 }
 
-ul.cluster-scope{
-    color:#FFFFFF; 
-    font-weight: 500;
-    padding: 0 20px;
-    margin-bottom: 20px;
+ul.cluster-scope {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0 20px;
+  margin-bottom: 20px;
 }
 ul.cluster-scope li {
-    display: inline;
-    background-color: #031b4e;
-    padding:2px 7px;
-    font-size:10px;
-    font-size:10px;
-    border-radius:20px;
-    margin-right: 4px;
+  display: inline;
+  background-color: #031b4e;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-size: 10px;
+  border-radius: 20px;
+  margin-right: 4px;
 }
 
-#main-cluster p.read{
-    padding: 0 20px;
-    text-align: justify;
+#main-cluster p.read {
+  padding: 0 20px;
+  text-align: justify;
 }
 .cluster-rule {
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 10px;
-    padding: 0 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 0 20px;
 }
 
-.cluster-rule strong{
-    color: #1433d6;
+.cluster-rule strong {
+  color: #1433d6;
 }
 
 .cluster-block {
@@ -50,17 +50,17 @@ ul.cluster-scope li {
   margin: 30px 10px 0 10px;
 }
 
-ul.post-index li{
-    width: 100%;
-    overflow:hidden;
-    margin-bottom: 10px;
-    position: relative;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eeeeee;
+ul.post-index li {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
 }
-ul.post-index a{
-	display:block;
-    text-decoration: none;
+ul.post-index a {
+  display: block;
+  text-decoration: none;
 }
 ul.post-index li:last-child {
   border-bottom: none;
@@ -69,40 +69,40 @@ ul.post-index li:last-child {
 }
 /*左側
 -------------------------------------------------------*/
-ul.post-index .post_thumbnail{
-	width:46%;
-    float: left;
+ul.post-index .post_thumbnail {
+  width: 46%;
+  float: left;
 }
 
-ul.post-index .post_thumbnail img{
-	width:100%;
-	height:auto;
-	vertical-align:bottom;
-    padding: 0;
-    margin-bottom: 0;
-    border-radius: 3px;
+ul.post-index .post_thumbnail img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  padding: 0;
+  margin-bottom: 0;
+  border-radius: 3px;
 }
 /*右側
 -------------------------------------------------------*/
-ul.post-index .head{
-    width:52%;
-    float: right;
-    padding-top: 0px;
-    color: #46526f;
+ul.post-index .head {
+  width: 52%;
+  float: right;
+  padding-top: 0px;
+  color: #46526f;
 }
-ul.post-index .head h2{
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    color: #031b4e;
-	font-size:12px;
-    line-height: 18px;
-	background-image:none;
-	border:none;
-	margin:0;
-	padding:0;
-	height:auto;
-    padding-top: 0px;
+ul.post-index .head h2 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #031b4e;
+  font-size: 12px;
+  line-height: 18px;
+  background-image: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  padding-top: 0px;
 }
 ul.post-index .head .post-dates {
   font-size: 12px;
@@ -115,144 +115,143 @@ ul.post-index .head .post-dates {
 }
 
 .back-btn a {
-    display: block;
-    height: 40px;
-    width: 280px;
-    background-color: #1433d6;
-    text-align: center;
-    color: #FFFFFF;
-    border-radius: 20px;
-    transition-duration: 0.2s;
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
-    background-size: 16px auto;
-    background-position: right 15px center;
-    background-repeat: no-repeat;
-    margin: 40px auto 20px auto;
-    line-height: 40px;
-    font-weight: 600;
-  }
+  display: block;
+  height: 40px;
+  width: 280px;
+  background-color: #1433d6;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 20px;
+  transition-duration: 0.2s;
+  background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+  background-size: 16px auto;
+  background-position: right 15px center;
+  background-repeat: no-repeat;
+  margin: 40px auto 20px auto;
+  line-height: 40px;
+  font-weight: 600;
+}
 
 @media only screen and (min-width: 680px) {
-#contents {
+  #contents {
     width: 900px;
     margin: 0 auto;
     padding: 100px 0 50px 0;
-}
-#main-cluster{
+  }
+  #main-cluster {
     padding-top: 0px;
-}
-#main-cluster h1 {
-font-size: 48px;
-        line-height: 48px;
-        margin-bottom: 20px;
-        padding:0;
-}
+  }
+  #main-cluster h1 {
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 
-#main-cluster ul.cluster-scope{
-padding:0;
-}
-ul.cluster-scope li {
-        padding:3px 10px;
-        font-size:12px;
-        line-height: 13px;
-        border-radius:20px;
-        margin-right: 7px;
-    }
-#main-cluster p.read{
-padding:0;
-}
+  #main-cluster ul.cluster-scope {
+    padding: 0;
+  }
+  ul.cluster-scope li {
+    padding: 3px 10px;
+    font-size: 12px;
+    line-height: 13px;
+    border-radius: 20px;
+    margin-right: 7px;
+  }
+  #main-cluster p.read {
+    padding: 0;
+  }
 
-.cluster-rule {
-margin-top: 15px;
-padding: 0;
-}
+  .cluster-rule {
+    margin-top: 15px;
+    padding: 0;
+  }
 
-.cluster-rule strong{
-color: #1433d6;
-}
+  .cluster-rule strong {
+    color: #1433d6;
+  }
 
-.cluster-block {
-margin: 0;
-margin-top:30px;
-background-color: #ffffff;
-border-radius: 5px;
-position: relative;
-box-sizing: border-box;
-padding: 0;
-}
+  .cluster-block {
+    margin: 0;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+  }
 
-
-ul.post-index {
+  ul.post-index {
     padding: 50px;
-}
-ul.post-index li{
-    width:240px;
-	margin-bottom:30px;
-	padding-bottom:30px;
+  }
+  ul.post-index li {
+    width: 240px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
     float: left;
     border-bottom: none;
-}
-ul.post-index li:nth-child(2),
-ul.post-index li:nth-child(5),
-ul.post-index li:nth-child(8),
-ul.post-index li:nth-child(11),
-ul.post-index li:nth-child(14){
-    margin-left:40px;
-    margin-right:40px;
-}
-ul.post-index li:nth-child(13),
-ul.post-index li:nth-child(14),
-ul.post-index li:nth-child(15){
-    margin-bottom:0;
-	padding-bottom:0;
-}
-ul.post-index li:last-of-type{
-    border-bottom:none;
+  }
+  ul.post-index li:nth-child(2),
+  ul.post-index li:nth-child(5),
+  ul.post-index li:nth-child(8),
+  ul.post-index li:nth-child(11),
+  ul.post-index li:nth-child(14) {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  ul.post-index li:nth-child(13),
+  ul.post-index li:nth-child(14),
+  ul.post-index li:nth-child(15) {
     margin-bottom: 0;
-    padding-bottom: 0;;
-}
-/*左側
+    padding-bottom: 0;
+  }
+  ul.post-index li:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  /*左側
 -------------------------------------------------------*/
-ul.post-index .post_thumbnail{
+  ul.post-index .post_thumbnail {
     overflow: hidden;
-	width:100%;
-}
-ul.post-index a img{
+    width: 100%;
+  }
+  ul.post-index a img {
     transition-duration: 0.3s;
-}
-/*右側
+  }
+  /*右側
 -------------------------------------------------------*/
-ul.post-index .head{
-	width:100%;
-}
-ul.post-index .head h2{
-    font-size:16px;
-	line-height:24px;
-	margin:0;
-	padding:0;
+  ul.post-index .head {
+    width: 100%;
+  }
+  ul.post-index .head h2 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
     transition-duration: 0.3s;
     overflow: hidden;
-}
-ul.post-index .head h2 span {
+  }
+  ul.post-index .head h2 span {
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-}
-ul.post-index .head .post-title{
-	margin-bottom:10px;
-	padding-bottom:0;
-}
-ul.post-index .head .post-content{
+  }
+  ul.post-index .head .post-title {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+  }
+  ul.post-index .head .post-content {
     overflow: hidden;
-}
-ul.post-index .head .post-content p {
-    font-size:13px;
+  }
+  ul.post-index .head .post-content p {
+    font-size: 13px;
     line-height: 20px;
     margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-}
+  }
 }

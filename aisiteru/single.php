@@ -504,7 +504,7 @@ $cluster_map = array(
   // ★ 働き方（親構造クラスタ）
   // =========================
   'work-style' => array(
-    'tags'  => array('career','wage','employment-type'),
+    'tags'  => array('career','wage','employment-type','working-hours'),
     'label' => '働き方',
     'parent'=> null,
   ),
@@ -521,10 +521,17 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：雇用形態
+  // ★ 雇用形態
   'employment-type' => array(
     'tags'  => array('employment-type'),
     'label' => '雇用形態',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：労働時間
+  'working-hours' => array(
+    'tags'  => array('working-hours'),
+    'label' => '労働時間',
     'parent'=> 'work-style',
   ),
 
@@ -554,6 +561,29 @@ $cluster_map = array(
     'tags'  => array('investment'),
     'label' => '投資',
     'parent'=> 'money',
+  ),
+
+    // =========================
+  // ★ イベント（親構造クラスタ）
+  // =========================
+  'event' => array(
+    'tags'  => array('wbc','hakone-ekiden'),
+    'label' => 'イベント',
+    'parent'=> null,
+  ),
+
+  // 子テーマ：WBC
+  'wbc' => array(
+    'tags'  => array('wbc'),
+    'label' => 'WBC',
+    'parent'=> 'event',
+  ),
+
+  // 子テーマ：箱根駅伝
+  'hakone-ekiden' => array(
+    'tags'  => array('hakone-ekiden'),
+    'label' => '箱根駅伝',
+    'parent'=> 'event',
   ),
 
 );
