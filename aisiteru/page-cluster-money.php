@@ -443,7 +443,7 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/money-consumption'); ?>
 <?php get_template_part('partials/cluster/money-digital-money'); ?>
 <?php get_template_part('partials/cluster/money-inheritance'); ?>
-
+<?php get_template_part('partials/cluster/money-tax-return'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ戻る</a>

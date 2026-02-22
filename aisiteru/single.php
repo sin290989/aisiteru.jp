@@ -572,60 +572,68 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // =========================
+ // =========================
   // ★ お金（親構造クラスタ）
   // =========================
   'money' => array(
-    'tags'  => array(
-        'inheritance',
-        'digital-money',
-        'investment',
-        'credit',
-        'insurance',
-        'consumption' // ★ 追加：消費
-    ),
-    'label' => 'お金',
-    'parent'=> null,
+      'tags'  => array(
+          'inheritance',
+          'digital-money',
+          'investment',
+          'credit',
+          'insurance',
+          'consumption',
+          'tax-return' // ★ 追加：確定申告
+      ),
+      'label' => 'お金',
+      'parent'=> null,
   ),
 
   // 子テーマ
   'inheritance' => array(
-    'tags'  => array('inheritance'),
-    'label' => '相続',
-    'parent'=> 'money',
+      'tags'  => array('inheritance'),
+      'label' => '相続',
+      'parent'=> 'money',
   ),
 
   'digital-money' => array(
-    'tags'  => array('digital-money'),
-    'label' => 'デジタル通貨',
-    'parent'=> 'money',
+      'tags'  => array('digital-money'),
+      'label' => 'デジタル通貨',
+      'parent'=> 'money',
   ),
 
   'investment' => array(
-    'tags'  => array('investment'),
-    'label' => '投資',
-    'parent'=> 'money',
+      'tags'  => array('investment'),
+      'label' => '投資',
+      'parent'=> 'money',
   ),
 
   // ★ ローン
   'credit' => array(
-    'tags'  => array('credit'),
-    'label' => 'ローン',
-    'parent'=> 'money',
+      'tags'  => array('credit'),
+      'label' => 'ローン',
+      'parent'=> 'money',
   ),
 
   // ★ 保険
   'insurance' => array(
-    'tags'  => array('insurance'),
-    'label' => '保険',
-    'parent'=> 'money',
+      'tags'  => array('insurance'),
+      'label' => '保険',
+      'parent'=> 'money',
   ),
 
-  // ★ 追加：消費
+  // ★ 消費
   'consumption' => array(
-    'tags'  => array('consumption'),
-    'label' => '消費',
-    'parent'=> 'money',
+      'tags'  => array('consumption'),
+      'label' => '消費',
+      'parent'=> 'money',
+  ),
+
+  // ★ 追加：確定申告
+  'tax-return' => array(
+      'tags'  => array('tax-return'),
+      'label' => '確定申告',
+      'parent'=> 'money',
   ),
 
     // =========================
