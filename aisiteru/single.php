@@ -581,7 +581,8 @@ $cluster_map = array(
         'digital-money',
         'investment',
         'credit',
-        'insurance' // ★ 追加：保険
+        'insurance',
+        'consumption' // ★ 追加：消費
     ),
     'label' => 'お金',
     'parent'=> null,
@@ -613,10 +614,17 @@ $cluster_map = array(
     'parent'=> 'money',
   ),
 
-  // ★ 追加：保険
+  // ★ 保険
   'insurance' => array(
     'tags'  => array('insurance'),
     'label' => '保険',
+    'parent'=> 'money',
+  ),
+
+  // ★ 追加：消費
+  'consumption' => array(
+    'tags'  => array('consumption'),
+    'label' => '消費',
     'parent'=> 'money',
   ),
 
