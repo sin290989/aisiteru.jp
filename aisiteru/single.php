@@ -512,7 +512,8 @@ $cluster_map = array(
         'performance-evaluation',
         'job-change',
         'side-job',
-        'ai-work' // ★ 追加：AIと仕事
+        'ai-work',   // ★ AIと仕事
+        'b2b-saas'     // ★ 追加：法人SaaS
     ),
     'label' => '働き方',
     'parent'=> null,
@@ -565,10 +566,17 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：AIと仕事
+  // ★ AIと仕事
   'ai-work' => array(
     'tags'  => array('ai-work'),
     'label' => 'AIと仕事',
+    'parent'=> 'work-style',
+  ),
+
+  // ★ 追加：法人SaaS
+  'b2b-saas' => array(
+    'tags'  => array('b2b-saas'),
+    'label' => '法人SaaS',
     'parent'=> 'work-style',
   ),
 
