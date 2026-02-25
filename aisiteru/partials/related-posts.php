@@ -136,11 +136,11 @@ h2#related::before{
 
 @media only screen and (min-width: 680px) {
 ul.related-posts{
-    width: 750px;
+    width: 850px;
     height: 660px;
 }
 ul.related-posts li{
-	width:174px;
+	width:187x;
 }
 ul.related-posts li .related-posts-title h3{
     transition-duration: 0.3s;
@@ -157,17 +157,17 @@ ul.related-posts li:nth-child(1){
 }
 ul.related-posts li:nth-child(2){
     top:0;
-    left: 192px;
+    left: 220px;
 }
 
 ul.related-posts li:nth-child(3){
     top:0;
-    left: 384px;
+    left: 440px;
 }
 
 ul.related-posts li:nth-child(4){
     top:0;
-    left: 576px;
+    left: 660px;
 }
 ul.related-posts li:nth-child(4){
     padding-right: 0;
@@ -179,16 +179,16 @@ ul.related-posts li:nth-child(5){
     
 ul.related-posts li:nth-child(6){
     top:230px;
-    left: 192px;
+    left: 220px;
 }    
  
 ul.related-posts li:nth-child(7){
     top:230px;
-    left: 384px;
+    left: 440px;
 } 
 ul.related-posts li:nth-child(8){
     top:230px;
-    left: 576px;
+    left: 660px;
     padding-right: 0;
 }
 
@@ -200,21 +200,21 @@ ul.related-posts li:nth-child(9){
     
 ul.related-posts li:nth-child(10){
     top:460px;
-    left: 192px;
+    left: 220px;
 }    
  
 ul.related-posts li:nth-child(11){
     top:460px;
-    left: 384px;
+    left: 440px;
 } 
 ul.related-posts li:nth-child(12){
     top:460px;
-    left: 576px;
+    left: 660px;
     padding-right: 0;
 }
 ul.related-posts li .related-posts-thumb{
-    width:174px;
-    height: 116px;
+    width:190px;
+    height: 107px;
     overflow: hidden;
     margin: 0 0 10px 0;
 }
