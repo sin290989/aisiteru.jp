@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Career
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>キャリア形成と選択</li>
-<li>教育・経験と労働市場</li>
-<li>機会と不確実性</li>
+  <li>形成選択</li>
+  <li>経験市場</li>
+  <li>機会不確実</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

@@ -4,9 +4,9 @@
 
 <div class="cluster-block">
  <ul class="cluster-scope">
-  <li>入試制度</li>
-  <li>評価と努力</li>
-  <li>公平性と選別</li>
+  <li>制度構造</li>
+  <li>努力評価</li>
+  <li>公平選別</li>
 </ul>
 <?php
 // season-exam タグの term を取得

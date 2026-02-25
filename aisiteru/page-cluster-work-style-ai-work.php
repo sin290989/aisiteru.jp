@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - AI Work
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>自動化と業務再設計</li>
-<li>役割分化とスキル再編</li>
-<li>生産性と価値創出の変化</li>
+  <li>業務再設計</li>
+  <li>スキル再編</li>
+  <li>価値変容</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

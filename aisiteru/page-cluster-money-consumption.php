@@ -44,9 +44,9 @@ Template Name: Cluster Money - Consumption
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>需要構造と価格形成</li>
-<li>家計行動と心理的要因</li>
-<li>国家政策と消費刺激策</li>
+  <li>需給構造</li>
+  <li>家計心理</li>
+  <li>政策刺激</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
@@ -58,7 +58,7 @@ Template Name: Cluster Money - Consumption
 </p>
 
 <p class="cluster-rule">
-このクラスタには、構造クラスタ「お金」に属する<strong>消費（consumption）</strong>テーマの記事を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>消費</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">

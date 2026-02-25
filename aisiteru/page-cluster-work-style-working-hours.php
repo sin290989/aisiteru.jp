@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Working Hours
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>時間管理と制度設計</li>
-<li>生産性と評価の接続</li>
-<li>裁量と健康リスク</li>
+  <li>時間制度</li>
+  <li>生産評価</li>
+  <li>裁量リスク</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

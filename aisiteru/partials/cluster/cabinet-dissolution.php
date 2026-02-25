@@ -4,9 +4,9 @@
 
 <div class="cluster-block">
 <ul class="cluster-scope">
-  <li>制度としての解散</li>
-  <li>政治的戦略</li>
-  <li>民主主義と正統性</li>
+  <li>解散制度</li>
+  <li>戦略判断</li>
+  <li>民主正統性</li>
 </ul>
 
 <?php

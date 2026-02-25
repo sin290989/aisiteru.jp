@@ -41,9 +41,9 @@ Template Name: Cluster Finance
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>制度と市場構造</li>
-<li>リスクと意思決定</li>
-<li>資本と社会的影響</li>
+  <li>制度市場</li>
+  <li>リスク判断</li>
+  <li>資本影響</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

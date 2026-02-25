@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Job Change
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>労働市場と流動性</li>
-<li>キャリア形成と分断</li>
-<li>企業戦略と人材移動</li>
+  <li>市場流動</li>
+  <li>形成分断</li>
+  <li>戦略移動</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

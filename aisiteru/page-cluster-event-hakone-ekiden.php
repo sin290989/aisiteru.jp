@@ -44,9 +44,9 @@ Template Name: Cluster Event - Hakone Ekiden
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>大会運営と制度設計</li>
-<li>大学ブランドと象徴構造</li>
-<li>メディアと物語形成</li>
+  <li>大会運営</li>
+  <li>大学象徴</li>
+  <li>メディア物語</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

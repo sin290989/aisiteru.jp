@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Performance Evaluation
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>評価基準と制度設計</li>
-<li>賃金・昇進との接続</li>
-<li>成果と行動の整合性</li>
+  <li>評価制度</li>
+  <li>賃金昇進</li>
+  <li>成果整合</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

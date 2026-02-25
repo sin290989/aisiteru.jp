@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Side Job
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>収入分散とリスク管理</li>
-<li>時間配分と本業との関係</li>
-<li>制度設計と企業規制</li>
+  <li>収入分散</li>
+  <li>時間配分</li>
+  <li>制度規制</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

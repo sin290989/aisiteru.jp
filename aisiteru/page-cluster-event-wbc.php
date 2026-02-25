@@ -44,9 +44,9 @@ Template Name: Cluster Event - WBC
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>大会運営と制度構造</li>
-<li>競技価値と商業構造</li>
-<li>国家とメディアの関係性</li>
+  <li>運営構造</li>
+  <li>競技商業</li>
+  <li>国家メディア</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

@@ -44,9 +44,9 @@ Template Name: Cluster Money - Tax Return
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>所得構造と課税設計</li>
-<li>控除制度と再分配構造</li>
-<li>申告義務と国家財政の関係</li>
+  <li>課税構造</li>
+  <li>再分配制度</li>
+  <li>財政関係</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
@@ -58,7 +58,7 @@ Template Name: Cluster Money - Tax Return
 </p>
 
 <p class="cluster-rule">
-このクラスタには、構造クラスタ「お金」に属する<strong>確定申告（tax-return）</strong>テーマの記事を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>確定申告</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">

@@ -43,8 +43,8 @@ Template Name: Cluster Taiga Drama
 
 <ul class="cluster-scope">
   <li>歴史解釈</li>
-  <li>人物像の再構築</li>
-  <li>物語と史実</li>
+  <li>人物再構</li>
+  <li>物語史実</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

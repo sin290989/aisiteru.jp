@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>通貨設計</li>
-  <li>決済インフラ</li>
-  <li>国家と金融統治</li>
+  <li>通貨制度</li>
+  <li>決済再編</li>
+  <li>国家市場</li>
 </ul>
 
 <?php

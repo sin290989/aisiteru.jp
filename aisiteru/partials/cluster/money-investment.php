@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>資産形成と時間構造</li>
-  <li>市場設計とリスク配分</li>
-  <li>国家政策と投資環境</li>
+  <li>時間構造</li>
+  <li>市場設計</li>
+  <li>政策環境</li>
 </ul>
 
 <?php

@@ -42,9 +42,9 @@ Template Name: Cluster Game
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>ゲーム設計とシステム構造</li>
-<li>達成感と心理設計</li>
-<li>社会と文化的影響</li>
+  <li>ゲーム構造</li>
+  <li>達成と心理</li>
+  <li>社会文化</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

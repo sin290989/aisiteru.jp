@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>所得把握と課税構造</li>
-  <li>税制設計と再分配メカニズム</li>
-  <li>個人・事業者・国家の財政関係</li>
+  <li>課税構造</li>
+  <li>再分配制度</li>
+  <li>財政関係</li>
 </ul>
 
 <?php

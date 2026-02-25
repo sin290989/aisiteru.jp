@@ -44,9 +44,9 @@ Template Name: Cluster Money - Insurance
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>リスク移転と再分配構造</li>
-<li>確率設計と保険料の仕組み</li>
-<li>家計・企業・国家の保障体系</li>
+  <li>再分配構造</li>
+  <li>確率設計</li>
+  <li>保障体系</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
@@ -58,7 +58,7 @@ Template Name: Cluster Money - Insurance
 </p>
 
 <p class="cluster-rule">
-このクラスタには、構造クラスタ「お金」に属する<strong>保険（insurance）</strong>テーマの記事を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>保険</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">

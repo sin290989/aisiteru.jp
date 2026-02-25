@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>信用創造と時間構造</li>
-  <li>金利設計とリスク移転</li>
-  <li>家計・企業・国家の債務関係</li>
+  <li>通貨構造</li>
+  <li>金利設計</li>
+  <li>負債構造</li>
 </ul>
 
 <?php

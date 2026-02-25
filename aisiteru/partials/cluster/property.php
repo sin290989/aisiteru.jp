@@ -2,9 +2,9 @@
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
 <ul class="cluster-scope">
-  <li>制度設計</li>
-  <li>権利と取引</li>
-  <li>空間と資産価値</li>
+  <li>権利構造</li>
+  <li>市場取引</li>
+  <li>制度役割</li>
 </ul>
 <?php
 // property タグの term を取得

@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>リスク分散と確率設計</li>
-  <li>保障制度と再分配構造</li>
-  <li>家計・企業・国家のリスク管理</li>
+  <li>再分配構造</li>
+  <li>確率設計</li>
+  <li>保障体系</li>
 </ul>
 
 <?php

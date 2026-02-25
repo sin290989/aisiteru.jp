@@ -44,9 +44,9 @@ Template Name: Cluster Money - Digital Money
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>通貨設計と制度変化</li>
-<li>決済インフラの再編</li>
-<li>国家と市場の関係</li>
+  <li>通貨制度</li>
+  <li>決済再編</li>
+  <li>国家市場</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

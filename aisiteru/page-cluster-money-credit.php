@@ -44,9 +44,9 @@ Template Name: Cluster Money - Credit
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>信用創造と通貨構造</li>
-<li>金利設計とリスク分配</li>
-<li>家計・企業・国家の負債構造</li>
+  <li>通貨構造</li>
+  <li>金利設計</li>
+  <li>負債構造</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
@@ -58,7 +58,7 @@ Template Name: Cluster Money - Credit
 </p>
 
 <p class="cluster-rule">
-このクラスタには、構造クラスタ「お金」に属する<strong>ローン（credit）</strong>テーマの記事を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>ローン</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">

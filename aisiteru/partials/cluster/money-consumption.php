@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>需要構造と市場循環</li>
-  <li>価格形成とインセンティブ設計</li>
-  <li>家計行動と経済成長の関係</li>
+  <li>需給構造</li>
+  <li>家計心理</li>
+  <li>政策刺激</li>
 </ul>
 
 <?php

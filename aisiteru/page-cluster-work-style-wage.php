@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - Wage
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>労働と市場価値</li>
-<li>制度と報酬構造</li>
-<li>選択と経済的不確実性</li>
+  <li>市場価値</li>
+  <li>報酬構造</li>
+  <li>経済不確実</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

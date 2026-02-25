@@ -44,9 +44,9 @@ Template Name: Cluster Money - Inheritance
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>制度設計と資産移転</li>
-<li>家族構造と経済意思決定</li>
-<li>富の分配と社会構造</li>
+  <li>制度移転</li>
+  <li>家族構造</li>
+  <li>分配構造</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

@@ -42,9 +42,9 @@ Template Name: Cluster Love
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>関係性と感情</li>
-<li>社会構造と出会い</li>
-<li>選択と不確実性</li>
+  <li>関係感情</li>
+  <li>社会構造</li>
+  <li>選択不確実</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

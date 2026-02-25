@@ -42,9 +42,9 @@ Template Name: Cluster Olympics
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>制度と運営構造</li>
-  <li>競技と価値創出</li>
-  <li>政治と社会的影響</li>
+  <li>運営構造</li>
+  <li>競技価値</li>
+  <li>社会影響</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

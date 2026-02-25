@@ -4,9 +4,9 @@
 
 <div class="cluster-block">
 <ul class="cluster-scope">
-  <li>制度と運営構造</li>
-  <li>競技と価値創出</li>
-  <li>政治と社会的影響</li>
+  <li>運営構造</li>
+  <li>競技価値</li>
+  <li>社会影響</li>
 </ul>
 
 <?php

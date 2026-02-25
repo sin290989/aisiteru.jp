@@ -44,9 +44,9 @@ Template Name: Cluster Work Style - B2B SaaS
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>業務設計と標準化</li>
-<li>可視化・管理と意思決定</li>
-<li>労働市場と組織運用の再編</li>
+  <li>業務標準化</li>
+  <li>可視化管理</li>
+  <li>組織再編</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
@@ -58,7 +58,7 @@ Template Name: Cluster Work Style - B2B SaaS
 </p>
 
 <p class="cluster-rule">
-このクラスタには、構造クラスタ「働き方」に属する<strong>法人SaaS（b2b-saas）</strong>テーマの記事を時系列で表示しています。
+このクラスタには、構造クラスタ「働き方」に属する<strong>法人SaaS</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">

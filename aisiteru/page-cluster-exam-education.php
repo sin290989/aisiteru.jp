@@ -41,9 +41,9 @@ Template Name: Cluster Exam Education
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-<li>入試制度</li>
-<li>評価と努力</li>
-<li>公平性と選別</li>
+  <li>制度構造</li>
+  <li>努力評価</li>
+  <li>公平選別</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>

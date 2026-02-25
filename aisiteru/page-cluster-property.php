@@ -43,11 +43,10 @@ Template Name: Cluster Property
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>権利と登記</li>
-  <li>市場と取引構造</li>
-  <li>制度と社会的役割</li>
+  <li>権利構造</li>
+  <li>市場取引</li>
+  <li>制度役割</li>
 </ul>
-
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
