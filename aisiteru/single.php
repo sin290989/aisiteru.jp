@@ -68,7 +68,11 @@ ul.cluster-list li a{
   border:none;
   border-radius: 10px;
 }
-
+#contents {
+    width: 850px;
+    margin: 0 auto;
+    padding: 130px 0 180px 0;
+  }
 
 
 

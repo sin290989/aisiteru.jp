@@ -37,7 +37,7 @@
     left:0;
     bottom:0;
     z-index: 9999;
-    background-color: #eeeeee;
+    background-color: #ffffff;
   }
   #footer .inner {
     width: auto;
