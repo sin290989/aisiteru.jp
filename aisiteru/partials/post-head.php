@@ -248,12 +248,12 @@ body #post-head h1 {
   }
    #post-head .post_thumbnail {
     position: absolute;
-    top: 0;
-    left: -40px;
+    top: 42px;
+    right:0;
     margin: 0;
     border-radius: 5px;
     overflow: hidden;
-    width: 330px;
+    width:250px;
   }
   body #post-head h1 {
     font-size: 22px;
@@ -269,7 +269,7 @@ body #post-head h1 {
   .post-info {
     position: absolute;
     top: 0;
-    left: 330px;
+    left:0;
     margin: 0;
     width: 530px;
   }

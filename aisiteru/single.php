@@ -61,7 +61,7 @@ ul.cluster-list li a{
 }
 @media only screen and (min-width: 680px) {
 .cluster-block{
-  width: 850px;
+  width: 800px;
   padding: 25px 45px 25px 45px;
   margin: 0;
   margin-top: 30px;
@@ -69,10 +69,17 @@ ul.cluster-list li a{
   border-radius: 10px;
 }
 #contents {
-    width: 850px;
+    width: 800px;
     margin: 0 auto;
     padding: 130px 0 180px 0;
   }
+#post-single {
+    width: 800px;
+    padding: 40px 50px 40px 50px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
 
 
 
