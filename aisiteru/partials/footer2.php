@@ -26,24 +26,38 @@
   vertical-align: bottom;
 }
 @media only screen and (min-width: 680px) {
+
   #footer {
     padding: 0;
+    border-top:none;
+     padding: 0;
+     width: 280px;
+    height: 85px;
+    position:fixed;
+    left:0;
+    bottom:0;
+    z-index: 9999;
+    background-color: #eeeeee;
   }
   #footer .inner {
-    width: 100%;
-    height: 100px;
+    width: auto;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
+    position: static;
+    line-height: 85px;
   }
   #footer #copy {
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    text-align: left;
+    position: static;
+    text-align: center;
     font-size: 11px;
     letter-spacing: 1px;
   }
+
+
+
+
+
   #footer .ft-menu {
     display: block;
     position: absolute;
@@ -135,7 +149,7 @@ $(function(){
 </script>
 <div id="footer">
 <div class="inner">
-<div id="copy">Copyright © <?php echo date("Y"); ?> aisiteru? All Rights Reserved.</div>
+<div id="copy">© AIシテル？ All Rights Reserved.</div>
 
 </div>
 </div>
