@@ -97,7 +97,7 @@ body #post-head_index h1 {
         position: relative;   /* ← static は NG（ボタン位置がずれるため） */
         border-radius: 5px;
         overflow: hidden;
-        width: 740px;
+        width: 850px;
         margin: 0 0 0 0;
         height: 350px;
     }
@@ -114,7 +114,7 @@ body #post-head_index h1 {
         font-size: 28px;
         line-height: 42px;
         margin: 0 0 0 0;
-        width: 740px;
+        width: 840px;
         box-sizing: border-box;
         text-align: justify;
       }
@@ -288,24 +288,5 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('load', positionSNS);
   window.addEventListener('resize', positionSNS);
 
-});
-</script>
-
-<script>
-window.addEventListener('load', function () {
-  // PCのみ（1024px以上）
-  if (window.innerWidth < 680) return;
-
-  const thumbnail = document.querySelector('.post_thumbnail');
-  const side = document.querySelector('#side');
-
-  if (!thumbnail || !side) return;
-
-  const thumbTop = thumbnail.getBoundingClientRect().top;
-  const sideTop = side.getBoundingClientRect().top;
-
-  const diff = sideTop - thumbTop;
-
-  side.style.marginTop = `-${diff}px`;
 });
 </script>

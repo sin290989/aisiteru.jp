@@ -243,7 +243,7 @@ body #post-head h1 {
 ================================================================================================*/
   #post-head .inner {
     position: relative;
-    height: 280px;
+    height: 220px;
     padding: 0;
   }
    #post-head .post_thumbnail {
@@ -253,12 +253,12 @@ body #post-head h1 {
     margin: 0;
     border-radius: 5px;
     overflow: hidden;
-    width: 380px;
+    width: 330px;
   }
   body #post-head h1 {
-    font-size: 28px;
-    line-height: 42px;
-    margin: 7px 0 10px 0;
+    font-size: 22px;
+    line-height: 36px;
+    margin: 5px 0 10px 0;
   }
   .post-dates {
     font-size: 12px;
@@ -269,9 +269,9 @@ body #post-head h1 {
   .post-info {
     position: absolute;
     top: 0;
-    left: 370px;
+    left: 330px;
     margin: 0;
-    width: 730px;
+    width: 530px;
   }
   .post-cat {
     font-size: 14px;
@@ -302,6 +302,7 @@ body #post-head h1 {
 
   .view-prompt-btn {
     width: auto;
+    font-size:11px;
   }
   .view-index-btn {
     width: auto;
@@ -309,7 +310,8 @@ body #post-head h1 {
   background-repeat: no-repeat;
   background-size: 18px auto;
   background-position: center left 10px;
-  padding-left:30px
+  padding-left:30px;
+  font-size:11px;
   }
 .view-index-btn:hover{
   color: #FFFFFF;
@@ -322,9 +324,8 @@ body #post-head h1 {
         position: static;
         border-radius: 5px;
         overflow: hidden;
-        width: 740px;
+        width: 850px;
         margin: 0 0 20px 0;
-        height: 350px;
     }
 
     #post-head_index .post_thumbnail img{
@@ -333,6 +334,9 @@ body #post-head h1 {
         object-fit: cover;
         object-position: center center; /* ←天地中央に配置 */
     }
+
+
+    
 
 
 }

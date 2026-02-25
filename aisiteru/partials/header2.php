@@ -62,7 +62,7 @@ ul.global-menu {
   }
   .logo {
     top: 15px;
-    left: 30px;
+    left: 60px;
     font-weight: 700;
     font-size: 16px;
   }

@@ -255,7 +255,7 @@ ul.other-link-bottom a:hover{
     }
 
     body {
-        margin-left: 280px;     /* ← 250pxに変更 */
+        margin-left: 240px;     /* ← 250pxに変更 */
     }
 }
 
