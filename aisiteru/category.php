@@ -13,7 +13,7 @@ $catname = $cat[0]->name; // カテゴリ名
 <meta name="format-detection" content="telephone=no">
 <title><?php single_cat_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common107.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/post-index.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -22,23 +22,15 @@ $catname = $cat[0]->name; // カテゴリ名
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 <style type="text/css">
-    #main{
-        margin-bottom:80px;
-    }
-    #side{
-        padding-bottom:10px;
-    }
+
 @media only screen and (min-width: 680px) {
 
-    body #contents{
-        width: 900px;
-    }
-    body #main{
-        margin-bottom:0;
-        width: 900px;
-        margin-top:60px;
-        background-color: #EEEEEE;
-    }
+#contents {
+    width: 800px;
+    margin: 0 auto;
+    padding: 100px 0 180px 0;
+  }
+
     
 }
 </style>
@@ -59,7 +51,6 @@ $catname = $cat[0]->name; // カテゴリ名
 <div id="contents">
 
 
-<div id="main">
 <div class="category-block">
 <h1><?php single_cat_title(); ?></h1>
 <?php
@@ -134,10 +125,6 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 }
 ?>
 </div>
-</div>
-
-
-<div style="clear:both"></div>
 
 </div>
 

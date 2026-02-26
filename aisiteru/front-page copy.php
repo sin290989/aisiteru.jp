@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php bloginfo('name'); ?>｜<?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common111.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">

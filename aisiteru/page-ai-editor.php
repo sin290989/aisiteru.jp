@@ -16,7 +16,7 @@ $ai_key = get_post_field( 'post_name', get_post() );
 <meta name="format-detection" content="telephone=no">
 <title><?php the_title(); ?>の記事一覧｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common111.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/post-index.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -27,7 +27,7 @@ $ai_key = get_post_field( 'post_name', get_post() );
 </head>
 <body>
 
-<?php get_template_part('partials/header'); ?>
+<?php get_template_part('partials/header2'); ?>
 
 <div id="pan">
   <div class="inner">
@@ -41,7 +41,6 @@ $ai_key = get_post_field( 'post_name', get_post() );
 <div id="contents">
   
 
-  <div id="main">
 <div class="ai-block">
     <h1><?php the_title(); ?></h1>
   <?php
@@ -121,19 +120,12 @@ $ai_key = get_post_field( 'post_name', get_post() );
   }
   ?>
  </div>
-  </div>
 
-  <div id="side">
-    <?php dynamic_sidebar('sidebar-1'); ?>
-    <?php get_template_part("partials/cat") ?>
-    <?php //get_template_part("partials/tag") ?>  
-  </div>
-  <div style="clear:both"></div>
 
 </div>
 </div>
 
-<?php get_template_part('partials/footer'); ?>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 
 <?php if ( ! wp_is_mobile() ) : ?>
