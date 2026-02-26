@@ -169,7 +169,8 @@ body #post-head h1 {
 .prompt-index-buttons-wrapper {
   display: flex;
   gap: 15px; /* ボタン間の間隔 */
-  margin-bottom: 15px;
+  margin-top: 10
+  px;
   align-items: center; /* 垂直方向の中央揃え */
   flex-wrap: wrap;
   justify-content: center;
@@ -238,18 +239,19 @@ body #post-head h1 {
   vertical-align: bottom;
 }
 
+
 @media only screen and (min-width: 680px) {
   /*post-head
 ================================================================================================*/
   #post-head .inner {
     position: relative;
-    height: 220px;
+    height: 230px;
     padding: 0;
   }
    #post-head .post_thumbnail {
     position: absolute;
-    top: 42px;
-    right:0;
+    top: 0;
+    left:0;
     margin: 0;
     border-radius: 5px;
     overflow: hidden;
@@ -269,7 +271,7 @@ body #post-head h1 {
   .post-info {
     position: absolute;
     top: 0;
-    left:0;
+    left:280px;
     margin: 0;
     width: 530px;
   }
@@ -297,7 +299,10 @@ body #post-head h1 {
 
   .prompt-index-buttons-wrapper {
     margin-bottom: 10px;
-    justify-content: flex-start;
+    margin-top:0;
+    width: 800px;
+    position: absolute;
+    bottom: 20px;
   }
 
   .view-prompt-btn {
@@ -324,7 +329,7 @@ body #post-head h1 {
         position: static;
         border-radius: 5px;
         overflow: hidden;
-        width: 850px;
+        width: 800px;
         margin: 0 0 20px 0;
     }
 
@@ -452,33 +457,12 @@ body #post-head h1 {
   ?>
 
 
-    <?php display_ai_author_message(); ?>
-
-    <?php
-// カスタムフィールドから取得
-$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
-$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
-
-// ai_base_slug から index_path を生成
-$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
-?>
-
-<div class="prompt-index-buttons-wrapper">
-    
-    <div class="view-prompt-btn button-base">
-        <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
-    </div>
-    
-    <?php if ( $index_path && $index_title ) : ?>
-        <a href="<?php echo esc_url($index_path); ?>" class="view-index-btn button-base">
-            <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
-        </a>
-    <?php endif; ?>
-    
-</div>
-
+  <?php display_ai_author_message(); ?>
 
 </div>
+
+
+
 
     
 <?php
@@ -510,6 +494,29 @@ $thumb_ai = $thumb_ai ? $thumb_ai : 'ImageFX';
 </div>
 
 
+
+<?php
+// カスタムフィールドから取得
+$ai_base_slug = get_post_meta(get_the_ID(), 'ai_base_slug', true);
+$index_title  = get_post_meta(get_the_ID(), 'index_title', true);
+
+// ai_base_slug から index_path を生成
+$index_path = $ai_base_slug ? '/' . trim($ai_base_slug, '/') . '/' : '';
+?>
+
+<div class="prompt-index-buttons-wrapper">
+    
+    <div class="view-prompt-btn button-base">
+        <span class="pc">共通プロンプトはこちら</span><span class="sp">共通プロンプト</span>
+    </div>
+    
+    <?php if ( $index_path && $index_title ) : ?>
+        <a href="<?php echo esc_url($index_path); ?>" class="view-index-btn button-base">
+            <span class="pc"><?php echo esc_html($index_title); ?></span><span class="sp">比較インデックス</span>
+        </a>
+    <?php endif; ?>
+    
+</div>
 
 </div>
 </div> 

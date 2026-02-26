@@ -97,7 +97,7 @@ body #post-head_index h1 {
         position: relative;   /* ← static は NG（ボタン位置がずれるため） */
         border-radius: 5px;
         overflow: hidden;
-        width: 850px;
+        width: 800px;
         margin: 0 0 0 0;
         height: 350px;
     }
@@ -111,10 +111,10 @@ body #post-head_index h1 {
     }
 
       body #post-head_index h1 {
-        font-size: 28px;
-        line-height: 42px;
+        font-size: 26px;
+        line-height: 39px;
         margin: 0 0 0 0;
-        width: 840px;
+        width: 780px;
         box-sizing: border-box;
         text-align: justify;
       }
@@ -128,7 +128,7 @@ body #post-head_index h1 {
       }
 
 
-      .post-info {
+    .post-info {
 
     padding: 10px 10px 30px 10px;
     width: 740px;

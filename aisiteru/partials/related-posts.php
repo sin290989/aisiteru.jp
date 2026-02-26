@@ -136,11 +136,11 @@ h2#related::before{
 
 @media only screen and (min-width: 680px) {
 ul.related-posts{
-    width: 850px;
-    height: 660px;
+    width: 800px;
+    height: 640px;
 }
 ul.related-posts li{
-	width:187x;
+	width:185px;
 }
 ul.related-posts li .related-posts-title h3{
     transition-duration: 0.3s;
@@ -157,17 +157,17 @@ ul.related-posts li:nth-child(1){
 }
 ul.related-posts li:nth-child(2){
     top:0;
-    left: 220px;
+    left: 205px;
 }
 
 ul.related-posts li:nth-child(3){
     top:0;
-    left: 440px;
+    left: 410px;
 }
 
 ul.related-posts li:nth-child(4){
     top:0;
-    left: 660px;
+    left: 615px;
 }
 ul.related-posts li:nth-child(4){
     padding-right: 0;
@@ -179,16 +179,16 @@ ul.related-posts li:nth-child(5){
     
 ul.related-posts li:nth-child(6){
     top:230px;
-    left: 220px;
+    left: 205px;
 }    
  
 ul.related-posts li:nth-child(7){
     top:230px;
-    left: 440px;
+    left: 410px;
 } 
 ul.related-posts li:nth-child(8){
     top:230px;
-    left: 660px;
+    left: 615px;
     padding-right: 0;
 }
 
@@ -200,16 +200,16 @@ ul.related-posts li:nth-child(9){
     
 ul.related-posts li:nth-child(10){
     top:460px;
-    left: 220px;
+    left: 205px;
 }    
  
 ul.related-posts li:nth-child(11){
     top:460px;
-    left: 440px;
+    left: 410px;
 } 
 ul.related-posts li:nth-child(12){
     top:460px;
-    left: 660px;
+    left: 615px;
     padding-right: 0;
 }
 ul.related-posts li .related-posts-thumb{

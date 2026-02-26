@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common108.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single76.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single79.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -68,23 +68,6 @@ ul.cluster-list li a{
   border:none;
   border-radius: 10px;
 }
-#contents {
-    width: 800px;
-    margin: 0 auto;
-    padding: 130px 0 180px 0;
-  }
-#post-single {
-    width: 800px;
-    padding: 40px 50px 40px 50px;
-    box-sizing: border-box;
-    margin: 0;
-  }
-
-
-
-
-
-  
 
 
 
