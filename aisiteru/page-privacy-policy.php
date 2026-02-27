@@ -38,8 +38,7 @@ Template Name:privacy-policy
     margin-top: 20px;
 } 
 .priCon ul{
-    margin-left:15px;
-    margin-bottom:20px;
+    margin:20px 0 30px 15px;
 }
 .priCon ul li{
 	margin-left:18px;
@@ -61,28 +60,19 @@ Template Name:privacy-policy
 }
 @media only screen and (min-width: 680px) {   
 
-
-#contents900{
-    box-sizing: border-box;
-    background-color: #1433d6;
-    
-}
- .inner-con{
-    margin:0;
-}
 }
 </style>
 </head>
 <body>
 <?php get_template_part('partials/header2'); ?>
-<div id="pan" style="background-color: #f7f8f8;">
+<div id="pan">
 <div class="inner">
 <a href="/"><span class="home">トップページ</span></a> > <a href="/privacy-policy">プライバシーポリシー</a></span>
 </div>
 </div>
 
 <div id="page-wapper">
-<div id="contents900">
+<div id="contents">
 <h1>プライバシーポリシー</h1>
 <div class="inner-con">
 <div class="priCon">

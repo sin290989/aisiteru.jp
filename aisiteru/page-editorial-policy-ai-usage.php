@@ -38,9 +38,7 @@ Template Name:editorial-policy-ai-usage
     margin-top: 20px;
 } 
 .priCon ul{
-    margin-top:15px;
-    margin-left:15px;
-    margin-bottom:20px;
+    margin:20px 0 30px 15px;
 }
 .priCon ul li{
 	margin-left:18px;
@@ -62,20 +60,21 @@ Template Name:editorial-policy-ai-usage
 }
 @media only screen and (min-width: 680px) {   
 
-
 }
 </style>
 </head>
 <body>
-<?php get_template_part('partials/header'); ?>
+<?php get_template_part('partials/header2'); ?>
 <div id="pan">
 <div class="inner">
 <a href="/"><span class="home">トップページ</span></a> > <a href="/editorial-policy-ai-usage">編集方針・AI利用ポリシー</a></span>
 </div>
 </div>
-<div class="page-main-img"><h1>編集方針・AI利用ポリシー</h1></div>
 <div id="page-wapper">
-<div id="page-contents">
+<div id="contents">
+<div class="inner-con">
+
+<h1>編集方針・AI利用ポリシー</h1>
 <div class="priCon">
 AISITERU.jp（AIシテル？）では、記事制作にあたり複数のAIを活用しています。<br>
 本ページは、当サイトの編集方針およびAIの利用方法について、読者ならびに外部評価者に向けて明確に説明することを目的としています。<br>
@@ -151,11 +150,10 @@ AISITERU.jp は、以下の点を重視しています。
 <h2>7. お問い合わせについて</h2>
 本ページの内容に関するご質問やご意見がある場合は、<a href="/contact">お問い合わせページ</a>よりご連絡ください。
 </div>
-
-
 </div>
 </div>
-<?php get_template_part('partials/footer'); ?>
+</div>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
