@@ -12,7 +12,7 @@ Template Name: Cluster Event
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common108.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css//common112.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -435,7 +435,6 @@ ul.post-index .head .post-content p {
 
 <?php get_template_part('partials/cluster/event-wbc'); ?>
 <?php get_template_part('partials/cluster/event-hakone-ekiden'); ?>
-
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ戻る</a>
 </div>
