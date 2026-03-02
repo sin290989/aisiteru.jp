@@ -8,71 +8,13 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single84.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single85.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
- 
-<style type="text/css">
-.index-lead .index-link{
-  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
-  background-repeat: no-repeat;
-  background-size: 15px auto;
-  background-position: center left;
-  padding-left:15px
-}
-
-.cluster-block {
-  padding: 25px 25px 25px 25px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  margin: 0 10px;
-  margin-top: 20px;
-}
-.cluster-block h2 {
-  font-weight: 700;
-  color: #1433d6;
-}
-ul.cluster-list{
-  margin-top:10px;
-  margin-bottom:20px;
-}
-ul.cluster-list li a{
-  display: block;
-  padding: 5px;
-  font-weight: bold;
-}
-
-
-.cluster-backlink {
-  margin-top: 8px;
-  font-size: 13px;
-}
-.cluster-backlink a {
-  color: #0069ff;
-  text-decoration: underline;
-}
-.cluster-backlink a:hover {
-  text-decoration: none;
-}
-@media only screen and (min-width: 680px) {
-.cluster-block{
-  width: 800px;
-  padding: 25px 45px 25px 45px;
-  margin: 0;
-  margin-top: 30px;
-  border:none;
-  border-radius: 10px;
-}
-}
-
-
-</style>
-
 
 </head>
 <body>

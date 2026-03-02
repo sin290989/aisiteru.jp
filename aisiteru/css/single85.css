@@ -216,7 +216,13 @@ ul.check li:last-child {
   border-radius: 2px;
   border: 1px dotted #cccccc;
 }
-
+.index-lead .index-link{
+  background-image: url(/wp/wp-content/themes/aisiteru/images/icon/arrow_yubi.png);
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+  background-position: center left;
+  padding-left:15px
+}
 .ai-generated-mini {
   font-size: 12px;
   background: #ffffff;
@@ -611,6 +617,21 @@ body #post-single .ai-written ul li a .ai-written-content-title {
 /*================================================================================================*/
 /*クラスターリンク*/
 /*================================================================================================*/
+.cluster-block {
+  padding: 25px 25px 25px 25px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  margin: 0 10px;
+  margin-top: 20px;
+}
+.cluster-block h2 {
+  font-weight: 700;
+  color: #1433d6;
+}
+
+
+
 .cluster-block a[target="_blank"] {
   background-image: none;
 }
@@ -704,7 +725,26 @@ body .cluster-block ul li a .cluster-block-content-title {
   background-position: center center;
   background-repeat: no-repeat;
 }
+.cluster-backlink {
+  margin-top: 8px;
+  font-size: 13px;
+}
+.cluster-backlink a {
+  color: #0069ff;
+  text-decoration: underline;
+}
+.cluster-backlink a:hover {
+  text-decoration: none;
+}
 @media only screen and (min-width: 680px) {
+.cluster-block{
+  width: 800px;
+  padding: 25px 45px 25px 45px;
+  margin: 0;
+  margin-top: 30px;
+  border:none;
+  border-radius: 10px;
+}
   .cluster-block .cluster-block-title {
     font-size: 14px;
   }
