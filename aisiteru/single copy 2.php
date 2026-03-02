@@ -61,7 +61,7 @@ ul.cluster-list li a{
 }
 @media only screen and (min-width: 680px) {
 .cluster-block{
-  width: 740px;
+  width: 800px;
   padding: 25px 45px 25px 45px;
   margin: 0;
   margin-top: 30px;
@@ -71,12 +71,6 @@ ul.cluster-list li a{
 
 
 
-#contents {
-    width: 900px;
-    margin: 0 auto;
-    padding: 100px 0 180px 0;
-  }
-
 }
 
 
@@ -85,7 +79,7 @@ ul.cluster-list li a{
 
 </head>
 <body>
-<?php get_template_part('partials/header'); ?>
+<?php get_template_part('partials/header2'); ?>
 <div id="pan">
 <?php
 // 記事が属するカテゴリ情報を取得
@@ -745,6 +739,8 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 </div>
 <?php endif; ?>
 
+
+
 <?php
 // ===============================
 // 戻りリンク生成
@@ -1106,17 +1102,12 @@ jQuery(function($) {
 
 
 
-<div id="side">
-<?php get_template_part("partials/cat") ?>
-<?php dynamic_sidebar('sidebar-1'); ?>
 
-<?php //get_template_part("partials/tag") ?>
-</div>
 <div style="clear:both;"></div>
 </div>
 
 </div>
-<?php get_template_part('partials/footer'); ?>
+<?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
 
 

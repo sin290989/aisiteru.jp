@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single83.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single84.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -68,9 +68,6 @@ ul.cluster-list li a{
   border:none;
   border-radius: 10px;
 }
-
-
-
 }
 
 
@@ -731,13 +728,24 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
 <li>
 <a href="<?php the_permalink(); ?>">
-<?php the_title(); ?>
+<div class="cluster-block-wap">
+<div class="cluster-block-img">
+  <?php the_post_thumbnail('single-thumbnails'); ?>
+</div>
+<div class="cluster-block-content">
+  <div class="cluster-block-content-title"><?php the_title(); ?></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="more-arrow"></div>
 </a>
 </li>
 <?php endwhile; ?>
 </ul>
 </div>
 <?php endif; ?>
+
+
 
 <?php
 // ===============================
