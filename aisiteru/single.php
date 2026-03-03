@@ -8,7 +8,7 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single85.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single86.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
@@ -16,6 +16,32 @@
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 
+
+
+<style type="text/css">
+.cluster-block h2 {
+  font-weight: 700;
+  color: #031b4e;
+  font-size: 17px;
+  margin-bottom:15px;
+  margin-left: -8px;
+}
+.cluster-block h2 span{
+color: #1433d6;
+}
+
+@media only screen and (min-width: 680px) {
+
+.cluster-block h2 {
+  font-size:22px;
+  margin-top:10px;
+  margin-bottom:25px;
+  margin-left: -8px;
+}
+
+    
+}
+</style>
 </head>
 <body>
 <?php get_template_part('partials/header2'); ?>
@@ -664,7 +690,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 <?php if ($related_query->have_posts()) : ?>
 <div class="cluster-related">
 <h2>
-「<?php echo esc_html($cluster_label); ?>」クラスタ内の関連視点
+「<span><?php echo esc_html($cluster_label); ?></span>」クラスタ内の関連視点
 </h2>
 <ul class="cluster-list">
 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>

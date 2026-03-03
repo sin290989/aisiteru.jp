@@ -618,7 +618,7 @@ body #post-single .ai-written ul li a .ai-written-content-title {
 /*クラスターリンク*/
 /*================================================================================================*/
 .cluster-block {
-  padding: 25px 25px 25px 25px;
+  padding: 25px 15px 25px 15px;
   border-radius: 10px;
   box-sizing: border-box;
   background-color: #ffffff;
