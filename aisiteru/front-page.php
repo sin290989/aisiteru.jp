@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php bloginfo('name'); ?>｜<?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common112.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common113.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -33,7 +33,7 @@
   top: 30px;
   left: 0px;
   font-weight: bold;
-  color: #031b4e;
+  color:var(--color-secondary);
   z-index: 10;
 }
 
@@ -44,24 +44,24 @@
   top: 100px;
   left: 80px;
   font-weight: bold;
-  color: #031b4e;
+  color:var(--color-secondary);
   z-index: 10;
 }
 
 .with {
   position: absolute;
   font-size: 16px;
-  color: #031b4e;
+  color:var(--color-secondary);
   top: 140px;
   left: 175px;
   z-index: 20;
-  color: #031b4e;
+  color:var(--color-secondary);
   font-weight: bold;
 }
 
 .catch1 span,
 .with span {
-  color: #1433d6;
+  color:var(--color-primary);
 }
 @media only screen and (min-width: 680px) {
   .catch {
@@ -103,8 +103,7 @@
   position: absolute;
   top: -30px;
   left: 15px;
-  color: #1433d6;
-  color: #031b4e;
+  color: var(--color-secondary);
   font-size: 22px;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
@@ -174,7 +173,7 @@ ul.post-index-top .head h3 {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: #031b4e;
+  color: var(--color-secondary);
   font-size: 12px;
   line-height: 18px;
   background-image: none;
@@ -226,8 +225,7 @@ ul.post-index-top .head .post-dates {
     position: absolute;
     top: -40px;
     left: 25px;
-    color: #1433d6;
-    color: #031b4e;
+    color: var(--color-secondary);
     font-size: 28px;
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
@@ -258,7 +256,7 @@ ul.post-index-top li:nth-child(2){
 ul.post-index-top li:last-of-type{
     border-bottom:none;
     margin-bottom: 0;
-    padding-bottom: 0;;
+    padding-bottom: 0;
 }
 
  
@@ -338,11 +336,11 @@ h1{
     line-height: 42px;
     font-weight: 700;
     padding-bottom:20px;
-    color: #031b4e;
+    color: var(--color-secondary);
     text-align: center;
 }
 h1 span {
-  color: #1433d6;
+  color:var(--color-primary);
 }
 
 h1 a:hover{
@@ -354,7 +352,7 @@ h1 a:hover{
     display: block;
     height: 40px;
     width: 200px;
-    background-color: #1433d6;
+    background-color:var(--color-primary);
     text-align: center;
     color: #FFFFFF;
     border-radius: 20px;
@@ -373,7 +371,7 @@ h1 a:hover{
 
 @media only screen and (min-width: 680px) {
 h1{
-    padding-top:70px;
+    padding-top:30px;
     font-size: 80px;
     line-height: 80px;
     padding-bottom:30px;
@@ -384,7 +382,7 @@ h1{
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: #1433d6;
+    background-color:var(--color-primary);
     bottom:-20px;
     right: 0;
     left: 0;
@@ -400,7 +398,7 @@ h1{
   }
 
     .more-btn a:hover{
-        background-color: #0069ff;
+        background-color:var(--color-link-hover);
     }
 
     .category-block.prediction-block .more-btn a {
