@@ -667,7 +667,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
   $related_args = array(
     'post_type'=>'post',
-    'posts_per_page'=>3,
+    'posts_per_page'=>5,
     'orderby'=>'date',
     'order'=>'DESC',
     'tax_query'=>$tax_query,
