@@ -36,7 +36,7 @@ Template Name: Cluster Event
 <div id="contents">
 
 <div id="main-cluster">
-<h1 class="h-structural">イベント</h1>
+<h1 class="h-index">イベント</h1>
 
 <p class="top-read">
 このページは、AI比較クラスタの中でも、<strong>「イベント」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>

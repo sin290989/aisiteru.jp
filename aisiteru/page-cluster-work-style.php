@@ -36,7 +36,7 @@ Template Name: Cluster Work Style
 <div id="contents">
 
 <div id="main-cluster">
-<h1 class="h-structural">働き方</h1>
+<h1 class="h-index">働き方</h1>
 
 <p class="top-read">
 このページは、AI比較クラスタの中でも、<strong>「働き方」という構造領域に属するテーマ群を束ねた構造クラスタページ</strong>です。<br>
