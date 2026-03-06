@@ -24,7 +24,7 @@
   color: #031b4e;
   font-size: 17px;
   margin-bottom:15px;
-  margin-left: -8px;
+  margin-left: 0;
 }
 .cluster-block h2 span{
 color: #1433d6;
@@ -36,7 +36,7 @@ color: #1433d6;
   font-size:22px;
   margin-top:10px;
   margin-bottom:25px;
-  margin-left: -8px;
+  margin-left: 0;
 }
 
     
@@ -667,7 +667,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 
   $related_args = array(
     'post_type'=>'post',
-    'posts_per_page'=>3,
+    'posts_per_page'=>5,
     'orderby'=>'date',
     'order'=>'DESC',
     'tax_query'=>$tax_query,
@@ -690,7 +690,7 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 <?php if ($related_query->have_posts()) : ?>
 <div class="cluster-related">
 <h2>
-「<span><?php echo esc_html($cluster_label); ?></span>」クラスタ内の関連視点
+<span><?php echo esc_html($cluster_label); ?></span>クラスタ内の関連視点
 </h2>
 <ul class="cluster-list">
 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
