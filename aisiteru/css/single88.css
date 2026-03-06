@@ -982,7 +982,7 @@ body .cluster-block ul li a .cluster-block-content-title {
   position: relative;
   display: inline-block;
   margin: 0;
-  border: 1px solid #cccccc;
+  /*border: 1px solid #cccccc;*/
   border-radius: 3px;
   overflow: hidden;
   background: #031323;
