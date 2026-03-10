@@ -410,6 +410,21 @@ ul.other-link-bottom a:hover{
     }
 
 }
+
+
+li.cluster-link a{
+    display: block;
+    width: 100%;
+    height: 60px;
+    border-radius:10px;
+    background-color: #f7f8f8;
+    line-height: 60px;
+    text-align: center;
+    margin-top:30px;
+    font-size: 15px;
+    font-weight: 700;
+    color:var(--color-primary);
+}
 </style>
 
 
@@ -494,7 +509,7 @@ $('.aiTitle').on('click', function(){
 
 <ul class="other-link">
 <li><a href="/about">AIシテル？について</a></li>
-<li><a href="/cluster">クラスタ索引</a></li>
+<li class="cluster-link"><a href="/cluster">クラスタ索引</a></li>
 </ul>
 
 <div class="cat-area">
