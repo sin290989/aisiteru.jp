@@ -1,7 +1,9 @@
 @charset "utf-8";
 :root {
-  --color-primary:#1433d6;
-  --color-secondary:#031b4e;
+  /*--color-primary:#1433d6;*/
+  --color-primary:#8b14d6;
+  /*--color-secondary:#031b4e;*/
+  --color-secondary:#59068d;
   --color-text:#46526f;
   --color-link:#031b4e;
   --color-link-hover:#0069ff;
