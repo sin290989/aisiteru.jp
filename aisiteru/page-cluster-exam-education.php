@@ -12,8 +12,8 @@ Template Name: Cluster Exam Education
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common114.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_theme3.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common115.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_theme4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -161,20 +161,6 @@ wp_pagenavi( array( 'query' => $index_query ) );
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-
-<?php if ( !wp_is_mobile() ) : ?>
-<script type="text/javascript">
-$(function () {
-$('ul.post-index li').hover(function(){
-$("h2",this).css('color','#0069ff');
-$(".post_thumbnail img",this).css('transform','scale(1.1)');
-}, function(){
-$("h2",this).css('color','#031b4e');
-$(".post_thumbnail img",this).css('transform','scale(1)');
-});
-});
-</script>
-<?php endif; ?>
-
+<?php get_template_part('partials/js/post-inde_h2'); ?>
 </body>
 </html>

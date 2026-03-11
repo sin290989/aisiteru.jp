@@ -6,7 +6,8 @@
   --color-secondary:#59068d;
   --color-text:#46526f;
   --color-link:#031b4e;
-  --color-link-hover:#0069ff;
+  /*--color-link-hover:#0069ff;*/
+  --color-link-hover:#f95d11;
 }
 html {
   color: var(--color-text);

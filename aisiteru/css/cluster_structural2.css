@@ -1,11 +1,11 @@
 #contents h1{
-    color: #1433d6;
+    color: var(--color-primary);
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
 }
 
 #contents h2{
-    color: #1433d6;
+    color: var(--color-primary);
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
 }
@@ -14,10 +14,10 @@
     line-height: 36px;
     font-weight: 700;
     padding: 60px 20px 10px 20px;
-    color: #031b4e;
+    color: var(--color-secondary);
 }
 .h-index span.cluster {
-    color: #1433d6;
+    color: var(--color-primary);
 }
 
 .h-structural{
@@ -47,7 +47,7 @@ p.cluster-read{
     }
     ul.cluster-scope li {
     display: inline;
-    background-color: #031b4e;
+    background-color: var(--color-secondary);
     padding:2px 7px;
     font-size:10px;
     font-size:10px;
@@ -231,7 +231,7 @@ ul.post-index .head .h-post-title{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #031b4e;
+    color: var(--color-secondary);
 	font-size:12px;
     line-height: 18px;
 	background-image:none;
@@ -256,7 +256,7 @@ ul.post-index .head .post-dates {
     display: block;
     height: 40px;
     width: 200px;
-    background-color: #1433d6;
+    background-color: var(--color-primary);
     text-align: center;
     color: #FFFFFF;
     border-radius: 20px;
@@ -348,7 +348,7 @@ ul.post-index .head .post-content p {
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: #1433d6;
+    background-color: var(--color-primary);
     bottom:-20px;
     right: 0;
   left: 0;

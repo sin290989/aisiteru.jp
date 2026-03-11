@@ -12,7 +12,7 @@ Template Name: Cluster
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common114.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common115.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -21,13 +21,13 @@ Template Name: Cluster
 
 <style type="text/css">
 #contents h1{
-    color: #1433d6;
+    color: var(--color-primary);
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
 }
 
 #contents h2{
-    color: #1433d6;
+    color: var(--color-primary);
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
 }
@@ -36,10 +36,10 @@ Template Name: Cluster
     line-height: 36px;
     font-weight: 700;
     padding: 60px 20px 20px 20px;
-    color: #031b4e;
+    color: var(--color-secondary);
 }
 .h-index span.cluster {
-    color: #1433d6;
+    color: var(--color-primary);
 }
 
 .h-structural{
@@ -70,7 +70,7 @@ p.cluster-read{
     }
     ul.cluster-scope li {
     display: inline;
-    background-color: #031b4e;
+    background-color: var(--color-secondary);
     padding:2px 7px;
     font-size:10px;
     font-size:10px;
@@ -161,7 +161,6 @@ p.cluster-read{
     }
 }    
 </style>
-
 
 
 <style type="text/css">
@@ -257,7 +256,7 @@ ul.post-index .head .h-post-title{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #031b4e;
+    color: var(--color-secondary);
 	font-size:12px;
     line-height: 18px;
 	background-image:none;
@@ -282,7 +281,7 @@ ul.post-index .head .post-dates {
     display: block;
     height: 40px;
     width: 200px;
-    background-color: #1433d6;
+    background-color: var(--color-primary);
     text-align: center;
     color: #FFFFFF;
     border-radius: 20px;
@@ -302,12 +301,6 @@ ul.post-index .head .post-dates {
     margin: 0 auto;
     padding: 100px 0 180px 0;
 }
-
-/*
-ul.post-index {
-    padding: 50px;
-    padding-bottom: 20px;
-}*/
 ul.post-index li{
     width:240px;
     float: left;
@@ -374,7 +367,7 @@ ul.post-index .head .post-content p {
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: #1433d6;
+    background-color: var(--color-primary);
     bottom:-20px;
     right: 0;
   left: 0;
@@ -389,7 +382,7 @@ ul.post-index .head .post-content p {
     transition: all 0.3s ease;
   }
   .more-btn a:hover{
-    background-color: #0069ff;
+    background-color: var(--color-link-hover);
   }
   .category-block.prediction-block .more-btn a {
     top: 400px;
@@ -457,20 +450,6 @@ ul.post-index .head .post-content p {
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-
-<?php if ( !wp_is_mobile() ) : ?>
-<script type="text/javascript">
-$(function () {
-$('ul.post-index li').hover(function(){
-    $("h3",this).css('color','#0069ff');
-    $(".post_thumbnail img",this).css('transform','scale(1.1)');
-}, function(){
-    $("h3",this).css('color','#031b4e');
-    $(".post_thumbnail img",this).css('transform','scale(1)');
-});  
-});
-</script>
-<?php endif; ?>
-
+<?php get_template_part('partials/js/post-inde_h3'); ?>
 </body>
 </html>

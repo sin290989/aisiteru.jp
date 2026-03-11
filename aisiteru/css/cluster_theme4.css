@@ -2,7 +2,7 @@
   padding-top: 50px;
 }
 #main-cluster h1 {
-  color: #1433d6;
+  color:var(--color-primary);
   font-size: 28px;
   line-height: 28px;
   font-family: "Noto Sans JP", sans-serif;
@@ -19,7 +19,7 @@ ul.cluster-scope {
 }
 ul.cluster-scope li {
   display: inline;
-  background-color: #031b4e;
+  background-color: var(--color-secondary);
   padding: 2px 7px;
   font-size: 10px;
   font-size: 10px;
@@ -39,7 +39,7 @@ ul.cluster-scope li {
 }
 
 .cluster-rule strong {
-  color: #1433d6;
+  color:var(--color-primary);
 }
 
 .cluster-block {
@@ -94,7 +94,7 @@ ul.post-index .head h2 {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: #031b4e;
+  color: var(--color-secondary);
   font-size: 12px;
   line-height: 18px;
   background-image: none;
@@ -118,7 +118,7 @@ ul.post-index .head .post-dates {
   display: block;
   height: 40px;
   width: 280px;
-  background-color: #1433d6;
+  background-color:var(--color-primary);
   text-align: center;
   color: #ffffff;
   border-radius: 20px;
@@ -168,7 +168,7 @@ ul.post-index .head .post-dates {
   }
 
   .cluster-rule strong {
-    color: #1433d6;
+    color:var(--color-primary);
   }
 
   .cluster-block {
