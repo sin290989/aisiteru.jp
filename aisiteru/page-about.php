@@ -52,7 +52,7 @@ Template Name:about
   top:30px;
   left:0px;
   font-weight: bold;
-  color: #031b4e;
+  color: var(--color-secondary);
   z-index: 10;
 }
 
@@ -63,18 +63,18 @@ Template Name:about
   top:100px;
   left:80px;
   font-weight: bold;
-  color: #031b4e;
+  color: var(--color-secondary);
   z-index: 10;
 }
 
 .with{
   position: absolute;
   font-size: 16px;
-  color: #031b4e;
+  color: var(--color-secondary);
   top:140px;
   left: 175px;
   z-index: 20;
-  color:#031b4e;
+  color:var(--color-secondary);
   font-weight: bold;
 }
 

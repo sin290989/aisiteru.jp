@@ -56,7 +56,7 @@ h2{
     font-size: 36px;
     font-weight: bold;
     line-height: 36px;
-    color:#031b4e;
+    color:var(--color-secondary);
 }
 .top-wapper h3{
     font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
@@ -65,7 +65,7 @@ h2{
     line-height: 28px;
     margin: 0 0 25px 0;
     padding: 0 0 0 40px;
-    color:#031b4e;
+    color:var(--color-secondary);
     position: relative;
 }
 .top-wapper h3::before {
@@ -73,7 +73,7 @@ h2{
     position: absolute;
     left: 7px; /* タイトルからの距離（調整可） */
     font-size: 24px; /* タイトルに合わせる */
-    color: #031b4e;
+    color: var(--color-secondary);
     font-weight: bold;
   }
 

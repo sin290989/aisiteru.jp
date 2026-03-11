@@ -21,7 +21,7 @@ body #post-head_index h1 {
   font-size: 22px;
   box-shadow: none;
   line-height: 32px;
-  color: #031b4e;
+  color: var(--color-secondary);
   font-weight: bold;
 }
 

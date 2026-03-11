@@ -36,7 +36,7 @@ Template Name:about
   text-align: justify;
 }
 .about-text strong{
-  color: #1433d6;
+  color: var(--color-primary);
 }
 
 .catch{
@@ -54,24 +54,24 @@ Template Name:about
   top:100px;
   left:0;
   font-weight: bold;
-  color: #031b4e;
+  color: var(--color-secondary);
   z-index: 10;
 }
 
 .with{
   position: absolute;
   font-size: 16px;
-  color: #031b4e;
+  color: var(--color-secondary);
   top:140px;
   left: 175px;
   z-index: 20;
-  color:#031b4e;
+  color:var(--color-secondary);
   font-weight: bold;
 }
 
 .catch1 span,
 .with span{
-    color: #1433d6;
+    color: var(--color-primary);
 }
 
 

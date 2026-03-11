@@ -133,6 +133,6 @@ if ( function_exists( 'wp_pagenavi' ) ) {
 </div>
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-<?php get_template_part('partials/js/post-inde_h2'); ?>
+<?php get_template_part('partials/js/post-index_h2_2'); ?>
 </body>
 </html>

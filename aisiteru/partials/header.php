@@ -17,7 +17,7 @@ $(function () {
     }
 .logo a span{
     font-weight: 700;
-     color: #031b4e;
+     color: var(--color-secondary);
     font-size: 26px;
 }
 .logo a:hover{

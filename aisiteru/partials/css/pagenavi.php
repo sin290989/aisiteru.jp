@@ -26,8 +26,8 @@
 
 .wp-pagenavi span.current{
 	color: #FFF;
-	background-color: #031b4e;
-	border-color: #031b4e;
+	background-color: var(--color-secondary);
+	border-color: var(--color-secondary);
 	font-weight: bold;
 }
 .wp-pagenavi span.extend,
@@ -61,8 +61,8 @@ span.extend{
 }
 .wp-pagenavi a:hover{
 	color:#FFFFFF;
-	background-color: #0069ff;
-	border-color: #0069ff;
+	background-color: var(--color-link-hover);
+	border-color: var(--color-link-hover);
     font-weight: bold;
 }
 a.nextpostslink{

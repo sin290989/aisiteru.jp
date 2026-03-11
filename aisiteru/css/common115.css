@@ -174,7 +174,7 @@ body {
   padding-top: 10px;
 }
 a {
-  color: #031b4e;
+  color: var(--color-secondary);
   text-decoration: none;
 }
 a:hover {

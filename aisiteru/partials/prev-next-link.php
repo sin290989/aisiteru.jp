@@ -59,7 +59,7 @@
 
     .prev-text,
     .next-text{
-        color:#031b4e;
+        color:var(--color-secondary);
         margin-bottom: 10px;
         position: absolute;
         background-color: rgba(255,255,255,0.9);

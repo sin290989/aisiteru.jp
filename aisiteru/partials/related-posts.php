@@ -131,7 +131,7 @@ h2#related::before{
 }
 h2#related::before{
     content: 'RELATION';
-    color:#031b4e;
+    color:var(--color-secondary);
 } 
 
 @media only screen and (min-width: 680px) {

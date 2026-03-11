@@ -51,7 +51,7 @@ ul.post .head h2{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #031b4e;
+    color: var(--color-secondary);
 	font-size:12px;
     line-height: 18px;
 	background-image:none;
@@ -233,7 +233,7 @@ ul.post li .post-author .post-author-name{
 
 }
 </style>
-<?php get_template_part('partials/js/post-inde_h2'); ?>
+<?php get_template_part('partials/js/post-index_h2_2'); ?>
 </head>
 <body>
 <?php get_template_part('partials/header'); ?>

@@ -37,7 +37,7 @@ Template Name:contact
 }
 
 #contact-form .must span{
-    background-color:#0069ff;
+    background-color:var(--color-link-hover);
     color: #ffffff;
 	font-size:11px;
 	line-height:11px;
@@ -113,7 +113,7 @@ input.wpcf7-submit{
     line-height: 60px;
     text-align: center;
     font-size: 16px;
-    background-color:#031b4e;
+    background-color:var(--color-secondary);
     color: #FFFFFF;
     letter-spacing: 1px;
     border: none;
@@ -158,7 +158,7 @@ font-size: 18px;
 	text-align:left;
 	margin-bottom:0px;
 	font-size:15px;
-    border-top: 2px solid #031b4e;
+    border-top: 2px solid var(--color-secondary);
     padding-top: 25px;
 }
 #contact-form .must,
@@ -214,7 +214,7 @@ input.wpcf7-submit{
 /*送信ボタンマウスホバー時*/
 input.wpcf7-submit:hover{
 	background-position: right 35px center;
-    background-color: #0069ff;
+    background-color:var(--color-link-hover);
     box-shadow: none;
     cursor: pointer;
 }

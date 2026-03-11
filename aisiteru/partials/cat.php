@@ -48,7 +48,7 @@ h2#related::before{
     font-size:24px;
     margin-right:15px;
     letter-spacing:1px;
-    color:#031b4e;
+    color:var(--color-secondary);
 }
 #side h2.catTitle::before{
     content:'CATEGORY'; 
@@ -230,7 +230,7 @@ background-position: left center;
 }
 #side ul.aiList li a:hover,
 #side ul.catList li a:hover{
-    color:#0069ff;
+    color:var(--color-link-hover);
     background-position:right 15px center;
 }
 #side ul.aiList li ul li a,

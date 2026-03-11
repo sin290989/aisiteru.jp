@@ -58,7 +58,7 @@ Template Name: Cluster Event
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-<?php get_template_part('partials/js/post-inde_h3'); ?>
+<?php get_template_part('partials/js/post-index_h3_2'); ?>
 </body>
 
 </html>
