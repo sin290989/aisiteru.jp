@@ -1,13 +1,21 @@
 @charset "utf-8";
-:root {
-  /*--color-primary:#1433d6;*/
-  --color-primary:#8b14d6;
-  /*--color-secondary:#031b4e;*/
+/*:root {
+  --color-primary:#1433d6;
+  --color-secondary:#031b4e;
   --color-secondary:#59068d;
   --color-text:#46526f;
-  --color-link:#031b4e;
-  /*--color-link-hover:#0069ff;*/
-  --color-link-hover:#f95d11;
+  --color-link:#fe056e;
+  --color-link-hover:#0069ff;
+}*/
+
+
+:root {
+  --color-base:#031b4e;
+  --color-primary:#031b4e;
+  --color-secondary:#1433d6;
+  --color-text:#46526f;
+  --color-link:#0b954f;
+  --color-link-hover:#478405;
 }
 html {
   color: var(--color-text);

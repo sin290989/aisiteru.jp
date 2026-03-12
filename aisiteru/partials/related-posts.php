@@ -107,11 +107,15 @@ ul.related-posts img{
 ul.related-posts li a {
     white-space:normal;
     display: block;
+    color: var(--color-link);
 }
 ul.related-posts li a:hover{
 	text-decoration:none;
+    color: var(--color-link-hover);
 }
-
+ul.related-posts li a .item-time{
+    color:var(--color-text);
+}
 h2#related{
 	padding:0;
 	margin-bottom:10px;
@@ -246,10 +250,8 @@ h2#related::before{
 <script type="text/javascript">
 $(function () {
 $('.related-posts li').hover(function(){
-    $("h3",this).css('color','#0069ff');
     $(".related-posts-thumb img",this).css('transform','scale(1.1)');
 }, function(){
-    $("h3",this).css('color','#031b4e');
     $(".related-posts-thumb img",this).css('transform','scale(1)');
 });  
 });
