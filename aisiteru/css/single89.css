@@ -627,9 +627,14 @@ body #post-single .ai-written ul li a .ai-written-content-title {
 }
 .cluster-block h2 {
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-secondary);
+  font-size: 17px;
+  margin-bottom:15px;
+  margin-left: 0;
 }
-
+.cluster-block h2 span{
+color:var(--color-primary);
+}
 
 
 .cluster-block a[target="_blank"] {
@@ -744,6 +749,12 @@ body .cluster-block ul li a .cluster-block-content-title {
   margin-top: 30px;
   border:none;
   border-radius: 10px;
+}
+.cluster-block h2 {
+  font-size:22px;
+  margin-top:10px;
+  margin-bottom:25px;
+  margin-left: 0;
 }
   .cluster-block .cluster-block-title {
     font-size: 14px;

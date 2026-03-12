@@ -8,40 +8,13 @@
 <title><?php the_title(); ?>｜<?php bloginfo('name'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common115.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single88.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/single89.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/table4.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
-
-
-
-<style type="text/css">
-.cluster-block h2 {
-  font-weight: 700;
-  color: #031b4e;
-  font-size: 17px;
-  margin-bottom:15px;
-  margin-left: 0;
-}
-.cluster-block h2 span{
-color: #1433d6;
-}
-
-@media only screen and (min-width: 680px) {
-
-.cluster-block h2 {
-  font-size:22px;
-  margin-top:10px;
-  margin-bottom:25px;
-  margin-left: 0;
-}
-
-    
-}
-</style>
 </head>
 <body>
 <?php get_template_part('partials/header2'); ?>
