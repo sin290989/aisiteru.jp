@@ -64,13 +64,11 @@ ul.post-index .head {
   width: 52%;
   float: right;
   padding-top: 0px;
-  color: #46526f;
 }
 ul.post-index .head h2 {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: var(--color-secondary);
   font-size: 12px;
   line-height: 18px;
   background-image: none;
@@ -88,8 +86,11 @@ ul.post-index .head .post-dates {
   background-position: left center;
   padding: 0 0 0 16px;
   margin-bottom: 0px;
+  color: var(--color-text);
 }
-
+ul.post-index .head .post-content {
+    color: var(--color-text);
+  }
 @media only screen and (min-width: 680px) {
   .ai-block,
   .category-block {

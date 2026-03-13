@@ -42,10 +42,12 @@
   position: absolute;
   top: 25px;
   left: 22px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
 }
-
+.logo a span{
+    color: var(--color-secondary);
+}
 #header .message,
 ul.global-menu {
   display: none;
@@ -68,11 +70,11 @@ ul.global-menu {
   }
 .logo a span{
     font-weight: 700;
-     color: var(--color-secondary);
     font-size: 16px;
 }
 .logo a:hover{
     text-decoration: none;
+    color: var(--color-primary);
 }
   #header .message {
     display: block;

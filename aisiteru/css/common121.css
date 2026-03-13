@@ -14,8 +14,9 @@
   --color-primary:#031b4e;
   --color-secondary:#1433d6;
   --color-text:#46526f;
-  --color-link:#0b954f;
-  --color-link-hover:#478405;
+  --color-link:#031b4e;
+  --color-link-hover:#0069ff;
+  --color-link-back-btn:#222222;
 }
 html {
   color: var(--color-text);
@@ -182,11 +183,11 @@ body {
   padding-top: 10px;
 }
 a {
-  color: var(--color-secondary);
+  color: var(--color-link);
   text-decoration: none;
 }
 a:hover {
-  color: #444444;
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 strong {
@@ -499,7 +500,7 @@ ul.global-menu {
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    background-color: #1433d6;
+    background-color:var(--color-link);
     transition-duration: 0.2s;
     background-image: url("/wp/wp-content/themes/aisiteru/images/icon/top_up_icon.png");
     background-size: 45% auto;

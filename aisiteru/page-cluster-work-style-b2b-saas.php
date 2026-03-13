@@ -12,14 +12,19 @@ Template Name: Cluster Work Style - B2B SaaS
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common117.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_theme4.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common121.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_theme9.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
+
+
+<style type="text/css">
+
+</style>
 </head>
 
 <body>
@@ -147,7 +152,7 @@ wp_pagenavi( array( 'query' => $index_query ) );
 </div>
 
 <div class="back-btn">
-<a href="/cluster/work-style/">働き方クラスタへ戻る</a>
+<a href="/cluster/work-style/">働き方クラスタへ<span>戻る</span></a>
 </div>
 
 </div>
@@ -158,6 +163,6 @@ wp_pagenavi( array( 'query' => $index_query ) );
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-<?php get_template_part('partials/js/post-index_h2_2'); ?>
+<?php get_template_part('partials/js/post-index_h2_3'); ?>
 </body>
 </html>

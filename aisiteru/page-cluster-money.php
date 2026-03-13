@@ -12,8 +12,8 @@ Template Name: Cluster Money
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common117.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_structural2.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common121.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/cluster_structural9.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -53,7 +53,7 @@ Template Name: Cluster Money
 <?php get_template_part('partials/cluster/money-tax-return'); ?>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ戻る</a>
+<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
 </div>
 
 </div>
@@ -64,7 +64,7 @@ Template Name: Cluster Money
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-<?php get_template_part('partials/js/post-index_h3_2'); ?>
+<?php get_template_part('partials/js/post-index_h3_3'); ?>
 </body>
 
 </html>

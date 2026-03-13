@@ -84,7 +84,6 @@
         padding-left:15px;
         background-position:left center;
         font-weight: normal;
-        color: #46526f;
     }
     .item-title{
         font-weight: bold;

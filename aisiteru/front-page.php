@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php bloginfo('name'); ?>｜<?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common117.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common121.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -142,6 +142,7 @@ ul.post-index-top li:last-child {
   padding-bottom: 0;
   margin-bottom: 0;
 }
+
 /*左側
 -------------------------------------------------------*/
 ul.post-index-top .post_thumbnail {
@@ -166,14 +167,13 @@ ul.post-index-top .head {
   width: 52%;
   float: right;
   padding-top: 0px;
-  color: #46526f;
 }
 
 ul.post-index-top .head h3 {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: var(--color-secondary);
+  /*color: var(--color-secondary);*/
   font-size: 12px;
   line-height: 18px;
   background-image: none;
@@ -198,6 +198,7 @@ ul.post-index-top .head .post-dates {
   background-position: left center;
   padding: 0 0 0 16px;
   margin-bottom: 0px;
+    color: var(--color-text);
 }
 
 
@@ -225,7 +226,6 @@ ul.post-index-top .head .post-dates {
     position: absolute;
     top: -40px;
     left: 25px;
-    color: var(--color-secondary);
     font-size: 28px;
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
@@ -352,7 +352,7 @@ h1 a:hover{
     display: block;
     height: 40px;
     width: 200px;
-    background-color:var(--color-primary);
+    background-color: var(--color-link);
     text-align: center;
     color: #FFFFFF;
     border-radius: 20px;
@@ -382,7 +382,6 @@ h1{
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color:var(--color-primary);
     bottom:-20px;
     right: 0;
     left: 0;
@@ -1388,10 +1387,10 @@ $query_life = new WP_Query($args_life);
 <script type="text/javascript">
 jQuery(function ($) {
   $('ul.post-index-top li').hover(function(){
-      $("h3", this).css('color', '#0069ff');
+      //$("h3", this).css('color', '#0069ff');
       $(".post_thumbnail img", this).css('transform', 'scale(1.1)');
   }, function(){
-      $("h3", this).css('color', '#031b4e');
+      //$("h3", this).css('color', '#031b4e');
       $(".post_thumbnail img", this).css('transform', 'scale(1)');
   });
 });

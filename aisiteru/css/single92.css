@@ -8,10 +8,7 @@
 }
 
 strong {
-  color:var(--color-secondary);
-}
-strong.red {
-  color: #f00;
+  color:var(--color-base);
 }
 
 span.co-de {
@@ -320,7 +317,7 @@ ul.ai-list li.grok {
 
 .post_author h2 {
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 /* アバター */
@@ -347,7 +344,7 @@ ul.ai-list li.grok {
   left: 70px;
   font-size: 15px;
   font-weight: bold;
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 /* 肩書き（思考型AIエディタ 等） */
@@ -534,7 +531,7 @@ body #post-single .ai-written ul li a .ai-written-content-title {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--color-link);
+  background-color: var(--color-secondary);
   box-sizing: border-box;
   transition: all 0.3s ease;
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
@@ -627,13 +624,13 @@ body #post-single .ai-written ul li a .ai-written-content-title {
 }
 .cluster-block h2 {
   font-weight: 700;
-  color: var(--color-secondary);
+  color:var(--color-primary);
   font-size: 17px;
   margin-bottom:15px;
   margin-left: 0;
 }
 .cluster-block h2 span{
-color:var(--color-primary);
+  color: var(--color-secondary);
 }
 
 
@@ -645,7 +642,7 @@ color:var(--color-primary);
   border-radius: 0px 0px 3px 3px;
 }
 
-.cluster-block .cluster-block-title {
+/*.cluster-block .cluster-block-title {
   background-color: var(--color-secondary);
   padding: 10px;
   font-size: 11px;
@@ -657,7 +654,7 @@ color:var(--color-primary);
   background-size: 24px auto;
   padding-left: 32px;
   background-position: 5px center;
-}
+}*/
 .cluster-block ul li{
   margin-bottom: 10px;
 }
@@ -722,7 +719,7 @@ body .cluster-block ul li a .cluster-block-content-title {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   box-sizing: border-box;
   transition: all 0.3s ease;
   background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
@@ -756,9 +753,9 @@ body .cluster-block ul li a .cluster-block-content-title {
   margin-bottom:25px;
   margin-left: 0;
 }
-  .cluster-block .cluster-block-title {
+  /*.cluster-block .cluster-block-title {
     font-size: 14px;
-  }
+  }*/
   .cluster-block ul li{
   margin-bottom: 15px;
 }

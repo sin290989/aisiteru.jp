@@ -12,7 +12,7 @@ Template Name: Cluster
 <meta name="format-detection" content="telephone=no">
 <title><?php wp_title(''); ?></title>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common117.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/css/common121.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSSフィード" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
@@ -42,10 +42,11 @@ Template Name: Cluster
     color: var(--color-primary);
 }
 
-.h-structural{
+#contents h2.h-structural{
     font-size: 28px;
     line-height: 28px;
    margin-bottom: 10px;
+color: var(--color-secondary);
 }
 
 
@@ -105,12 +106,12 @@ p.cluster-read{
     }
 
 
-    .h-structural{
+    #contents h2.h-structural{
         font-size: 54px;
         line-height: 54px;
         margin-bottom: 20px;
     }
-    .h-structural span{
+    #contents h2.h-structural span{
         margin-left:30px;
         color: #EEEEEE;
         font-size: 38px;
@@ -250,13 +251,11 @@ ul.post-index .head{
     width:52%;
     float: right;
     padding-top: 0px;
-    color: #46526f;
 }
 ul.post-index .head .h-post-title{
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: var(--color-secondary);
 	font-size:12px;
     line-height: 18px;
 	background-image:none;
@@ -274,6 +273,7 @@ ul.post-index .head .post-dates {
   background-position: left center;
   padding: 0 0 0 16px;
   margin-bottom: 0px;
+  color: var(--color-text);
 }
 
 
@@ -281,7 +281,7 @@ ul.post-index .head .post-dates {
     display: block;
     height: 40px;
     width: 200px;
-    background-color: var(--color-primary);
+    background-color: var(--color-link);
     text-align: center;
     color: #FFFFFF;
     border-radius: 20px;
@@ -367,7 +367,6 @@ ul.post-index .head .post-content p {
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: var(--color-primary);
     bottom:-20px;
     right: 0;
   left: 0;
@@ -450,6 +449,6 @@ ul.post-index .head .post-content p {
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-<?php get_template_part('partials/js/post-index_h3_2'); ?>
+<?php get_template_part('partials/js/post-index_h3_3'); ?>
 </body>
 </html>

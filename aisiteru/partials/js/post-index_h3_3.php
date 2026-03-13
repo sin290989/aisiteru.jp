@@ -2,10 +2,10 @@
 <script type="text/javascript">
 $(function () {
 $('ul.post-index li').hover(function(){
-    $("h3",this).css('color','#05730a');
+    //$("h3",this).css('color','#05730a');
     $(".post_thumbnail img",this).css('transform','scale(1.1)');
 }, function(){
-    $("h3",this).css('color','#12dca3');
+    //$("h3",this).css('color','#12dca3');
     $(".post_thumbnail img",this).css('transform','scale(1)');
 });  
 });
