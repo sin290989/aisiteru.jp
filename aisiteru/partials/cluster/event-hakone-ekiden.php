@@ -92,7 +92,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/event/hakone-ekiden/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>箱根駅伝クラスタページへ</span>
   </a>
 </div>
 </div>

@@ -97,7 +97,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/consumption/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>消費クラスタページへ</span>
   </a>
 </div>
 

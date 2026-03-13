@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/working-hours/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>労働時間クラスタページへ</span>
   </a>
 </div>
 </div>

@@ -93,7 +93,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/career/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>キャリアクラスタページへ</span>
   </a>
 </div>
 </div>

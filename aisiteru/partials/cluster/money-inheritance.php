@@ -91,7 +91,7 @@ wp_reset_postdata();
 ?>
 <div class="more-btn">
   <a href="/cluster/money/inheritance/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>相続クラスタページへ</span>
   </a>
 </div>
 </div>

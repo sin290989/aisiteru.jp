@@ -111,7 +111,7 @@ $total_count = $index_query->found_posts;
 </ul>
 
 <?php wp_reset_postdata(); ?>
-<div class="more-btn"><a href="/cluster/cabinet-dissolution/"><span class="visually-hidden">クラスタページへ</span></a></div>
+<div class="more-btn"><a href="/cluster/cabinet-dissolution/"><span>内閣解散・総選挙クラスタページへ</span></a></div>
 </div>
 <!------------------------------------------------------------------------------>
 </div>

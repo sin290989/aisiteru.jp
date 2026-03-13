@@ -97,7 +97,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/credit/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>ローンクラスタページへ</span>
   </a>
 </div>
 

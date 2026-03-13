@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/b2b-saas/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>法人SaaSクラスタページへ</span>
   </a>
 </div>
 </div>

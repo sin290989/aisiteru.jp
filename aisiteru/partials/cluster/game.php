@@ -96,7 +96,7 @@ $total_count = $index_query->found_posts;
 
 <div class="more-btn">
 <a href="/cluster/game/">
-<span class="visually-hidden">クラスタページへ</span>
+<span>ゲームクラスタページへ</span>
 </a>
 </div>
 

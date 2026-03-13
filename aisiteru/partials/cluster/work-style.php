@@ -139,7 +139,7 @@ $total_count = $index_query->found_posts;
 
 <div class="more-btn">
 <a href="/cluster/work-style/">
-<span class="visually-hidden">クラスタページへ</span>
+<span>働き方クラスタページへ</span>
 </a>
 </div>
 

@@ -92,7 +92,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/wage/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>賃金クラスタページへ</span>
   </a>
 </div>
 </div>

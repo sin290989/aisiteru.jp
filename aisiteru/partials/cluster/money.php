@@ -130,7 +130,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>お金クラスタページへ</span>
   </a>
 </div>
 

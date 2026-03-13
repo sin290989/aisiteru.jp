@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/side-job/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>副業クラスタページへ</span>
   </a>
 </div>
 </div>

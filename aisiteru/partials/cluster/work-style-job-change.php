@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/job-change/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>転職クラスタページへ</span>
   </a>
 </div>
 </div>

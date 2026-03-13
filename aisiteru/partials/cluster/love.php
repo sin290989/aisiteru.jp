@@ -92,7 +92,7 @@ wp_reset_postdata();
 ?>
 <div class="more-btn">
   <a href="/cluster/love/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>恋愛クラスタページへ</span>
   </a>
 </div>
 </div>

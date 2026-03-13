@@ -98,7 +98,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
 <a href="/cluster/olympics/">
-<span class="visually-hidden">クラスタページへ</span>
+<span>オリンピッククラスタページへ</span>
 </a>
 </div>
 

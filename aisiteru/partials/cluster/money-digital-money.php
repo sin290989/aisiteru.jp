@@ -95,7 +95,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/digital-money/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>デジタル通貨クラスタページへ</span>
   </a>
 </div>
 

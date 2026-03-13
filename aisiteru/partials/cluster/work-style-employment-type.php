@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/employment-type/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>雇用形態クラスタページへ</span>
   </a>
 </div>
 </div>

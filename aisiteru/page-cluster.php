@@ -179,7 +179,7 @@ margin-top:60px;
 }
 .cluster-block {
   border-radius: 5px;
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 0 10px;
   position: relative;
   background-color: #ffffff;
   margin: 30px 10px 0 10px;
@@ -199,7 +199,7 @@ margin-top:100px;
     border-radius: 30px;
     position: relative;
     box-sizing: border-box;
-    padding:50px 50px 20px 50px;
+    padding:50px 50px 0px 50px;
 }
 
 }
@@ -276,7 +276,23 @@ ul.post-index .head .post-dates {
   color: var(--color-text);
 }
 
-
+  .more-btn a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 16px auto;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    margin: 30px auto 20px auto;
+    font-weight: 600;
+    border-top:1px solid #EEEEEE;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+/*
 .more-btn a {
     display: block;
     height: 40px;
@@ -294,6 +310,9 @@ ul.post-index .head .post-dates {
     line-height: 40px;
     font-weight: 600;
   }
+    */
+
+
 @media only screen and (min-width: 680px) {
 
 #contents {
@@ -362,42 +381,20 @@ ul.post-index .head .post-content p {
     display: none;
 }
 
-.more-btn a{
-    margin: 0;
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    bottom:-20px;
-    right: 0;
-  left: 0;
-  margin: 0 auto;
-    border-radius: 50%;
-    transition-duration: 0.2s;
-    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
-    background-size: 45% auto;
-    background-position: center center;
-    background-repeat: no-repeat;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.more-btn a {
+    margin: 10px auto 0 auto;
+     font-size: 18px;
+     font-weight: 700;
+     padding-top: 15px;
+    padding-bottom: 25px;
   }
   .more-btn a:hover{
-    background-color: var(--color-link-hover);
+     text-decoration: none;
   }
   .category-block.prediction-block .more-btn a {
     top: 400px;
   }
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
 
 }
 </style>

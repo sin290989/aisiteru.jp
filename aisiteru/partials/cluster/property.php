@@ -92,7 +92,7 @@ wp_reset_postdata();
 ?>
 <div class="more-btn">
   <a href="/cluster/property/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>不動産クラスタページへ</span>
   </a>
 </div>
 </div>

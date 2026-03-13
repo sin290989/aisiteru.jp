@@ -97,7 +97,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/tax-return/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>確定申告クラスタページへ</span>
   </a>
 </div>
 

@@ -94,7 +94,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/work-style/ai-work/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>AIと仕事クラスタページへ</span>
   </a>
 </div>
 </div>

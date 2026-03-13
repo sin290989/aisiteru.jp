@@ -99,7 +99,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/event/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>イベントクラスタページへ</span>
   </a>
 </div>
 </div>

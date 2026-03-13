@@ -92,7 +92,7 @@ $total_count = $index_query->found_posts;
 // クエリを元に戻す
 wp_reset_postdata();
 ?>
-<div class="more-btn"><a href="/cluster/exam-education/"><span class="visually-hidden">クラスタページへ</span></a></div>
+<div class="more-btn"><a href="/cluster/exam-education/"><span>受験・教育クラスタページへ</span></a></div>
 </div>
 <!------------------------------------------------------------------------------>
 </div>

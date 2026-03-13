@@ -95,7 +95,7 @@ wp_reset_postdata();
 
 <div class="more-btn">
   <a href="/cluster/money/investment/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>投資クラスタページへ</span>
   </a>
 </div>
 

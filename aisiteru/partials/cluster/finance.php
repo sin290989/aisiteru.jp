@@ -92,7 +92,7 @@ wp_reset_postdata();
 ?>
 <div class="more-btn">
   <a href="/cluster/finance/">
-    <span class="visually-hidden">クラスタページへ</span>
+    <span>金融クラスタページへ</span>
   </a>
 </div>
 </div>
