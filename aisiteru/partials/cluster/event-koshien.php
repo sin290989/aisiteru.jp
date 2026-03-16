@@ -1,52 +1,40 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
+<ul class="cluster-scope">
+  <li>運営構造</li>
+  <li>教育制度</li>
+  <li>メディア文化</li>
+</ul>
+
 <?php
-// wbc タグ
-$wbc_tag = get_term_by( 'slug', 'wbc', 'post_tag' );
-$wbc_tag_id = $wbc_tag ? $wbc_tag->term_id : 0;
+// koshien タグの term を取得
+$season_tag = get_term_by( 'slug', 'koshien', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// hakone-ekiden タグ
-$hakone_tag = get_term_by( 'slug', 'hakone-ekiden', 'post_tag' );
-$hakone_tag_id = $hakone_tag ? $hakone_tag->term_id : 0;
-
-// koshien タグ（甲子園）
-$koshien_tag = get_term_by( 'slug', 'koshien', 'post_tag' );
-$koshien_tag_id = $koshien_tag ? $koshien_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ wbc or hakone-ekiden or koshien
-*/
+// koshien ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array( 
-        $wbc_tag_id, 
-        $hakone_tag_id,
-        $koshien_tag_id
-    ),
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
     'orderby'        => 'date',
     'order'          => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
-
 // ★ 総件数取得
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">イベント</h2>
+<h2 class="h-topic">甲子園</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
-
 <p class="cluster-read">
-このクラスタでは、イベントを「単なる大会や行事」ではなく、
-「制度設計・運営構造・経済的影響・社会的意味がどのように結びついているか」という視点から捉え直します。<br>
-WBCや箱根駅伝といった大会を通じて、競技価値と社会構造の関係を比較するための入口としてご利用ください。
+このクラスタでは、甲子園を「高校野球大会」としてではなく、「教育制度・大会運営・メディア文化・地域社会がどのように結びついているか」という視点から捉え直します。<br>
+学生スポーツの位置づけ、学校制度との関係、メディア報道や地域社会の期待など、複数の構造的論点を比較の入口として整理します。
 </p>
 
 <ul class="post-index">
@@ -92,7 +80,7 @@ WBCや箱根駅伝といった大会を通じて、競技価値と社会構造�
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」＋「wbc」「hakone-ekiden」タグの記事はまだありません。</li>
+        <li>「index」タグと「koshien」タグが付いた記事はまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -103,8 +91,8 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/event/">
-    <span>イベントクラスタページへ</span>
+  <a href="/cluster/event/koshien/">
+    <span>甲子園クラスタページへ</span>
   </a>
 </div>
 </div>

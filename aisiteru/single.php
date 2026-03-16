@@ -583,11 +583,11 @@ $cluster_map = array(
       'parent'=> 'money',
   ),
 
-    // =========================
+  // =========================
   // ★ イベント（親構造クラスタ）
   // =========================
   'event' => array(
-    'tags'  => array('wbc','hakone-ekiden'),
+    'tags'  => array('wbc','hakone-ekiden','koshien'),
     'label' => 'イベント',
     'parent'=> null,
   ),
@@ -603,6 +603,13 @@ $cluster_map = array(
   'hakone-ekiden' => array(
     'tags'  => array('hakone-ekiden'),
     'label' => '箱根駅伝',
+    'parent'=> 'event',
+  ),
+
+  // 子テーマ：甲子園
+  'koshien' => array(
+    'tags'  => array('koshien'),
+    'label' => '甲子園',
     'parent'=> 'event',
   ),
 
