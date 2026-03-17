@@ -75,13 +75,13 @@ ul.check li:last-child {
 ---------------------------------------------------------------*/
 #post-single h2 {
   font-size: 20px;
-  color: var(--color-secondary);
+  color: var(--color-base);
   margin: 40px 0 0 0;
   padding: 0 0 7px 0;
   border-bottom: 1px solid #cccccc;
 }
 #post-single h3 {
-  color: var(--color-secondary);
+  color: var(--color-base);
   font-size: 16px;
   line-height: 20px;
   background-color: #f7f8f8;
@@ -100,7 +100,7 @@ ul.check li:last-child {
   line-height: 16px;
   padding-top: 3px;
   margin-bottom: 5px;
-  color: var(--color-secondary);
+  color: var(--color-base);
 }
 
 #post-single img {
@@ -302,13 +302,14 @@ ul.ai-list li.grok {
 /*著者*/
 /*================================================================================================*/
 .post_author {
-  padding: 25px 25px 25px 25px;
+  padding: 25px 25px 0 25px;
   border-radius: 0 0 10px 10px;
   box-sizing: border-box;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
   margin: 0 10px;
 }
+
 
 .post_author .inner {
   width: 100%;
@@ -364,22 +365,32 @@ ul.ai-list li.grok {
 }
 
 /* 「このAIエディタが担当した他の記事を見る」リンク */
-.profile-link {
-  margin-top: 8px;
-  font-size: 12px;
+  .profile-link {
+  margin-top: 30px;
 }
 .profile-link a {
-  color: var(--color-link-hover);
-  text-decoration: underline;
-}
-.profile-link a:hover {
-  text-decoration: none;
+  display: block;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 16px auto;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    margin: 0 auto 10px auto;
+    font-weight: 600;
+    border-top:1px solid #EEEEEE;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    color: var(--color-primary);
+    text-decoration: none;
 }
 
 @media only screen and (min-width: 680px) {
   .post_author {
     width: 800px;
-    padding: 25px 50px 25px 50px;
+    padding: 25px 50px 0px 50px;
     margin: 0;
   }
 
@@ -388,9 +399,19 @@ ul.ai-list li.grok {
   }
 
   .profile-link {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 30px;
 }
+.profile-link a {
+    margin: 10px auto 0 auto;
+     font-size: 17px;
+     font-weight: 700;
+     padding-top: 15px;
+    padding-bottom: 25px;
+  }
+.profile-link a:hover{
+     text-decoration: none;
+     color: var(--color-secondary);
+  }
   
 }
 
@@ -615,7 +636,7 @@ body #post-single .ai-written ul li a .ai-written-content-title {
 /*クラスターリンク*/
 /*================================================================================================*/
 .cluster-block {
-  padding: 25px 15px 25px 15px;
+  padding: 25px 15px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
   background-color: #ffffff;
@@ -728,20 +749,32 @@ body .cluster-block ul li a .cluster-block-content-title {
   background-repeat: no-repeat;
 }
 .cluster-backlink {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 20px;
+  font-size: 16px;
 }
-.cluster-backlink a {
-  color: var(--color-link-hover);
-  text-decoration: underline;
-}
-.cluster-backlink a:hover {
-  text-decoration: none;
-}
+  .cluster-backlink a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.2s;
+    background-image: url("/wp/wp-content/themes/aisiteru/images/icon/more_link_icon.png");
+    background-size: 16px auto;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    margin: 0 auto 10px auto;
+    font-weight: 600;
+    /*border-top:1px solid #EEEEEE;*/
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
 @media only screen and (min-width: 680px) {
 .cluster-block{
   width: 800px;
-  padding: 25px 45px 25px 45px;
+  padding: 25px 45px 10px 45px;
   margin: 0;
   margin-top: 30px;
   border:none;
@@ -821,6 +854,23 @@ body .cluster-block ul li a .cluster-block-content-title {
 
   .cluster-block-content-title {
     transition-duration: 0.3s;
+  }
+
+
+  .cluster-backlink {
+  margin-top: 10px;
+}
+
+.cluster-backlink a {
+    margin: 10px auto 0 auto;
+     font-size: 17px;
+     font-weight: 700;
+     padding-top: 15px;
+    padding-bottom: 25px;
+  }
+  .cluster-backlink a:hover{
+     text-decoration: none;
+     color: var(--color-secondary);
   }
 }
 

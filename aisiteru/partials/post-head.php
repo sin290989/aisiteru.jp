@@ -94,7 +94,7 @@ body #post-head h1 {
   font-size: 22px;
   box-shadow: none;
   line-height: 32px;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-weight: bold;
 }
 /*------------------------------------------------------------*/
