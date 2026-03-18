@@ -416,12 +416,6 @@ $cluster_map = array(
     'parent'=> null,
   ),
 
-  'property' => array(
-    'tags'  => array('property'),
-    'label' => '不動産',
-    'parent'=> null,
-  ),
-
   'game' => array(
     'tags'  => array('game'),
     'label' => 'ゲーム',
@@ -529,6 +523,7 @@ $cluster_map = array(
           'digital-money',
           'investment',
           'credit',
+          'property',
           'insurance',
           'consumption',
           'tax-return' // ★ 追加：確定申告
@@ -582,6 +577,13 @@ $cluster_map = array(
       'tags'  => array('tax-return'),
       'label' => '確定申告',
       'parent'=> 'money',
+  ),
+
+   // ★ 不動産
+   'property' => array(
+    'tags'  => array('property'),
+    'label' => '不動産',
+    'parent'=> 'money',
   ),
 
   // =========================

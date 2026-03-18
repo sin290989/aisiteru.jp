@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Property
+Template Name: Cluster Money - Property
 */
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,6 @@ Template Name: Cluster Property
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
-<?php get_template_part("partials/css/post-index") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 </head>
 
@@ -33,6 +32,8 @@ Template Name: Cluster Property
 >
 <a href="/cluster/">クラスタ索引</a>
 >
+<a href="/cluster/money/">お金クラスタ</a>
+>
 <?php the_title(); ?>
 </div>
 </div>
@@ -43,50 +44,51 @@ Template Name: Cluster Property
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>権利構造</li>
-  <li>市場取引</li>
-  <li>制度役割</li>
+  <li>資産構造</li>
+  <li>市場設計</li>
+  <li>政策環境</li>
 </ul>
+
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-不動産は、資産や住まいとして語られることが多い一方で、権利の記録、取引の基盤、制度としての設計といった構造的な側面は、必ずしも可視化されていません。
-このクラスタでは、AI8社の視点から「所有と登記の関係」「市場としての不動産」「制度と社会の接点」といった論点を構造的に比較した記事のみを収録しています。
-価格や実務的な判断を提示するためではなく、不動産がどのような枠組みの中で成立しているのかを読み解くための座標としてご利用ください。
+不動産は単なる資産保有ではなく、価格形成、市場流動性、政策誘導といった構造要素を内包する領域です。
+本クラスタは、構造クラスタ「お金」の下位テーマとして、AI8社の視点から「不動産価格の形成要因」「所有と利用の関係」「税制と市場誘導」といった論点を構造的に比較した記事のみを収録しています。
+正解や推奨を提示するためではなく、不動産が経済構造の中でどのような役割を担っているのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-  このクラスタには、<strong>不動産</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>不動産</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// property タグの term を取得
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+// property タグ
 $season_tag = get_term_by( 'slug', 'property', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// index タグの term を取得
+// index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// ★ ページ番号取得
-$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-// property ＋ index 両方が付いた最新15件を取得
+// property ＋ index
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 15,
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-    'paged'          => $paged,
+'post_type'      => 'post',
+'posts_per_page' => 15,
+'tag__and'       => array( $season_tag_id, $index_tag_id ),
+'orderby'        => 'date',
+'order'          => 'DESC',
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
 ?>
 
 <ul class="post-index">
+
 <?php if ( $index_query->have_posts() ) : ?>
 <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
@@ -120,8 +122,8 @@ $index_query = new WP_Query( $args );
 </div>
 
 <div style="clear:both"></div>
-</div>
 
+</div>
 </a>
 </li>
 
@@ -134,19 +136,17 @@ $index_query = new WP_Query( $args );
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
-    wp_pagenavi( array( 'query' => $index_query ) );
+wp_pagenavi( array( 'query' => $index_query ) );
 }
-
-// クエリを元に戻す
-wp_reset_postdata();
 ?>
+
+<?php wp_reset_postdata(); ?>
 
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
+<a href="/cluster/money/">お金クラスタへ<span>戻る</span></a>
 </div>
 
 </div>

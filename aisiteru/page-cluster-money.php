@@ -48,9 +48,10 @@ Template Name: Cluster Money
 <?php get_template_part('partials/cluster/money-credit'); ?>
 <?php get_template_part('partials/cluster/money-insurance'); ?>
 <?php get_template_part('partials/cluster/money-consumption'); ?>
-<?php get_template_part('partials/cluster/money-digital-money'); ?>
+<?php get_template_part('partials/cluster/money-property'); ?>
 <?php get_template_part('partials/cluster/money-inheritance'); ?>
 <?php get_template_part('partials/cluster/money-tax-return'); ?>
+<?php get_template_part('partials/cluster/money-digital-money'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ<span>戻る</span></a>

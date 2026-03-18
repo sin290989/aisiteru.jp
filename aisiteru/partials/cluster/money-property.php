@@ -1,11 +1,13 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
+
 <ul class="cluster-scope">
-  <li>権利構造</li>
-  <li>市場取引</li>
-  <li>制度役割</li>
+  <li>資産構造</li>
+  <li>市場設計</li>
+  <li>政策環境</li>
 </ul>
+
 <?php
 // property タグの term を取得
 $season_tag = get_term_by( 'slug', 'property', 'post_tag' );
@@ -18,10 +20,10 @@ $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 // property ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'       => 'post',
-    'posts_per_page' => 3,   // ← 最新3件固定
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -34,8 +36,8 @@ $total_count = $index_query->found_posts;
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、不動産を「個別の物件」ではなく、制度・権利・市場がどのように結びついているかという視点から捉え直します。<br>
-登記や契約の設計、取引と利用の境界、空間が資産として扱われる意味を比較するための入口としてご利用ください。
+このクラスタでは、不動産を「資産保有」としてではなく、価格形成の構造・市場流動性・政策誘導がどのように交差する領域かという視点から捉え直します。<br>
+土地価格、賃貸市場、税制や金融政策といった論点が、経済構造や社会構造にどのような意味を持つのかを比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -47,7 +49,7 @@ $total_count = $index_query->found_posts;
             <?php $cat = $cat[0]; ?>
 
             <a href="<?php the_permalink(); ?>">
-            <!--サムネイル右側画像-->
+
             <div class="post_thumbnail">
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('single-thumbnails'); ?>
@@ -55,9 +57,7 @@ $total_count = $index_query->found_posts;
                 <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
             <?php endif ; ?>
             </div>
-            <!--サムネイル右側画像-->
 
-            <!--サムネイル左側-->
             <div class="head">
                 <div class="post-dates">
                     <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
@@ -71,11 +71,13 @@ $total_count = $index_query->found_posts;
 
                 <div class="post-content pc">
                 <p>
-                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+                <?php echo str_replace("\n", '', strip_tags($post->post_content)); ?>
                 </p>
                 </div>
+
                 <div style="clear:both"></div>
             </div>
+
             </a>
         </li>
 
@@ -83,18 +85,20 @@ $total_count = $index_query->found_posts;
     <?php else : ?>
         <li>該当する記事がまだありません。</li>
     <?php endif; ?>
+
     <div style="clear:both"></div>
 </ul>
 
 <?php
-// クエリを元に戻す
 wp_reset_postdata();
 ?>
+
 <div class="more-btn">
-  <a href="/cluster/property/">
+  <a href="/cluster/money/property/">
     <span>不動産クラスタページへ</span>
   </a>
 </div>
+
 </div>
 <!------------------------------------------------------------------------------>
 </div>
