@@ -99,7 +99,7 @@ body #post-head_index h1 {
         overflow: hidden;
         width: 800px;
         margin: 0 0 0 0;
-        height: 350px;
+        height: auto;
     }
 
     #post-head_index .post_thumbnail img{
