@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Exam Education
+Template Name: Cluster Education - Exams
 */
 ?>
 <!DOCTYPE html>
@@ -21,6 +21,7 @@ Template Name: Cluster Exam Education
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 </head>
+
 <body>
 
 <?php get_template_part('partials/header2'); ?>
@@ -30,6 +31,8 @@ Template Name: Cluster Exam Education
 <a href="/"><span class="home">トップページ</span></a>
 >
 <a href="/cluster/">クラスタ索引</a>
+>
+<a href="/cluster/education/">教育クラスタ</a>
 >
 <?php the_title(); ?>
 </div>
@@ -41,45 +44,44 @@ Template Name: Cluster Exam Education
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>制度構造</li>
-  <li>努力評価</li>
-  <li>公平選別</li>
+  <li>評価構造</li>
+  <li>選抜制度</li>
+  <li>社会接続</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-受験は、人生の大きな分岐点のように感じられる一方で、努力の意味や制度の公平性がどのように成立しているのかは、必ずしも整理されていません。
-このクラスタでは、AI8社の視点から「受験期の努力」「公平性の認識」「分岐点としての機能」といった論点を構造的に比較した記事のみを収録しています。
-正解を示すためではなく、あなた自身の経験や社会の前提を別の角度から捉え直すための座標としてご利用ください。
+受験は単なる学力測定ではなく、評価基準の設計、選抜制度の仕組み、教育と社会の接続といった複数の構造要素によって形成されています。
+本クラスタは、構造クラスタ「教育」の下位テーマとして、AI8社の視点から「評価の成立条件」「選抜と機会配分」「教育と社会構造の関係」といった論点を構造的に比較した記事のみを収録しています。
+正解や価値観を提示するためではなく、受験制度がどのような社会的枠組みの中で機能しているのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-このクラスタには、<strong>受験・教育制度</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「教育」に属する<strong>受験</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// ★ ページ番号取得（PageNavi用）
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 
-// season-exam タグ
-$season_tag = get_term_by( 'slug', 'season-exam', 'post_tag' );
+// exams タグ
+$season_tag = get_term_by( 'slug', 'exams', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
 // index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// season-exam ＋ index
+// exams ＋ index
 $args = array(
 'post_type'      => 'post',
 'posts_per_page' => 15,
 'tag__and'       => array( $season_tag_id, $index_tag_id ),
 'orderby'        => 'date',
 'order'          => 'DESC',
-'paged'          => $paged,   // ★追加
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
@@ -91,10 +93,6 @@ $index_query = new WP_Query( $args );
 <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
 <li>
-
-<?php $cat = get_the_category(); ?>
-<?php $cat = $cat[0]; ?>
-
 <a href="<?php the_permalink(); ?>">
 
 <div class="post_thumbnail">
@@ -119,7 +117,7 @@ $index_query = new WP_Query( $args );
 
 <div class="post-content pc">
 <p>
-<?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+<?php echo str_replace("\n", '', strip_tags($post->post_content)); ?>
 </p>
 </div>
 
@@ -131,14 +129,13 @@ $index_query = new WP_Query( $args );
 
 <?php endwhile; ?>
 <?php else : ?>
-<li>「index」タグが付いた記事はまだありません。</li>
+<li>「index」タグと「exams」タグが付いた記事はまだありません。</li>
 <?php endif; ?>
 
 <div style="clear:both"></div>
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
 wp_pagenavi( array( 'query' => $index_query ) );
 }
@@ -149,18 +146,18 @@ wp_pagenavi( array( 'query' => $index_query ) );
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
+<a href="/cluster/education/">教育クラスタへ<span>戻る</span></a>
 </div>
 
 </div>
 
 <div style="clear:both"></div>
 </div>
-
 </div>
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
+
 <?php get_template_part('partials/js/post-index_h2_3'); ?>
 </body>
 </html>

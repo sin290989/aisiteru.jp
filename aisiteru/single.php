@@ -392,12 +392,6 @@ $index_tag_slug = 'index';
 // ===============================
 $cluster_map = array(
 
-  'exam-education' => array(
-    'tags'  => array('season-exam'),
-    'label' => '受験・教育',
-    'parent'=> null,
-  ),
-
   'cabinet-dissolution' => array(
     'tags'  => array('cabinet-dissolution','dissolution-election'),
     'label' => '内閣解散・解散総選挙',
@@ -584,7 +578,7 @@ $cluster_map = array(
   // ★ イベント（親構造クラスタ）
   // =========================
   'event' => array(
-    'tags'  => array('wbc','hakone-ekiden','koshien'),
+    'tags'  => array('wbc','olympics','hakone-ekiden','koshien'),
     'label' => 'イベント',
     'parent'=> null,
   ),
@@ -615,6 +609,22 @@ $cluster_map = array(
     'label' => 'オリンピック',
     'parent'=> 'event',
   ),
+
+  // =========================
+// ★ 教育（親構造クラスタ） ←追加
+// =========================
+'education' => array(
+  'tags'  => array('exams'),
+  'label' => '教育',
+  'parent'=> null,
+),
+
+// 子テーマ：受験 ←追加
+'exams' => array(
+  'tags'  => array('exams'),
+  'label' => '受験',
+  'parent'=> 'education',
+),
 
 );
 
