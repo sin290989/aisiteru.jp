@@ -43,7 +43,7 @@ Template Name: Cluster Money
 通貨制度、金融設計、資産移転、税制、市場構造といった観点から、お金という概念がどのように社会の中で設計・運用されているのかを、多角的な視点から整理しています。<br>
 ここでは、相続、デジタル通貨、金融技術、資産構造など、お金に関連するテーマクラスタへの入口を提供しています。
 </p>
-
+<?php get_template_part('partials/cluster/money-finance'); ?>
 <?php get_template_part('partials/cluster/money-investment'); ?>
 <?php get_template_part('partials/cluster/money-credit'); ?>
 <?php get_template_part('partials/cluster/money-insurance'); ?>

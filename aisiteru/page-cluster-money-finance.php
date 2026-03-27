@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Finance
+Template Name: Cluster Money - Finance
 */
 ?>
 <!DOCTYPE html>
@@ -21,6 +21,7 @@ Template Name: Cluster Finance
 <?php get_template_part("partials/fonts") ?>
 <?php get_template_part("partials/css/pagenavi") ?>
 </head>
+
 <body>
 
 <?php get_template_part('partials/header2'); ?>
@@ -30,6 +31,8 @@ Template Name: Cluster Finance
 <a href="/"><span class="home">トップページ</span></a>
 >
 <a href="/cluster/">クラスタ索引</a>
+>
+<a href="/cluster/money/">お金クラスタ</a>
 >
 <?php the_title(); ?>
 </div>
@@ -41,27 +44,26 @@ Template Name: Cluster Finance
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>制度市場</li>
-  <li>リスク判断</li>
-  <li>資本影響</li>
+  <li>通貨構造</li>
+  <li>金利設計</li>
+  <li>金融システム</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-金融は、資本の流れや市場の動きとして語られることが多い一方で、制度設計、リスクの分配、意思決定の前提といった構造的な側面は、必ずしも可視化されていません。
-このクラスタでは、AI8社の視点から「市場の成り立ち」「リスクの意味づけ」「金融と社会の関係性」といった論点を構造的に比較した記事のみを収録しています。
-正解や投資判断を提示するためではなく、金融がどのような枠組みの中で機能しているのかを読み解くための座標としてご利用ください。
+金融は単なる資金のやり取りではなく、信用創造の仕組み、金利設計、市場構造、国家や中央銀行の制度と結びついた複合的なシステムです。
+本クラスタは、構造クラスタ「お金」の下位テーマとして、AI8社の視点から「信用の成立条件」「金利と時間価値」「市場と制度の相互作用」といった論点を構造的に比較した記事のみを収録しています。
+正解や善悪を提示するためではなく、金融が経済構造の中でどのように機能しているのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-このクラスタには、<strong>金融</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「お金」に属する<strong>金融</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// ★ ページ番号取得（PageNavi用）
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 
 // finance タグ
@@ -79,7 +81,7 @@ $args = array(
 'tag__and'       => array( $season_tag_id, $index_tag_id ),
 'orderby'        => 'date',
 'order'          => 'DESC',
-'paged'          => $paged,   // ★追加
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
@@ -134,7 +136,6 @@ $index_query = new WP_Query( $args );
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
 wp_pagenavi( array( 'query' => $index_query ) );
 }
@@ -145,7 +146,7 @@ wp_pagenavi( array( 'query' => $index_query ) );
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
+<a href="/cluster/money/">お金クラスタへ<span>戻る</span></a>
 </div>
 
 </div>
@@ -156,8 +157,6 @@ wp_pagenavi( array( 'query' => $index_query ) );
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
-
 <?php get_template_part('partials/js/post-index_h2_3'); ?>
-
 </body>
 </html>

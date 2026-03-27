@@ -429,7 +429,6 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/money'); ?>
 <?php get_template_part('partials/cluster/work-style'); ?>
 <?php get_template_part('partials/cluster/event'); ?>
-<?php get_template_part('partials/cluster/finance'); ?>
 <?php get_template_part('partials/cluster/exam-education'); ?>
 <?php get_template_part('partials/cluster/cabinet-dissolution'); ?>
 <?php get_template_part('partials/cluster/taiga-drama'); ?>
