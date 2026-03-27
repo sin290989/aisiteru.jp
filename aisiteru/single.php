@@ -422,12 +422,6 @@ $cluster_map = array(
     'parent'=> null,
   ),
 
-  'olympics' => array(
-    'tags'  => array('olympics'),
-    'label' => 'オリンピック',
-    'parent'=> null,
-  ),
-
   'love' => array(
     'tags'  => array('love'),
     'label' => '恋愛',
@@ -613,6 +607,12 @@ $cluster_map = array(
   'koshien' => array(
     'tags'  => array('koshien'),
     'label' => '甲子園',
+    'parent'=> 'event',
+  ),
+
+    'olympics' => array(
+    'tags'  => array('olympics'),
+    'label' => 'オリンピック',
     'parent'=> 'event',
   ),
 

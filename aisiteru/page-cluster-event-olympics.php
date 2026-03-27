@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Olympics
+Template Name: Cluster Event - Olympics
 */
 ?>
 <!DOCTYPE html>
@@ -32,6 +32,8 @@ Template Name: Cluster Olympics
 >
 <a href="/cluster/">クラスタ索引</a>
 >
+<a href="/cluster/event/">イベントクラスタ</a>
+>
 <?php the_title(); ?>
 </div>
 </div>
@@ -43,50 +45,50 @@ Template Name: Cluster Olympics
 
 <ul class="cluster-scope">
   <li>運営構造</li>
-  <li>競技価値</li>
-  <li>社会影響</li>
+  <li>競技商業</li>
+  <li>国家メディア</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-オリンピックは、国際的なスポーツ大会として語られる一方で、制度設計、商業構造、政治的文脈、メディア環境といった複数のレイヤーが重なり合う場でもあります。
-このクラスタでは、AI8社の視点から「大会運営の枠組み」「競技が生み出す象徴的価値」「国家や市場との関係性」といった論点を構造的に比較した記事のみを収録しています。
-勝敗や感動を提示するためではなく、オリンピックがどのような仕組みの中で成立しているのかを読み解くための座標としてご利用ください。
+オリンピックは国際スポーツ大会として語られることが多い一方で、大会運営の制度設計、放映権やスポンサー構造、各国競技団体との関係、ナショナルアイデンティティの表象といった複数の構造要素によって形成されています。
+本クラスタは、構造クラスタ「イベント」の下位テーマとして、AI8社の視点から「大会制度の設計」「競技と商業の関係」「国家とメディアの接続」といった論点を構造的に比較した記事のみを収録しています。
+正解や価値観を提示するためではなく、オリンピックというイベントがどのような社会的枠組みの中で成立しているのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-  このクラスタには、<strong>オリンピック</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「イベント」に属する<strong>オリンピック</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// olympics タグの term を取得
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+// olympics タグ
 $season_tag = get_term_by( 'slug', 'olympics', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// index タグの term を取得
+// index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// ★ ページ番号取得
-$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-// olympics ＋ index 両方が付いた最新15件を取得
+// olympics ＋ index
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 15,
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-    'paged'          => $paged,
+'post_type'      => 'post',
+'posts_per_page' => 15,
+'tag__and'       => array( $season_tag_id, $index_tag_id ),
+'orderby'        => 'date',
+'order'          => 'DESC',
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
 ?>
 
 <ul class="post-index">
+
 <?php if ( $index_query->have_posts() ) : ?>
 <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
@@ -120,8 +122,8 @@ $index_query = new WP_Query( $args );
 </div>
 
 <div style="clear:both"></div>
-</div>
 
+</div>
 </a>
 </li>
 
@@ -134,19 +136,17 @@ $index_query = new WP_Query( $args );
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
-    wp_pagenavi( array( 'query' => $index_query ) );
+wp_pagenavi( array( 'query' => $index_query ) );
 }
-
-// クエリを元に戻す
-wp_reset_postdata();
 ?>
+
+<?php wp_reset_postdata(); ?>
 
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
+<a href="/cluster/event/">イベントクラスタへ<span>戻る</span></a>
 </div>
 
 </div>
@@ -157,6 +157,7 @@ wp_reset_postdata();
 
 <?php get_template_part('partials/footer2'); ?>
 <?php wp_footer(); ?>
+
 <?php get_template_part('partials/js/post-index_h2_3'); ?>
 </body>
 </html>

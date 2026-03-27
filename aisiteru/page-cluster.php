@@ -432,7 +432,6 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/finance'); ?>
 <?php get_template_part('partials/cluster/exam-education'); ?>
 <?php get_template_part('partials/cluster/cabinet-dissolution'); ?>
-<?php get_template_part('partials/cluster/olympics'); ?>
 <?php get_template_part('partials/cluster/taiga-drama'); ?>
 <?php get_template_part('partials/cluster/game'); ?>
 <?php get_template_part('partials/cluster/love'); ?>
