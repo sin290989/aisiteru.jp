@@ -196,6 +196,7 @@ ul.post-index .head .post-content {
     padding-bottom: 30px;
     float: left;
     border-bottom: none;
+    height: 305px;
   }
   ul.post-index li:nth-child(2),
   ul.post-index li:nth-child(5),
