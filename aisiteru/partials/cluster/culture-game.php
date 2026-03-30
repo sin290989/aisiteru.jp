@@ -1,31 +1,29 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-
 <div class="cluster-block">
 
+<ul class="cluster-scope">
+  <li>ゲーム体験の構造</li>
+  <li>プレイヤー行動と設計</li>
+  <li>文化・産業との接続</li>
+</ul>
+
 <?php
-// love タグ（恋愛）
-$love_tag = get_term_by( 'slug', 'love', 'post_tag' );
-$love_tag_id = $love_tag ? $love_tag->term_id : 0;
+// game タグの term を取得（ゲーム）
+$season_tag = get_term_by( 'slug', 'game', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// game タグ（ゲーム）
-$game_tag = get_term_by( 'slug', 'game', 'post_tag' );
-$game_tag_id = $game_tag ? $game_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋（love OR game）
-*/
+// game ＋ index 両方が付いた最新3件を取得
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array( $love_tag_id, $game_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'post_type'       => 'post',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -34,13 +32,14 @@ $index_query = new WP_Query( $args );
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">文化</h2>
+<h2 class="h-topic">ゲーム</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、文化を「個人の趣味や嗜好」だけではなく、「通過儀礼・価値観・社会規範・メディア・慣習」といった構造の中で捉え直します。<br>
-恋愛は関係性や制度との接続を通じて文化の変化を映し出し、ゲームはルール設計やプレイヤー行動、産業構造を通じて現代文化の特徴を浮かび上がらせます。<br>
-両者を並置することで、文化がどのように形成され、どのように変化しているのかを多面的に読み解くための入口としてご利用ください。
+このクラスタでは、ゲームを「娯楽」だけではなく、
+ルール設計・報酬構造・プレイヤーの意思決定・コミュニティ形成といった複数の要素がどのように影響し合っているかという視点から捉え直します。<br>
+ゲームデザインの変化、課金モデル、eスポーツの拡大、プレイヤー行動の多様化、
+産業と文化の交差領域としてのゲームの位置づけなど、ゲームをめぐる構造を比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -86,9 +85,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>
-        「index」＋「love」または「game」タグの記事はまだありません。
-        </li>
+        <li>「index」＋「game」タグの記事はまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -99,8 +96,8 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/culture/">
-    <span>文化クラスタページへ</span>
+  <a href="/cluster/culture/game/">
+    <span>ゲームクラスタページへ</span>
   </a>
 </div>
 

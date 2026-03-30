@@ -44,6 +44,7 @@ Template Name: Cluster Culture
 ここでは、恋愛、メディア、芸術、流行、スポーツなど、文化に関連するテーマクラスタへの入口を提供していきます。
 </p>
 
+<?php get_template_part('partials/cluster/culture-game'); ?>
 <?php get_template_part('partials/cluster/culture-love'); ?>
 
 <div class="back-btn">
