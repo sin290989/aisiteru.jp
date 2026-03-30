@@ -430,7 +430,7 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/work-style'); ?>
 <?php get_template_part('partials/cluster/event'); ?>
 <?php get_template_part('partials/cluster/education'); ?>
-<?php get_template_part('partials/cluster/politics'); ?>
+<?php get_template_part('partials/cluster/cabinet-dissolution'); ?>
 <?php get_template_part('partials/cluster/taiga-drama'); ?>
 <?php get_template_part('partials/cluster/game'); ?>
 <?php get_template_part('partials/cluster/love'); ?>

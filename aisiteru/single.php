@@ -392,12 +392,6 @@ $index_tag_slug = 'index';
 // ===============================
 $cluster_map = array(
 
-  'cabinet-dissolution' => array(
-    'tags'  => array('cabinet-dissolution','dissolution-election'),
-    'label' => '内閣解散・解散総選挙',
-    'parent'=> null,
-  ),
-
   'taiga-drama' => array(
     'tags'  => array('taiga-drama'),
     'label' => '大河ドラマ',
@@ -625,6 +619,27 @@ $cluster_map = array(
   'label' => '受験',
   'parent'=> 'education',
 ),
+
+
+// =========================
+// ★ 政治（親構造クラスタ） ←追加
+// =========================
+'politics' => array(
+  'tags'  => array(
+    'cabinet-dissolution',
+    'dissolution-election'
+  ),
+  'label' => '政治',
+  'parent'=> null,
+),
+
+// 子テーマ：内閣解散・解散総選挙
+'cabinet-dissolution' => array(
+  'tags'  => array('cabinet-dissolution','dissolution-election'),
+  'label' => '内閣解散・解散総選挙',
+  'parent'=> 'politics', // ★ここが重要
+),
+
 
 );
 
