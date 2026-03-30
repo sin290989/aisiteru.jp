@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cluster Taiga Drama
+Template Name: Cluster Culture - Taiga Drama
 */
 ?>
 <!DOCTYPE html>
@@ -32,6 +32,8 @@ Template Name: Cluster Taiga Drama
 >
 <a href="/cluster/">クラスタ索引</a>
 >
+<a href="/cluster/culture/">文化クラスタ</a>
+>
 <?php the_title(); ?>
 </div>
 </div>
@@ -42,59 +44,55 @@ Template Name: Cluster Taiga Drama
 <div id="main-cluster">
 
 <ul class="cluster-scope">
-  <li>歴史解釈</li>
-  <li>人物再構</li>
-  <li>物語史実</li>
+  <li>歴史表現と物語構造</li>
+  <li>メディアと国家・文化の関係</li>
+  <li>視聴者と社会意識の変化</li>
 </ul>
 
 <h1><?php the_title(); ?></h1>
 
 <p class="read">
-大河ドラマは、歴史上の人物や出来事を「物語」として再構成することで、多くの人に時代のイメージを与えてきました。
-一方で、史実と演出、史料と脚色の境界は、必ずしも明確に意識されているわけではありません。
-このクラスタでは、AI8社の視点から「歴史解釈の違い」「人物像の構築」「メディアとしての役割」といった論点を構造的に比較した記事のみを収録しています。
-正解を示すためではなく、歴史がどのように“語られているか”を読み解くための座標としてご利用ください。
+大河ドラマは単なる歴史娯楽ではなく、物語構造、人物像の再解釈、時代背景の再構成、そして社会的・文化的文脈と結びついた複合的な構造を持っています。
+本クラスタは、構造クラスタ「文化」の下位テーマとして、AI8社の視点から「歴史表象」「英雄像の変化」「国家観」「メディアの役割」といった論点を構造的に比較した記事のみを収録しています。
+正解や優劣を提示するためではなく、大河ドラマという現象がどのような構造の上に成立しているのかを読み解くための座標としてご利用ください。
 </p>
 
 <p class="cluster-rule">
-  このクラスタには、<strong>大河ドラマ</strong>に関する最新の投稿を時系列で表示しています。
+このクラスタには、構造クラスタ「文化」に属する<strong>大河ドラマ</strong>テーマの記事を時系列で表示しています。
 </p>
 
 <div class="cluster-block">
 
 <?php
-// taiga-drama タグの term を取得
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+// taiga-drama タグ（大河ドラマ）
 $season_tag = get_term_by( 'slug', 'taiga-drama', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// index タグの term を取得
+// index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-// ★ ページ番号取得
-$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-// taiga-drama ＋ index 両方が付いた最新15件を取得
+// taiga-drama ＋ index
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 15,
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-    'paged'          => $paged,
+'post_type'      => 'post',
+'posts_per_page' => 15,
+'tag__and'       => array( $season_tag_id, $index_tag_id ),
+'orderby'        => 'date',
+'order'          => 'DESC',
+'paged'          => $paged,
 );
 
 $index_query = new WP_Query( $args );
 ?>
 
 <ul class="post-index">
+
 <?php if ( $index_query->have_posts() ) : ?>
 <?php while ( $index_query->have_posts() ) : $index_query->the_post(); ?>
 
 <li>
-<?php $cat = get_the_category(); ?>
-<?php $cat = $cat[0]; ?>
-
 <a href="<?php the_permalink(); ?>">
 
 <div class="post_thumbnail">
@@ -124,8 +122,8 @@ $index_query = new WP_Query( $args );
 </div>
 
 <div style="clear:both"></div>
-</div>
 
+</div>
 </a>
 </li>
 
@@ -138,19 +136,17 @@ $index_query = new WP_Query( $args );
 </ul>
 
 <?php
-// ★ PageNavi
 if ( function_exists( 'wp_pagenavi' ) ) {
-    wp_pagenavi( array( 'query' => $index_query ) );
+wp_pagenavi( array( 'query' => $index_query ) );
 }
-
-// クエリを元に戻す
-wp_reset_postdata();
 ?>
+
+<?php wp_reset_postdata(); ?>
 
 </div>
 
 <div class="back-btn">
-<a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
+<a href="/cluster/culture/">文化クラスタへ<span>戻る</span></a>
 </div>
 
 </div>

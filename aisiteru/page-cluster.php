@@ -432,7 +432,6 @@ ul.post-index .head .post-content p {
 <?php get_template_part('partials/cluster/education'); ?>
 <?php get_template_part('partials/cluster/politics'); ?>
 <?php get_template_part('partials/cluster/culture'); ?>
-<?php get_template_part('partials/cluster/taiga-drama'); ?>
 
 </div>
 

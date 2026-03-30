@@ -1,17 +1,15 @@
 <div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-
-
 <div class="cluster-block">
+
 <ul class="cluster-scope">
-  <li>歴史解釈</li>
-  <li>人物再構</li>
-  <li>物語史実</li>
+  <li>歴史表現と物語構造</li>
+  <li>メディアと国家・文化の関係</li>
+  <li>視聴者と社会意識の変化</li>
 </ul>
 
-
 <?php
-// taiga-drama タグの term を取得
+// taiga-drama タグの term を取得（大河ドラマ）
 $season_tag = get_term_by( 'slug', 'taiga-drama', 'post_tag' );
 $season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
@@ -22,10 +20,10 @@ $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 // taiga-drama ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'       => 'post',
-    'posts_per_page' => 3,   // ← 最新3件固定
-    'tag__and'       => array( $season_tag_id, $index_tag_id ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -38,8 +36,10 @@ $total_count = $index_query->found_posts;
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、大河ドラマを「歴史の再現」ではなく、「どのように歴史が物語として構成されているか」という視点から捉え直します。<br>
-人物像の描かれ方、史実と演出の境界、メディアとしての役割といった論点を、比較の入口としてご利用ください。
+このクラスタでは、大河ドラマを単なる歴史娯楽ではなく、
+物語構造・人物像の再解釈・時代背景の再構成といった観点から捉え直します。<br>
+歴史の描かれ方の変化、国家観や英雄像の変遷、メディアとしての役割、
+視聴者の価値観との関係など、大河ドラマをめぐる文化的・社会的構造を比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -51,7 +51,7 @@ $total_count = $index_query->found_posts;
             <?php $cat = $cat[0]; ?>
 
             <a href="<?php the_permalink(); ?>">
-            <!--サムネイル右側画像-->
+
             <div class="post_thumbnail">
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('single-thumbnails'); ?>
@@ -59,9 +59,7 @@ $total_count = $index_query->found_posts;
                 <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" width="100" height="100" alt="デフォルト画像" />
             <?php endif ; ?>
             </div>
-            <!--サムネイル右側画像-->
 
-            <!--サムネイル左側-->
             <div class="head">
                 <div class="post-dates">
                     <time class="entry-date published" datetime="<?php echo get_the_date('Y-m-d H:i:s'); ?>">
@@ -75,26 +73,34 @@ $total_count = $index_query->found_posts;
 
                 <div class="post-content pc">
                 <p>
-                <?php echo str_replace('\n', '', strip_tags($post->post_content)); ?>
+                <?php echo str_replace("\n", '', strip_tags($post->post_content)); ?>
                 </p>
                 </div>
+
                 <div style="clear:both"></div>
             </div>
+
             </a>
         </li>
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」タグと「taiga-drama」タグが付いた記事はまだありません。</li>
+        <li>「index」＋「taiga-drama」タグの記事はまだありません。</li>
     <?php endif; ?>
+
     <div style="clear:both"></div>
 </ul>
 
 <?php
-// クエリを元に戻す
 wp_reset_postdata();
 ?>
-<div class="more-btn"><a href="/cluster/taiga-drama/"><span>大河ドラマクラスタページへ</span></a></div>
+
+<div class="more-btn">
+  <a href="/cluster/culture/taiga-drama/">
+    <span>大河ドラマクラスタページへ</span>
+  </a>
+</div>
+
 </div>
 <!------------------------------------------------------------------------------>
 </div>

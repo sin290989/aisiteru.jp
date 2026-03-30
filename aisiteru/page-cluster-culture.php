@@ -46,6 +46,7 @@ Template Name: Cluster Culture
 
 <?php get_template_part('partials/cluster/culture-game'); ?>
 <?php get_template_part('partials/cluster/culture-love'); ?>
+<?php get_template_part('partials/cluster/culture-taiga-drama'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
