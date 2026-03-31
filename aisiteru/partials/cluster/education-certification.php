@@ -1,47 +1,40 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
+<ul class="cluster-scope">
+  <li>能力証明</li>
+  <li>評価基準</li>
+  <li>社会接続</li>
+</ul>
+
 <?php
-// exams タグ
-$exams_tag = get_term_by( 'slug', 'exams', 'post_tag' );
-$exams_tag_id = $exams_tag ? $exams_tag->term_id : 0;
+// certification タグの term を取得
+$season_tag = get_term_by( 'slug', 'certification', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// certification タグ
-$certification_tag = get_term_by( 'slug', 'certification', 'post_tag' );
-$certification_tag_id = $certification_tag ? $certification_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ exams or certification
-*/
+// certification ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array( 
-        $exams_tag_id,
-        $certification_tag_id
-    ),
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
     'orderby'        => 'date',
     'order'          => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
-
 // ★ 総件数取得
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">教育</h2>
+<h2 class="h-topic">資格</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
-
 <p class="cluster-read">
-このクラスタでは、教育を「学習や知識の習得」だけではなく、
-「試験制度・資格制度・評価設計がどのように社会構造と結びついているか」という視点から捉え直します。<br>
-受験制度、資格による能力証明、評価基準、選抜の仕組みといった論点を通じて、教育と社会の関係を比較するための入口としてご利用ください。
+このクラスタでは、資格を単なるスキル証明としてではなく、「能力の可視化・評価基準・社会的信頼がどのように結びついているか」という視点から捉え直します。<br>
+資格制度の設計、証明の信頼性、資格と職業・社会構造との関係といった論点を、教育と社会の接続を読み解くための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -87,7 +80,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」＋「exams」または「certification」タグの記事はまだありません。</li>
+        <li>「index」タグと「certification」タグが付いた記事はまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -98,8 +91,8 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/education/">
-    <span>教育クラスタページへ</span>
+  <a href="/cluster/education/certification/">
+    <span>資格クラスタページへ</span>
   </a>
 </div>
 </div>

@@ -620,6 +620,13 @@ $cluster_map = array(
   'parent'=> 'education',
 ),
 
+// 子テーマ：資格 ←追加
+'certification' => array(
+  'tags'  => array('certification'),
+  'label' => '資格',
+  'parent'=> 'education',
+),
+
 
 // =========================
 // ★ 政治（親構造クラスタ） ←追加
