@@ -44,6 +44,7 @@ Template Name: Cluster Politics
 ここでは、内閣解散や解散総選挙など、政治制度とその運用に関するテーマクラスタへの入口を提供しています。
 </p>
 
+<?php get_template_part('partials/cluster/politics-nhk-reception-fee'); ?>
 <?php get_template_part('partials/cluster/politics-cabinet-dissolution'); ?>
 
 <div class="back-btn">

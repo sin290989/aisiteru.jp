@@ -1,40 +1,29 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
-
 <div class="cluster-block">
 
+<ul class="cluster-scope">
+  <li>制度設計</li>
+  <li>財源構造</li>
+  <li>義務と自由の境界</li>
+</ul>
+
 <?php
-// cabinet-dissolution タグ（内閣解散）
-$cabinet_dissolution_tag = get_term_by( 'slug', 'cabinet-dissolution', 'post_tag' );
-$cabinet_dissolution_tag_id = $cabinet_dissolution_tag ? $cabinet_dissolution_tag->term_id : 0;
+// nhk-reception-fee タグの term を取得
+$season_tag = get_term_by( 'slug', 'nhk-reception-fee', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// dissolution-election タグ（解散総選挙）
-$dissolution_election_tag = get_term_by( 'slug', 'dissolution-election', 'post_tag' );
-$dissolution_election_tag_id = $dissolution_election_tag ? $dissolution_election_tag->term_id : 0;
-
-// nhk-reception-fee タグ（NHK受信料）
-$nhk_tag = get_term_by( 'slug', 'nhk-reception-fee', 'post_tag' );
-$nhk_tag_id = $nhk_tag ? $nhk_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋
-cabinet-dissolution or dissolution-election or nhk-reception-fee
-*/
+// nhk-reception-fee ＋ index 両方が付いた最新3件を取得
 $args = array(
-    'post_type'      => 'post',
-    'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array(
-        $cabinet_dissolution_tag_id,
-        $dissolution_election_tag_id,
-        $nhk_tag_id
-    ),
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'post_type'       => 'post',
+    'posts_per_page'  => 3,
+    'tag__and'        => array( $season_tag_id, $index_tag_id ),
+    'orderby'         => 'date',
+    'order'           => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
@@ -43,12 +32,14 @@ $index_query = new WP_Query( $args );
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">政治</h2>
+<h2 class="h-topic">NHK受信料</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
 
 <p class="cluster-read">
-このクラスタでは、政治を「選挙や政権運営の出来事」だけではなく、「制度設計・権力構造・意思決定プロセスがどのように機能しているか」という視点から捉え直します。<br>
-内閣解散という制度の意味、解散総選挙の構造、政権維持と民意の関係に加え、NHK受信料のような財源制度や公共性の設計がどのように社会構造と結びついているのかといった論点を、比較の入口としてご利用ください。
+このクラスタでは、NHK受信料を単なる料金制度としてではなく、
+公共放送の成立条件・財源設計・受信契約という法的構造がどのように社会制度と結びついているのかという視点から捉え直します。<br>
+「税ではない設計」「視聴と負担の関係」「公平性と強制力」「スクランブル化の不採用理由」といった論点が、
+政治・制度・社会構造とどのように交差しているのかを比較するための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -94,11 +85,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>
-        「index」＋
-        「cabinet-dissolution」「dissolution-election」「nhk-reception-fee」
-        タグの記事はまだありません。
-        </li>
+        <li>該当する記事がまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -109,8 +96,8 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/politics/">
-    <span>政治クラスタページへ</span>
+  <a href="/cluster/politics/nhk-reception-fee/">
+    <span>NHK受信料クラスタページへ</span>
   </a>
 </div>
 

@@ -505,10 +505,10 @@ $cluster_map = array(
           'digital-money',
           'investment',
           'credit',
-          'property',
           'insurance',
           'consumption',
-          'tax-return' // ★ 追加：確定申告
+          'tax-return',
+          'property'
       ),
       'label' => 'お金',
       'parent'=> null,
@@ -605,22 +605,22 @@ $cluster_map = array(
   ),
 
   // =========================
-// ★ 教育（親構造クラスタ） ←追加
+// ★ 教育（親構造クラスタ） 
 // =========================
 'education' => array(
-  'tags'  => array('exams'),
+  'tags'  => array('exams','certification'),
   'label' => '教育',
   'parent'=> null,
 ),
 
-// 子テーマ：受験 ←追加
+// 子テーマ：受験
 'exams' => array(
   'tags'  => array('exams'),
   'label' => '受験',
   'parent'=> 'education',
 ),
 
-// 子テーマ：資格 ←追加
+// 子テーマ：資格
 'certification' => array(
   'tags'  => array('certification'),
   'label' => '資格',
@@ -629,13 +629,10 @@ $cluster_map = array(
 
 
 // =========================
-// ★ 政治（親構造クラスタ） ←追加
+// ★ 政治（親構造クラスタ） 
 // =========================
 'politics' => array(
-  'tags'  => array(
-    'cabinet-dissolution',
-    'dissolution-election'
-  ),
+  'tags'  => array('cabinet-dissolution','dissolution-election','nhk-reception-fee'),
   'label' => '政治',
   'parent'=> null,
 ),
@@ -647,6 +644,12 @@ $cluster_map = array(
   'parent'=> 'politics', // ★ここが重要
 ),
 
+// 子テーマ：NHK受信料
+'nhk-reception-fee' => array(
+  'tags'  => array('nhk-reception-fee'),
+  'label' => 'NHK受信料',
+  'parent'=> 'politics',
+),
 
 );
 
