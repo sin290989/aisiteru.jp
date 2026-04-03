@@ -15,7 +15,107 @@
 <link rel="shortcut icon" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/aisiteru/images/webclip.jpg">
 <?php get_template_part("partials/fonts") ?>
+<style type="text/css">
 
+/* ===============================
+   common-prompt 本体
+=============================== */
+.common-prompt {
+    position: relative;
+    transition: max-height 0.35s ease;
+}
+
+/* ===============================
+   下部フェード（続きがあることを示す）
+=============================== */
+.common-prompt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+}
+
+/* 展開時はフェード消す */
+.common-prompt.expanded::after {
+    opacity: 0;
+}
+
+/* ===============================
+   トグル全体
+=============================== */
+.common-prompt-toggle {
+    text-align: center;
+    margin: 16px 0 40px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+/* 上の区切りライン */
+.common-prompt-toggle::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 0 auto 12px;
+}
+
+/* ===============================
+   テキスト部分（リンク風）
+=============================== */
+.common-prompt-toggle span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+/* 矢印（CSSで生成） */
+.common-prompt-toggle span::after {
+    content: '↓';
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+/* ===============================
+   ホバー時
+=============================== */
+.common-prompt-toggle:hover span {
+    color: #000;
+    border-color: #000;
+}
+
+/* ===============================
+   展開時（矢印反転）
+=============================== */
+.common-prompt.expanded + .common-prompt-toggle span::after {
+    content: '↑';
+}
+
+/* ===============================
+   スマホ調整
+=============================== */
+@media (max-width: 768px) {
+    .common-prompt::after {
+        height: 60px;
+    }
+
+    .common-prompt-toggle {
+        margin: 12px 0 32px;
+    }
+}
+
+</style>
 </head>
 <body>
 <?php get_template_part('partials/header2'); ?>
@@ -1351,5 +1451,58 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <div id="copy-toast" class="copy-toast">コピーしました</div>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const maxHeight = 320; // ←高さはここで調整（300〜400推奨）
+
+    document.querySelectorAll('.common-prompt').forEach(function (prompt) {
+
+        // 高さが短い場合は何もしない
+        if (prompt.scrollHeight <= maxHeight) return;
+
+        // 初期状態（折りたたみ）
+        prompt.style.maxHeight = maxHeight + 'px';
+        prompt.style.overflow = 'hidden';
+        prompt.classList.remove('expanded');
+
+        // トグル生成
+        const btn = document.createElement('div');
+        btn.className = 'common-prompt-toggle';
+        btn.innerHTML = '<span>プロンプトをすべて見る</span>';
+
+        // クリック処理
+        btn.addEventListener('click', function () {
+
+            const isExpanded = prompt.classList.contains('expanded');
+
+            if (isExpanded) {
+                // 閉じる
+                prompt.style.maxHeight = maxHeight + 'px';
+                prompt.classList.remove('expanded');
+                btn.innerHTML = '<span>プロンプトをすべて見る</span>';
+
+                // スクロール位置調整（重要）
+                const rect = prompt.getBoundingClientRect();
+                window.scrollTo({
+                    top: window.scrollY + rect.top - 80,
+                    behavior: 'smooth'
+                });
+
+            } else {
+                // 開く
+                prompt.style.maxHeight = prompt.scrollHeight + 'px';
+                prompt.classList.add('expanded');
+                btn.innerHTML = '<span>表示を閉じる</span>';
+            }
+        });
+
+        // 挿入
+        prompt.insertAdjacentElement('afterend', btn);
+
+    });
+});
+</script>
 </body>
 </html>
