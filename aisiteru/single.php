@@ -762,7 +762,7 @@ $cluster_map = array(
           'game',
           'love',
           'taiga-drama',
-          'j-leagu'
+          'j-league'
       ),
       'label' => '文化',
       'parent'=> null,
@@ -786,8 +786,8 @@ $cluster_map = array(
     'parent'=> 'culture',
   ),
   
-  'j-leagu' => array(
-    'tags'  => array('j-leagu'),
+  'j-league' => array(
+    'tags'  => array('j-league'),
     'label' => 'Jリーグ',
     'parent'=> 'culture',
   ),
