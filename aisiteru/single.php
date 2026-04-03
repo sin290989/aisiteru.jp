@@ -392,28 +392,87 @@ $index_tag_slug = 'index';
 // ===============================
 $cluster_map = array(
 
-  'taiga-drama' => array(
-    'tags'  => array('taiga-drama'),
-    'label' => '大河ドラマ',
-    'parent'=> null,
-  ),
 
+// =========================
+// ★ お金（親構造クラスタ）
+// =========================
+  'money' => array(
+      'tags'  => array(
+          'finance',// ★ 金融
+          'investment',// ★ 投資
+          'credit',// ★ ローン
+          'insurance',// ★ 保険
+          'consumption',// ★ 消費
+          'property',// ★ 不動産
+          'inheritance',// ★ 相続
+          'tax-return',// ★ 確定申告
+          'digital-money'// ★ デジタル通貨 
+      ),
+      'label' => 'お金',
+      'parent'=> null,
+  ),
+  
+  // ★ 金融
   'finance' => array(
     'tags'  => array('finance'),
     'label' => '金融',
-    'parent'=> null,
+    'parent'=> 'money',
+  ),
+  
+  // ★ 投資
+  'investment' => array(
+      'tags'  => array('investment'),
+      'label' => '投資',
+      'parent'=> 'money',
+  ),
+  
+  // ★ ローン
+  'credit' => array(
+      'tags'  => array('credit'),
+      'label' => 'ローン',
+      'parent'=> 'money',
   ),
 
-  'game' => array(
-    'tags'  => array('game'),
-    'label' => 'ゲーム',
-    'parent'=> null,
+  // ★ 保険
+  'insurance' => array(
+      'tags'  => array('insurance'),
+      'label' => '保険',
+      'parent'=> 'money',
+  ),
+  
+  // ★ 消費
+  'consumption' => array(
+      'tags'  => array('consumption'),
+      'label' => '消費',
+      'parent'=> 'money',
+  ),
+  
+  // ★ 不動産
+   'property' => array(
+    'tags'  => array('property'),
+    'label' => '不動産',
+    'parent'=> 'money',
   ),
 
-  'love' => array(
-    'tags'  => array('love'),
-    'label' => '恋愛',
-    'parent'=> null,
+  // ★ 相続
+  'inheritance' => array(
+      'tags'  => array('inheritance'),
+      'label' => '相続',
+      'parent'=> 'money',
+  ),
+  
+  // ★ 確定申告
+  'tax-return' => array(
+      'tags'  => array('tax-return'),
+      'label' => '確定申告',
+      'parent'=> 'money',
+  ),
+
+  // ★ デジタル通貨
+  'digital-money' => array(
+      'tags'  => array('digital-money'),
+      'label' => 'デジタル通貨',
+      'parent'=> 'money',
   ),
 
   // =========================
@@ -421,50 +480,52 @@ $cluster_map = array(
   // =========================
   'work-style' => array(
     'tags'  => array(
-        'career',
-        'wage',
-        'employment-type',
-        'working-hours',
-        'performance-evaluation',
-        'job-change',
-        'side-job',
-        'ai-work',   // ★ AIと仕事
-        'b2b-saas'     // ★ 追加：法人SaaS
+        'employment-type',// ★ 雇用形態
+        'working-hours',// ★ 労働時間
+        'performance-evaluation',// ★ 評価制度
+        'wage',// ★ 賃金
+        'career',// ★ キャリア
+        'job-change',// ★ 転職
+        'side-job',// ★ 副業
+        'ai-work',// ★ AIと仕事
+        'b2b-saas'//法人SaaS
     ),
     'label' => '働き方',
     'parent'=> null,
   ),
-
-  'wage' => array(
-    'tags'  => array('wage'),
-    'label' => '賃金',
-    'parent'=> 'work-style',
-  ),
-
-  'career' => array(
-    'tags'  => array('career'),
-    'label' => 'キャリア',
-    'parent'=> 'work-style',
-  ),
-
+  
   // ★ 雇用形態
   'employment-type' => array(
     'tags'  => array('employment-type'),
     'label' => '雇用形態',
     'parent'=> 'work-style',
   ),
-
+  
   // ★ 労働時間
   'working-hours' => array(
     'tags'  => array('working-hours'),
     'label' => '労働時間',
     'parent'=> 'work-style',
   ),
-
+ 
   // ★ 評価制度
   'performance-evaluation' => array(
     'tags'  => array('performance-evaluation'),
     'label' => '評価制度',
+    'parent'=> 'work-style',
+  ),
+  
+  // ★ 賃金
+  'wage' => array(
+    'tags'  => array('wage'),
+    'label' => '賃金',
+    'parent'=> 'work-style',
+  ),
+  
+  // ★ キャリア
+  'career' => array(
+    'tags'  => array('career'),
+    'label' => 'キャリア',
     'parent'=> 'work-style',
   ),
 
@@ -489,167 +550,147 @@ $cluster_map = array(
     'parent'=> 'work-style',
   ),
 
-  // ★ 追加：法人SaaS
+  //法人SaaS
   'b2b-saas' => array(
     'tags'  => array('b2b-saas'),
     'label' => '法人SaaS',
     'parent'=> 'work-style',
   ),
 
- // =========================
-  // ★ お金（親構造クラスタ）
-  // =========================
-  'money' => array(
-      'tags'  => array(
-          'inheritance',
-          'digital-money',
-          'investment',
-          'credit',
-          'insurance',
-          'consumption',
-          'tax-return',
-          'property'
-      ),
-      'label' => 'お金',
-      'parent'=> null,
-  ),
-
-  // 子テーマ
-  'inheritance' => array(
-      'tags'  => array('inheritance'),
-      'label' => '相続',
-      'parent'=> 'money',
-  ),
-
-  'digital-money' => array(
-      'tags'  => array('digital-money'),
-      'label' => 'デジタル通貨',
-      'parent'=> 'money',
-  ),
-
-  'investment' => array(
-      'tags'  => array('investment'),
-      'label' => '投資',
-      'parent'=> 'money',
-  ),
-
-  // ★ ローン
-  'credit' => array(
-      'tags'  => array('credit'),
-      'label' => 'ローン',
-      'parent'=> 'money',
-  ),
-
-  // ★ 保険
-  'insurance' => array(
-      'tags'  => array('insurance'),
-      'label' => '保険',
-      'parent'=> 'money',
-  ),
-
-  // ★ 消費
-  'consumption' => array(
-      'tags'  => array('consumption'),
-      'label' => '消費',
-      'parent'=> 'money',
-  ),
-
-  // ★ 追加：確定申告
-  'tax-return' => array(
-      'tags'  => array('tax-return'),
-      'label' => '確定申告',
-      'parent'=> 'money',
-  ),
-
-   // ★ 不動産
-   'property' => array(
-    'tags'  => array('property'),
-    'label' => '不動産',
-    'parent'=> 'money',
-  ),
-
   // =========================
   // ★ イベント（親構造クラスタ）
   // =========================
   'event' => array(
-    'tags'  => array('wbc','olympics','hakone-ekiden','koshien'),
+    'tags'  => array(
+      'olympics',// オリンピック
+      'koshien',// 甲子園
+      'wbc',// WBC
+      'hakone-ekiden'// 箱根駅伝
+    ),
     'label' => 'イベント',
     'parent'=> null,
   ),
-
-  // 子テーマ：WBC
-  'wbc' => array(
-    'tags'  => array('wbc'),
-    'label' => 'WBC',
+  
+  // オリンピック
+  'olympics' => array(
+    'tags'  => array('olympics'),
+    'label' => 'オリンピック',
     'parent'=> 'event',
   ),
 
-  // 子テーマ：箱根駅伝
-  'hakone-ekiden' => array(
-    'tags'  => array('hakone-ekiden'),
-    'label' => '箱根駅伝',
-    'parent'=> 'event',
-  ),
-
-  // 子テーマ：甲子園
+  // 甲子園
   'koshien' => array(
     'tags'  => array('koshien'),
     'label' => '甲子園',
     'parent'=> 'event',
   ),
 
-    'olympics' => array(
-    'tags'  => array('olympics'),
-    'label' => 'オリンピック',
+  // WBC
+  'wbc' => array(
+    'tags'  => array('wbc'),
+    'label' => 'WBC',
     'parent'=> 'event',
   ),
 
-  // =========================
+  // 箱根駅伝
+  'hakone-ekiden' => array(
+    'tags'  => array('hakone-ekiden'),
+    'label' => '箱根駅伝',
+    'parent'=> 'event',
+  ),
+
+
+// =========================
 // ★ 教育（親構造クラスタ） 
 // =========================
-'education' => array(
-  'tags'  => array('exams','certification'),
-  'label' => '教育',
-  'parent'=> null,
-),
+  'education' => array(
+    'tags'  => array('exams','certification'),
+    'label' => '教育',
+    'parent'=> null,
+  ),
 
-// 子テーマ：受験
-'exams' => array(
-  'tags'  => array('exams'),
-  'label' => '受験',
-  'parent'=> 'education',
-),
+  // 受験
+  'exams' => array(
+    'tags'  => array('exams'),
+    'label' => '受験',
+    'parent'=> 'education',
+  ),
 
-// 子テーマ：資格
-'certification' => array(
-  'tags'  => array('certification'),
-  'label' => '資格',
-  'parent'=> 'education',
-),
+  // 資格
+  'certification' => array(
+    'tags'  => array('certification'),
+    'label' => '資格',
+    'parent'=> 'education',
+  ),
 
 
 // =========================
 // ★ 政治（親構造クラスタ） 
 // =========================
 'politics' => array(
-  'tags'  => array('cabinet-dissolution','dissolution-election','nhk-reception-fee'),
+  'tags'  => array(
+    'cabinet-dissolution',
+    'dissolution-election',
+    'nhk-reception-fee'
+  ),
   'label' => '政治',
   'parent'=> null,
 ),
 
-// 子テーマ：内閣解散・解散総選挙
+// 内閣解散・解散総選挙
 'cabinet-dissolution' => array(
-  'tags'  => array('cabinet-dissolution','dissolution-election'),
+  'tags'  => array(
+    'cabinet-dissolution',
+    'dissolution-election'
+  ),
   'label' => '内閣解散・解散総選挙',
   'parent'=> 'politics', // ★ここが重要
 ),
 
-// 子テーマ：NHK受信料
+// NHK受信料
 'nhk-reception-fee' => array(
   'tags'  => array('nhk-reception-fee'),
   'label' => 'NHK受信料',
   'parent'=> 'politics',
 ),
+
+// =========================
+// ★ 文化（親構造クラスタ） 
+// =========================
+  'culture' => array(
+      'tags'  => array(
+          'game',
+          'love',
+          'taiga-drama',
+          'j-leagu'
+      ),
+      'label' => '文化',
+      'parent'=> null,
+  ),
+
+  'game' => array(
+    'tags'  => array('game'),
+    'label' => 'ゲーム',
+    'parent'=> 'culture',
+  ),
+  
+  'love' => array(
+    'tags'  => array('love'),
+    'label' => '恋愛',
+    'parent'=> 'culture',
+  ),
+
+  'taiga-drama' => array(
+    'tags'  => array('taiga-drama'),
+    'label' => '大河ドラマ',
+    'parent'=> 'culture',
+  ),
+  
+  'j-leagu' => array(
+    'tags'  => array('j-leagu'),
+    'label' => 'Jリーグ',
+    'parent'=> 'culture',
+  ),
 
 );
 
