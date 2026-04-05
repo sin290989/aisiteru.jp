@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>出会いの構造</li>
-  <li>関係性の形成</li>
-  <li>感情と社会規範</li>
+  <li>関係構造</li>
+  <li>形成過程</li>
+  <li>規範接続</li>
 </ul>
 
 <?php

@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>制度設計</li>
-  <li>財源構造</li>
-  <li>義務と自由の境界</li>
+  <li>制度構造</li>
+  <li>財源設計</li>
+  <li>境界問題</li>
 </ul>
 
 <?php

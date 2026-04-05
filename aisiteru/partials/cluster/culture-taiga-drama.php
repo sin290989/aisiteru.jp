@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>歴史表現と物語構造</li>
-  <li>メディアと国家・文化の関係</li>
-  <li>視聴者と社会意識の変化</li>
+  <li>表現構造</li>
+  <li>文化接続</li>
+  <li>認識変容</li>
 </ul>
 
 <?php

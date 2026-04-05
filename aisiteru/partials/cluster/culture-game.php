@@ -3,9 +3,9 @@
 <div class="cluster-block">
 
 <ul class="cluster-scope">
-  <li>ゲーム体験の構造</li>
-  <li>プレイヤー行動と設計</li>
-  <li>文化・産業との接続</li>
+  <li>体験構造</li>
+  <li>行動設計</li>
+  <li>文化接続</li>
 </ul>
 
 <?php
