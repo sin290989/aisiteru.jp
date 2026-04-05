@@ -762,6 +762,7 @@ $cluster_map = array(
           'game',
           'love',
           'taiga-drama',
+          'npb',
           'mlb',
           'j-league'
       ),
@@ -790,6 +791,12 @@ $cluster_map = array(
   'j-league' => array(
     'tags'  => array('j-league'),
     'label' => 'Jリーグ',
+    'parent'=> 'culture',
+  ),
+
+  'npb' => array(
+    'tags'  => array('npb'),
+    'label' => '日本プロ野球',
     'parent'=> 'culture',
   ),
 

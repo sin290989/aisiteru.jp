@@ -20,22 +20,33 @@ $taiga_tag_id = $taiga_tag ? $taiga_tag->term_id : 0;
 $jleague_tag = get_term_by( 'slug', 'j-league', 'post_tag' );
 $jleague_tag_id = $jleague_tag ? $jleague_tag->term_id : 0;
 
-// mlb タグ（MLB）★追加
+// mlb タグ（MLB）
 $mlb_tag = get_term_by( 'slug', 'mlb', 'post_tag' );
 $mlb_tag_id = $mlb_tag ? $mlb_tag->term_id : 0;
+
+// npb タグ（日本プロ野球）★追加
+$npb_tag = get_term_by( 'slug', 'npb', 'post_tag' );
+$npb_tag_id = $npb_tag ? $npb_tag->term_id : 0;
 
 // index タグ
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
 /*
-index 必須 ＋（love OR game OR taiga-drama OR j-league OR mlb）
+index 必須 ＋（love OR game OR taiga-drama OR j-league OR mlb OR npb）
 */
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 3,
     'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array( $love_tag_id, $game_tag_id, $taiga_tag_id, $jleague_tag_id, $mlb_tag_id ),
+    'tag__in'        => array(
+        $love_tag_id,
+        $game_tag_id,
+        $taiga_tag_id,
+        $jleague_tag_id,
+        $mlb_tag_id,
+        $npb_tag_id // ★追加
+    ),
     'orderby'        => 'date',
     'order'          => 'DESC',
 );
@@ -51,7 +62,7 @@ $total_count = $index_query->found_posts;
 
 <p class="cluster-read">
 このクラスタでは、文化を「個人の趣味や嗜好」だけではなく、「通過儀礼・価値観・社会規範・メディア・慣習」といった構造の中で捉え直します。<br>
-恋愛やゲームといった身近なテーマから、大河ドラマのような歴史表象、そしてJリーグやMLBに代表されるスポーツ文化まで、異なる領域を横断しながら、文化がどのように社会と結びつき、どのように再構成されていくのかを読み解くための入口としてご利用ください。
+恋愛やゲームといった身近なテーマから、大河ドラマのような歴史表象、そしてJリーグ・MLB・日本プロ野球（NPB）に代表されるスポーツ文化まで、異なる領域を横断しながら、文化がどのように社会と結びつき、どのように再構成されていくのかを読み解くための入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -98,7 +109,7 @@ $total_count = $index_query->found_posts;
         <?php endwhile; ?>
     <?php else : ?>
         <li>
-        「index」＋「love」または「game」または「taiga-drama」または「j-league」または「mlb」タグの記事はまだありません。
+        「index」＋「love」または「game」または「taiga-drama」または「j-league」または「mlb」または「npb」タグの記事はまだありません。
         </li>
     <?php endif; ?>
 

@@ -43,6 +43,7 @@ Template Name: Cluster Culture
 通過儀礼、価値観、慣習、メディア、娯楽といった観点から、文化がどのように社会の中で形成・共有・変容していくのかを、多角的な視点から整理しています。<br>
 ここでは、恋愛、メディア、芸術、流行、スポーツなど、文化に関連するテーマクラスタへの入口を提供していきます。
 </p>
+<?php get_template_part('partials/cluster/culture-npb'); ?>
 <?php get_template_part('partials/cluster/culture-mlb'); ?>
 <?php get_template_part('partials/cluster/culture-j-leagu'); ?>
 <?php get_template_part('partials/cluster/culture-game'); ?>
