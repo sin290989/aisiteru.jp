@@ -574,6 +574,9 @@ $cluster_map = array(
       'label' => 'デジタル通貨',
       'parent'=> 'money',
   ),
+ 
+
+
 
   // =========================
   // ★ 働き方（親構造クラスタ）
@@ -700,6 +703,7 @@ $cluster_map = array(
   ),
 
 
+
 // =========================
 // ★ 教育（親構造クラスタ） 
 // =========================
@@ -811,32 +815,47 @@ $cluster_map = array(
 // ===============================
 // 処理開始
 // ===============================
-if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
+if ($cluster_slug && (isset($cluster_map[$cluster_slug]) || $cluster_slug === 'region-kanto')) :
 
-  $cluster_label = $cluster_map[$cluster_slug]['label'];
-  $cluster_tags  = $cluster_map[$cluster_slug]['tags'];
-  $parent_slug   = $cluster_map[$cluster_slug]['parent'];
+  if ($cluster_slug === 'region-kanto') {
+
+    $cluster_label = '関東地方';
+    $parent_slug   = 'region';
+
+    $cluster_tags = array(
+      'region-tokyo',
+      'region-kanagawa',
+      'region-saitama',
+      'region-chiba',
+      'region-ibaraki',
+      'region-tochigi',
+      'region-gunma'
+    );
+
+  } else {
+
+    $cluster_label = $cluster_map[$cluster_slug]['label'];
+    $cluster_tags  = $cluster_map[$cluster_slug]['tags'];
+    $parent_slug   = $cluster_map[$cluster_slug]['parent'];
+
+  }
 
   // ===============================
   // OR構造 tax_query
   // ===============================
-  $tax_query = array('relation'=>'OR');
-
-  foreach ($cluster_tags as $tag_slug) {
-    $tax_query[] = array(
-      'relation' => 'AND',
-      array(
-        'taxonomy'=>'post_tag',
-        'field'=>'slug',
-        'terms'=>$index_tag_slug,
-      ),
-      array(
-        'taxonomy'=>'post_tag',
-        'field'=>'slug',
-        'terms'=>$tag_slug,
-      ),
-    );
-  }
+  $tax_query = array(
+  'relation' => 'AND',
+    array(
+      'taxonomy'=>'post_tag',
+      'field'=>'slug',
+      'terms'=>$index_tag_slug,
+    ),
+    array(
+      'taxonomy'=>'post_tag',
+      'field'=>'slug',
+      'terms'=>$cluster_tags,
+    ),
+  );
 
   $related_args = array(
     'post_type'=>'post',
@@ -893,7 +912,15 @@ if ($cluster_slug && isset($cluster_map[$cluster_slug])) :
 // 戻りリンク生成
 // ===============================
 if ($parent_slug) {
-  $back_url = '/cluster/'.$parent_slug.'/'.$cluster_slug.'/';
+
+  if (strpos($cluster_slug, 'region-') === 0) {
+    $slug_for_url = str_replace('region-', '', $cluster_slug);
+  } else {
+    $slug_for_url = $cluster_slug;
+  }
+
+  $back_url = '/cluster/'.$parent_slug.'/'.$slug_for_url.'/';
+
 } else {
   $back_url = '/cluster/'.$cluster_slug.'/';
 }
@@ -911,6 +938,8 @@ if ($parent_slug) {
 wp_reset_postdata();
 endif;
 ?>
+
+
 
 
 
