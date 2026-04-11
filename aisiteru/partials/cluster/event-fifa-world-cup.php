@@ -1,62 +1,40 @@
-<div class="structural-cluster-box">
+<div class="topic-cluster-box">
 <!------------------------------------------------------------------------------>
 <div class="cluster-block">
+<ul class="cluster-scope">
+  <li>統治構造</li>
+  <li>競技商業</li>
+  <li>国家メディア</li>
+</ul>
+
 <?php
-// wbc タグ
-$wbc_tag = get_term_by( 'slug', 'wbc', 'post_tag' );
-$wbc_tag_id = $wbc_tag ? $wbc_tag->term_id : 0;
+// fifa-world-cup タグの term を取得
+$season_tag = get_term_by( 'slug', 'fifa-world-cup', 'post_tag' );
+$season_tag_id = $season_tag ? $season_tag->term_id : 0;
 
-// olympics タグ
-$olympics_tag = get_term_by( 'slug', 'olympics', 'post_tag' );
-$olympics_tag_id = $olympics_tag ? $olympics_tag->term_id : 0;
-
-// fifa-world-cup タグ ←追加
-$fifa_tag = get_term_by( 'slug', 'fifa-world-cup', 'post_tag' );
-$fifa_tag_id = $fifa_tag ? $fifa_tag->term_id : 0;
-
-// hakone-ekiden タグ
-$hakone_tag = get_term_by( 'slug', 'hakone-ekiden', 'post_tag' );
-$hakone_tag_id = $hakone_tag ? $hakone_tag->term_id : 0;
-
-// koshien タグ（甲子園）
-$koshien_tag = get_term_by( 'slug', 'koshien', 'post_tag' );
-$koshien_tag_id = $koshien_tag ? $koshien_tag->term_id : 0;
-
-// index タグ
+// index タグの term を取得
 $index_tag = get_term_by( 'slug', 'index', 'post_tag' );
 $index_tag_id = $index_tag ? $index_tag->term_id : 0;
 
-/*
-index 必須 ＋ wbc or olympics or fifa-world-cup or hakone-ekiden or koshien
-*/
+// fifa-world-cup ＋ index 両方が付いた最新3件を取得
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 3,
-    'tag__and'       => array( $index_tag_id ),
-    'tag__in'        => array( 
-        $wbc_tag_id,
-        $olympics_tag_id,
-        $fifa_tag_id, // ←追加
-        $hakone_tag_id,
-        $koshien_tag_id
-    ),
+    'tag__and'       => array( $season_tag_id, $index_tag_id ),
     'orderby'        => 'date',
     'order'          => 'DESC',
 );
 
 $index_query = new WP_Query( $args );
-
 // ★ 総件数取得
 $total_count = $index_query->found_posts;
 ?>
 
-<h2 class="h-structural">イベント</h2>
+<h2 class="h-topic">FIFAワールドカップ</h2>
 <div class="total-count"><?php echo $total_count; ?><span>件</span></div>
-
 <p class="cluster-read">
-このクラスタでは、イベントを「単なる大会や行事」ではなく、
-「制度設計・運営構造・経済的影響・社会的意味がどのように結びついているか」という視点から捉え直します。<br>
-オリンピック、FIFAワールドカップ、WBCや箱根駅伝といった大会を通じて、競技価値と社会構造の関係を比較するための入口としてご利用ください。
+このクラスタでは、FIFAワールドカップを単なる国際サッカー大会としてではなく、「統治構造・商業設計・国家とメディアの関係がどのように結びついているか」という視点から捉え直します。<br>
+大会運営の権力構造、放映権やスポンサーによる収益モデル、ナショナルアイデンティティとの接続といった論点を、比較の入口としてご利用ください。
 </p>
 
 <ul class="post-index">
@@ -102,7 +80,7 @@ $total_count = $index_query->found_posts;
 
         <?php endwhile; ?>
     <?php else : ?>
-        <li>「index」＋「wbc」「olympics」「fifa-world-cup」「hakone-ekiden」「koshien」タグの記事はまだありません。</li>
+        <li>「index」タグと「fifa-world-cup」タグが付いた記事はまだありません。</li>
     <?php endif; ?>
 
     <div style="clear:both"></div>
@@ -113,8 +91,8 @@ wp_reset_postdata();
 ?>
 
 <div class="more-btn">
-  <a href="/cluster/event/">
-    <span>イベントクラスタページへ</span>
+  <a href="/cluster/event/fifa-world-cup/">
+    <span>FIFAワールドカップクラスタページへ</span>
   </a>
 </div>
 </div>

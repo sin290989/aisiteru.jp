@@ -44,6 +44,7 @@ Template Name: Cluster Event
 ここでは、WBCや箱根駅伝など、イベントを軸に社会との接点を読み解くテーマクラスタへの入口を提供しています。
 </p>
 
+<?php get_template_part('partials/cluster/event-fifa-world-cup'); ?>
 <?php get_template_part('partials/cluster/event-olympics'); ?>
 <?php get_template_part('partials/cluster/event-koshien'); ?>
 <?php get_template_part('partials/cluster/event-wbc'); ?>

@@ -665,6 +665,7 @@ $cluster_map = array(
   // =========================
   'event' => array(
     'tags'  => array(
+      'fifa-world-cup',// FIFAワールドカップ
       'olympics',// オリンピック
       'koshien',// 甲子園
       'wbc',// WBC
@@ -674,6 +675,13 @@ $cluster_map = array(
     'parent'=> null,
   ),
   
+  // FIFAワールドカップ
+  'fifa-world-cup' => array(
+    'tags'  => array('fifa-world-cup'),
+    'label' => 'FIFAワールドカップ',
+    'parent'=> 'event',
+  ),
+
   // オリンピック
   'olympics' => array(
     'tags'  => array('olympics'),
