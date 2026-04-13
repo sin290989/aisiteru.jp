@@ -823,7 +823,7 @@ $cluster_map = array(
 // ===============================
 // 処理開始
 // ===============================
-if ($cluster_slug && (isset($cluster_map[$cluster_slug]) || $cluster_slug === 'region-kanto')) :
+if ($cluster_slug && (isset($cluster_map[$cluster_slug]) || $cluster_slug === 'region-kanto' || $cluster_slug === 'region-kinki')) :
 
   if ($cluster_slug === 'region-kanto') {
 
@@ -838,6 +838,21 @@ if ($cluster_slug && (isset($cluster_map[$cluster_slug]) || $cluster_slug === 'r
       'region-ibaraki',
       'region-tochigi',
       'region-gunma'
+    );
+
+  } elseif ($cluster_slug === 'region-kinki') {
+
+    $cluster_label = '近畿地方';
+    $parent_slug   = 'region';
+
+    $cluster_tags = array(
+      'region-osaka',
+      'region-kyoto',
+      'region-hyogo',
+      'region-nara',
+      'region-shiga',
+      'region-wakayama',
+      'region-mie'
     );
 
   } else {

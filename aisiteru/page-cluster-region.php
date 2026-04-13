@@ -45,6 +45,7 @@ Template Name: Cluster Region
 </p>
 
 <?php get_template_part('partials/cluster/region-kanto'); ?>
+<?php get_template_part('partials/cluster/region-kinki'); ?>
 
 <div class="back-btn">
 <a href="/cluster/">クラスタ索引へ<span>戻る</span></a>
